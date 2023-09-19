@@ -1,0 +1,117 @@
+/*    Breadcrumb css    */
+/*---------------------*/
+.breadcrumb{
+    > li {
+        + li::before {
+            padding-right: .867rem;
+        }
+    }
+
+    .breadcrumb-item{
+        a{
+            color: $gray-500;
+            i{
+                /* Breadcrumb home icon scss */
+                color: $gray-500;
+                position: relative;
+            }
+        }
+    }
+    .breadcrumb-item a:hover {
+        color: #475F7B;
+    }
+
+    .breadcrumb-item + .breadcrumb-item{
+        &:before{
+            /* Breadcrumb divider icon default */
+            content: "\f054";
+            font-family: "Font Awesome 6 Free";
+            position: relative;
+        }
+    }
+
+    &.breadcrumb-divider{
+        display: inline-flex;
+        padding: 1.0rem 0 0 0;
+        .breadcrumb-item + .breadcrumb-item{
+            &:before{
+                /* Breadcrumb Divider Icon with active Link fill */
+                color: #475F7B;
+                font-size: 1rem;
+                position: relative;
+                font-weight: 900;
+            }
+        }
+        .breadcrumb-item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.active{
+                /* Breadcrumb active item */
+                display: flex;
+                color: #475F7B;
+                justify-content: center;
+                align-items: center;
+                font-weight: 900;
+                &:before{
+                }
+            }
+        }
+    }
+
+    &.rounded-pill{
+        /* Breadcrumb with rounded border and active link fill */
+        background-color: $white;
+        box-shadow: 3px 3px 14px 0 rgba($black, .12);
+
+        // active item - border radius
+        &.breadcrumb-divider{
+            .breadcrumb-item{
+                &.active{
+                    border-radius: 50rem;
+                }
+            }
+        }
+    }
+    // Breadcrumb para tela de cadastros
+    &.breadcrumb-cadastros{
+        padding: 0;
+        .breadcrumb-item + .breadcrumb-item{
+            &:before{
+                /* Breadcrumb Divider Icon with active Link fill */
+                color: #475F7B;
+                font-size: 0.8rem;
+                position: relative;
+                font-weight: 900;
+            }
+        }
+        .breadcrumb-item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.active{
+                /* Breadcrumb active item */
+                display: flex;
+                color: #475F7B;
+                justify-content: center;
+                align-items: center;
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+    #breadcrumb-divider{
+        display: none;
+    }
+    .nav-tabs {
+        margin-bottom: 30px;
+    }
+}

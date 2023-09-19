@@ -1,0 +1,55 @@
+// Core variables and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/variables";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+
+@media screen and (min-width: 768px) {
+    .detalhes-produtos {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .detalhes-produtos {
+        display: block;
+    }
+}
+
+.title-especificacoes {
+    font-weight: bold;
+}
+
+.information-filter {
+    display: inline-flex;
+}
+
+.information-filter .information {
+    visibility: hidden;
+}
+
+.information-filter:hover .information {
+    visibility: visible;
+    -webkit-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+    display: block;
+    position: absolute;
+    z-index: 3;
+    margin-left: 19px;
+    padding: 7px 9px;
+    border-radius: 6px;
+    background-color: white;
+    width: auto;
+    max-width: 200px;
+    border: 1px solid #DFE3E7;
+
+}
+
+

@@ -1,0 +1,77 @@
+/* Sidebar */
+/* ------ */
+
+.sidebar {
+    position: relative;
+    width: 100%;
+
+    // Media Query For Large Screen
+    @include media-breakpoint-up(lg) {
+        vertical-align: top;
+    }
+}
+/* Sidebar Fixed */
+.sidebar-fixed {
+    position: fixed;
+    height: 100%;
+    overflow: scroll;
+}
+
+.logo {
+    max-width: 150px;
+}
+
+.logo-partner {
+    max-width: 100px;
+}
+
+/* Sidenav Overlay */
+.sidenav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120vh;
+    background-color: rgba($black, 0.5);
+    z-index: 997;
+    display: none;
+}
+
+/* Drag Target */
+.drag-target {
+    height: 100%;
+    width: 30px;
+    position: fixed;
+    top: 0;
+    left: -10px;
+    z-index: 1036;
+}
+
+// Nome do plano escolhido
+.namePlano {
+    margin-left: 1.0rem;
+    white-space: initial;
+    color: #475F7B;
+}
+
+.plano-loja {
+    color: #0d6efd;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+}
+
+.logo-sociais {
+    position: fixed !important;
+    bottom: 0;
+}
+
+// Media Query For Large Screen
+@include media-breakpoint-up(lg) {
+    .sidebar-left {
+        float: left;
+    }
+    .sidebar-right {
+        float: right;
+    }
+}

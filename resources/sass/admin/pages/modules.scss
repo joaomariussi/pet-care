@@ -1,0 +1,136 @@
+// Core variables and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/variables";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+// Card de módulos
+.card {
+    display: flex;
+}
+
+.card-modules {
+    display: flex;
+    flex-direction: column;
+
+    p {
+        flex-grow: 1;
+    }
+
+    .avatar-modules {
+        white-space: nowrap;
+        border-radius: 50%;
+        position: relative;
+        color: #FFFFFF;
+        display: inline-flex;
+        font-size: 0.8rem;
+        text-align: center;
+        vertical-align: middle;
+        padding: 5px;
+    }
+
+    .avatar-modules.avatar-sm img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+#showPassword2{
+    width: 45px;
+    justify-content: center;
+
+    &.show{
+        &:before {
+            color: black;
+            font-family: 'Font Awesome 6 Free';
+            content: '\f070';
+        }
+    }
+
+    &.hide{
+        &:before {
+            color: black;
+            font-family: 'Font Awesome 6 Free';
+            content: '\f06e';
+        }
+    }
+
+    &:focus{
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+}
+
+.ribbon-wrapper {
+    width: 88px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    z-index: 5;
+}
+
+.ribbon-tag {
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    position: relative;
+    padding: 6px 0;
+    left: -4px;
+    top: 15px;
+    width: 120px;
+    color: #ffffff;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: rgba(140, 140, 140, 0.5) 0 1px 0;
+    font-size: 9px;
+    font-weight: bold;
+    background: #343434;
+}
+
+.ribbon-tag:before,
+.ribbon-tag:after {
+    content: "";
+    border-top: 3px solid #50504f;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    bottom: -3px;
+}
+
+.ribbon-tag:before {
+    left: 0;
+}
+
+.ribbon-tag:after {
+    right: 0;
+}
+
+.dealwrapper.blue .ribbon-tag {
+    background: linear-gradient(to right, #0030ce, #47b1fd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4949fa", endColorstr="#4036d1", GradientType=0);
+}
+
+.dealwrapper.green .ribbon-tag {
+    background: linear-gradient(to right, #2b922a, #3bff00);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ff00", endColorstr="#00ff00", GradientType=0);
+}
+
+.dealwrapper.yellow .ribbon-tag {
+    background: linear-gradient(to right, #bb761c, #ffcc01);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffcc00", endColorstr="#ff9900", GradientType=0);
+}
+
+.dealwrapper.red .ribbon-tag {
+    background: linear-gradient(to right, #a80505, #ff0101);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffcc00", endColorstr="#ff9900", GradientType=0);
+}

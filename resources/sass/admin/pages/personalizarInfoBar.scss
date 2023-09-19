@@ -1,0 +1,204 @@
+// Core variables and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/variables";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+
+.boards {
+    display: flex;
+    margin-top: 32px;
+}
+
+.board {
+    display: flex;
+}
+
+.board h3 {
+    padding: 16px;
+    margin: 0;
+    color: #FD951Fcc;
+}
+
+.dropzone {
+    min-height: 100px;
+    max-height: 100px;
+    width: 100%;
+    display: flex;
+    background-color: #000000;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.abc {
+    display: flex;
+    justify-content: center;
+    background-color: #516377;
+    width: max-content;
+}
+
+.status {
+    width: 30px;
+    height: 8px;
+    background: gray;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+
+.status.green {
+    background: #23d2ac;
+}
+
+.status.blue {
+    background: #33adff;
+}
+
+.status.red {
+    background: red;
+}
+
+.highlight {
+    background-color: #FD951F08;
+}
+
+.card, .dropzone {
+    transition: 400ms;
+}
+
+.is-dragging {
+    cursor: move;
+    opacity: 0.3;
+}
+
+.over {
+    background-color: #4cd13711;
+}
+
+    .item {
+        display: flex !important;
+        align-items: center;
+        img {
+            margin-right: 10px;
+        }
+        i{
+
+            color: #000000;
+            font-size: 2em;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            color: #727E8C;
+
+            .titulo {
+                text-transform: uppercase;
+                font-size: 0.9em;
+                font-weight: 400;
+
+                p {
+                    font-size: 12px;
+                    color: #000000;
+                    font-weight: 700;
+                }
+
+                .s1 {
+                    font-size: 1em;
+                }
+
+                b {
+                    font-weight: 600;
+                }
+
+                span {
+                    font-size: 1.0em;
+                }
+            }
+
+            .link {
+                margin-left: 30px;
+                border-bottom: 1px solid #1b9257;
+                text-decoration: none;
+                font-size: 0.89em;
+                font-weight: 300;
+                color: #1e2e4f;
+                /*
+                @include transition(color 250ms ease-out); */
+
+                &:hover {
+                    color: #1b9257;
+                    border-color: #1b9257;
+                }
+
+            }
+        }
+    }
+    @media (max-width: 979px) {
+        .content {
+            justify-content: end;
+            align-items: end;
+        }
+    }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .info-bar .content {
+        align-items:  flex-start;
+        font-size: 12px;
+        display: inline-flex;
+        justify-content: space-around;
+        flex-direction: row;
+        margin-top: 10px;
+    }
+
+    .info-bar .item {
+        padding: 0;
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 979px) {
+    .info-bar.alternative {
+        display: none !important;
+    }
+}
+
+.conteudoInfoBar .slick-dots {
+    display: flex !important;
+    justify-content: center;
+    height: 10px;
+}
+
+ul.slick-dots li.slick-active {
+    background:   #eb242a;
+}
+
+ul.slick-dots li {
+    display: inline-block;
+    border-radius: 20px;
+    border: 0;
+    background: #ddd;
+    margin: 3px;
+    width: 15px;
+    height: 15px;
+}
+
+.conteudoInfoBar .slick-prev {
+    display: none !important;
+}
+
+.conteudoInfoBar .slick-next {
+    display: none !important;
+}
+
+.conteudoInfoBar .slick-track {
+    width: max-content !important;
+}

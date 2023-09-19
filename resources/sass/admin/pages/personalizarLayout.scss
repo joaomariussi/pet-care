@@ -1,0 +1,24 @@
+// Core variables and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/variables";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+@media screen and (min-width: 1024px) {
+    .card-personalizar-layout {
+        max-height: 83vh;
+        overflow-y: auto;
+    }
+}
+
+// Removendo margin top quando adicionando icone no botão
+.footer-salvar .btn i {
+    top: 0;
+}
+

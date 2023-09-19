@@ -1,0 +1,57 @@
+
+// Bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/bootstrap";
+
+// Core variables and mixins
+@import "bootstrap-extended/mixins";
+
+// Core variables and mixins overrides
+@import "core/variables/variables";
+@import "~bootstrap/scss/variables";
+
+// Overrides user variable
+@import "core/variables/components-variables";
+@import "core/mixins/transitions";
+
+// layouts
+@import "core/layouts/content";
+@import "core/layouts/sidebar";
+@import "core/layouts/footer";
+// menu
+@import "core/menu/navigation";
+
+// Components
+// ----------
+@import "components/helper";
+@import "components/avatar";
+@import "components/search";
+@import "components/chart";
+@import "components/bootstrap-social";
+@import "components/demo"; // Plugins demo, remove in real project
+@import "components/customizer"; // Customizer demo, remove in real project
+@import "components/chips";
+@import "components/divider";
+@import "components/error";
+@import "components/widget-chat";
+@import "components/widget-timeline";
+
+// Plugins
+// -------
+@import "plugins/ui/breakpoints";
+@import "plugins/forms/tags/basic-input";
+@import "plugins/forms/select2/select2";
+@import "plugins/tables/datatables";
+@import "plugins/pickers/pick-a-date";
+@import "plugins/pickers/daterange";
+
+//FontAwesome
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// jQuery Confirm
+@import 'jquery-confirm/dist/jquery-confirm.min.css';

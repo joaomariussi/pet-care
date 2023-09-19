@@ -1,0 +1,96 @@
+// Core variables and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/variables";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+// Search filter busca de produtos
+.input-selects {
+    display: flex;
+}
+
+// @media resolution max 767px
+@media screen and (max-width: 767px ) {
+    .input-selects {
+        display: block;
+    }
+}
+
+// Tamanho nav de produtos definido em 100%
+.nav-item-produtos {
+    width: 100%;
+}
+
+// Card de produtos flex
+.cards-produtos {
+    display: flex;
+    height: 105px;
+    align-items: center;
+    box-shadow: 0 2px 14px rgb(38 60 85 / 16%);
+}
+
+// Quantidade de produtos cadastrados
+.card-produtos-quantidade .produtos-cadastrados {
+    color: #F3825B;
+    font-weight: 900;
+}
+
+// Quantidade de produtos ativos
+.card-produtos-quantidade .produtos-ativos {
+    color: #4EEC91;
+    font-weight: 900;
+}
+
+// Quantidade de produtos inativos
+.card-produtos-quantidade .produtos-inativos {
+    color: #E74C3C;
+    font-weight: 900;
+}
+
+// Quantidade de produtos sem SKU
+.card-produtos-quantidade .produtos-sku {
+    color: #2181f8;
+    font-weight: 900;
+}
+
+// Itens cadastrados color
+.card-produtos-quantidade .itenscadastrados {
+    color: #e9d385;
+    font-weight: 900;
+}
+
+.btn-export {
+    background: #e7ebef;
+}
+
+.btn-export:hover {
+    background: #C0C0C0;
+}
+
+//.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+//    background-color: #475F7B !important;
+//}
+
+//.nav.nav-tabs .nav-item .nav-link.active, .nav.nav-pills .nav-item .nav-link.active {
+//    box-shadow: 0 2px 4px 0 rgb(62 62 62 / 50%) !important;
+//}
+
+// Tamanho dos botões e espaçamentos
+@media screen and (max-width: 767px) {
+    .buttonInsert,
+    .exportar-produtos {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .exportar-produtos {
+        margin-top: 10px;
+    }
+}
+
