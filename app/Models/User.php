@@ -35,6 +35,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'avatar',
         'password',
         'type',
         'password_recovery_token',

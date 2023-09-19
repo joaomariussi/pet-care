@@ -69,7 +69,7 @@
                                     @enderror
                                     @if($errors->any())
                                         <div class="alert alert-danger mt-3" role="alert">
-                                            <ul class="mb-0 p-0">
+                                            <ul class="mb-0 p-0 list-unstyled">
                                                 <li>
                                                     <i class="fa-solid fa-triangle-exclamation"></i> Usuário ou senha inválidos
                                                 </li>

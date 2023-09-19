@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\User\NewPasswordValidate;
+use App\Http\Requests\admin\User\UserAvatarUpdateRequest;
 use App\Http\Requests\admin\User\UserCreateRequest;
+use App\Http\Requests\admin\User\UserProfileUpdateRequest;
 use App\Http\Requests\admin\User\UserUpdateRequest;
 use App\Models\User;
 use App\Notifications\UserNotification;
@@ -66,13 +68,21 @@ class UserController extends Controller
     {
         try {
             $attributes = $request->validated();
+
+            if ($request->hasFile('avatar')) {
+                $image = $request->file('avatar');
+                $imageBase64 = base64_encode(file_get_contents($image->getRealPath()));
+                $attributes['avatar'] = $imageBase64;
+            }
             $attributes['password_recovery_token'] = encrypt($attributes['password']);
             $this->user::query()->create($attributes);
             UserNotification::success('Usuário cadastrado com sucesso.');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao cadastrar usuário.');
+            return redirect()->back()->withInput();
         }
+
         return redirect()->route('user');
     }
 
@@ -100,7 +110,13 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id): RedirectResponse
     {
         try {
-            $this->user::query()->findOrFail($id)->update($request->validated());
+            $attributes = $request->validated();
+            if ($request->hasFile('avatar')) {
+                $image = $request->file('avatar');
+                $imageBase64 = base64_encode(file_get_contents($image->getRealPath()));
+                $attributes['avatar'] = $imageBase64;
+            }
+            $this->user::query()->findOrFail($id)->update($attributes);
             UserNotification::success('Usuário atualizado com sucesso.');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -142,20 +158,45 @@ class UserController extends Controller
     }
 
     /**
-     * @param UserUpdateRequest $request
+     * @param UserProfileUpdateRequest $request
+     * @param $id
      * @return RedirectResponse
      */
-    public function updateUserProfile(UserUpdateRequest $request)
+    public function updateUserProfile(UserProfileUpdateRequest $request, $id): RedirectResponse
     {
         try {
 
             $attributes = $request->validated();
-            $attributes['password_recovery_token'] = encrypt($attributes['password']);
-            $this->user::query()->findOrFail(Auth::user()->id)->update($attributes);
+            $this->user::query()->findOrFail($id)->update($attributes);
+
+
             UserNotification::success('Usuário atualizado com sucesso.');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao atualizar usuário.');
+        }
+        return redirect()->route('profile-user');
+    }
+
+    /**
+     * @param UserAvatarUpdateRequest $request
+     * @param $id
+     */
+    public function updateAvatar(UserAvatarUpdateRequest $request, $id): RedirectResponse
+    {
+        try {
+
+            $attributes = $request->validated();
+            if ($request->hasFile('avatar')) {
+                $image = $request->file('avatar');
+                $imageBase64 = base64_encode(file_get_contents($image->getRealPath()));
+                $attributes['avatar'] = $imageBase64;
+            }
+            $this->user::query()->findOrFail($id)->update($attributes);
+            UserNotification::success('Avatar atualizado com sucesso.');
+        } catch (Throwable $t) {
+            Log::error($t->getMessage());
+            UserNotification::error('Erro ao atualizar avatar.');
         }
         return redirect()->route('profile-user');
     }
@@ -165,7 +206,7 @@ class UserController extends Controller
      * @param NewPasswordValidate $request
      * @return RedirectResponse
      */
-    public function updatePassword(NewPasswordValidate $request)
+    public function updatePassword(NewPasswordValidate $request): RedirectResponse
     {
 
         try {
@@ -189,6 +230,5 @@ class UserController extends Controller
             UserNotification::error('Erro ao atualizar senha.');
         }
         return redirect()->route('profile-user');
-
     }
 }

@@ -11,6 +11,7 @@ use Throwable;
 class Authenticate extends Middleware
 {
     const LOGIN = 'login';
+    const HOME =  'home';
 
     private string $redirectTo = self::LOGIN;
 
@@ -22,6 +23,21 @@ class Authenticate extends Middleware
         return $request->expectsJson() ? null : route('login');
     }
 
+    /**
+     * @throws Exception
+     */
+    public function login($credentials, bool|null $remember = false): string
+    {
+        try {
+            if (Auth::attempt($credentials, $remember)) {
+                $this->redirectTo = self::HOME;
+                return $this->redirectTo;
+            }
+            return $this->redirectTo;
+        } catch ( Throwable $t ) {
+            throw new Exception($t->getMessage());
+        }
+    }
 
     /**
      * @throws Exception

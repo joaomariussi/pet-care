@@ -3,7 +3,7 @@
 @section('title', 'Cadastro de Usuários')
 
 @section('page-styles')
-
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/user/create.css') }}">
 @endsection
 
 @section('content')
@@ -32,64 +32,102 @@
                 <form method="POST" action="{{route('user.create')}}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="row">
-                        <div class="accordion">
-                            <div class="accordion-item">
-                                <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#informacoesGerais-collapse"
-                                        aria-expanded="true" aria-controls="informacoesGerais-collapse">
-                                    <i class="fa-solid fa-circle-info font-medium-5"></i>
-                                    <span class="ms-2">Informações Gerais</span><small class="ms-1">(Obrigatório)</small>
-                                </button>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <div class="accordion">
+                                <div class="accordion-item">
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
+                                            aria-expanded="true" aria-controls="avatar-collapse">
+                                        <i class="fa-solid fa-circle-info font-medium-5"></i>
+                                        <span class="ms-2">Avatar</span>
+                                    </button>
 
-                                <div id="informacoesGerais-collapse" class="accordion-collapse collapse show" aria-labelledby="informacoesGerais-headingOne">
-                                    <div class="accordion-body">
-                                        <fieldset>
-                                            <div class="row g-3">
-                                                <div class="col-12 col-md-4 col-xl-4">
-                                                    <div class="form-group">
-                                                        <label for="name">Nome</label>
-                                                        <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
-                                                        @error('name')
+                                    <div id="avatar-collapse" class="accordion-collapse collapse show" aria-labelledby="avatar-headingOne">
+                                        <div class="accordion-body">
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label hidden class="mb-3" for="avatar">Avatar</label>
+                                                            <div class="max-width">
+                                                                <div class="imageContainer">
+                                                                    <img src="{{asset('images/background/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                                </div>
+                                                            </div>
+                                                            <input type="file" id="avatar" name="avatar" accept="image/*">
+
+                                                            <small class="type_permited">
+                                                                Permitido *.jpeg, *.jpg, *.png, *.gif, *.svg, *.webp
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-8">
+                            <div class="accordion">
+                                <div class="accordion-item">
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#informacoesGerais-collapse"
+                                            aria-expanded="true" aria-controls="informacoesGerais-collapse">
+                                        <i class="fa-solid fa-circle-info font-medium-5"></i>
+                                        <span class="ms-2">Informações Gerais</span><small class="ms-1">(Obrigatório)</small>
+                                    </button>
+
+                                    <div id="informacoesGerais-collapse" class="accordion-collapse collapse show" aria-labelledby="informacoesGerais-headingOne">
+                                        <div class="accordion-body">
+                                            <fieldset>
+                                                <div class="row g-3">
+                                                    <div class="col-12 col-md-4 col-xl-4">
+                                                        <div class="form-group">
+                                                            <label for="name">Nome</label>
+                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
+                                                            @error('name')
                                                             {!! form_collapse_errors_message('name', strtoupper($message)) !!}
-                                                        @enderror
+                                                            @enderror
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-12 col-md-4 col-xl-4">
-                                                    <div class="form-group">
-                                                        <label for="email">E-mail</label>
-                                                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" value="{{old('email')}}">
-                                                        @error('email')
+                                                    <div class="col-12 col-md-4 col-xl-4">
+                                                        <div class="form-group">
+                                                            <label for="email">E-mail</label>
+                                                            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" value="{{old('email')}}">
+                                                            @error('email')
                                                             {!! form_collapse_errors_message('email', strtoupper($message)) !!}
-                                                        @enderror
+                                                            @enderror
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-12 col-md-4 col-xl-4">
-                                                    <div class="form-group">
-                                                        <label for="password">Senha</label>
-                                                        <input type="password" class="form-control"
-                                                               id="password"
-                                                               name="password"
-                                                               placeholder="Senha" value="{{old('password')}}">
-                                                        @error('password')
+                                                    <div class="col-12 col-md-4 col-xl-4">
+                                                        <div class="form-group">
+                                                            <label for="password">Senha</label>
+                                                            <input type="password" class="form-control"
+                                                                   id="password"
+                                                                   name="password"
+                                                                   placeholder="Senha" value="{{old('password')}}">
+                                                            @error('password')
                                                             {!! form_collapse_errors_message('password', strtoupper($message)) !!}
-                                                        @enderror
+                                                            @enderror
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-12 col-md-4 col-xl-4">
-                                                    <div class="form-group">
-                                                        <label for="type">Tipo de Usuário</label>
-                                                        <select class="form-select" id="type" name="type">
-                                                            <option value="admin" {{old('type') == 'admin' ? 'selected' : ''}}>admin</option>
-                                                            <option value="user" {{old('type') == 'user' ? 'selected' : ''}}>user</option>
-                                                        </select>
+                                                    <div class="col-12 col-md-4 col-xl-4">
+                                                        <div class="form-group">
+                                                            <label for="type">Tipo de Usuário</label>
+                                                            <select class="form-select" id="type" name="type">
+                                                                <option value="admin" {{old('type') == 'admin' ? 'selected' : ''}}>admin</option>
+                                                                <option value="user" {{old('type') == 'user' ? 'selected' : ''}}>user</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </div>
-                                        </fieldset>
+                                                </div>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -105,4 +143,8 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('page-scripts')
+    <script src="{{asset(mix('js/scripts/extensions/upload-imgs.js'))}}"></script>
 @endsection

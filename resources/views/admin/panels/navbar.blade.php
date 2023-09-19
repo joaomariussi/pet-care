@@ -31,14 +31,44 @@
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-bs-toggle="dropdown">
                                 <div class="user-nav d-sm-flex">
-                                    <span class="user-name"><i class="fa-solid fa-user-gear"></i> {{session('user.name')}}</span>
+                                    <span class="user-name">
+                                        @if(session('user.avatar'))
+                                            <img src="data:image/jpeg;base64,{{session('user.avatar')}}" alt="avatar">
+                                        @else
+                                            <img src="{{asset('images/logo/avatar.webp')}}" alt="" class="rounded-circle" width="35" height="35">
+                                        @endif
+                                    </span>
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{route('profile-user')}}">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar avatar-online">
+                                                    @if(session('user.avatar'))
+                                                        <img src="data:image/jpeg;base64,{{session('user.avatar')}}" alt="" class="rounded-circle" width="35" height="35">
+                                                    @else
+                                                        <img src="{{asset('images/logo/avatar.webp')}}" alt="" class="rounded-circle" width="35" height="35">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <span class="fw-semibold d-block lh-1">{{session('user.name')}}</span>
+                                                <small>{{session('user.type')}}</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{{route('profile-user')}}">
                                         <i class="fa-solid fa-user me-2"></i>
-                                        <span class="align-middle">Meus Dados</span>
+                                        <span class="align-middle">Meu Perfil</span>
                                     </a>
                                 </li>
                                 <li>

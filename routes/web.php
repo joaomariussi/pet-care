@@ -52,6 +52,7 @@ Route::prefix('user')
 
         Route::get('/view-profile-user/', 'viewProfileUser')->name('profile-user');
         Route::post('/update-profile/{id}', 'updateUserProfile')->name('user.update-profile');
+        Route::post('/update-avatar/{id}', 'updateAvatar')->name('user.update-avatar');
 
         Route::post('/update-password/{id}', 'updatePassword')->name('user.update-password');
     });

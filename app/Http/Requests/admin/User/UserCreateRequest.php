@@ -26,6 +26,7 @@ class UserCreateRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users_table,email',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'password' => [
                 'required',
                 'string',
@@ -46,6 +47,9 @@ class UserCreateRequest extends FormRequest
             'email.required' => 'O e-mail é obrigatório',
             'email.email' => 'E-mail inválido',
             'email.unique' => 'Este e-mail já está em uso',
+            'avatar.image' => 'O arquivo deve ser uma imagem',
+            'avatar.mimes' => 'O arquivo deve ser uma imagem do tipo: jpeg, png, jpg, gif, svg,webp',
+            'avatar.max' => 'O tamanho máximo do arquivo é 2MB',
             'password.required' => 'A senha é obrigatória',
             'password.min' => 'A senha deve ter no mínimo 8 caracteres',
             'password.regex' => 'A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial',

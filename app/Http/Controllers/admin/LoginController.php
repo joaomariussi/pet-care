@@ -52,18 +52,17 @@ class LoginController extends Controller
     {
         try {
 
-            $credentials = $request->only('email', 'password');
-            $remember = $request->has('remember');
-
-            if (Auth::attempt($credentials, $remember)) {
-                Session::put('user', Auth::user());
+            if (Auth::attempt($request->only('email', 'password'))) {
+                UserNotification::success('Login realizado com sucesso.');
                 return redirect()->route('home');
+            } else {
+                UserNotification::error('Login ou senha inválidos.');
+                return redirect()->route('login');
             }
-            return redirect()->back();
         } catch (Throwable $t) {
-            Log::error($t->getMessage());
-            return redirect()->back();
+            applicationError($t, 'Falha ao realizar o login.');
         }
+        return redirect()->route($this->redirectTo);
     }
 
     public function logout(): RedirectResponse
