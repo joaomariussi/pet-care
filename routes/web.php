@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CatalogsController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\ProfileController;
@@ -55,4 +56,14 @@ Route::prefix('user')
         Route::post('/update-avatar/{id}', 'updateAvatar')->name('user.update-avatar');
 
         Route::post('/update-password/{id}', 'updatePassword')->name('user.update-password');
+    });
+
+
+Route::prefix('catalogs')
+    ->controller(CatalogsController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('catalogs');
+
+        Route::get('/view-create-catalog', 'viewCreateCatalog')->name('catalogs.view-create');
+        Route::post('/create', 'create')->name('catalogs.create');
     });

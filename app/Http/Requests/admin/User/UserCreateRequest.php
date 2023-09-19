@@ -40,6 +40,11 @@ class UserCreateRequest extends FormRequest
         ];
     }
 
+    /**
+     *  Get the validation messages
+     *
+     * @return array<string, string>
+     */
     public function messages():array
     {
         return [

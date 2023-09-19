@@ -38,7 +38,7 @@
                                 <div class="accordion-item">
                                     <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                             aria-expanded="true" aria-controls="avatar-collapse">
-                                        <i class="fa-solid fa-circle-info font-medium-5"></i>
+                                        <i class="fa-solid fa-image font-medium-5"></i>
                                         <span class="ms-2">Avatar</span>
                                     </button>
 
@@ -109,6 +109,7 @@
                                                                    id="password"
                                                                    name="password"
                                                                    placeholder="Senha" value="{{old('password')}}">
+                                                            <span toggle="#password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                             @error('password')
                                                             {!! form_collapse_errors_message('password', strtoupper($message)) !!}
                                                             @enderror
@@ -133,12 +134,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Star Buttons form -->
                     <div class="btnsSave mt-3 justify-content-between d-flex float-end">
                         <button type="submit" class="btn button_save_forms saveForm"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
                     </div>
-                    <!-- End Buttons form -->
                 </form>
             </div>
         </div>
@@ -147,4 +145,5 @@
 
 @section('page-scripts')
     <script src="{{asset(mix('js/scripts/extensions/upload-imgs.js'))}}"></script>
+    <script src="{{asset('js/scripts/pages/authentication.js')}}"></script>
 @endsection

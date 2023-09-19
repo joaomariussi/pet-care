@@ -181,6 +181,7 @@ class UserController extends Controller
     /**
      * @param UserAvatarUpdateRequest $request
      * @param $id
+     * @return RedirectResponse
      */
     public function updateAvatar(UserAvatarUpdateRequest $request, $id): RedirectResponse
     {

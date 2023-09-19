@@ -31,3 +31,32 @@ input[type='file'] {
     display: block;
     text-align: center;
 }
+
+.field-icon {
+    float: right;
+    margin-right: 10px;
+    margin-top: -10px;
+    position: relative;
+    z-index: 2;
+}
+
+.toggle-password {
+    cursor: pointer;
+    pointer-events: auto;
+    user-select: auto;
+}
+
+.toggle-password:before {
+    content: '\f070';
+    font-family: "Font Awesome 6 Free";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -100%);
+    font-size: 16px;
+    color: rgba(99, 115, 129, 1);
+}
+
+.toggle-password.active:before {
+    content: '\f06e';
+}

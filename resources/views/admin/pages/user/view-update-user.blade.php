@@ -42,7 +42,7 @@
                                         class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                         aria-expanded="true" aria-controls="avatar-collapse">
-                                        <i class="fa-solid fa-circle-info font-medium-5"></i>
+                                        <i class="fa-solid fa-image font-medium-5"></i>
                                         <span class="ms-2">Avatar</span>
                                     </button>
 
@@ -170,7 +170,7 @@
                     </div>
 
                     <!-- Star Buttons form -->
-                    <div class="btnsSave mt-3 justify-content-between d-flex float-end">
+                    <div class="btnsSave mt-3 d-flex justify-content-end float-end">
                         <button type="submit" class="btn button_save_forms saveForm"><i
                                 class="fa-solid fa-floppy-disk"></i> Salvar
                         </button>

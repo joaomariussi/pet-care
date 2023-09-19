@@ -48,6 +48,12 @@ class LoginController extends Controller
         return view('admin.pages.auth.login');
     }
 
+    /**
+     * Login post
+     *
+     * @param LoginRequestValidate $request
+     * @return RedirectResponse
+     */
     public function login(LoginRequestValidate $request): RedirectResponse
     {
         try {
@@ -65,6 +71,10 @@ class LoginController extends Controller
         return redirect()->route($this->redirectTo);
     }
 
+    /**
+     * Logout
+     * @return RedirectResponse
+     */
     public function logout(): RedirectResponse
     {
         try {

@@ -234,6 +234,7 @@
                                                     <div class="form-group">
                                                         <label for="current_password" class="form-label">Senha Atual</label>
                                                         <input type="password" class="form-control" id="current_password" name="current_password">
+                                                        <span toggle="#current_password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                     </div>
                                                     @error('current_password')
                                                     {!! form_collapse_errors_message('current_password', strtoupper($message)) !!}
@@ -244,6 +245,7 @@
                                                     <div class="form-group">
                                                         <label for="new_password" class="form-label">Nova Senha</label>
                                                         <input type="password" class="form-control" id="new_password" name="new_password">
+                                                        <span toggle="#new_password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                     </div>
                                                     @error('new_password')
                                                     {!! form_collapse_errors_message('new_password', strtoupper($message)) !!}
@@ -254,6 +256,7 @@
                                                     <div class="form-group">
                                                         <label for="confirm_new_password" class="form-label">Confirmar Nova Senha</label>
                                                         <input type="password" class="form-control" id="confirm_new_password" name="confirm_new_password">
+                                                        <span toggle="#confirm_new_password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                     </div>
                                                     @error('confirm_new_password')
                                                     {!! form_collapse_errors_message('confirm_new_password', strtoupper($message)) !!}
@@ -283,4 +286,5 @@
 
 @section('page-scripts')
     <script src="{{asset(mix('js/scripts/extensions/upload-imgs.js'))}}"></script>
+    <script src="{{asset('js/scripts/pages/authentication.js')}}"></script>
 @endsection
