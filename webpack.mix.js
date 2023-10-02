@@ -64,7 +64,6 @@ mix.copy('node_modules/@popperjs/core/dist/umd/popper.min.js', 'public/js/core/l
 mix.copy('node_modules/components-unison/js/unison.js', 'public/js/core/libraries/unison/unison.js').sourceMaps();
 mix.copy('node_modules/jquery-mask-plugin/dist/jquery.mask.js', 'public/js/core/libraries/jquery-mask-plugin/jquery-mask.js').sourceMaps();
 mix.copy('node_modules/jquery-confirm/dist/jquery-confirm.min.js', 'public/js/core/libraries/jquery-confirm/jquery-confirm.js').sourceMaps();
-mix.copy('node_modules/feather-icons/dist/feather.js', 'public/js/core/libraries/feather-icons/feather.js');
 
 mix.sass('resources/sass/admin/bootstrap-extended.scss', 'public/css/admin')
     .sass('resources/sass/admin/bootstrap.scss', 'public/css/admin')

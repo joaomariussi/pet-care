@@ -4,6 +4,8 @@
 /public/images
 /public/fonts
 /public/js
+/public/plugins
+/public/vendors
 /public/mix-manifest.json
 /public/build
 /public/hot
