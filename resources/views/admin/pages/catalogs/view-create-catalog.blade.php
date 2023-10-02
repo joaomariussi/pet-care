@@ -27,7 +27,7 @@
                 </section>
 
                 <b class="title-geral-etapas">Cadastro de Catálogos</b>
-                <p>Preencha o formulário abaixo para cadastrar um novo catálogo</p>
+                <p>Preencha o formulário abaixo para cadastrar um novo catálogo.</p>
 
                 <form method="POST" action="">
                     @csrf
@@ -114,6 +114,28 @@
                                                             </select>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-12 col-md-12 col-xl-12">
+                                                        <div class="form-group">
+                                                            <label hidden class="mb-3" for="image">Avatar</label>
+                                                            <div class="max-width">
+                                                                <div class="imageContainer">
+                                                                    <img src="{{asset('images/background/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                                </div>
+                                                            </div>
+                                                            <input type="file" id="avatar" name="avatar" accept="image/*">
+
+                                                            <small class="label-img">
+                                                                IMAGEM DO CATÁLOGO
+                                                            </small>
+
+                                                            <small class="type_permited">
+                                                                Permitido *.jpeg, *.jpg, *.png, *.gif, *.svg, *.webp
+                                                                <br>
+                                                                Tamanho: 525x525px
+                                                            </small>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -136,4 +158,5 @@
 
 @section('page-scripts')
     <script src="{{asset(mix('js/scripts/extensions/upload-pdf.js'))}}"></script>
+    <script src="{{asset(mix('js/scripts/extensions/upload-imgs.js'))}}"></script>
 @endsection

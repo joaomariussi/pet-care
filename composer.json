@@ -1,7 +1,7 @@
 {
     "name": "rocky-admin/cassul",
     "type": "project",
-    "description": "Cassull platform admin panel and site web",
+    "description": "Cassull platform admin panel and app/Http/Controllers/site web",
     "authors": [
         {
             "name": "Gustavo May",

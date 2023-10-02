@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable('false');
             $table->tinyInteger('status')->default(0)->comment('0: Inativo, 1: Ativo');
-            $table->longText('image')->nullable();
-            $table->binary('file')->nullable();
+            $table->longText('avatar')->nullable();
+            $table->binary('fileUpload')->nullable();
             $table->timestamps();
         });
     }

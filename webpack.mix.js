@@ -40,6 +40,8 @@ mixAssetsDir('sass/admin/pages/**/!(_)*.scss', (src, dest) => mix.sass(src, dest
 // Themescss task
 mixAssetsDir('sass/admin/plugins/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replace(/(\\|\/)sass(\\|\/)/, '$1css$2').replace(/\.scss$/, '.css')));
 
+mixAssetsDir('sass/site/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replace(/(\\|\/)sass(\\|\/)/, '$1css$2').replace(/\.scss$/, '.css')));
+
 // script js
 mixAssetsDir('js/core/**/*.js', (src, dest) => mix.js(src, dest));
 
@@ -56,11 +58,13 @@ mix.copyDirectory('resources/images', 'public/images');
 mix.copyDirectory('resources/vendors', 'public/vendors');
 mix.copyDirectory('resources/data', 'public/data');
 mix.copyDirectory('resources/plugins', 'public/plugins');
+mix.copyDirectory('resources/css/site', 'public/css/site');
 
 mix.copy('node_modules/@popperjs/core/dist/umd/popper.min.js', 'public/js/core/libraries/popper/popper.js').sourceMaps();
 mix.copy('node_modules/components-unison/js/unison.js', 'public/js/core/libraries/unison/unison.js').sourceMaps();
 mix.copy('node_modules/jquery-mask-plugin/dist/jquery.mask.js', 'public/js/core/libraries/jquery-mask-plugin/jquery-mask.js').sourceMaps();
 mix.copy('node_modules/jquery-confirm/dist/jquery-confirm.min.js', 'public/js/core/libraries/jquery-confirm/jquery-confirm.js').sourceMaps();
+mix.copy('node_modules/feather-icons/dist/feather.js', 'public/js/core/libraries/feather-icons/feather.js');
 
 mix.sass('resources/sass/admin/bootstrap-extended.scss', 'public/css/admin')
     .sass('resources/sass/admin/bootstrap.scss', 'public/css/admin')

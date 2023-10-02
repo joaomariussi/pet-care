@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::prefix('auth')
 
         Route::get('/logout', 'logout')->name('logout');
     });
+
+Route::get('/', [SiteController::class, 'index'])->name('site.index');
 
 /*
 |--------------------------------------------------------------------------

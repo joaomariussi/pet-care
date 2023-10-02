@@ -1,9 +1,0 @@
-@media screen and (min-width: 1024px) {
-  .card-personalizar-layout {
-    max-height: 83vh;
-    overflow-y: auto;
-  }
-}
-.footer-salvar .btn i {
-  top: 0;
-}
