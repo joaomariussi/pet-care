@@ -59,6 +59,7 @@ mix.copyDirectory('resources/vendors', 'public/vendors');
 mix.copyDirectory('resources/data', 'public/data');
 mix.copyDirectory('resources/plugins', 'public/plugins');
 mix.copyDirectory('resources/css/site', 'public/css/site');
+mix.copyDirectory('resources/fonts', 'public/fonts');
 
 mix.copy('node_modules/@popperjs/core/dist/umd/popper.min.js', 'public/js/core/libraries/popper/popper.js').sourceMaps();
 mix.copy('node_modules/components-unison/js/unison.js', 'public/js/core/libraries/unison/unison.js').sourceMaps();

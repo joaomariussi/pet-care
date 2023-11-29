@@ -6,7 +6,7 @@
     var menuBreakPoint  = 991;
     var sliderBreakPoint= 991; // It will effect when you have used attribute "data-thumb-slider-md-direction" OR "data-slider-md-direction"
     var mobileAnimation = false;
-        
+
     /****** Don't change variables value ******/
     var lastScroll      = 0,
         simpleDropdown  = 0,
@@ -86,7 +86,7 @@
             }
         });
         $( '.price-amount' ).val( '$' + $( '.price-filter' ).slider( 'values', 0 ) +
-                ' - $' + $( '.price-filter' ).slider( 'values', 1 ) );
+            ' - $' + $( '.price-filter' ).slider( 'values', 1 ) );
     }
 
     /****** Back Image shadow on jQuery appear ******/
@@ -102,7 +102,7 @@
             counterValue    = _this.attr( 'data-to' ),
             individualValue = counterValue.toString().split( '' ),
             valueLength     = counterValue.length;
-        //adding the div.vertical-counter-number in div.counter multiple(valueLength) times 
+        //adding the div.vertical-counter-number in div.counter multiple(valueLength) times
         for ( var i = 0; i < valueLength; i++ ) {
             _this.append( '<span class="vertical-counter-number"><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul></span>' );
         }
@@ -516,14 +516,14 @@
                                 comments= response.data[x]['comments_count'] || '',
                                 output  = _html;
 
-                                output  = output.replace( ' href="#"', '' );
-                                output  = output.replace( ' src="#"', '' );
-                                output  = output.replace( 'data-href', 'href' );
-                                output  = output.replace( 'data-src', 'src' );
-                                output  = output.replace( '{{link}}', link );
-                                output  = output.replace( '{{image}}', image );
-                                output  = output.replace( '{{likes}}', likes );
-                                output  = output.replace( '{{comments}}', comments );
+                            output  = output.replace( ' href="#"', '' );
+                            output  = output.replace( ' src="#"', '' );
+                            output  = output.replace( 'data-href', 'href' );
+                            output  = output.replace( 'data-src', 'src' );
+                            output  = output.replace( '{{link}}', link );
+                            output  = output.replace( '{{image}}', image );
+                            output  = output.replace( '{{likes}}', likes );
+                            output  = output.replace( '{{comments}}', comments );
                             outputHTML += output;
                         }
                     }
@@ -686,7 +686,7 @@
     /******* Close on escape key *******/
     $( document ).on( 'keydown', function (e) {
         if ( e.keyCode === 27 ) {
-            
+
             // Close side menu
             $( '.close-menu' ).trigger( 'click' );
 
@@ -734,7 +734,7 @@
     $( '.section-link' ).smoothScroll({
         speed: 900,
         offset: 1,
-            beforeScroll: function() { $( '.navbar-collapse.collapse' ).collapse( 'hide' ); }
+        beforeScroll: function() { $( '.navbar-collapse.collapse' ).collapse( 'hide' ); }
     });
 
     /****** Subscribe popup on page load ******/
@@ -938,7 +938,7 @@
 
     /****** Video magnific popup ******/
     $( '.popup-youtube, .popup-vimeo' ).magnificPopup({
-        disableOn: 767,
+        disableOn: 0,
         type: 'iframe',
         mainClass: 'mfp-fade',
         removalDelay: 160,
@@ -992,10 +992,10 @@
             if( fieldVal == '' || fieldVal == undefined ) {
                 error = true;
                 __this.addClass( 'error' );
-            } else if( __this.attr( 'type' ) == 'email' && ! emailFormat.test( fieldVal ) ) { 
+            } else if( __this.attr( 'type' ) == 'email' && ! emailFormat.test( fieldVal ) ) {
                 error = true;
                 __this.addClass( 'error' );
-            } else if( __this.attr( 'type' ) == 'tel' && ! telFormat.test( fieldVal ) ) { 
+            } else if( __this.attr( 'type' ) == 'tel' && ! telFormat.test( fieldVal ) ) {
                 error = true;
                 __this.addClass( 'error' );
             }
@@ -1285,9 +1285,9 @@
     $( '.dropdown' ).on( 'mouseenter touchstart', function( e ) {
 
         var _this = $( this );
-            _this.siblings( '.dropdown' ).removeClass( 'open' );
-            _this.parents( '.navbar-nav' ).siblings( '.navbar-nav' ).find( '.dropdown' ).removeClass( 'open' );
-            _this.addClass( 'open' );
+        _this.siblings( '.dropdown' ).removeClass( 'open' );
+        _this.parents( '.navbar-nav' ).siblings( '.navbar-nav' ).find( '.dropdown' ).removeClass( 'open' );
+        _this.addClass( 'open' );
         if ( getWindowWidth() > menuBreakPoint ) {
             menuPosition( _this );
             if( $( e.target ).siblings( '.dropdown-menu' ).length ) {
@@ -1301,7 +1301,7 @@
         _this.removeClass( 'menu-left' );
         _this.removeClass( 'open' );
     });
-    
+
     /****** GDPR policy ******/
     var gdprExpireDays  = 30;
     var gdprCookieName  = 'litho-gdpr-policy';
@@ -1315,8 +1315,32 @@
     });
 
     /****** Theme demo panel ******/
-    // var themeDemoHTML = '<div class="theme-demos"><div class="all-demo"><a href="javascript:void(0);"><i class="feather icon-feather-x align-middle"></i><div class="theme-wrapper"><div><i class="feather icon-feather-layers align-middle"></i><span>37+</span> demos</div></div></a></div><div class="buy-theme sm-display-none"><a href="https://1.envato.market/AL7Oj" target="_blank"><i class="feather icon-feather-shopping-bag align-middle"></i><div class="theme-wrapper"><div><i class="feather icon-feather-shopping-bag align-middle"></i>Buy now</div></div></a></div> <section class="d-flex align-items-center justify-content-center"><div class="demos-wrapper d-flex align-items-center w-100" data-scroll-options=\'{ "theme": "dark" }\'><div class="w-100"><div class="col-12 text-center margin-1-rem-bottom"> <span class="alt-font font-weight-600 text-extra-medium text-gradient-sky-blue-dark-pink text-uppercase letter-spacing-minus-1-half d-inline-block margin-5px-bottom">Truly multipurpose</span><h5 class="alt-font font-weight-600 text-extra-dark-gray d-inline-block letter-spacing-minus-1px padding-twenty-lr margin-25px-bottom">37+ Unique demos</h5></div><ul class="portfolio-switch-image portfolio-wrapper grid grid-3col gutter-extra-large text-center"><li class="grid-sizer"></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-startup.html" target="_blank"> <img src="images/litho-demo-startup.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-startup.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Startup</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-yoga-meditation.html" target="_blank"> <img src="images/litho-demo-yoga-meditation.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-yoga-meditation.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Yoga Meditation</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-restaurant.html" target="_blank"> <img src="images/litho-demo-restaurant.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-restaurant.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Restaurant</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-corporate.html" target="_blank"> <img src="images/litho-demo-corporate.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-corporate.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Corporate</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-architecture.html" target="_blank"> <img src="images/litho-demo-architecture.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-architecture.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Architecture</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-design-agency.html" target="_blank"> <img src="images/litho-demo-design-agency.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-design-agency.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Design Agency</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-marketing-agency.html" target="_blank"> <img src="images/litho-demo-marketing-agency.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-marketing-agency.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Marketing Agency</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-freelancer.html" target="_blank"> <img src="images/litho-demo-freelancer.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-freelancer.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Freelancer</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-travel-agency.html" target="_blank"> <img src="images/litho-demo-travel-agency.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-travel-agency.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Travel Agency</a></div></div></li></ul><div class="col-12 text-center clearfix"> <a href="index.html" class="btn btn-large btn-dark-gray d-table d-lg-inline-block margin-40px-top btn-fancy" target="_blank">View all 37+ demos</a></div></div></div> </section></div>';
-    // $( 'body:not( .landing )' ).append( themeDemoHTML );
+    var themeDemoHTML = '<div class="theme-demos"><div class="all-demo">' +
+        // '<a href="javascript:void(0);"><i class="feather icon-feather-x align-middle"></i>' +
+        // '<div class="theme-wrapper"><div><i class="feather icon-feather-layers align-middle"></i><span>37+</span> demos</div></div></a></div>' +
+        // '<div class="buy-theme sm-display-none"><a href="https://1.envato.market/AL7Oj" target="_blank">' +
+        // '<i class="feather icon-feather-shopping-bag align-middle"></i><div class="theme-wrapper"><div>' +
+        // '<i class="feather icon-feather-shopping-bag align-middle"></i>Buy now</div></div></a></div> ' +
+        // '<section class="d-flex align-items-center justify-content-center">' +
+        // '<div class="demos-wrapper d-flex align-items-center w-100" data-scroll-options=\'{ "theme": "dark" }\'>' +
+        // '<div class="w-100"><div class="col-12 text-center margin-1-rem-bottom"> ' +
+        // '<span class="alt-font font-weight-600 text-extra-medium text-gradient-sky-blue-dark-pink text-uppercase letter-spacing-minus-1-half ' +
+        // 'd-inline-block margin-5px-bottom">Truly multipurpose</span>' +
+        // '<h5 class="alt-font font-weight-600 text-extra-dark-gray d-inline-block letter-spacing-minus-1px padding-twenty-lr margin-25px-bottom">37+ Unique demos</h5>' +
+        // '</div><ul class="portfolio-switch-image portfolio-wrapper grid grid-3col gutter-extra-large text-center"><li class="grid-sizer"></li><li class="grid-item">' +
+        // '<div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-startup.html" target="_blank"> ' +
+        // '<img src="images/litho-demo-startup.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top">' +
+        // ' <a href="home-startup.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Startup' +
+        // '</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> ' +
+        // '<a href="home-yoga-meditation.html" target="_blank"> <img src="images/litho-demo-yoga-meditation.jpg" alt="" /> </a></div>' +
+        // '<div class="portfolio-caption padding-15px-top"> <a href="home-yoga-meditation.html" target="_blank" ' +
+        // 'class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Yoga Meditation</a></div></div></li>' +
+        // '<li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> ' +
+        // '<a href="home-restaurant.html" target="_blank"> <img src="images/litho-demo-restaurant.jpg" alt="" /> </a></div>' +
+        // '<div class="portfolio-caption padding-15px-top"> <a href="home-restaurant.html" target="_blank" ' +
+        // 'class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Restaurant</a></div></div></li>' +
+        // '<li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-corporate.html" target="_blank"> <img src="images/litho-demo-corporate.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-corporate.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Corporate</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-architecture.html" target="_blank"> <img src="images/litho-demo-architecture.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-architecture.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Architecture</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-design-agency.html" target="_blank"> <img src="images/litho-demo-design-agency.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-design-agency.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Design Agency</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-marketing-agency.html" target="_blank"> <img src="images/litho-demo-marketing-agency.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-marketing-agency.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Marketing Agency</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-freelancer.html" target="_blank"> <img src="images/litho-demo-freelancer.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-freelancer.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Freelancer</a></div></div></li><li class="grid-item"><div class="portfolio-box"><div class="portfolio-image border-radius-4px box-shadow-double-large"> <a href="home-travel-agency.html" target="_blank"> <img src="images/litho-demo-travel-agency.jpg" alt="" /> </a></div><div class="portfolio-caption padding-15px-top"> <a href="home-travel-agency.html" target="_blank" class="alt-font text-small text-extra-dark-gray text-extra-dark-gray-hover font-weight-500 d-inline-block">Travel Agency</a></div></div></li></ul><div class="col-12 text-center clearfix"> <a href="index.html" class="btn btn-large btn-dark-gray d-table d-lg-inline-block margin-40px-top btn-fancy" target="_blank">View all 37+ demos</a></div></div></div> </section></div>';
+        $( 'body:not( .landing )' ).append( themeDemoHTML );
     $( document ).on( 'click', '.all-demo', function() {
         var themeDemosObj = $( this ).parents( '.theme-demos' );
         if( ! themeDemosObj.hasClass( 'active' ) ) {
@@ -1333,7 +1357,7 @@
             $( 'body' ).removeClass( 'overflow-hidden' );
         }
     });
-   
+
     /****** Non retina image code ******/
     $( "img:not([data-at2x])" ).each( function() {
         $( this ).attr( 'data-no-retina', '' );
@@ -1344,7 +1368,7 @@
 
         /****** Parallax ******/
         setParallax();
-         
+
         /****** Page loader ******/
         if( $( '.page-loader' ).length > 0 ) {
             $( '.page-loader' ).fadeOut();
@@ -1392,7 +1416,7 @@
 
     /****** Window orientationchange ******/
     $( window ).on( 'orientationchange', function(e) {
-        
+
         // Close side menu
         $( '.close-menu' ).trigger( 'click' );
 
@@ -1485,20 +1509,12 @@
             }
         }
 
-        /****** Header appear on scroll up ******/
-        if ( $( 'nav.header-always-fixed-scroll' ).length <= 0 ) {
-            var st = scrollPos;
-            if ( st > lastScroll ) {
-                st = st - 1;
-                $( '.sticky' ).removeClass( 'header-appear' );
-                $( '.dropdown.on' ).removeClass( 'on' ).removeClass( 'show' ).find( '.dropdown-menu' ).fadeOut( 100 );
-            } else {
+        if ($('nav.header-always-fixed-scroll').length <= 0) {
+            let st = scrollPos;
+            if (st > lastScroll) {
                 $('.sticky').addClass('header-appear');
             }
             lastScroll = st;
-            if ( lastScroll <= navHeight ) {
-                $( 'header' ).removeClass( 'header-appear' );
-            }
         }
 
         /****** Hide side menu on scroll ******/
@@ -1570,23 +1586,23 @@
 
                     var direction   = ( sliderOptions['direction'] != '' && sliderOptions['direction'] != undefined ) ? sliderOptions['direction'] : mdDirection;
                     sliderOptions['on'] = {
-                                            init: function() {
-                                                if( getWindowWidth() <= sliderBreakPoint ) {
-                                                    this.changeDirection( mdDirection );
-                                                } else {
-                                                    this.changeDirection( direction );
-                                                }
-                                                this.update();
-                                            },
-                                            resize: function () {
-                                                if( getWindowWidth() <= sliderBreakPoint ) {
-                                                    this.changeDirection( mdDirection );
-                                                } else {
-                                                    this.changeDirection( direction );
-                                                }
-                                                this.update();
-                                            }
-                                        };
+                        init: function() {
+                            if( getWindowWidth() <= sliderBreakPoint ) {
+                                this.changeDirection( mdDirection );
+                            } else {
+                                this.changeDirection( direction );
+                            }
+                            this.update();
+                        },
+                        resize: function () {
+                            if( getWindowWidth() <= sliderBreakPoint ) {
+                                this.changeDirection( mdDirection );
+                            } else {
+                                this.changeDirection( direction );
+                            }
+                            this.update();
+                        }
+                    };
                 }
 
                 /* If user have provided "data-thumb-slider-md-direction" attribute then below code will execute */
@@ -1597,31 +1613,31 @@
 
                         var thumbDirection   = ( sliderOptions['thumbs']['swiper']['direction'] != '' && sliderOptions['thumbs']['swiper']['direction'] != undefined ) ? sliderOptions['thumbs']['swiper']['direction'] : mdThumbDirection;
                         sliderOptions['thumbs']['swiper']['on'] = {
-                                                init: function() {
-                                                    if( getWindowWidth() <= sliderBreakPoint ) {
-                                                        this.changeDirection( mdThumbDirection );
-                                                    } else {
-                                                        this.changeDirection( thumbDirection );
-                                                    }
-                                                    this.update();
-                                                },
-                                                resize: function () {
-                                                    if( getWindowWidth() <= sliderBreakPoint ) {
-                                                        this.changeDirection( mdThumbDirection );
-                                                    } else {
-                                                        this.changeDirection( thumbDirection );
-                                                    }
-                                                    this.update();
-                                                },
-                                                click: function() {
-                                                    /* Product thumbs automatic next / previous on click slide */
-                                                    if( this.activeIndex == this.clickedIndex ) {
-                                                        this.slidePrev();
-                                                    } else {
-                                                        this.slideNext();
-                                                    }
-                                                }
-                                            };
+                            init: function() {
+                                if( getWindowWidth() <= sliderBreakPoint ) {
+                                    this.changeDirection( mdThumbDirection );
+                                } else {
+                                    this.changeDirection( thumbDirection );
+                                }
+                                this.update();
+                            },
+                            resize: function () {
+                                if( getWindowWidth() <= sliderBreakPoint ) {
+                                    this.changeDirection( mdThumbDirection );
+                                } else {
+                                    this.changeDirection( thumbDirection );
+                                }
+                                this.update();
+                            },
+                            click: function() {
+                                /* Product thumbs automatic next / previous on click slide */
+                                if( this.activeIndex == this.clickedIndex ) {
+                                    this.slidePrev();
+                                } else {
+                                    this.slideNext();
+                                }
+                            }
+                        };
                     }
                 }
 
@@ -1644,15 +1660,15 @@
                 if( changeOnClick != '' && changeOnClick != undefined ) {
 
                     sliderOptions['on'] = {
-                                            click: function() {
-                                                if ( this.activeIndex > this.clickedIndex ) {
-                                                    this.slidePrev();
-                                                } else if ( this.activeIndex < this.clickedIndex ) {
-                                                    this.slideNext();
-                                                }
-                                            }
-                                        };
-                }                
+                        click: function() {
+                            if ( this.activeIndex > this.clickedIndex ) {
+                                this.slidePrev();
+                            } else if ( this.activeIndex < this.clickedIndex ) {
+                                this.slideNext();
+                            }
+                        }
+                    };
+                }
 
                 /* If user have provided "data-thumbs" attribute then below code will execute */
                 var dataThumbs = _this.attr( 'data-thumbs' );
@@ -2065,5 +2081,5 @@
             });
         }
     }
-    
+
 })( jQuery );

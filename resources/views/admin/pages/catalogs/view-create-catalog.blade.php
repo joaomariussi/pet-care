@@ -29,14 +29,14 @@
                 <b class="title-geral-etapas">Cadastro de Catálogos</b>
                 <p>Preencha o formulário abaixo para cadastrar um novo catálogo.</p>
 
-                <form method="POST" action="">
+                <form method="POST" action="{{route('catalogs.create')}}">
                     @csrf
 
                     <div class="row g-3">
                         <div class="col-12 col-md-4 col-xl-4">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','status','avatar', ['fileUpload']])}}"
                                             type="button" data-bs-toggle="collapse" data-bs-target="#pdf-collapse"
                                             aria-expanded="true" aria-controls="pdf-collapse">
                                         <i class="fa-solid fa-cloud-arrow-down font-medium-5"></i>
@@ -73,6 +73,9 @@
                                                             </div>
                                                         </label>
                                                     </div>
+                                                    @error('fileUpload')
+                                                        {{form_collapse_errors_message('fileUpload', $message)}}
+                                                    @enderror
 
                                                 </div>
                                             </div>
@@ -85,7 +88,7 @@
                         <div class="col-12 col-md-8 col-xl-8">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','status','avatar', ['fileUpload']])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                             aria-expanded="true" aria-controls="avatar-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
                                         <span class="ms-2">Informações Gerais</span>
@@ -100,7 +103,7 @@
                                                             <label for="name" class="form-label">Nome</label>
                                                             <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
                                                             @error('name')
-                                                            {{form_collapse_errors_message('name', $message)}}
+                                                                {{form_collapse_errors_message('name', $message)}}
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -113,6 +116,9 @@
                                                                 <option value="1" {{old('status') == 1 ? 'selected' : ''}}>Ativo</option>
                                                             </select>
                                                         </div>
+                                                        @error('status')
+                                                            {{form_collapse_errors_message('status', $message)}}
+                                                        @enderror
                                                     </div>
 
                                                     <div class="col-12 col-md-12 col-xl-12">
@@ -135,6 +141,9 @@
                                                                 Tamanho: 525x525px
                                                             </small>
                                                         </div>
+                                                        @error('avatar')
+                                                            {{form_collapse_errors_message('avatar', $message)}}
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </fieldset>

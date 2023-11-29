@@ -23,6 +23,18 @@
         },
         {
             "can": "user",
+            "url": "sectors/",
+            "name": "Setores",
+            "icon": "fa-solid fa-building"
+        },
+        {
+            "can": "user",
+            "url": "jobs/",
+            "name": "Trabalhe Conosco",
+            "icon": "fa-solid fa-briefcase"
+        },
+        {
+            "can": "user",
             "url": "contacts/",
             "name": "Contatos",
             "icon": "fa-solid fa-address-book"

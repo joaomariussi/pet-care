@@ -79,10 +79,10 @@ class UserDataTable extends DataTable
                 ->width(60)
                 ->addClass('text-center')
                 ->title('Ações'),
-                Column::make('name'),
-                Column::make('type'),
-                Column::make('email'),
-                Column::make('created_at'),
+                Column::make('name')->title('Nome'),
+                Column::make('type')->title('Tipo'),
+                Column::make('email')->title('E-mail'),
+                Column::make('created_at')->title('Criado em')
         ];
     }
 
