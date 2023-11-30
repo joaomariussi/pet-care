@@ -2,8 +2,8 @@
     "menu": [
         {
             "can": "user",
-            "url": "home/",
-            "name": "Página Inicial",
+            "url": "dashboard/",
+            "name": "Dashboard",
             "icon": "fa-solid fa-gauge"
         },
         {
@@ -11,9 +11,9 @@
         },
         {
             "can": "user",
-            "url": "catalogs/",
-            "name": "Catálogos",
-            "icon": "fa-solid fa-book"
+            "url": "home/",
+            "name": "Home",
+            "icon": "fa-solid fa-home"
         },
         {
             "can": "user",
@@ -23,9 +23,9 @@
         },
         {
             "can": "user",
-            "url": "sectors/",
-            "name": "Setores",
-            "icon": "fa-solid fa-building"
+            "url": "contacts/",
+            "name": "Contatos",
+            "icon": "fa-solid fa-address-book"
         },
         {
             "can": "user",
@@ -35,9 +35,15 @@
         },
         {
             "can": "user",
-            "url": "contacts/",
-            "name": "Contatos",
-            "icon": "fa-solid fa-address-book"
+            "url": "sectors/",
+            "name": "Setores",
+            "icon": "fa-solid fa-building"
+        },
+        {
+            "can": "user",
+            "url": "catalogs/",
+            "name": "Catálogos",
+            "icon": "fa-solid fa-book"
         },
         {
             "can": "user",

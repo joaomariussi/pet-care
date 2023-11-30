@@ -9,17 +9,17 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Throwable;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     public function __construct()
     {
-        config(['view.active_sidebar' => 'home/']);
+        config(['view.active_sidebar' => 'dashboard/']);
     }
 
     public function index(): View|Factory|Application|RedirectResponse|null
     {
         try {
-            return view('admin.pages.home.view-index');
+            return view('admin.pages.dashboard.view-index');
         } catch (Throwable $t) {
             return applicationError($t);
         }

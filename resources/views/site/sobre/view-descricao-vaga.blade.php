@@ -110,7 +110,7 @@
                 <div class="col-12 col-lg-10">
                     <div class="row justify-content-center">
                         <div class="col-12">
-                            <form action="{{route('enviar-curriculo', $job['id'])}}"
+                            <form action="{{route('enviar-curriculo', $job['id'])}}" id="form-jobs"
                                   method="POST" enctype="multipart/form-data">
                                 @csrf
 

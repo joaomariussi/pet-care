@@ -72,16 +72,17 @@
         </nav>
     </header>
 
-    <section class="p-0 mobile-height parallax" data-parallax-background-ratio="0.5" style="background-image: url('{{asset('images/empresa/cassul-aerea.webp')}}');">
+    <section class="p-0 mobile-height parallax" data-parallax-background-ratio="0.5"
+             style="background-image: url('data:image/png;base64,{{$home['avatar']}}');">
         <div class="opacity-light bg-gradient-black-blue z-index-0"></div>
         <div class="container position-relative">
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-6 col-lg-7 col-md-10 d-flex flex-column justify-content-center text-center full-screen position-relative z-index-1 md-landscape-h-600px">
                         <span class="margin-35px-bottom alt-font text-large text-white font-weight-300 d-block xs-margin-15px-bottom">
-                            Cassul Distribuidora
+                            {{$home['home_subtitle']}}
                         </span>
                     <h2 class="text-white alt-font font-weight-600 letter-spacing-minus-1 text-shadow-large sm-no-text-shadow">
-                        Conectando você às maiores marcas, sempre.
+                        {{$home['home_title']}}
                     </h2>
                     <div class="text-center position-absolute bottom-100px left-0px w-100 sm-bottom-50px">
                         <a href="https://m.youtube.com.com/watch?v=H7bQKbQe2kw" class="popup-youtube video-icon-box video-icon-large position-relative">

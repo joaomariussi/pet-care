@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\admin\CatalogsController;
 use App\Http\Controllers\admin\ContactsController;
-use App\Http\Controllers\admin\HomeController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\HomePageController;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\ProfileController;
@@ -33,13 +34,22 @@ Route::prefix('auth')
 |--------------------------------------------------------------------------
 */
 Route::prefix('admin')
-    ->controller(HomeController::class)
+    ->controller(DashboardController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('dashboard');
+    });
+
+
+Route::prefix('home')
+    ->controller(HomePageController::class)
     ->middleware(['auth'])
     ->group(function () {
         Route::get('/', 'index')->name('home');
-    });
 
-//Route::get('/view-home', [''])->name('home');
+        Route::post('/create-config-home', 'createConfigHome')->name('home.view-create');
+        Route::post('/update-config-home', 'updateConfigHome')->name('home.update');
+    });
 
 Route::prefix('user')
     ->controller(UserController::class)

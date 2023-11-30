@@ -1,0 +1,38 @@
+
+input[type='file'] {
+    display: none;
+}
+
+.max-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#imgPhoto {
+    width: 100%;
+    height: 250px;
+    padding: 8px;
+    border: 1px dashed rgba(145, 158, 171, 0.2);
+    cursor: pointer;
+    object-fit: contain;
+}
+
+#imgPhoto:hover{
+    opacity: .5;
+}
+
+.type_permited {
+    display: flex;
+    justify-content: center;
+    color: #a9a9a9;
+    text-align: center;
+}
+
+.label-img {
+    color: #475F7B;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}

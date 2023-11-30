@@ -51,6 +51,7 @@
                 @endif
             </ul>
         </div>
+
         <div class="navbar-header logo-sociais">
             <div class="nav-item brand-text text-center">
                 <a class="img-fluid" href="/">
