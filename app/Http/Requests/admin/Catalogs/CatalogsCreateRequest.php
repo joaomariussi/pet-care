@@ -12,8 +12,8 @@ class CatalogsCreateRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'status' => 'required|boolean',
-            'fileUpload' => 'required',
-            'avatar' => 'required'
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'fileUpload' => 'sometimes|file|mimes:pdf|max:10240',
         ];
     }
 
@@ -21,12 +21,16 @@ class CatalogsCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'O nome é obrigatório',
-            'name.string' => 'O nome deve ser uma string',
-            'name.max' => 'O nome deve ter no máximo 255 caracteres',
+            'name.max' => 'O nome excede o tamanho máximo permitido',
             'status.required' => 'O status é obrigatório',
-            'status.boolean' => 'O status deve ser um booleano',
-            'fileUpload.required' => 'O arquivo é obrigatório',
-            'avatar.required' => 'O avatar é obrigatório',
+            'status.boolean' => 'O status deve ser um valor booleano',
+            'avatar.image' => 'O avatar deve ser uma imagem',
+            'avatar.mimes' => 'O avatar deve ser um arquivo do tipo: jpeg, png, jpg, gif, svg, webp',
+            'avatar.max' => 'O avatar excede o tamanho máximo permitido',
+            'fileUpload.sometimes' => 'O arquivo é obrigatório',
+            'fileUpload.file' => 'O arquivo deve ser um arquivo',
+            'fileUpload.mimes' => 'O arquivo deve ser um arquivo do tipo: pdf',
+            'fileUpload.max' => 'O arquivo excede o tamanho máximo permitido',
         ];
     }
 

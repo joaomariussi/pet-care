@@ -7,6 +7,7 @@ use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Sectors;
 use App\Models\site\Contacts;
+use App\Models\site\Notifications;
 use App\Notifications\UserNotification;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -69,5 +70,22 @@ class ContactsController extends Controller
             UserNotification::error('Erro ao deletar o contato!');
         }
         return redirect()->back();
+    }
+
+    /**
+     * @param $id
+     * @return void
+     * Marca a notificação como lida
+     */
+    public function notificationRead($id): void
+    {
+        try {
+            $notify = Notifications::find($id);
+            $notify->update(['read' => true]);
+            dd($notify);
+        } catch (Throwable $t) {
+            Log::error($t->getMessage());
+            UserNotification::error('Erro ao tentar ler a notificação!');
+        }
     }
 }

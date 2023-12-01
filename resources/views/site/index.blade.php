@@ -549,130 +549,31 @@
                 </div>
             </div>
             <div class="row text-center row-cols-1 row-cols-lg-4 row-cols-sm-2">
-                <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/marcas-proprias.webp')}}" class="scale img-fluid" alt="Marcas Próprias" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="#" class="rounded-icon bg-orange interactive-banners-icon"><i class="feather icon-feather-download text-white"></i></a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">Marcas Próprias</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
+                @foreach($catalogs as $catalog)
+                    <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
+                        <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
+                            <img src="data:image/jpeg;base64,{{$catalog['avatar']}}" class="scale img-fluid" alt="{{$catalog['name']}}" />
+                            <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
+                                <div class="d-table h-100 w-100">
+                                    <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
+                                        <a href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="rounded-icon bg-orange interactive-banners-icon">
+                                            <i class="feather icon-feather-download text-white"></i></a>
+                                        <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">
+                                            {{$catalog['name']}}
+                                        </div>
+                                        <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title">
+                                            <a href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="text-white text-medium text-decoration-line-bottom">
+                                                Baixar Catálogo
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/medicamentos.webp')}}" class="scale img-fluid" alt="Medicamentos" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="#" class="rounded-icon bg-orange interactive-banners-icon"><i class="feather icon-feather-download text-white"></i></a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">Medicamentos</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/animais-de-producao.webp')}}" class="scale img-fluid" alt="Animais de Produção" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="#" class="rounded-icon bg-orange interactive-banners-icon"><i class="feather icon-feather-download text-white"></i></a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">Animais de Produção</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/pet.webp')}}" class="scale img-fluid" alt="PET" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="" class="rounded-icon bg-orange interactive-banners-icon">
-                                        <i class="feather icon-feather-download text-white"></i>
-                                    </a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">PET</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col interactive-banners-style-01 md-margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/garden.webp')}}" class="scale img-fluid" alt="Garden" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="#" class="rounded-icon bg-orange interactive-banners-icon"><i class="feather icon-feather-download text-white"></i></a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">Garden</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col interactive-banners-style-01 md-margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/ferragens.webp')}}" class="scale img-fluid" alt="Ferragens" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="" class="rounded-icon bg-orange interactive-banners-icon">
-                                        <i class="feather icon-feather-download text-white"></i>
-                                    </a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">Ferragens</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/utilidades-domesticas.webp')}}" class="scale img-fluid" alt="Utilidades Domésticas" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="#" class="rounded-icon bg-orange interactive-banners-icon"><i class="feather icon-feather-download text-white"></i></a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">Utilidades Domésticas</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                        <img src="{{asset('images/catalogos/epis.webp')}}" class="scale img-fluid" alt="EPI's" />
-                        <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                            <div class="d-table h-100 w-100">
-                                <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                    <a href="#" class="rounded-icon bg-orange interactive-banners-icon"><i class="feather icon-feather-download text-white"></i></a>
-                                    <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">EPIs</div>
-                                    <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title"><a href="#" class="text-white text-medium text-decoration-line-bottom">Download</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
+
             <div class="row">
                 <div class="col-12 text-center">
                     <a href="#" class="btn btn-link thin btn-extra-large text-extra-dark-gray margin-70px-top d-inline-block

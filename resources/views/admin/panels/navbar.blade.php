@@ -28,6 +28,15 @@
                 </div>
                 <div class="float-end bookmark-wrapper d-flex align-items-center">
                     <ul class="nav navbar-nav float-end navbarInfos">
+
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <i class="fa-regular fa-bell font-medium-5"></i>
+                                <span class="badge badge-pill badge-danger badge-up">
+                                    0
+                                </span>
+                            </a>
+                        </li>
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-bs-toggle="dropdown">
                                 <div class="user-nav d-sm-flex">
@@ -61,6 +70,8 @@
                                     </a>
                                 </li>
 
+
+
                                 <li>
                                     <div class="dropdown-divider"></div>
                                 </li>
@@ -89,4 +100,7 @@
         </div>
     </div>
 </nav>
+
+@include('admin.notifications.offcanvas-notifications')
+
 <?php /**PATH C:\Users\usuario\Desktop\Rocky_clone\rockyadmin-laravel\resources\views/panels/navbar.blade.php ENDPATH**/ ?>

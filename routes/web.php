@@ -35,15 +35,17 @@ Route::prefix('auth')
 */
 Route::prefix('admin')
     ->controller(DashboardController::class)
-    ->middleware(['auth'])
+    ->middleware(['auth', 'notifications'])
     ->group(function () {
         Route::get('/', 'index')->name('dashboard');
+
+        Route::get('/all-notifications', 'allNotifications')->name('all-notifications');
     });
 
 
 Route::prefix('home')
     ->controller(HomePageController::class)
-    ->middleware(['auth'])
+    ->middleware(['auth', 'notifications'])
     ->group(function () {
         Route::get('/', 'index')->name('home');
 
@@ -53,7 +55,7 @@ Route::prefix('home')
 
 Route::prefix('user')
     ->controller(UserController::class)
-    ->middleware(['auth'])
+    ->middleware(['auth', 'notifications'])
     ->group(function () {
         Route::get('/', 'index')->name('user');
 
@@ -77,24 +79,35 @@ Route::prefix('user')
 
 Route::prefix('catalogs')
     ->controller(CatalogsController::class)
+    ->middleware(['auth', 'notifications'])
     ->group(function () {
         Route::get('/', 'index')->name('catalogs');
 
         Route::get('/view-create-catalog', 'viewCreateCatalog')->name('catalogs.view-create');
         Route::post('/create', 'create')->name('catalogs.create');
+
+        Route::get('/view-update-catalog/{id}', 'viewUpdateCatalog')->name('catalogs.view-update');
+        Route::post('/update/{id}', 'update')->name('catalogs.update');
+
+        Route::get('/admin/pages/catalogs/delete/{id}', 'delete')->name('catalogs.delete');
     });
 
 Route::prefix('contacts')
     ->controller(ContactsController::class)
+    ->middleware(['auth', 'notifications'])
     ->group(function () {
        Route::get('/', 'index')->name('contacts');
 
        Route::get('/view-details-contact/{id}', 'viewDetailsContact')->name('contacts.view-details');
        Route::get('/admin/pages/contacts/delete/{id}', 'deleteContact')->name('contacts.delete');
+
+        Route::put('/notification-read/{id}', 'notificationRead')->name('contacts.notification-read');
+
     });
 
 Route::prefix('sectors')
     ->controller(SectorsController::class)
+    ->middleware(['auth', 'notifications'])
     ->group(function () {
         Route::get('/', 'index')->name('sectors');
         Route::get('/view-create-sector', 'viewCreateSector')->name('sectors.view-create');
@@ -108,6 +121,7 @@ Route::prefix('sectors')
 
 Route::prefix('jobs')
     ->controller(JobsController::class)
+    ->middleware(['auth', 'notifications'])
     ->group(function () {
        Route::get('/', 'index')->name('jobs');
 
@@ -144,6 +158,8 @@ Route::prefix('sobre')
 
         Route::get('/descricao-vaga/{id}', 'descricaoVaga')->name('descricao-vaga');
         Route::post('/enviar-curriculo/{id}', 'enviarCurriculo')->name('enviar-curriculo');
+
+        Route::get('/download-pdf/{filename}', 'downloadPdf')->name('download-pdf');
     });
 
 Route::prefix('marcas')

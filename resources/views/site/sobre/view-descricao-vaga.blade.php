@@ -183,9 +183,14 @@
                                         <h6 class="justify-content-center d-flex">
                                             Anexar Currículo
                                         </h6>
-                                        <input type="file" name="file_pdf" value="{{old('file_pdf')}}" accept="application/pdf" required class="medium-input bg-white margin-25px-bottom">
-                                        <div class="col-12 text-center text-md-end">
-                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0" type="submit">
+                                        <input type="file" name="file_pdf" value="{{old('file_pdf')}}" accept="application/pdf"
+                                               required class="medium-input bg-white margin-25px-bottom">
+
+                                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                        <div id="recaptchaError" class="text-danger"></div>
+
+                                        <div class="col-12 mt-3">
+                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0" onclick="verifyRecaptcha()" type="submit">
                                                 Candidatar-se
                                             </button>
                                         </div>
@@ -246,4 +251,18 @@
             });
         </script>
     @endif
+
+    <script>
+        function verifyRecaptcha() {
+            let recaptchaToken = grecaptcha.getResponse();
+
+            if (!recaptchaToken) {
+                document.getElementById('recaptchaError').innerText = 'Por favor, preencha o reCAPTCHA.';
+                return false;
+            }
+
+            document.getElementById('recaptchaError').innerText = '';
+            document.getElementById('form-jobs').submit();
+        }
+    </script>
 @endsection

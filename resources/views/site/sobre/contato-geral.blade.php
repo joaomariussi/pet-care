@@ -178,7 +178,7 @@
                         </div>
                         <div class="col-12">
                             <!-- start contact form -->
-                            <form action="{{route('enviar-contato')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('enviar-contato')}}" method="POST" id="form_contact" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row row-cols-1 row-cols-md-2">
                                     <div class="col margin-1-rem-bottom sm-margin-25px-bottom">
@@ -229,8 +229,12 @@
                                                   required
                                                   placeholder="Mensagem">
                                         </textarea>
-                                        <div class="col text-center text-md-end">
-                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0" type="submit">
+
+                                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                        <div id="recaptchaError" class="text-danger"></div>
+
+                                        <div class="col mt-3">
+                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0" onclick="verifyRecaptcha()" type="submit">
                                                 Enviar Mensagem
                                             </button>
                                         </div>
@@ -285,4 +289,20 @@
     </section>
 
     @include('site.includes.footer')
+@endsection
+
+@section('page-scripts')
+    <script>
+        function verifyRecaptcha() {
+            let recaptchaToken = grecaptcha.getResponse();
+
+            if (!recaptchaToken) {
+                document.getElementById('recaptchaError').innerText = 'Por favor, preencha o reCAPTCHA.';
+                return false;
+            }
+
+            document.getElementById('recaptchaError').innerText = '';
+            document.getElementById('form_contact').submit();
+        }
+    </script>
 @endsection

@@ -466,3 +466,30 @@ span {
         opacity: .7
     }
 }
+
+.avatar {
+    position: relative;
+    width: 2.375rem;
+    height: 2.375rem;
+    cursor: pointer;
+}
+
+.avatar-initial {
+    width: 2.375rem;
+    height: 2.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-notify {
+    background-color: #ededed;
+    justify-content: center;
+    display: flex;
+    color: #677788;
+
+    &:hover {
+        background-color: #ededed;
+        color: black;
+    }
+}

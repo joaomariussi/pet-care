@@ -8,6 +8,7 @@ use App\Http\Requests\site\ResumesCreateRequest;
 use App\Models\admin\Jobs;
 use App\Models\admin\Sectors;
 use App\Models\site\Contacts;
+use App\Models\site\Notifications;
 use App\Models\site\Resumes;
 use App\Notifications\UserNotification;
 use App\Traits\FileTrait;
@@ -16,7 +17,9 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Throwable;
 
 class SobreController extends Controller
@@ -70,14 +73,33 @@ class SobreController extends Controller
     public function enviarCurriculo(ResumesCreateRequest $request, $id): RedirectResponse
     {
         try {
-            $file = $request->file('file_pdf');
-            $saveFile = $this->saveLocal($file, 'curriculos', $file->getClientOriginalName());
-            $attributes = $request->validated();
-            $attributes['file_pdf'] = $saveFile['file_name'];
-            $attributes['job_id'] = $id;
-            Resumes::query()->create($attributes);
-            UserNotification::success('Currículo enviado com sucesso!');
+            $keySecret = env('RECAPTCHA_SECRET_KEY');
+            $userResponse = $request->get('g-recaptcha-response');
+            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret' => $keySecret,
+                'response' => $userResponse
+            ]);
+            $dados = $response->json();
+
+            if ($dados['success']) {
+                $file = $request->file('file_pdf');
+                $saveFile = $this->saveLocal($file, 'curriculos', $file->getClientOriginalName());
+                $attributes = $request->validated();
+                $attributes['file_pdf'] = $saveFile['file_name'];
+                $attributes['job_id'] = $id;
+                $resumes = Resumes::query()->create($attributes);
+                Notifications::query()->create([
+                    'message' => 'Novo currículo recebido!',
+                    'link' => route('jobs.view-details-resumes', $resumes['id']),
+                    'type' => 'jobs'
+                ]);
+
+                UserNotification::success('Currículo enviado com sucesso!');
+            } else {
+                UserNotification::error('Erro ao enviar currículo!');
+            }
             return redirect()->back();
+
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             return redirect()->back()->with('error', 'Erro ao enviar currículo!');
@@ -101,16 +123,56 @@ class SobreController extends Controller
         }
     }
 
+    /**
+     * @param ContactsCreateRequest $request
+     * @return RedirectResponse
+     * @throws Exception
+     * @throws Throwable
+     * @info Enviar contato geral
+     */
     public function enviarContato(ContactsCreateRequest $request): RedirectResponse
     {
         try {
-            $attributes = $request->validated();
-            Contacts::query()->create($attributes);
-            UserNotification::success('Mensagem enviada com sucesso!');
+            $keySecret = env('RECAPTCHA_SECRET_KEY');
+            $userResponse = $request->get('g-recaptcha-response');
+            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret' => $keySecret,
+                'response' => $userResponse
+            ]);
+            $dados = $response->json();
+            if ($dados['success']) {
+                $attributes = $request->validated();
+                $contacts = Contacts::query()->create($attributes);
+                Notifications::query()->create([
+                    'message' => 'Novo formulário de contato recebido!',
+                    'link' => route('contacts.view-details', $contacts['id']),
+                    'type' => 'contacts'
+                ]);
+                UserNotification::success('Mensagem enviada com sucesso!');
+            } else {
+                UserNotification::error('Erro ao enviar mensagem!');
+            }
+
             return redirect()->back();
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             return redirect()->back()->with('error', 'Erro ao enviar mensagem!');
         }
+    }
+
+    /**
+     * @param $filename
+     * @return BinaryFileResponse
+     */
+    public function downloadPdf($filename): BinaryFileResponse
+    {
+        try {
+            $filePath = public_path('imports/catalogs/' . $filename);
+            return response()->download($filePath);
+        } catch (Throwable $t) {
+            Log::error($t->getMessage());
+            return redirect()->back()->with('error', 'Erro ao baixar arquivo!');
+        }
+
     }
 }

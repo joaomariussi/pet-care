@@ -30,7 +30,7 @@ ul.list-inline {
     }
     i {
       /* List Group Icon css */
-      font-size: 1.4rem;
+      font-size: 16px;
     }
   }
   //Removed list group button focus outline
@@ -70,4 +70,9 @@ ul.list-inline {
 
 .list-group-item {
     color: #566a7f;
+}
+
+.dropdown-notifications-item {
+    padding: 1rem !important;
+    border-bottom: 1px solid #dee2e6 !important;
 }

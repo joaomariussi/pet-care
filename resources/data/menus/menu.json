@@ -46,12 +46,6 @@
             "icon": "fa-solid fa-book"
         },
         {
-            "can": "user",
-            "url": "configs/",
-            "name": "Configurações",
-            "icon": "fa-solid fa-gear"
-        },
-        {
             "navheader": "administração"
         },
         {

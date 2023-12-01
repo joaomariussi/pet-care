@@ -60,7 +60,7 @@ class LoginController extends Controller
 
             if (Auth::attempt($request->only('email', 'password'))) {
                 UserNotification::success('Login realizado com sucesso.');
-                return redirect()->route('home');
+                return redirect()->route('dashboard');
             } else {
                 UserNotification::error('Login ou senha inválidos.');
                 return redirect()->route('login');

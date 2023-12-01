@@ -20,6 +20,32 @@
     <script src="{{asset('js/scripts/customizer.js')}}"></script>
     <script src="{{asset('js/core/libraries/jquery-mask-plugin/jquery-mask.js')}}"></script>
     <script src="{{asset('js/scripts/extensions/masks.js')}}"></script>
+
+     <script>
+         $(document).ready(function () {
+             // Obtém o token CSRF do meta tag no layout
+             let csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+             $('.visualizar-notificacao').on('click', function () {
+                 let id = $(this).data('notificacao');
+                 $.ajax({
+                     url: '/contacts/notification-read/' + id,
+                     type: 'PUT',
+                     headers: {
+                         'X-CSRF-TOKEN': csrfToken
+                     },
+                     dataType: 'json',
+                     success: function (data) {
+                         console.log(data);
+                     },
+                     error: function (xhr, status, error) {
+                         console.error(xhr.responseText);
+                     }
+                 });
+             });
+         });
+     </script>
+
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page Notification-->

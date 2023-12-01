@@ -97,7 +97,7 @@
                 .toggleClass("card-fullscreen")
         })
 
-        //  Notifications & messages scrollable
+        //  NotificationsMiddleware & messages scrollable
         $(".scrollable-container").each(function () {
             var scrollable_container = new PerfectScrollbar($(this)[0], {
                 wheelPropagation: false

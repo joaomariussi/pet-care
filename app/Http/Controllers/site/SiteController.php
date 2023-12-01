@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Catalogs;
 use App\Models\admin\HomeConfig;
 use App\Notifications\UserNotification;
 use Illuminate\Contracts\Foundation\Application;
@@ -18,8 +19,9 @@ class SiteController extends Controller
     public function index(): View|Application|Factory|RedirectResponse|null
     {
         try {
+            $catalogs = Catalogs::query()->where('status', '=', '1')->get();
             $home = HomeConfig::query()->first();
-            return view('site.index', compact('home'));
+            return view('site.index', compact('home', 'catalogs'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao carregar a página inicial!');

@@ -67,6 +67,7 @@
                                         </div>
                                         <div class="card-content">
                                             <div class="card-body card-dashboard">
+                                                {{$dataTable->table()}}
                                             </div>
                                         </div>
                                     </div>
@@ -78,4 +79,11 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('page-scripts')
+    <script src="{{ asset('plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('js/scripts/datatables/datatable.js') }}"></script>
+    {{$dataTable->scripts()}}
 @endsection
