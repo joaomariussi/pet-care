@@ -31,10 +31,17 @@
 
                         <li class="dropdown dropdown-notification nav-item">
                             <a class="nav-link nav-link-label" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                <i class="fa-regular fa-bell font-medium-5"></i>
-                                <span class="badge badge-pill badge-danger badge-up">
-                                    0
-                                </span>
+                                @if(session('countNotifications') > 0)
+                                    <i class="fa-regular fa-bell fa-shake font-medium-5"></i>
+                                    <span class="badge badge-pill badge-danger badge-up">
+                                        {{session('countNotifications', 0)}}
+                                    </span>
+                                @else
+                                    <i class="fa-regular fa-bell font-medium-5"></i>
+                                    <span class="badge badge-pill badge-danger badge-up">
+                                        {{session('countNotifications', 0)}}
+                                    </span>
+                                @endif
                             </a>
                         </li>
                         <li class="dropdown dropdown-user nav-item">

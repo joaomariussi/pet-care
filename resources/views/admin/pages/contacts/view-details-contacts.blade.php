@@ -14,8 +14,8 @@
                                 <ol class="breadcrumb breadcrumb-cadastros">
                                     <li class="breadcrumb-item"><a href="/"><i class="fa-solid fa-house"></i></a></li>
                                     <li class="breadcrumb-item">Gerenciamento</li>
-                                    <li class="breadcrumb-item"><a href="">Contatos</a></li>
-                                    <li class="breadcrumb-item"><a href="">Lista de Contatos</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('contacts')}}">Contatos</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('contacts')}}">Lista de Contatos</a></li>
                                     <li class="breadcrumb-item active">Detalhes do Contato</li>
                                 </ol>
                             </nav>

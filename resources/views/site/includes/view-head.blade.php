@@ -19,4 +19,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/site/components.css')}}">
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
 </head>

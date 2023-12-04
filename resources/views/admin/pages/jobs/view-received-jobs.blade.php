@@ -17,8 +17,8 @@
                                         class="fa-solid fa-house"></i></a>
                             </li>
                             <li class="breadcrumb-item">Gerenciamento</li>
-                            <li class="breadcrumb-item">Trabalhe Conosco</li>
-                            <li class="breadcrumb-item">Lista de Vagas</li>
+                            <li class="breadcrumb-item"><a href="{{route('jobs')}}">Trabalhe Conosco</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('jobs')}}">Lista de Vagas</a></li>
                             <li class="breadcrumb-item active">Currículos Recebidos</li>
                         </ol>
                     </nav>

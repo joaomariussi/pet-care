@@ -74,18 +74,19 @@ class ContactsController extends Controller
 
     /**
      * @param $id
-     * @return void
+     * @return bool
      * Marca a notificação como lida
      */
-    public function notificationRead($id): void
+    public function notificationRead($id): bool
     {
         try {
             $notify = Notifications::find($id);
             $notify->update(['read' => true]);
-            dd($notify);
+            return true;
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao tentar ler a notificação!');
         }
+        return false;
     }
 }

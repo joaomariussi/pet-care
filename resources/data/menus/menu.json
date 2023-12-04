@@ -17,12 +17,6 @@
         },
         {
             "can": "user",
-            "url": "blog/",
-            "name": "Blog",
-            "icon": "fa-solid fa-blog"
-        },
-        {
-            "can": "user",
             "url": "contacts/",
             "name": "Contatos",
             "icon": "fa-solid fa-address-book"

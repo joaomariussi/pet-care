@@ -17,7 +17,7 @@
                                 <ol class="breadcrumb breadcrumb-cadastros">
                                     <li class="breadcrumb-item"><a href="/"><i class="fa-solid fa-house"></i></a></li>
                                     <li class="breadcrumb-item">Gerenciamento</li>
-                                    <li class="breadcrumb-item"><a href="{{route('user')}}">Catálogos</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('catalogs')}}">Catálogos</a></li>
                                     <li class="breadcrumb-item active">Editar</li>
                                 </ol>
                             </nav>

@@ -116,39 +116,45 @@
 
                                 <div class="row row-cols-1 row-cols-md-2">
                                     <div class="col margin-4-rem-bottom sm-margin-25px-bottom">
-                                        <input type="text" class="medium-input margin-25px-bottom required"
+                                        <input type="text" class="form-control medium-input margin-25px-bottom required"
                                                readonly disabled
                                                value="{{$job['name']}}">
-                                        <input class="medium-input bg-white margin-25px-bottom required"
+                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
                                                type="text"
                                                name="name"
                                                value="{{old('name')}}"
                                                required
                                                placeholder="Nome Completo">
-                                        <input class="medium-input bg-white margin-25px-bottom required"
+                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
                                                type="email"
                                                name="email"
                                                value="{{old('email')}}"
                                                required
                                                placeholder="E-mail">
-                                        <input class="medium-input bg-white margin-25px-bottom required"
-                                               type="tel"
-                                               name="phone"
-                                               required
-                                               value="{{old('phone')}}"
-                                               placeholder="Seu Contato">
-                                        <input class="medium-input bg-white margin-25px-bottom required"
+                                        <div class="input-group">
+                                            <span class="input-group-text" style="max-height: 53px;">
+                                                <span id="selected-country-flag" class="flag-icon flag-icon-br"></span>
+                                                <span id="selected-country-code">+55</span>
+                                            </span>
+                                            <input class="medium-input bg-white margin-25px-bottom required phone form-control"
+                                                   type="tel"
+                                                   name="phone"
+                                                   required
+                                                   value="{{old('phone')}}"
+                                                   placeholder="Contato">
+                                        </div>
+                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
                                                type="date"
                                                name="birth_date"
                                                required
                                                value="{{old('birth_date')}}"
                                                placeholder="Sua Data de Nascimento">
-                                        <input class="medium-input bg-white margin-25px-bottom required"
+                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
                                                name="city"
                                                required
                                                value="{{old('city')}}"
                                                placeholder="Cidade">
-                                        <select class="medium-input bg-white mb-0 required" name="state" required>
+                                        <select class="form-control medium-input bg-white mb-0 required" name="state" required>
                                             <option value="" disabled selected>Selecione o Estado</option>
                                             <option value="AC">Acre</option>
                                             <option value="AL">Alagoas</option>
@@ -184,7 +190,7 @@
                                             Anexar Currículo
                                         </h6>
                                         <input type="file" name="file_pdf" value="{{old('file_pdf')}}" accept="application/pdf"
-                                               required class="medium-input bg-white margin-25px-bottom">
+                                               required class="form-control medium-input bg-white margin-25px-bottom">
 
                                         <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
                                         <div id="recaptchaError" class="text-danger"></div>
@@ -263,6 +269,22 @@
 
             document.getElementById('recaptchaError').innerText = '';
             document.getElementById('form-jobs').submit();
+        }
+    </script>
+
+    <script src="{{asset('js/core/libraries/jquery-mask-plugin/jquery-mask.js')}}"></script>
+    <script src="{{asset('js/scripts/extensions/masks.js')}}"></script>
+
+    <script>
+        function updateCountryCode() {
+            let countrySelect = document.getElementById("country-select");
+            let selectedCountry = countrySelect.value;
+            let selectedOption = countrySelect.options[countrySelect.selectedIndex];
+            let countryCode = selectedOption.getAttribute("data-country-code");
+            let countryFlag = selectedOption.value;
+
+            document.getElementById("selected-country-flag").className = "flag-icon flag-icon-" + countryFlag;
+            document.getElementById("selected-country-code").textContent = "+" + countryCode;
         }
     </script>
 @endsection

@@ -18,9 +18,9 @@
                                 <ol class="breadcrumb breadcrumb-cadastros">
                                     <li class="breadcrumb-item"><a href="/"><i class="fa-solid fa-house"></i></a></li>
                                     <li class="breadcrumb-item">Gerenciamento</li>
-                                    <li class="breadcrumb-item"><a href="">Trabalhe Conosco</a></li>
-                                    <li class="breadcrumb-item"><a href="">Lista de Vagas</a></li>
-                                    <li class="breadcrumb-item"><a href="">Currículos Recebidos</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('jobs')}}">Trabalhe Conosco</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('jobs')}}">Lista de Vagas</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('jobs.view-received', $resumes[0]['id'])}}">Currículos Recebidos</a></li>
                                     <li class="breadcrumb-item active">Detalhes do Candidato</li>
                                 </ol>
                             </nav>

@@ -182,52 +182,81 @@
                                 @csrf
                                 <div class="row row-cols-1 row-cols-md-2">
                                     <div class="col margin-1-rem-bottom sm-margin-25px-bottom">
-                                        <select name="sector_id" id="sector_id" class="medium-input margin-25px-bottom bg-white">
+                                        <select name="sector_id" id="sector_id" class="form-control medium-input margin-25px-bottom bg-white">
                                             <option value="" selected disabled>Escolha um setor</option>
                                             @foreach($sectors as $sector)
                                                 <option value="{{$sector->id}}">{{$sector['name']}}</option>
                                             @endforeach
                                         </select>
-                                        <input class="medium-input bg-white margin-25px-bottom required"
+                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
                                                type="text"
                                                name="name"
                                                required
                                                value="{{old('name')}}"
                                                placeholder="Nome Completo">
-                                        <input class="medium-input bg-white margin-25px-bottom required"
+                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
                                                type="email"
                                                name="email"
                                                value="{{old('email')}}"
                                                required
                                                placeholder="E-mail">
-                                        <input class="medium-input bg-white margin-25px-bottom"
-                                               type="tel"
-                                               name="phone_number"
-                                               value="{{old('phone_number')}}"
-                                               required
-                                               placeholder="Telefone">
-                                        <input class="medium-input bg-white margin-25px-bottom"
+                                        <div class="input-group">
+                                            <span class="input-group-text" style="max-height: 53px;">
+                                                <span id="selected-country-flag" class="flag-icon flag-icon-br"></span>
+                                                <span id="selected-country-code">+55</span>
+                                            </span>
+                                            <input class="form-control medium-input bg-white margin-25px-bottom phone"
+                                                   type="tel"
+                                                   name="phone_number"
+                                                   value="{{old('phone_number')}}"
+                                                   required
+                                                   placeholder="Telefone">
+                                        </div>
+                                        <input class="form-control medium-input bg-white margin-25px-bottom"
                                                name="city_name"
                                                value="{{old('city_name')}}"
                                                required
                                                placeholder="Cidade">
-                                        <input class="medium-input bg-white mb-0"
-                                               name="state_uf"
-                                               value="{{old('state_uf')}}"
-                                               required
-                                               placeholder="Seu Estado">
+                                        <select class="form-control medium-input bg-white mb-0 required"
+                                                value="{{old('state_uf')}}"
+                                                name="state_uf" required>
+                                            <option value="" disabled selected>Selecione o Estado</option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AP">Amapá</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espírito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option>
+                                            <option value="PR">Paraná</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="TO">Tocantins</option>
+                                        </select>
                                     </div>
                                     <div class="col margin-1-rem-bottom sm-margin-10px-bottom">
-                                        <input class="medium-input bg-white margin-25px-bottom"
+                                        <input class="form-control medium-input bg-white margin-25px-bottom"
                                                type="text"
                                                name="subject"
                                                value="{{old('subject')}}"
                                                placeholder="Assunto">
-                                        <textarea class="medium-textarea h-200px bg-white"
-                                                  name="message"
-                                                  value="{{old('message')}}"
-                                                  required
-                                                  placeholder="Mensagem">
+                                        <textarea class="form-control medium-textarea h-200px bg-white" name="message" value="{{old('message')}}" required placeholder="Mensagem">
                                         </textarea>
 
                                         <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
@@ -305,4 +334,20 @@
             document.getElementById('form_contact').submit();
         }
     </script>
+
+    <script>
+        function updateCountryCode() {
+            let countrySelect = document.getElementById("country-select");
+            let selectedCountry = countrySelect.value;
+            let selectedOption = countrySelect.options[countrySelect.selectedIndex];
+            let countryCode = selectedOption.getAttribute("data-country-code");
+            let countryFlag = selectedOption.value;
+
+            document.getElementById("selected-country-flag").className = "flag-icon flag-icon-" + countryFlag;
+            document.getElementById("selected-country-code").textContent = "+" + countryCode;
+        }
+    </script>
+
+    <script src="{{asset('js/core/libraries/jquery-mask-plugin/jquery-mask.js')}}"></script>
+    <script src="{{asset('js/scripts/extensions/masks.js')}}"></script>
 @endsection

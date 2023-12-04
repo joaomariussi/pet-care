@@ -541,47 +541,49 @@
         </div>
     </section>
 
-    <section class="half-section bg-light-gray">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12 text-center">
-                    <h4 class="alt-font text-extra-dark-gray font-weight-500">Catálogos de Produtos</h4>
+    @if (count($catalogs) > 0)
+        <section class="half-section bg-light-gray">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h4 class="alt-font text-extra-dark-gray font-weight-500">Catálogos de Produtos</h4>
+                    </div>
                 </div>
-            </div>
-            <div class="row text-center row-cols-1 row-cols-lg-4 row-cols-sm-2">
-                @foreach($catalogs as $catalog)
-                    <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
-                        <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
-                            <img src="data:image/jpeg;base64,{{$catalog['avatar']}}" class="scale img-fluid" alt="{{$catalog['name']}}" />
-                            <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
-                                <div class="d-table h-100 w-100">
-                                    <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                        <a href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="rounded-icon bg-orange interactive-banners-icon">
-                                            <i class="feather icon-feather-download text-white"></i></a>
-                                        <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">
-                                            {{$catalog['name']}}
-                                        </div>
-                                        <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title">
-                                            <a href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="text-white text-medium text-decoration-line-bottom">
-                                                Baixar Catálogo
-                                            </a>
+                <div class="row text-center row-cols-1 row-cols-lg-4 row-cols-sm-2">
+                    @foreach($catalogs as $catalog)
+                        <div class="col interactive-banners-style-01 margin-30px-bottom xs-margin-15px-bottom">
+                            <div class="interactive-banners-image border-radius-6px bg-dark-slate-blue">
+                                <img src="data:image/jpeg;base64,{{$catalog['avatar']}}" class="scale img-fluid" alt="{{$catalog['name']}}" />
+                                <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
+                                    <div class="d-table h-100 w-100">
+                                        <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
+                                            <a href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="rounded-icon bg-orange interactive-banners-icon">
+                                                <i class="feather icon-feather-download text-white"></i></a>
+                                            <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">
+                                                {{$catalog['name']}}
+                                            </div>
+                                            <div class="font-weight-500 line-height-normal alt-font text-uppercase interactive-banners-sub-title">
+                                                <a href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="text-white text-medium text-decoration-line-bottom">
+                                                    Baixar Catálogo
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
 
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a href="#" class="btn btn-link thin btn-extra-large text-extra-dark-gray margin-70px-top d-inline-block
-                        -margin-40px-top sm-margin-20px-top">Visualizar todos os catálogos</a>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="#" class="btn btn-link thin btn-extra-large text-extra-dark-gray margin-70px-top d-inline-block
+                            -margin-40px-top sm-margin-20px-top">Visualizar todos os catálogos</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <section class="big-section position-relative wow animate__fadeIn">
         <div class="opacity-full bg-gradient-orange-gray"></div>

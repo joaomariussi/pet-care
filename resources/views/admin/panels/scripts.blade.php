@@ -36,7 +36,12 @@
                      },
                      dataType: 'json',
                      success: function (data) {
-                         console.log(data);
+                         if (data === true) {
+                            window.location.href = '/contacts/notification/' + id;
+                         } else {
+                            console.error('Erro ao marcar como lida');
+                         }
+
                      },
                      error: function (xhr, status, error) {
                          console.error(xhr.responseText);
