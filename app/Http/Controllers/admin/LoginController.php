@@ -59,6 +59,7 @@ class LoginController extends Controller
         try {
 
             if (Auth::attempt($request->only('email', 'password'))) {
+                session()->put('user', Auth::user());
                 UserNotification::success('Login realizado com sucesso.');
                 return redirect()->route('dashboard');
             } else {

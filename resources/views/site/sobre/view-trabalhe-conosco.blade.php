@@ -28,9 +28,9 @@
                             <li class="nav-item">
                                 <a href="{{route('quem-somos')}}" title="Sobre a Cassul Distribuidora" class="nav-link">Sobre</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Produtos</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="#" class="nav-link">Produtos</a>--}}
+{{--                            </li>--}}
                             <li class="nav-item dropdown simple-dropdown">
                                 <a href="#" class="nav-link">Nossas Marcas</a>
                                 <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
@@ -42,12 +42,12 @@
                                     <li><a href="{{route('sellenza')}}">Sellenza</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Loja Online</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Blog</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="#" class="nav-link">Loja Online</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="#" class="nav-link">Blog</a>--}}
+{{--                            </li>--}}
                             <li class="nav-item">
                                 <a href="{{route('contato-geral')}}" title="Contato Cassul Distribuidora" class="nav-link">Contato</a>
                             </li>
