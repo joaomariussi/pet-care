@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
          ]);
 
          User::query()->create([
-             'name' => 'Eunir Kaiser',
-             'email' => 'eunirk@gmail.com',
+             'name' => 'Lucas Chiarello',
+             'email' => 'lucas@rockyecommerce.com.br',
              'password' => Hash::make('UntDev@2023'),
              'password_recovery_token' => encrypt('UntDev@2023'),
              'type' => 'webmaster'

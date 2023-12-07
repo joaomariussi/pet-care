@@ -67,7 +67,7 @@
                                             <div class="form-group">
                                                 <label for="home_title">Título</label>
                                                 <input type="text" class="form-control" id="home_title"
-                                                       name="home_title" value="{{old('home_title', $homeConfig['home_title'])}}"
+                                                       name="home_title" value="{{old('home_title', $homeConfig['home_title'] ?? '')}}"
                                                        required>
                                             </div>
                                             @error('home_title')
@@ -79,7 +79,7 @@
                                             <div class="form-group">
                                                 <label for="home_subtitle">Subtítulo</label>
                                                 <input type="text" class="form-control" id="home_subtitle"
-                                                       name="home_subtitle" value="{{old('home_subtitle', $homeConfig['home_subtitle'])}}"
+                                                       name="home_subtitle" value="{{old('home_subtitle', $homeConfig['home_subtitle'] ?? '')}}"
                                                        required>
                                             </div>
                                             @error('home_subtitle')
@@ -92,7 +92,7 @@
                                                 <label hidden class="" for="background_img">Imagem de Fundo</label>
                                                 <div class="max-width">
                                                     <div class="imgContainer">
-                                                        @if($homeConfig['avatar'])
+                                                        @isset($homeConfig['avatar'])
                                                             <img src="data:image/png;base64,{{$homeConfig['avatar']}}"
                                                                  alt="{{$homeConfig['home_title']}}" id="imgPhoto">
                                                         @else
@@ -101,7 +101,7 @@
                                                     </div>
                                                 </div>
                                                 <input type="file" id="avatar" name="avatar"
-                                                       value="{{old('avatar', $homeConfig['avatar'])}}"
+                                                       value="{{old('avatar', $homeConfig['avatar'] ?? '')}}"
                                                        accept="image/*">
 
                                                 <small class="label-img">
