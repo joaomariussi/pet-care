@@ -18,7 +18,7 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        config(['view.active_sidebar' => 'dashboard/']);
+        config(['view.active_sidebar' => 'admin/']);
     }
 
     /**

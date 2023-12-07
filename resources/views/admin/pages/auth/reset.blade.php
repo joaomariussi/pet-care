@@ -11,7 +11,7 @@
         <div class="authentication-inner row">
             <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center background_img">
                 <div class="flex-row text-center mx-auto">
-                    <img src="{{asset('images/pages/login/login-ecommerce.png')}}" alt="Backgroud imagem login" class="img-fluid authentication-cover-img">
+                    <img src="{{asset('images/Login.webp')}}" alt="Backgroud imagem login" class="img-fluid authentication-cover-img">
                 </div>
             </div>
 
@@ -20,7 +20,7 @@
                     <div class="app-brand mb-4">
                         <a href="{{route('login')}}" class="app-brand-link gap-2 mb-2">
                             <span class="app-brand-logo demo">
-                                <img class="img-fluid logo-empresa" src="{{asset('images/pages/login/partner.png')}}" alt="Logo parceiros">
+                                <img class="img-fluid logo-empresa" src="{{asset('images/rocky-logo.webp')}}" alt="Logo parceiros">
                             </span>
                         </a>
                     </div>

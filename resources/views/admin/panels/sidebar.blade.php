@@ -7,7 +7,9 @@
                 <li class="nav-item me-auto brand-text">
                     <a class="navbar-brand">
                         <div id="corIcon" class="plano-loja">
-                            <img src="{{asset('images/logo/logo-cassul.png')}}" alt="logo" class="logo">
+                            <a href="{{route('dashboard')}}" title="Dashboard">
+                                <img src="{{asset('images/logo-orange.png')}}" alt="logo" class="logo">
+                            </a>
                         </div>
                     </a>
                 </li>
@@ -55,7 +57,7 @@
         <div class="navbar-header logo-sociais">
             <div class="nav-item brand-text text-center">
                 <a class="img-fluid" href="/">
-                    <img src="{{asset('images/logo/logo.webp')}}" class="logo-partner" alt="Logo">
+                    <img src="{{asset('images/rocky-logo.webp')}}" class="logo-partner" alt="Logo">
                 </a>
             </div>
         </div>

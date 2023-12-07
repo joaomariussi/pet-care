@@ -11,7 +11,7 @@
         <div class="authentication-inner row">
             <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center background_img">
                 <div class="flex-row text-center mx-auto">
-                    <img src="{{asset('images/background/background-login.png')}}"
+                    <img src="{{asset('images/Login.webp')}}"
                          alt="Backgroud imagem login"
                          class="img-fluid authentication-cover-img">
                 </div>
@@ -22,7 +22,7 @@
                     <div class="app-brand mb-4">
                         <a href="#" class="app-brand-link gap-2 mb-2">
                             <span class="app-brand-logo demo">
-                                <img class="img-fluid" src="{{asset('images/logo/logo-cassul.png')}}" alt="Logo Cassul">
+                                <img class="img-fluid" src="{{asset('images/logo-orange.png')}}" alt="Logo Cassul">
                             </span>
                         </a>
                     </div>

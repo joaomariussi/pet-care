@@ -2,7 +2,7 @@
     "menu": [
         {
             "can": "user",
-            "url": "dashboard/",
+            "url": "admin/",
             "name": "Dashboard",
             "icon": "fa-solid fa-gauge"
         },
