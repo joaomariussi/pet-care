@@ -94,7 +94,7 @@
                                     <div class="col-12">
                                         <div class="alert alert-danger" role="alert">
                                             <i class="fa-solid fa-triangle-exclamation"></i>
-                                            <span>Não há notificações para serem exibidas.</span>
+                                            <span>Não encontramos notificações para serem exibidas.</span>
                                         </div>
                                     </div>
                                 @endif
