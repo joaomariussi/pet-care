@@ -96,7 +96,7 @@
                                                             <img src="data:image/png;base64,{{$homeConfig['avatar']}}"
                                                                  alt="{{$homeConfig['home_title']}}" id="imgPhoto">
                                                         @else
-                                                            <img src="{{asset('images/background/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                            <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
                                                         @endif
                                                     </div>
                                                 </div>

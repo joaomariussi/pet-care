@@ -59,10 +59,10 @@
                 </div>
                 <div class="col-auto col-lg-2 text-end pe-0 font-size-0">
                     <div class="header-social-icon d-inline-block">
-                        <a href="https://www.facebook.com/CassulDistribuidora" target="_blank">
+                        <a href="https://www.facebook.com/CassulDistribuidora" title="Facebook" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/cassuldistribuidora/" target="_blank">
+                        <a href="https://www.instagram.com/cassuldistribuidora/" title="Instagram" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>

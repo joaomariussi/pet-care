@@ -493,3 +493,18 @@ span {
         color: black;
     }
 }
+
+.btn-site {
+    background: #FFFFFF;
+    color: #232323;
+
+    &:hover {
+        background: #FFFFFF;
+        color: #232323;
+        opacity: .7;
+    }
+
+    #corIcon {
+        font-size: 16px;
+    }
+}

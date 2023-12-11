@@ -1,0 +1,58 @@
+{
+    "menu": [
+        {
+            "can": "user",
+            "url": "admin/",
+            "name": "Dashboard",
+            "icon": "fa-solid fa-gauge"
+        },
+        {
+            "navheader": "gerenciamento - site"
+        },
+        {
+            "can": "user",
+            "url": "home/",
+            "name": "Home",
+            "icon": "fa-solid fa-home"
+        },
+        {
+            "can": "user",
+            "url": "contacts/",
+            "name": "Contatos",
+            "icon": "fa-solid fa-address-book"
+        },
+        {
+            "can": "user",
+            "url": "jobs/",
+            "name": "Trabalhe Conosco",
+            "icon": "fa-solid fa-briefcase"
+        },
+        {
+            "can": "user",
+            "url": "sectors/",
+            "name": "Setores",
+            "icon": "fa-solid fa-building"
+        },
+        {
+            "can": "user",
+            "url": "catalogs/",
+            "name": "Catálogos",
+            "icon": "fa-solid fa-book"
+        },
+        {
+            "navheader": "administração"
+        },
+        {
+            "can": "admin",
+            "url": "user/",
+            "name": "Usuários",
+            "icon": "fa-solid fa-user"
+        },
+        {
+            "can": "user",
+            "url": "user/view-profile-user",
+            "name": "Meu Perfil",
+            "icon": "fa-solid fa-id-badge"
+        }
+    ]
+}

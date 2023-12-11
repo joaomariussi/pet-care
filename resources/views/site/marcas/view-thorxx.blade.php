@@ -49,11 +49,6 @@
                                 <a href="#produtos" class="nav-link">Produtos</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#catalogo" title="Sobre a Cassul Distribuidora" class="nav-link">
-                                    Catálogo
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="#encontrar" class="nav-link">
                                     Onde Encontrar
                                 </a>
@@ -115,7 +110,7 @@
     </section>
     <!-- end section -->
     <!-- start section -->
-    <section class="bg-light-gray wow animate__fadeIn">
+    <section class="bg-light-gray wow animate__fadeIn" id="produtos">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-12 text-center margin-3-rem-bottom">

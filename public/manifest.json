@@ -1,0 +1,30 @@
+{
+    "short_name": "Cassul Distribuidora",
+    "name": "Cassul Distribuidora, uma referência no mercado de distribuição e varejo desde 1983",
+    "description": "Conheça nossas marcas próprias e produtos de alta qualidade em diversos segmentos.",
+    "icons": [
+        {
+            "src": "public/images/logos/logo-orange96x96.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "public/images/logos/logo-orange144x144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "public/images/logos/logo-orange512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#f36e4a",
+    "theme_color": "#005eaf",
+    "orientation": "portrait",
+    "display": "standalone"
+}

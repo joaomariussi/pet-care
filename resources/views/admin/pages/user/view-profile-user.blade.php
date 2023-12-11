@@ -34,7 +34,7 @@
                                 @empty($user['avatar'])
                                     <div class="d-flex mb-3 gap-2 justify-content-center">
                                         <img class="img-fluid" width="180" height="180" alt="Avatar do Usuário"
-                                             src="{{asset('images/logo/avatar.webp')}}">
+                                             src="{{asset('images/avatar.webp')}}">
                                     </div>
                                 @else
                                     <div class="d-flex mb-3 gap-2 justify-content-center">
@@ -183,7 +183,7 @@
                                                                     @isset($user['avatar'])
                                                                         <img src="data:image/jpeg;base64,{{$user['avatar']}}" alt="Logo Usuário" id="imgPhoto">
                                                                     @else
-                                                                        <img src="{{asset('images/background/camera.png')}}"
+                                                                        <img src="{{asset('images/camera.png')}}"
                                                                              alt="Selecione uma imagem" id="imgPhoto">
                                                                     @endisset
                                                                 </div>

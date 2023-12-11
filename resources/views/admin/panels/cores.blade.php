@@ -1,5 +1,4 @@
 <style type="text/css">
-    #corIcon,
     .header-navbar .navbar-container .bookmark-wrapper ul.nav li > a.nav-link i:hover,
     .header-navbar .navbar-container ul.nav li a.dropdown-user-link .user-name:hover,
     .navbar-nav a:hover,

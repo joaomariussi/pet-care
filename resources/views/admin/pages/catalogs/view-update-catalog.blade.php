@@ -160,7 +160,7 @@
                                                                     @if($catalogs['avatar'])
                                                                         <img src="data:image/jpeg;base64,{{$catalogs['avatar']}}" alt="Logo Usuário" id="imgPhoto">
                                                                     @else
-                                                                        <img src="{{asset('images/background/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                                        <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
                                                                     @endif
                                                                 </div>
                                                             </div>

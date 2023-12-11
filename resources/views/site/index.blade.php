@@ -60,10 +60,10 @@
                 </div>
                 <div class="col-auto col-lg-2 text-end pe-0 font-size-0">
                     <div class="header-social-icon d-inline-block">
-                        <a href="https://www.facebook.com/CassulDistribuidora" target="_blank">
+                        <a href="https://www.facebook.com/CassulDistribuidora" title="Facebook" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/cassuldistribuidora/" target="_blank">
+                        <a href="https://www.instagram.com/cassuldistribuidora/" title="Instagram" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -546,7 +546,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 text-center">
-                        <h4 class="alt-font text-extra-dark-gray font-weight-500">Catálogos de Produtos</h4>
+                        <h5 class="alt-font text-extra-dark-gray font-weight-500">Catálogos de Produtos</h5>
                     </div>
                 </div>
                 <div class="row text-center row-cols-1 row-cols-lg-4 row-cols-sm-2">
@@ -557,7 +557,7 @@
                                 <div class="interactive-banners-hover bg-gradient-extra-dark-gray-transparent">
                                     <div class="d-table h-100 w-100">
                                         <div class="d-table-cell align-bottom padding-3-half-rem-tb xs-padding-6-half-rem-tb">
-                                            <a href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="rounded-icon bg-orange interactive-banners-icon">
+                                            <a title="{{$catalog['name']}}" href="{{route('download-pdf', ['filename' => $catalog['fileUpload']])}}" class="rounded-icon bg-orange interactive-banners-icon">
                                                 <i class="feather icon-feather-download text-white"></i></a>
                                             <div class="font-weight-500 line-height-normal alt-font text-white text-large interactive-banners-title">
                                                 {{$catalog['name']}}
