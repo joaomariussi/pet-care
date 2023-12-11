@@ -11,16 +11,16 @@
     <meta property="og:title" content="Cassul Distribuidora | @yield('title')">
     <meta property="og:description" content="">
     <meta property="og:url" content="{{url()->current()}}">
-    <meta property="og:type" content="">
+    <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:site_name" content="">
-    <meta property="og:image" content="">
+    <meta property="og:site_name" content="Cassul Distribuidora">
+    <meta property="og:image" content="{{asset('images/logo-orange.png')}}">
 
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{url()->current()}}">
     <meta name="csrf-token" content="{{csrf_token()}}"/>
     <!-- favicon icon -->
-    <link rel="shortcut icon" href="{{asset('images/favicon.webp')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon.webp')}}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{asset('images/apple-icon/apple-icon-57.webp')}}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{asset('images/apple-icon/apple-icon-72.webp')}}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{asset('images/apple-icon/apple-icon-114.webp')}}">

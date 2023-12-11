@@ -314,7 +314,7 @@
                         </span>
                         </div>
 
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5547999999999&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Imbatível."
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5547999999999&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Thorxx."
                            class="btn btn-fancy btn-large btn-fast-red btn-round-edge w-100 font-size-16" title="Enviar mensagem">
                             <i class="fab fa-whatsapp"></i> Enviar mensagem
                         </a>
