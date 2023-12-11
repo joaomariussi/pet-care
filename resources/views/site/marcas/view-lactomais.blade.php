@@ -102,7 +102,7 @@
                                             </h4>
                                             <span class="align-self-center text-center margin-30px-left">
                                             <a href="#history" class="d-inline-block line-height-65px rounded-circle bg-lactomais w-60px h-60px">
-                                                <i class="feather icon-feather-arrow-right text-extra-large text-white"></i>
+                                                <i class="feather icon-feather-arrow-down text-extra-large text-white"></i>
                                             </a>
                                         </span>
                                         </div>
