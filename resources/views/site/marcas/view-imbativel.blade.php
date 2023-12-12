@@ -329,7 +329,7 @@
                     <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
                         <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
                             <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
+                                <img src="{{asset('images/imbativel/icones/raticidas.webp')}}" alt="" class="text-fast-yellow margin-25px-bottom">
                                 <!-- <i class="line-icon-Mail-Read d-block icon-medium text-fast-yellow margin-25px-bottom"></i> -->
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
@@ -348,7 +348,7 @@
                     <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
                         <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
                             <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
+                                <img src="{{asset('images/imbativel/icones/cupincidas.webp')}}" alt="" class="text-fast-yellow margin-25px-bottom">
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
                                 <span class="text-white text-extra-medium d-block alt-font font-weight-500">Cupincidas</span>
@@ -366,7 +366,7 @@
                     <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
                         <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
                             <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
+                                <img src="{{asset('images/imbativel/icones/lesmicidas.webp')}}" alt="" class="text-fast-yellow margin-25px-bottom">
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
                                 <span class="text-white text-extra-medium d-block alt-font font-weight-500">Lesmicidas</span>
@@ -386,7 +386,7 @@
                     <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
                         <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
                             <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
+                                <img src="{{asset('images/imbativel/icones/pulgas.webp')}}" alt="" class="text-fast-yellow margin-25px-bottom">
                                 <!-- <i class="line-icon-Mail-Read d-block icon-medium text-fast-yellow margin-25px-bottom"></i> -->
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
@@ -405,7 +405,7 @@
                     <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
                         <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
                             <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
+                                <img src="{{asset('images/imbativel/icones/baraticidas.webp')}}" alt="" class="text-fast-yellow margin-25px-bottom">
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
                                 <span class="text-white text-extra-medium d-block alt-font font-weight-500">Baraticidas</span>
@@ -423,7 +423,7 @@
                     <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
                         <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
                             <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
+                                <img src="{{asset('images/imbativel/icones/herbicidas.webp')}}" alt="" class="text-fast-yellow margin-25px-bottom">
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
                                 <span class="text-white text-extra-medium d-block alt-font font-weight-500">Herbicidas</span>
