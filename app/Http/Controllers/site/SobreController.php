@@ -41,7 +41,9 @@ class SobreController extends Controller
     public function trabalheConosco(): View|Factory|Application|RedirectResponse
     {
         try {
-            $sectors = Sectors::query()->with('jobs')->get();
+            $sectors = Sectors::query()->with('jobs')
+                ->where('status', '1')
+                ->get();
             return view('site.sobre.view-trabalhe-conosco', compact('sectors'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -115,7 +117,10 @@ class SobreController extends Controller
     public function contatoGeral(): View|Factory|Application|RedirectResponse
     {
         try {
-            $sectors = Sectors::query()->get();
+            $sectors = Sectors::query()
+                ->where('status', 1)
+                ->where('available', 1)
+                ->get();
             return view('site.sobre.contato-geral', compact('sectors'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());

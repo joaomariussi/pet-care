@@ -78,7 +78,6 @@ class HomePageController extends Controller
             $this->homeConfig::query()->update($homeConfig);
             UserNotification::success('Configuração da home atualizada com sucesso!');
         } catch (Throwable $t) {
-            dd($t->getMessage());
             Log::error($t->getMessage());
             UserNotification::error('Erro ao atualizar a configuração da home!');
         }

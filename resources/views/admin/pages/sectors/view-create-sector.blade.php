@@ -55,7 +55,10 @@
                                                                 <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
                                                             </div>
                                                         </div>
-                                                        <input type="file" id="avatar" name="avatar" accept="image/*">
+                                                        <input type="file"
+                                                               class="@error('avatar') is-invalid @enderror"
+                                                               id="avatar"
+                                                               name="avatar" accept="image/*">
 
                                                         <small class="label-img">
                                                             IMAGEM DO SETOR
@@ -64,12 +67,14 @@
                                                         <small class="type_permited">
                                                             Permitido *.jpeg, *.jpg, *.png, *.gif, *.svg, *.webp
                                                             <br>
-                                                            Tamanho: 525x525px
+                                                            Tamanho: 350x255px
                                                         </small>
+                                                        @error('avatar')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
                                                     </div>
-                                                    @error('avatar')
-                                                    {{form_collapse_errors_message('avatar', $message)}}
-                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -81,7 +86,7 @@
                         <div class="col-12 col-md-8 col-xl-8">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','description','status'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','description','status', 'email_sector', 'available'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                             aria-expanded="true" aria-controls="avatar-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
                                         <span class="ms-2">Informações Gerais</span>
@@ -95,7 +100,7 @@
                                                         <div class="form-group">
                                                             <label for="name">Nome</label>
                                                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                                                   name="name" placeholder="Nome do setor" value="{{old('name')}}">
+                                                                   name="name" placeholder="Ex: Financeiro" value="{{old('name')}}">
                                                             @error('name')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
@@ -107,8 +112,11 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label for="description">Descrição</label>
-                                                            <textarea class="form-control @error('description') is-invalid @enderror" rows="4" id="description"
-                                                                      name="description" placeholder="Descrição do setor">{{old('description')}}</textarea>
+                                                            <textarea class="form-control @error('description') is-invalid @enderror"
+                                                                      value="{{old('description')}}"
+                                                                      rows="4" id="description"
+                                                                      name="description">
+                                                            </textarea>
                                                             @error('description')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
@@ -119,12 +127,40 @@
 
                                                     <div class="col-12">
                                                         <div class="form-group">
+                                                            <label for="email_sector">E-mail do Setor</label>
+                                                            <input type="email" class="form-control @error('email_sector') is-invalid @enderror" id="email_sector"
+                                                                   name="email_sector" placeholder="Ex: financeiro@gmail.com" value="{{old('email_sector')}}">
+                                                            @error('email_sector')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="form-group">
                                                             <label for="status">Status</label>
                                                             <select class="form-select @error('status') is-invalid @enderror" id="status" name="status">
                                                                 <option value="1" {{old('status') == '1' ? 'selected' : ''}}>Ativo</option>
                                                                 <option value="0" {{old('status') == '0' ? 'selected' : ''}}>Inativo</option>
                                                             </select>
                                                             @error('status')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="available">Disponível no formulário de contato</label>
+                                                            <select class="form-select @error('available') is-invalid @enderror" id="available" name="available">
+                                                                <option value="1" {{old('available') == '1' ? 'selected' : ''}}>Sim</option>
+                                                                <option value="0" {{old('available') == '0' ? 'selected' : ''}}>Não</option>
+                                                            </select>
+                                                            @error('available')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

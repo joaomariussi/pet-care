@@ -125,12 +125,40 @@
 
                                                     <div class="col-12">
                                                         <div class="form-group">
+                                                            <label for="email_sector">E-mail do setor</label>
+                                                            <input type="email" class="form-control @error('email_sector') is-invalid @enderror" id="email_sector"
+                                                                   name="email_sector" placeholder="E-mail do setor" value="{{old('email_sector')?:$sector['email_sector']}}">
+                                                            @error('email_sector')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="form-group">
                                                             <label for="status">Status</label>
                                                             <select class="form-select @error('status') is-invalid @enderror" id="status" name="status">
                                                                 <option value="1" {{(old('status') == '1' || $sector['status'] == '1') ? 'selected' : ''}}>Ativo</option>
                                                                 <option value="0" {{(old('status') == '0' || $sector['status'] == '0') ? 'selected' : ''}}>Inativo</option>
                                                             </select>
                                                             @error('status')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="available">Disponível no formulário de contato</label>
+                                                            <select class="form-select @error('available') is-invalid @enderror" id="available" name="available">
+                                                                <option value="1" {{(old('available') == '1' || $sector['available'] == '1') ? 'selected' : ''}}>Sim</option>
+                                                                <option value="0" {{(old('available') == '0' || $sector['available'] == '0') ? 'selected' : ''}}>Não</option>
+                                                            </select>
+                                                            @error('available')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

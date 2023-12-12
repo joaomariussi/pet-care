@@ -40,6 +40,12 @@
             "icon": "fa-solid fa-book"
         },
         {
+            "can": "user",
+            "url": "blog/",
+            "name": "Blog",
+            "icon": "fa-solid fa-blog"
+        },
+        {
             "navheader": "administração"
         },
         {

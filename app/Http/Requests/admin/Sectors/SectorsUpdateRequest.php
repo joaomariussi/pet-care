@@ -24,8 +24,10 @@ class SectorsUpdateRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'status' => 'required|boolean'
+            'avatar' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'status' => 'required|boolean',
+            'email_sector' => 'required|string|max:191|unique:sectors,email_sector,' . $this->id,
+            'available' => 'required|boolean'
         ];
     }
 
@@ -44,7 +46,13 @@ class SectorsUpdateRequest extends FormRequest
             'avatar.mimes' => 'O avatar deve ser uma imagem do tipo: jpeg, png, jpg, gif, svg,webp',
             'avatar.max' => 'O tamanho máximo do avatar é 2MB',
             'status.required' => 'O status é obrigatório',
-            'status.boolean' => 'O status deve ser um booleano'
+            'status.boolean' => 'O status deve ser um booleano',
+            'email_sector.required' => 'O email do setor é obrigatório',
+            'email_sector.string' => 'O email do setor deve ser uma string',
+            'email_sector.max' => 'O email do setor deve ter no máximo 191 caracteres',
+            'email_sector.unique' => 'O email do setor já está em uso',
+            'available.required' => 'O status de disponibilidade é obrigatório',
+            'available.boolean' => 'O status de disponibilidade deve ser um booleano'
         ];
     }
 }

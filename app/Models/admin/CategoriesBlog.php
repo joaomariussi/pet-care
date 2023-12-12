@@ -5,23 +5,19 @@ namespace App\Models\admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Sectors extends Model{
-
+class CategoriesBlog extends Model
+{
     /**
      * @var string
      */
-    protected $table = 'sectors';
+    protected $table = 'categories_blog';
 
     /**
-     * @var string
+     * @var string[]
      */
     protected $fillable = [
-        'name',
-        'description',
-        'avatar',
-        'status',
-        'email_sector',
-        'available'
+        'name-category',
+        'status'
     ];
 
     /**
@@ -35,8 +31,8 @@ class Sectors extends Model{
     /**
      * @return HasMany
      */
-    public function jobs(): HasMany
+    public function noticesBlog(): HasMany
     {
-        return $this->hasMany(Jobs::class, 'sector_id', 'id');
+        return $this->hasMany(NoticesBlog::class, 'category_id', 'id');
     }
 }

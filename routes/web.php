@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CatalogsController;
 use App\Http\Controllers\admin\ContactsController;
 use App\Http\Controllers\admin\DashboardController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\SectorsController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\site\MarcasController;
+use App\Http\Controllers\site\NoticesBlogController;
 use App\Http\Controllers\site\SiteController;
 use App\Http\Controllers\site\SobreController;
 use Illuminate\Support\Facades\Route;
@@ -131,14 +133,29 @@ Route::prefix('jobs')
        Route::get('/view-update-jobs/{id}', 'viewUpdateJobs')->name('jobs.view-update');
        Route::post('/update/{id}', 'updateJobs')->name('jobs.update');
 
-         Route::get('/admin/pages/jobs/delete/{id}', 'deleteJobs')->name('jobs.delete');
+       Route::get('/admin/pages/jobs/delete/{id}', 'deleteJobs')->name('jobs.delete');
 
-         Route::get('/view-received-jobs/{id}', 'viewReceivedJobs')->name('jobs.view-received');
-         Route::get('/view-details-resumes/{id}', 'viewDetailsResumes')->name('jobs.view-details-resumes');
+       Route::get('/view-received-jobs/{id}', 'viewReceivedJobs')->name('jobs.view-received');
+       Route::get('/view-details-resumes/{id}', 'viewDetailsResumes')->name('jobs.view-details-resumes');
 
-         Route::get('/admin/pages/jobs/delete-resume/{id}', 'deleteResume')->name('jobs.delete-resume');
+       Route::get('/admin/pages/jobs/delete-resume/{id}', 'deleteResume')->name('jobs.delete-resume');
     });
 
+Route::prefix('blog')
+    ->controller(BlogController::class)
+    ->middleware(['auth', 'notifications'])
+    ->group(function () {
+        Route::get('/', 'index')->name('blog');
+        Route::get('/view-index-categories', 'indexCategories')->name('blog.view-index-categories');
+
+        Route::get('view-create-categories', 'viewCreateCategories')->name('blog.view-create-categories');
+        Route::post('/create-categories', 'createCategories')->name('blog.create-categories');
+
+        Route::get('view-create-notices', 'viewCreateNotices')->name('blog.view-create-notices');
+        Route::post('/create-notices', 'createNotices')->name('blog.create-notices');
+        Route::get('/view-details-notices/{id}', 'viewDetailsNotices')->name('blog.view-details-notices');
+
+    });
 
 /*
 |--------------------------------------------------------------------------
@@ -170,6 +187,12 @@ Route::prefix('marcas')
         Route::get('/lactomais', 'indexLactomais')->name('lactomais');
         Route::get('/thorxx', 'indexThorxx')->name('thorxx');
         Route::get('/sellenza', 'indexSellenza')->name('sellenza');
+    });
+
+Route::prefix('notices-blog')
+    ->controller(NoticesBlogController::class)
+    ->group(function () {
+        Route::get('/view-details-notices/{id}', 'viewDetailsNotices')->name('notices-blog.view-details-notices');
     });
 
 /*
