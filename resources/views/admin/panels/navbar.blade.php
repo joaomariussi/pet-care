@@ -17,12 +17,12 @@
                     <ul class="nav navbar-nav lojaInfos">
                         <li class="nav navbar-nav">
 
-{{--                            <div class="d-flex align-items-center custom-control custom-switch custom-switch-success custom-control-inline ms-1">--}}
-{{--                                <i id="corIcon" class="fa-solid fa-arrow-up-right-from-square font-medium-3"></i>--}}
-{{--                                <a href="{{session('rocky_admin.user.partner.external_link')}}" target="_blank" class="">--}}
-{{--                                    <span class="loja-online irLoja">Link Externo</span>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
+                            <div class="btn btn-site d-flex align-items-center custom-control custom-switch custom-switch-success custom-control-inline ms-1">
+                                <i id="corIcon" class="fa-solid fa-arrow-up-right-from-square"></i>
+                                <a href="/" target="_blank" class="Ver Site">
+                                    <span class="loja-online irLoja">Ver site</span>
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
                                         @if(session('user.avatar'))
                                             <img src="data:image/jpeg;base64,{{session('user.avatar')}}" alt="avatar">
                                         @else
-                                            <img src="{{asset('images/logo/avatar.webp')}}" alt="" class="rounded-circle" width="35" height="35">
+                                            <img src="{{asset('images/avatar.webp')}}" alt="" class="rounded-circle" width="35" height="35">
                                         @endif
                                     </span>
                                 </div>
@@ -65,7 +65,7 @@
                                                     @if(session('user.avatar'))
                                                         <img src="data:image/jpeg;base64,{{session('user.avatar')}}" alt="" class="rounded-circle" width="35" height="35">
                                                     @else
-                                                        <img src="{{asset('images/logo/avatar.webp')}}" alt="" class="rounded-circle" width="35" height="35">
+                                                        <img src="{{asset('images/avatar.webp')}}" alt="" class="rounded-circle" width="35" height="35">
                                                     @endif
                                                 </div>
                                             </div>

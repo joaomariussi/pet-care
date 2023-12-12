@@ -59,7 +59,7 @@
                                                                     @isset($user['avatar'])
                                                                         <img src="data:image/jpeg;base64,{{$user['avatar']}}" alt="Logo Usuário" id="imgPhoto">
                                                                     @else
-                                                                        <img src="{{asset('images/background/camera.png')}}"
+                                                                        <img src="{{asset('images/camera.png')}}"
                                                                              alt="Selecione uma imagem" id="imgPhoto">
                                                                     @endisset
                                                                 </div>

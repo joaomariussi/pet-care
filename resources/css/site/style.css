@@ -449,6 +449,7 @@ h6 { font-size:1.80rem;  font-family: Sofia Pro Soft W01 Regular;}
 .bg-light-iris-blue { background-color: #F0F9F9; }
 .bg-dark-iris-blue { background-color: #048C8C; }
 .bg-imbativel { background-color: #bf0811; }
+.bg-lactomais {background-color: #01458e;}
 
 .bg-transparent-black { background-color: rgba(0, 0, 0, 0.70); }
 .bg-transparent-black-light { background-color: rgba(0, 0, 0, 0.35); }
@@ -888,7 +889,6 @@ input.btn:focus { border-width: 2px; }
 .btn-gradient-peacock-blue-crome-yellow-2 { background-image: linear-gradient(to right, #5cc088, #e7a965, #5cc088); color: #ffffff; background-size: 200% auto; transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
 .btn-gradient-shamrock-green-light-orange:hover, .btn-gradient-shamrock-green-light-orange:focus, .btn-gradient-tan-geraldine-2:hover, .btn-gradient-tan-geraldine-2:focus, .btn-gradient-magenta-orange:hover, .btn-gradient-magenta-orange:focus, .btn-gradient-magenta-orange-2:hover, .btn-gradient-magenta-orange-2:focus, .btn-gradient-purple-magenta:hover, .btn-gradient-purple-magenta:focus, .btn-gradient-light-purple-light-orange:hover, .btn-gradient-light-purple-light-orange:focus, .btn-gradient-sky-blue-pink:hover, .btn-gradient-sky-blue-pink:focus, .btn-gradient-peacock-blue-crome-yellow:hover, .btn-gradient-peacock-blue-crome-yellow:focus, .btn-gradient-fast-blue-purple:hover, .btn-gradient-fast-blue-purple:focus, .btn-gradient-tan-geraldine:hover, .btn-gradient-tan-geraldine:focus, .btn-gradient-light-purple-light-red:hover, .btn-gradient-light-purple-light-red:focus, .btn-gradient-yellowish-green-turquoise:hover, .btn-gradient-yellowish-green-turquoise:focus, .btn-gradient-peacock-blue-crome-yellow-2:hover, .btn-gradient-peacock-blue-crome-yellow-2:focus { background-position: right center; color: #fff; }
 .btn-new-orange {background-image: linear-gradient(to right, #fe8100, #fe6100); color: #ffffff; background-size: 200% auto; transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
-
 
 /* button gradient border */
 .btn.btn-transparent-gradient-sky-blue-pink { background: tranrsparent; color: #232323; border-image-slice: 1; border-image-source: linear-gradient(45deg, rgb(85, 111, 255), rgb(255, 121, 142));}

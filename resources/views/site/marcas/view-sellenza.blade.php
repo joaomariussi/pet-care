@@ -110,11 +110,6 @@
                                 <a href="#produtos" class="nav-link">Produtos</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#catalogo" title="Sobre a Cassul Distribuidora" class="nav-link">
-                                    Catálogo
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="#encontrar" class="nav-link">
                                     Onde Encontrar
                                 </a>
@@ -383,7 +378,7 @@
         </div>
     </section>
 
-    <section class="min-section bg-light-green-sellenza wow animate__fadeIn" data-wow-delay="0.4s">
+    <section class="min-section bg-light-green-sellenza wow animate__fadeIn" id="produtos" data-wow-delay="0.4s">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12 text-center margin-two-bottom">
@@ -674,7 +669,7 @@
                         </span>
                         </div>
 
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5547999999999&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Imbatível."
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5547999999999&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Sellenza."
                            class="btn btn-fancy btn-large btn-fast-blue-sellenza btn-round-edge w-100 font-size-16" title="Enviar mensagem">
                             <i class="fab fa-whatsapp"></i> Enviar mensagem
                         </a>

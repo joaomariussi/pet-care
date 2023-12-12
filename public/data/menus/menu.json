@@ -2,24 +2,18 @@
     "menu": [
         {
             "can": "user",
-            "url": "dashboard/",
+            "url": "admin/",
             "name": "Dashboard",
             "icon": "fa-solid fa-gauge"
         },
         {
-            "navheader": "gerenciamento"
+            "navheader": "gerenciamento - site"
         },
         {
             "can": "user",
             "url": "home/",
             "name": "Home",
             "icon": "fa-solid fa-home"
-        },
-        {
-            "can": "user",
-            "url": "blog/",
-            "name": "Blog",
-            "icon": "fa-solid fa-blog"
         },
         {
             "can": "user",

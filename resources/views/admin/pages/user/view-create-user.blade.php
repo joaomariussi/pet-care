@@ -51,7 +51,7 @@
                                                             <label hidden class="mb-3" for="avatar">Avatar</label>
                                                             <div class="max-width">
                                                                 <div class="imageContainer">
-                                                                    <img src="{{asset('images/background/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                                    <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
                                                                 </div>
                                                             </div>
                                                             <input type="file" id="avatar" name="avatar" accept="image/*">
