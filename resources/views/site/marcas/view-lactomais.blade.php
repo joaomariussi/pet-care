@@ -88,7 +88,7 @@
                   "keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "slide" }'>
                     <div class="swiper-wrapper">
                         <!-- start slider item -->
-                        <div class="swiper-slide cover-background" style="background-image:url('https://via.placeholder.com/1920x1080');">
+                        <div class="swiper-slide cover-background" style="background-image:url('{{asset('images/lactomais/banner-principal.webp')}}');">
                             <div class="d-flex flex-column justify-content-end ms-auto w-600px h-100 xl-w-550px sm-w-70 sm-w-100">
                                 <div class="bg-white padding-7-rem-tb padding-8-rem-lr xl-padding-5-rem-tb xl-padding-6-rem-lr xs-padding-2-half-rem-all">
                                     <div class="col-12 p-0 margin-25px-bottom d-md-inline-block align-items-center justify-content-center">
@@ -145,7 +145,7 @@
                 </div>
                 <div class="col-12 col-lg-4 last-paragraph-no-margin">
                     <div class="outside-box-bottom position-relative">
-                        <img src="https://via.placeholder.com/720x1084" class="wow animate__fadeIn" data-wow-delay="0.5s" alt=""/>
+                        <img src="{{asset('images/lactomais/banner-secundario.webp')}}" class="wow animate__fadeIn" data-wow-delay="0.5s" alt=""/>
                     </div>
                 </div>
             </div>
@@ -475,7 +475,7 @@
     </div>
 
     <section id="contato" class="cover-background bg-extra-dark-gray big-section xs-no-padding-tb xs-border-tb border-color-medium-gray wow animate__fadeIn"
-             style="background-image:url('{{asset('images/lactomais/Banner_Bovinos.webp')}}');">
+             style="background-image:url('{{asset('images/lactomais/banner-contato.webp')}}');">
         <div class="container xs-no-padding-lr">
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-7 col-lg-7 col-md-9 col-sm-11">
