@@ -72,7 +72,7 @@
                                                         <small class="type_permited">
                                                             Permitido *.jpeg, *.jpg, *.png, *.gif, *.svg, *.webp
                                                             <br>
-                                                            Tamanho: 315x255px
+                                                            Tamanho: 800x560px
                                                         </small>
                                                         @error('avatar')
                                                             <div class="invalid-feedback">
