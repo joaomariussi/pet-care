@@ -14,6 +14,7 @@ class ContactsCreateRequest extends FormRequest
         return [
             'name'          => 'required|string|max:255',
             'email'         => 'required|email|max:255',
+            'cnpj'          => 'max:191|unique:contacts,cnpj',
             'phone_number'  => 'required|string|max:255',
             'city_name'     => 'required|string|max:255',
             'state_uf'      => 'required|string|max:255',
@@ -35,6 +36,8 @@ class ContactsCreateRequest extends FormRequest
             'email.required'        => 'O campo e-mail é obrigatório.',
             'email.email'           => 'O e-mail deve ser um e-mail válido.',
             'email.max'             => 'O e-mail não pode ter mais de 255 caracteres.',
+            'cnpj.max'              => 'O CNPJ não pode ter mais de 191 caracteres.',
+            'cnpj.unique'           => 'O CNPJ já está em uso.',
             'phone_number.required' => 'O campo telefone é obrigatório.',
             'phone_number.string'   => 'O telefone deve ser uma string.',
             'phone_number.max'      => 'O telefone não pode ter mais de 255 caracteres.',

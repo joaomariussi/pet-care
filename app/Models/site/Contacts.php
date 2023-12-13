@@ -19,6 +19,7 @@ class Contacts extends Model
     protected $fillable = [
         'name',
         'email',
+        'cnpj',
         'phone_number',
         'city_name',
         'state_uf',

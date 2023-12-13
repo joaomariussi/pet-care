@@ -44,7 +44,9 @@ class CatalogsController extends Controller
     public function index(CatalogsDataTable $dataTable): mixed
     {
         try {
-            return $dataTable->render('admin.pages.catalogs.view-index');
+            $totalCatalogs = Catalogs::count();
+
+            return $dataTable->render('admin.pages.catalogs.view-index', compact('totalCatalogs'));
         } catch (Throwable $t) {
             throw new Exception($t->getMessage());
         }

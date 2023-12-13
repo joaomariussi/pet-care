@@ -41,7 +41,9 @@ class BlogController extends Controller
     public function index(NoticesBlogDataTable $datatable): mixed
     {
         try {
-            return $datatable->render('admin.pages.blog.view-index');
+            $totalNotices = NoticesBlog::count();
+
+            return $datatable->render('admin.pages.blog.view-index', compact('totalNotices'));
         } catch (Throwable $t) {
             throw new Exception($t->getMessage());
         }
@@ -53,7 +55,9 @@ class BlogController extends Controller
     public function indexCategories(CategoriesBlogDataTable $datatable): mixed
     {
         try {
-            return $datatable->render('admin.pages.blog.view-index-categories');
+            $totalCategories = CategoriesBlog::count();
+
+            return $datatable->render('admin.pages.blog.view-index-categories', compact('totalCategories'));
         } catch (Throwable $t) {
             throw new Exception($t->getMessage());
         }

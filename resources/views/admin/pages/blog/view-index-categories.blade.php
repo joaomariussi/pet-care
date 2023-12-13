@@ -58,7 +58,7 @@
                                         <div class="card-body cards-geral">
                                             <i class="fa-solid fa-list font-large-1"></i>
                                             <div class="card-produtos-quantidade ms-3">
-                                                <h5 class="mb-0 me-2 itenscadastrados registered-users">0</h5>
+                                                <h5 class="mb-0 me-2 itenscadastrados registered-users">{{$totalCategories}}</h5>
                                                 <b class="text-muted">Categorias Cadastradas</b>
                                             </div>
                                         </div>
