@@ -8,9 +8,9 @@
             <div class="container-fluid nav-header-container">
                 <div class="col-auto col-sm-6 col-lg-2 me-auto ps-lg-0">
                     <a class="navbar-brand" title="Cassul Distribuidora" href="{{route('site.index')}}">
-                        <img src="{{asset('images/logo-white.png')}}" data-at2x="{{asset('images/logo-white.png')}}" class="default-logo" alt="Logo Cassul">
-                        <img src="{{asset('images/logo-orange.png')}}" data-at2x="{{asset('images/logo-orange.png')}}" class="alt-logo" alt="Logo Cassul">
-                        <img src="{{asset('images/logo-orange.png')}}" data-at2x="{{asset('images/logo-orange.png')}}" class="mobile-logo" alt="Logo Cassul">
+                        <img src="{{asset('images/logo-white.png')}}" data-at2x="{{asset('images/logo-white.png')}}" class="default-logo" alt="Logo Cassul Branca">
+                        <img src="{{asset('images/logo-orange.png')}}" data-at2x="{{asset('images/logo-orange.png')}}" class="alt-logo" alt="Logo Cassul Laranja">
+                        <img src="{{asset('images/logo-orange.png')}}" data-at2x="{{asset('images/logo-orange.png')}}" class="mobile-logo" alt="Logo Cassul Laranja">
                     </a>
                 </div>
                 <div class="col-auto col-lg-8 menu-order px-lg-0">
@@ -142,183 +142,160 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" style="max-width: max-content;">
+            <div class="row g-3 margin-15px-bottom">
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/pet.webp')}}" class="img-fluid" alt="Linha de produtos PET" />
+                                    <div class="portfolio-box-pet portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>PET</span>
+                                            </h4>
+                                        </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/grandes-animais.webp')}}" class="img-fluid" alt="Linha de produtos para Grandes Animais" />
+                                    <div class="portfolio-grandes-animais portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>Grandes Animais</span>
+                                            </h4>
+                                        </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/exclusividades.webp')}}" class="img-fluid" alt="Linha de produtos exclusivos" />
+                                    <div class="portfolio-box-exclusividades portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>Nossas Exclusividades</span>
+                                            </h4>
+                                        </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item photography logos wow animate__fadeIn">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/agro.webp')}}" class="img-fluid" alt="Linha de produtos Agro" />
+                                    <div class="portfolio-box-agro portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>Agro</span>
+                                            </h4>
+                                        </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="row g-3">
-                <div class="col-12 col-md-6">
-
-                    <div class="row g-3">
-                        <div class="col-12 col-md-12">
-                            <div class="grid-item grid-item-double wow animate__fadeIn">
-                                <a href="#">
-                                    <div class="portfolio-box ">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/pet.webp')}}" class="img-fluid" alt="Linha de produtos PET" />
-                                            <div class="portfolio-box-pet portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb
-                                            padding-1-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 text-white alt-font text-black text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>Pet</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px">
-                                                    <i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item photography logos wow animate__fadeIn">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/garden.webp')}}" class="img-fluid" alt="Linha de produtos garden" />
+                                    <div class="portfolio-box-garden portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>Garden</span>
+                                            </h4>
                                         </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
                                     </div>
-                                </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-12">
-                            <div class="grid-item grid-item-double wow animate__fadeIn">
-                                <a href="#">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/exclusividades.webp')}}" class="img-fluid" alt="Linha de produtos exclusivos">
-                                            <div class="portfolio-box-exclusividades portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb
-                                            padding-1-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 text-white alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>Nossas Exclusividades</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px">
-                                                    <i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-12 col-md-6">
-                            <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
-                                <a href="#">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/domissanitarios.webp')}}" class="img-fluid" alt="Linha de produtos domissanitarios" />
-                                            <div class="porfolio-box-domissanitarios portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>Domissanitários</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item logos web photography wow animate__fadeIn" data-wow-delay="0.4s">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/ferragens.webp')}}" class="img-fluid" alt="Linha de produtos ferragens" />
+                                    <div class="portfolio-box-ferragens portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>Ferragens</span>
+                                            </h4>
                                         </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
                                     </div>
-                                </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                            <div class="grid-item logos web photography wow animate__fadeIn" data-wow-delay="0.4s">
-                                <a href="#">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/ferragens.webp')}}" class="img-fluid" alt="Linha de produtos ferragens" />
-                                            <div class="portfolio-box-ferragens portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>Ferragens</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="grid-item grid-item-double wow animate__fadeIn">
-                                <a href="#">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/grandes-animais.webp')}}" class="img-fluid" alt="Linha grandes animais" />
-                                            <div class="portfolio-grandes-animais portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-3-rem-tb
-                                            padding-4-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>Grandes Animais</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px">
-                                                    <i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-
-                <div class="col-12">
-                    <div class="row g-3">
-                        <div class="col-12 col-md-4">
-                            <div class="grid-item photography logos wow animate__fadeIn">
-                                <a href="#">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/garden.webp')}}" class="img-fluid" alt="Linha de produtos garden" />
-                                            <div class="portfolio-box-garden portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>Garden</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item photography logos wow animate__fadeIn">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/epis.webp')}}" class="img-fluid" alt="Linha de produtos EPI's" />
+                                    <div class="portfolio-box-epis portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>EPI's</span>
+                                            </h4>
                                         </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
                                     </div>
-                                </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-md-4">
-                            <div class="grid-item photography logos wow animate__fadeIn">
-                                <a href="#">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/agro.webp')}}" class="img-fluid" alt="Linha de produtos Agro" />
-                                            <div class="portfolio-box-agro portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>Agro</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-sm-6">
+                    <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
+                        <a href="#">
+                            <div class="portfolio-box">
+                                <div class="portfolio-image">
+                                    <img src="{{asset('images/linha/domissanitarios.webp')}}" class="img-fluid" alt="Linha de produtos domissanitarios" />
+                                    <div class="porfolio-box-domissanitarios portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
+                                        <div class="text-start">
+                                            <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
+                                                <span>Domissanitários</span>
+                                            </h4>
                                         </div>
+                                        <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
                                     </div>
-                                </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-md-4">
-                            <div class="grid-item photography logos wow animate__fadeIn">
-                                <a href="#">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image">
-                                            <img src="{{asset('images/linha/epis.webp')}}" class="img-fluid" alt="Linha de produtos EPI's" />
-                                            <div class="portfolio-box-epis portfolio-hover bg-transparent-white justify-content-center d-flex flex-row align-items-center padding-1-rem-tb padding-1-rem-lr xl-padding-2-rem-all">
-                                                <div class="text-start">
-                                                    <h4 class="font-weight-600 alt-font text-white text-uppercase no-margin-bottom move-bottom-top-self">
-                                                        <span>EPI's</span>
-                                                    </h4>
-                                                </div>
-                                                <span class="position-absolute top-50px right-50px move-right-left lg-top-30px lg-right-30px sm-top-20px sm-right-20px"><i class="ti-arrow-top-right icon-small text-fast-white"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
