@@ -49,11 +49,6 @@
                                 <a href="#produtos" class="nav-link">Produtos</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#catalogo" title="Sobre a Cassul Distribuidora" class="nav-link">
-                                    Catálogo
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="#encontrar" class="nav-link">
                                     Onde Encontrar
                                 </a>
