@@ -72,7 +72,7 @@
     </header>
     <!-- end header -->
     <!-- start page title -->
-    <section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('https://via.placeholder.com/1920x1100');">
+    <section class="parallax bg-extra-dark-gray" data-parallax-background-ratio="0.5" style="background-image:url('{{asset('images/thorxx/banner-principal.webp')}}');">
         <div class="opacity-extra-medium bg-extra-dark-gray"></div>
         <div class="container">
             <div class="row align-items-stretch justify-content-center small-screen">
@@ -94,11 +94,11 @@
         <div class="container" id="sobre">
             <div class="row align-items-center">
                 <div class="col-12 col-md-6 position-relative sm-margin-30px-bottom">
-                    <img class="border-radius-5px" src="https://via.placeholder.com/800x553" alt="" />
+                    <img class="border-radius-5px" src="{{asset('images/thorxx/produto.webp')}}" alt="" />
                 </div>
                 <div class="col-12 col-lg-5 col-md-6 offset-lg-1">
                     <h5 class="alt-font font-weight-500 text-extra-dark-gray w-90">
-                        Thorxx - Cassul Distribuidora
+                        Thorxx
                     </h5>
                     <p class="w-85 lg-w-90">
                         Comprometida com a qualidade e eficiência, a Thorxx transforma necessidades em soluções.
@@ -126,7 +126,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.2s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Like-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Alpha icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray d-block margin-5px-bottom font-weight-500">
@@ -141,7 +141,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.4s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Like-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Aquarius icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray text-gradient-orange-pink-hover d-block margin-5px-bottom font-weight-500">
@@ -156,7 +156,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.6s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Like-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Background icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray d-block margin-5px-bottom font-weight-500">
@@ -171,7 +171,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.2s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Talk-Man icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Engineering icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray d-block margin-5px-bottom font-weight-500">
@@ -186,7 +186,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.4s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Heart icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Spray icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray text-gradient-orange-pink-hover d-block margin-5px-bottom font-weight-500">
@@ -215,7 +215,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.6s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Gear-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Belt icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray d-block margin-5px-bottom font-weight-500">
@@ -229,7 +229,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.6s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Gear-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Shoes-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray d-block margin-5px-bottom font-weight-500">
@@ -243,7 +243,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.6s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Gear-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Environmental icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray d-block margin-5px-bottom font-weight-500">
@@ -257,7 +257,7 @@
                 <div class="col wow animate__fadeIn" data-wow-delay="0.6s">
                     <div class="feature-box feature-box-shadow padding-twenty-tb padding-twelve-lr xs-padding-fifteen-tb xs-padding-eight-lr">
                         <div class="feature-box-icon">
-                            <i class="line-icon-Gear-2 icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
+                            <i class="line-icon-Flowerpot icon-medium text-gradient-light-purple-light-orange margin-40px-bottom md-margin-20px-bottom"></i>
                         </div>
                         <div class="feature-box-content last-paragraph-no-margin">
                             <span class="text-extra-medium alt-font text-extra-dark-gray d-block margin-5px-bottom font-weight-500">
