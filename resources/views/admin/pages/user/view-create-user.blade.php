@@ -36,7 +36,7 @@
                         <div class="col-12 col-md-4">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['avatar'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                             aria-expanded="true" aria-controls="avatar-collapse">
                                         <i class="fa-solid fa-image font-medium-5"></i>
                                         <span class="ms-2">Avatar</span>
@@ -54,11 +54,18 @@
                                                                     <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
                                                                 </div>
                                                             </div>
-                                                            <input type="file" id="avatar" name="avatar" accept="image/*">
+                                                            <input type="file" id="avatar"
+                                                                   class="@error('avatar') is-invalid @enderror"
+                                                                   name="avatar" accept="image/*">
 
                                                             <small class="type_permited">
                                                                 Permitido *.jpeg, *.jpg, *.png, *.gif, *.svg, *.webp
                                                             </small>
+                                                            @error('avatar')
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -85,9 +92,11 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="name">Nome</label>
-                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
+                                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
                                                             @error('name')
-                                                            {!! form_collapse_errors_message('name', strtoupper($message)) !!}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -95,9 +104,11 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="email">E-mail</label>
-                                                            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" value="{{old('email')}}">
+                                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="E-mail" value="{{old('email')}}">
                                                             @error('email')
-                                                            {!! form_collapse_errors_message('email', strtoupper($message)) !!}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -105,13 +116,15 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="password">Senha</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="password" class="form-control @error('password') is-invalid @enderror"
                                                                    id="password"
                                                                    name="password"
                                                                    placeholder="Senha" value="{{old('password')}}">
                                                             <span toggle="#password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                             @error('password')
-                                                            {!! form_collapse_errors_message('password', strtoupper($message)) !!}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -119,10 +132,15 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="type">Tipo de Usuário</label>
-                                                            <select class="form-select" id="type" name="type">
+                                                            <select class="form-select @error('type') is-invalid @enderror" id="type" name="type">
                                                                 <option value="admin" {{old('type') == 'admin' ? 'selected' : ''}}>admin</option>
                                                                 <option value="user" {{old('type') == 'user' ? 'selected' : ''}}>user</option>
                                                             </select>
+                                                            @error('type')
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
 

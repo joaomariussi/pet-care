@@ -257,6 +257,8 @@ h6 { font-size:1.80rem;  font-family: Sofia Pro Soft W01 Regular;}
 .title-table {color: #396B33;}
 .sub-table {color: #396B33; font-weight: 400;}
 
+.subtitle-blog {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; word-break: break-word;}
+
 /* letter spacing */
 .letter-spacing-1-half { letter-spacing: 0.50px; }
 .letter-spacing-1px { letter-spacing: 1px; }
@@ -3531,7 +3533,7 @@ header .header-cart-icon .cart-count { position: absolute; top: -6px; right: -10
 ====================================== */
 
 .blog-post { position: relative; overflow: hidden; }
-.blog-post .blog-post-image img { -webkit-transition: all 1s cubic-bezier(0,0,.2,1); -moz-transition: all 1s cubic-bezier(0,0,.2,1); -ms-transition: all 1s cubic-bezier(0,0,.2,1); transition: all 1s cubic-bezier(0,0,.2,1); }
+.blog-post .blog-post-image img {height: 225px; -webkit-transition: all 1s cubic-bezier(0,0,.2,1); -moz-transition: all 1s cubic-bezier(0,0,.2,1); -ms-transition: all 1s cubic-bezier(0,0,.2,1); transition: all 1s cubic-bezier(0,0,.2,1); }
 .blog-post .blog-post-image { overflow: hidden; position: relative; }
 .blog-post:hover .blog-post-image img { opacity: 0.6; -webkit-transform: scale3d(1.1,1.1,1.1); -moz-transform: scale3d(1.1,1.1,1.1); -ms-transform: scale3d(1.1,1.1,1.1); transform: scale3d(1.1,1.1,1.1); }
 
@@ -4886,7 +4888,7 @@ input[type="checkbox"].error { box-shadow: 0px 0px 0px 1px rgb(255 0 0), 1px 1px
 .grid-loading { overflow: hidden; position: relative; opacity: 1 !important; transition: all 0s ease-in-out !important; -moz-transition: all 0s ease-in-out !important; -webkit-transition: all 0s ease-in-out !important; -ms-transition: all 0s ease-in-out !important; -o-transition: all 0s ease-in-out !important; z-index: 99; }
 .grid-loading::after { background: none; content: "" !important; position: absolute; top: 100px !important; left: calc(50% - 25px) !important; width: 50px !important; height: 50px !important; opacity: 1 !important; right: inherit !important; z-index: 9; text-align: center; border: 3px solid rgba(23, 23, 23, 0.2); border-top-color: rgba(23, 23, 23, 0.7); border-radius: 50%; animation: spin 1s linear infinite; -webkit-animation: spin 1s linear infinite; }
 .grid-loading:before { content: ""; position: absolute; right: 2px; top: 1px; width: calc(100% - 4px); height: calc(100% - 2px); border-radius: inherit; z-index: 1; }
-.grid-loading .grid-item { visibility: hidden; }
+.grid-loading .grid-item { visibility: hidden;}
 .grid-loading li.grid-item { overflow: hidden; opacity: 0; }
 
 /*grid*/
@@ -4971,6 +4973,7 @@ input[type="checkbox"].error { box-shadow: 0px 0px 0px 1px rgb(255 0 0), 1px 1px
     .tilt-box:not(:root:root) {  z-index: -1; }
     .interactive-banners-style-01 [class^="border-radius-"], .interactive-banners-style-01 [class*=" border-radius-"], .interactive-banners-style-07 [class^="border-radius-"], .interactive-banners-style-07 [class*=" border-radius-"], .interactive-banners-style-07[class*=" border-radius-"], .interactive-banners-style-08[class*=" border-radius-"], .interactive-banners-style-10 [class^="border-radius-"], .interactive-banners-style-10 [class*=" border-radius-"], .team-style-01 [class^="border-radius-"], .team-style-01 [class*=" border-radius-"], [class^="border-radius-"] .blog-post-image, [class*=" border-radius-"] .blog-post-image, .product-box .product-image[class*=" border-radius-"], .instafeed-grid figure { -webkit-mask-image: -webkit-radial-gradient(white, black); }
 }
+
 
 /* for buy and demo button */
 .theme-demos { display: none; width: 655px; height: 100%; min-height: 100%; position: fixed; background-color: #fff; right: -655px; top: 0; z-index: 1050; -webkit-transition: all .5s cubic-bezier(0.77, 0, 0.175, 1); transition: all .5s cubic-bezier(0.77, 0, 0.175, 1); }

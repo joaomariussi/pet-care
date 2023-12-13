@@ -45,14 +45,14 @@
 {{--                            <li class="nav-item">--}}
 {{--                                <a href="#" class="nav-link">Loja Online</a>--}}
 {{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="#" class="nav-link">Blog</a>--}}
-{{--                            </li>--}}
                             <li class="nav-item">
                                 <a href="{{route('contato-geral')}}" title="Contato Cassul Distribuidora" class="nav-link">Contato</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('trabalhe-conosco')}}" class="nav-link">Trabalhe Conosco</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('notices-blog.view-all-notices')}}" class="nav-link">Blog</a>
                             </li>
                         </ul>
                     </div>

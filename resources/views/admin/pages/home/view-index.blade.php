@@ -69,10 +69,12 @@
                                                 <input type="text" class="form-control" id="home_title"
                                                        name="home_title" value="{{old('home_title', $homeConfig['home_title'] ?? '')}}"
                                                        required>
+                                                @error('home_title')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                @enderror
                                             </div>
-                                            @error('home_title')
-                                                {{form_collapse_errors_message('home_title', $message)}}
-                                            @enderror
                                         </div>
 
                                         <div class="col-12 col-md-12 col-xl-12">
@@ -81,10 +83,12 @@
                                                 <input type="text" class="form-control" id="home_subtitle"
                                                        name="home_subtitle" value="{{old('home_subtitle', $homeConfig['home_subtitle'] ?? '')}}"
                                                        required>
+                                                @error('home_subtitle')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                @enderror
                                             </div>
-                                            @error('home_subtitle')
-                                                {{form_collapse_errors_message('home_subtitle', $message)}}
-                                            @enderror
                                         </div>
 
                                         <div class="col-12 col-md-12 col-xl-12">
@@ -101,6 +105,7 @@
                                                     </div>
                                                 </div>
                                                 <input type="file" id="avatar" name="avatar"
+                                                       class="@error('avatar') is-invalid @enderror"
                                                        value="{{old('avatar', $homeConfig['avatar'] ?? '')}}"
                                                        accept="image/*">
 
@@ -113,10 +118,12 @@
                                                     <br>
                                                     Tamanho: 1920x1080px
                                                 </small>
+                                                @error('avatar')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                @enderror
                                             </div>
-                                            @error('avatar')
-                                                {{form_collapse_errors_message('avatar', $message)}}
-                                            @enderror
                                         </div>
                                     </div>
                                 </fieldset>

@@ -4,16 +4,16 @@
 
 @section('content')
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent header-light fixed-top navbar-boxed header-reverse-scroll nav-general">
-        <div class="container-fluid nav-header-container">
-            <div class="col-auto col-sm-6 col-lg-2 me-auto ps-lg-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent border-bottom border-color-black-transparent header-light fixed-top top-space header-reverse-scroll">
+        <div class="container nav-header-container">
+            <div class="col-auto col-sm-6 col-lg-2 me-auto sm-padding-15px-left">
                 <a class="navbar-brand" title="Cassul Distribuidora" href="{{route('site.index')}}">
-                    <img src="{{asset('images/logo-white.png')}}" data-at2x="{{asset('images/logo-white.png')}}" class="default-logo" alt="Logo Cassul">
+                    <img src="{{asset('images/logo-orange.png')}}" data-at2x="{{asset('images/logo-orange.png')}}" class="default-logo" alt="Logo Cassul">
                     <img src="{{asset('images/logo-orange.png')}}" data-at2x="{{asset('images/logo-orange.png')}}" class="alt-logo" alt="Logo Cassul">
                     <img src="{{asset('images/logo-orange.png')}}" data-at2x="{{asset('images/logo-orange.png')}}" class="mobile-logo" alt="Logo Cassul">
                 </a>
             </div>
-            <div class="col-auto col-lg-8 menu-order px-lg-0">
+            <div class="col-auto col-lg-8 menu-order sm-padding-15px-lr">
                 <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
                     <span class="navbar-toggler-line"></span>
                     <span class="navbar-toggler-line"></span>
@@ -49,7 +49,7 @@
                             <a href="{{route('trabalhe-conosco')}}" title="Trabalha Conosco" class="nav-link">Trabalhe Conosco</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">Blog</a>
+                            <a href="{{route('notices-blog.view-all-notices')}}" class="nav-link active">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -67,58 +67,64 @@
         </div>
     </nav>
 </header>
-<!-- end header -->
-<!-- start page title -->
-<section class="half-section parallax pb-5" data-parallax-background-ratio="0.5" style="background-image:url('images/portfolio-bg.jpg');">
-    <div class="container">
-        <div class="row align-items-stretch justify-content-center">
-            <div class="col-12 col-xl-12 col-lg-12 col-md-12 page-title-extra-small text-center d-flex justify-content-center flex-column">
-                <h1 class="alt-font text-gradient-sky-blue-pink margin-15px-bottom d-inline-block">
-                    Blog standard layout
-                </h1>
-                <h2 class="text-extra-dark-gray alt-font font-weight-500 letter-spacing-minus-1px line-height-50 sm-line-height-45
-                xs-line-height-30no-margin-bottom">
-                    {{$noticeBlog['title']}}
-                </h2>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end page title -->
-<!-- start section -->
-<section class="blog-right-side-bar pt-0">
+
+<section class="blog-right-side-bar">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8 right-sidebar md-margin-60px-bottom sm-margin-40px-bottom">
-                <!-- start blog item -->
-                <div class="col-12 blog-post-content overflow-hidden text-center p-0 margin-4-half-rem-bottom wow animate__fadeIn">
-                    <div class="blog-image">
-                        <a href="blog-post-layout-01.html">
-                            <img src="data:image/jpeg;base64,{{$noticeBlog['avatar']}}" alt=""/>
-                        </a>
-                    </div>
-                    <div class="blog-text d-inline-block w-100 mt-5">
-                        {!! $noticeBlog['content'] !!}
+                <div class="row">
+                    <div class="col-12 blog-details-text last-paragraph-no-margin margin-6-rem-bottom">
+                        <ul class="list-unstyled margin-2-rem-bottom">
+                            <li class="d-inline-block align-middle margin-25px-right">
+                                <i class="feather icon-feather-calendar text-fast-orange margin-10px-right"></i>
+                                {{ \Carbon\Carbon::parse($noticeBlog['created_at'])->locale('pt_BR')->isoFormat('D [de] MMMM [de] YYYY') }}
+                            </li>
+                            <li class="d-inline-block align-middle margin-25px-right">
+                                <i class="feather icon-feather-folder text-fast-orange margin-10px-right"></i>
+                                <a title="{$noticeBlog['categoryBlog']['name-category']}}" href="{{route('notices-blog.view-notice-category', $noticeBlog['categoryBlog']['id'])}}">
+                                    {{$noticeBlog['categoryBlog']['name-category']}}
+                                </a>
+                            </li>
+                            <li class="d-inline-block align-middle">
+                                <i class="feather icon-feather-user text-fast-orange margin-10px-right"></i>
+                                Por Cassul Distribuidora
+                            </li>
+                        </ul>
+                        <h5 class="alt-font font-weight-500 text-extra-dark-gray margin-2-rem-bottom">
+                            {{$noticeBlog['title']}}
+                        </h5>
+                        <img src="data:image/jpeg;base64,{{$noticeBlog['avatar']}}"
+                             alt="{{$noticeBlog['title']}}"
+                             class="w-100 border-radius-6px margin-2-rem-bottom">
+                        <p>
+                            {!! $noticeBlog['content'] !!}
+                        </p>
                     </div>
                 </div>
             </div>
             <aside class="col-12 col-xl-3 offset-xl-1 col-lg-4 col-md-7 blog-sidebar lg-padding-4-rem-left md-padding-15px-left">
                 <div class="margin-5-rem-bottom xs-margin-35px-bottom wow animate__fadeIn">
-                    <span class="alt-font font-weight-500 text-large text-extra-dark-gray d-block margin-35px-bottom">Categorias</span>
+                    <span class="alt-font font-weight-500 text-large text-extra-dark-gray d-block margin-35px-bottom">
+                        <i class="feather icon-feather-folder margin-5px-right"></i>
+                        Categorias
+                    </span>
+
                     <ul class="list-style-07 list-unstyled">
-                        <li><a href="blog-grid.html">Entertainment</a><span class="item-qty">10</span></li>
-                        <li><a href="blog-grid.html">Business</a><span class="item-qty">05</span></li>
-                        <li><a href="blog-grid.html">Creative</a><span class="item-qty">03</span></li>
-                        <li><a href="blog-grid.html">Lifestyle</a><span class="item-qty">02</span></li>
-                        <li><a href="blog-grid.html">Fashion</a><span class="item-qty">19</span></li>
-                        <li><a href="blog-grid.html">Design</a><span class="item-qty">21</span></li>
+                        @foreach($categories as $category)
+                            <li><a href="{{route('notices-blog.view-notice-category', $category['id'])}}" title="{{$category['name-category']}}">
+                                    {{$category['name-category']}}</a>
+                                <span class="item-qty">
+                                    {{count($category['noticesBlog'])}}
+                                </span>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </aside>
-            <!-- end sidebar -->
         </div>
     </div>
 </section>
+
 
 @include('site.includes.footer')
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Models\admin;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class NoticesBlog extends Model
 {
@@ -30,4 +31,12 @@ class NoticesBlog extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * @return BelongsTo
+     */
+    public function categoryBlog(): BelongsTo
+    {
+        return $this->belongsTo(CategoriesBlog::class, 'category_id', 'id');
+    }
 }

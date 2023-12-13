@@ -1,6 +1,10 @@
 @extends('admin.layouts.menusLayout')
 
-@section('title', 'Categorias Notícias')
+@section('title', 'Categorias das Notícias')
+
+@section('page-styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/datatable/css/dataTables.bootstrap5.min.css') }}">
+@endsection
 
 @section('content')
     <section class="index-sectors">
@@ -74,7 +78,7 @@
                                         </div>
                                         <div class="card-content">
                                             <div class="card-body card-dashboard">
-
+                                                {{$dataTable->table()}}
                                             </div>
                                         </div>
                                     </div>
@@ -86,4 +90,11 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('page-scripts')
+    <script src="{{ asset('plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('js/scripts/datatables/datatable.js') }}"></script>
+    {{$dataTable->scripts()}}
 @endsection

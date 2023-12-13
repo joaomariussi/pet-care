@@ -56,9 +56,12 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="name">Nome</label>
-                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
+                                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome"
+                                                                   value="{{old('name')}}">
                                                             @error('name')
-                                                            {!! form_collapse_errors_message('name', strtoupper($message)) !!}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -66,30 +69,34 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="sector_id">Setor</label>
-                                                            <select class="form-select" id="sector_id" name="sector_id">
+                                                            <select class="form-select @error('sector_id') is-invalid @enderror" id="sector_id" name="sector_id">
                                                                 <option value="" selected disabled>Escolha um setor</option>
                                                                 @foreach($sectors as $sector)
                                                                     <option value="{{$sector->id}}">{{$sector['name']}}</option>
                                                                 @endforeach
                                                             </select>
+                                                            @error('sector')
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
+                                                            @enderror
                                                         </div>
-                                                        @error('sector')
-                                                            {!! form_collapse_errors_message('sector', strtoupper($message)) !!}
-                                                        @enderror
                                                     </div>
 
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="status">Status</label>
-                                                            <select class="form-select" id="status" name="status">
+                                                            <select class="form-select @error('status') is-invalid @enderror" id="status" name="status">
                                                                 <option value="" selected disabled>Escolha um status</option>
                                                                 <option value="1">Ativo</option>
                                                                 <option value="0">Inativo</option>
                                                             </select>
+                                                            @error('status')
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
+                                                            @enderror
                                                         </div>
-                                                        @error('status')
-                                                            {!! form_collapse_errors_message('status', strtoupper($message)) !!}
-                                                        @enderror
                                                     </div>
 
                                                     <div class="col-12">
@@ -103,9 +110,12 @@
                                                                 </div>
                                                             </div>
                                                             <input type="hidden" name="description"
+                                                                   class="@error('description') is-invalid @enderror"
                                                                    id="description" value="{{old('description')}}">
                                                             @error('description')
-                                                            {!! form_collapse_errors_message('description', strtoupper($message)) !!}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>

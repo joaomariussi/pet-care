@@ -1,6 +1,6 @@
 @extends('admin.layouts.menusLayout')
 
-@section('title', 'Cadastro de Notícias do Blog')
+@section('title', 'Editar Notícia')
 
 @section('page-styles')
     <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/catalog/catalog-index.css') }}">
@@ -26,17 +26,17 @@
                                     <li class="breadcrumb-item">Gerenciamento</li>
                                     <li class="breadcrumb-item"><a href="{{route('sectors')}}">Blog</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('sectors')}}">Notícias</a></li>
-                                    <li class="breadcrumb-item active">Nova Notícia</li>
+                                    <li class="breadcrumb-item active">Editar Notícia</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </section>
 
-                <b class="title-geral-etapas">Cadastro de Notícias</b>
-                <p>Preencha o formulário abaixo para cadastrar uma nova notícias do blog.</p>
+                <b class="title-geral-etapas">Título: {{$notice['title']}}</b>
+                <p>Preencha o formulário abaixo para editar a notícia desejada.</p>
 
-                <form method="POST" action="{{route('blog.create-notices')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('blog.update-notices', $notice['id'])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row g-3">
                         <div class="col-12 col-md-4 col-xl-4">
@@ -57,12 +57,16 @@
                                                         <label hidden class="mb-3" for="image">image</label>
                                                         <div class="max-width">
                                                             <div class="imageContainer">
-                                                                <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                                @isset($notice['avatar'])
+                                                                    <img src="data:image/jpeg;base64,{{$notice['avatar']}}" alt="Logo Usuário" id="imgPhoto">
+                                                                @else
+                                                                    <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                                @endisset
+
                                                             </div>
                                                         </div>
-                                                        <input type="file" id="avatar"
+                                                        <input type="file" id="avatar" name="avatar"
                                                                class="@error('avatar') is-invalid @enderror"
-                                                               name="avatar"
                                                                accept="image/*">
 
                                                         <small class="label-img">
@@ -72,15 +76,14 @@
                                                         <small class="type_permited">
                                                             Permitido *.jpeg, *.jpg, *.png, *.gif, *.svg, *.webp
                                                             <br>
-                                                            Tamanho: 800x560px
+                                                            Tamanho:800x560px
                                                         </small>
                                                         @error('avatar')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
                                                         @enderror
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +108,7 @@
                                                     <div class="form-group">
                                                         <label for="title">Título da Notícia</label>
                                                         <input type="text" class="form-control erroForm @error('title') is-invalid @enderror"
-                                                               id="title" name="title" value="{{old('title')}}">
+                                                               id="title" name="title" value="{{old('title')?:$notice['title']}}">
                                                         @error('title')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
@@ -118,7 +121,7 @@
                                                     <div class="form-group">
                                                         <label for="subtitle">Subtítulo da Notícia</label>
                                                         <input type="text" class="form-control erroForm @error('subtitle') is-invalid @enderror"
-                                                               id="subtitle" name="subtitle" value="{{old('subtitle')}}">
+                                                               id="subtitle" name="subtitle" value="{{old('subtitle')?:$notice['subtitle']}}">
                                                         @error('subtitle')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
@@ -133,12 +136,13 @@
                                                         <div id="full-wrapper">
                                                             <div id="full-container">
                                                                 <div class="editor">
-                                                                    {!! old('content') !!}
+                                                                    {!! old('content')?:$notice['content'] !!}
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <input type="hidden" name="content" class="@error('content') is-invalid @enderror"
-                                                               id="content" value="{{old('content')}}">
+                                                        <input type="hidden" name="content"
+                                                               class="@error('content') is-invalid @enderror"
+                                                               id="content" value="{{old('content')?:$notice['content']}}">
                                                         @error('content')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
@@ -152,10 +156,11 @@
                                                         <label for="category_id">Categoria</label>
                                                         <select class="form-select erroForm @error('category_id') is-invalid @enderror"
                                                                 id="category_id" name="category_id">
-                                                            <option value="" selected disabled>Selecione uma categoria</option>
+                                                            <option value="" selected disabled>Escolha uma categoria</option>
                                                             @foreach($categories as $category)
-                                                                <option value="{{$category->id}}" {{old('category_id') == $category->id ? 'selected' : ''}}>
-                                                                    {{$category['name-category']}}</option>
+                                                                <option value="{{$category['id']}}" {{(old('category_id') == $category['id'] || $notice['category_id'] == $category['id']) ? 'selected' : ''}}>
+                                                                    {{$category['name-category']}}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                         @error('category_id')
@@ -171,8 +176,9 @@
                                                         <label for="status">Status</label>
                                                         <select class="form-select erroForm @error('status') is-invalid @enderror"
                                                                 id="status" name="status">
-                                                            <option value="1" {{old('status') == '1' ? 'selected' : ''}}>Ativo</option>
-                                                            <option value="0" {{old('status') == '0' ? 'selected' : ''}}>Inativo</option>
+                                                            <option value="" selected disabled>Escolha um status</option>
+                                                            <option value="1" {{(old('status') == '1' || $notice['status'] == '1') ? 'selected' : ''}}>Ativo</option>
+                                                            <option value="0" {{(old('status') == '0' || $notice['status'] == '0') ? 'selected' : ''}}>Inativo</option>
                                                         </select>
                                                         @error('status')
                                                         <div class="invalid-feedback">

@@ -1,6 +1,6 @@
 @extends('admin.layouts.menusLayout')
 
-@section('title', 'Cadastro de Categorias Notícias')
+@section('title', 'Editar Categoria da Notícia')
 
 @section('content')
     <section class="insert-catalogs">
@@ -14,38 +14,45 @@
                                     <li class="breadcrumb-item"><a href="/"><i class="fa-solid fa-house"></i></a></li>
                                     <li class="breadcrumb-item">Gerenciamento</li>
                                     <li class="breadcrumb-item"><a href="{{route('blog')}}">Blog</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('blog.view-index-categories')}}">Categorias Notícias</a></li>
-                                    <li class="breadcrumb-item active">Nova Categoria</li>
+                                    <li class="breadcrumb-item"><a href="{{route('blog.view-index-categories')}}">Categorias
+                                            Notícias</a></li>
+                                    <li class="breadcrumb-item active">Editar Categoria</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </section>
 
-                <b class="title-geral-etapas">Cadastro de Categorias</b>
-                <p>Preencha o formulário abaixo para cadastrar uma nova categoria para as notícias do blog.</p>
+                <b class="title-geral-etapas">Categoria: {{$category['name-category']}}</b>
+                <p>Preencha o formulário abaixo para editar a categoria para as notícias do blog.</p>
 
-                <form method="POST" action="{{route('blog.create-categories')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('blog.update-categories', $category['id'])}}"
+                      enctype="multipart/form-data">
                     @csrf
                     <div class="row g-3">
                         <div class="col-12">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name-category', 'status'])}}"
-                                            type="button" data-bs-toggle="collapse" data-bs-target="#pdf-collapse"
-                                            aria-expanded="true" aria-controls="pdf-collapse">
+                                    <button
+                                        class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name-category', 'status'])}}"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#pdf-collapse"
+                                        aria-expanded="true" aria-controls="pdf-collapse">
                                         <i class="fa-solid fa-info-circle font-medium-5"></i>
                                         <span class="ms-2">Informações Gerais</span>
                                     </button>
 
-                                    <div id="pdf-collapse" class="accordion-collapse collapse show" aria-labelledby="pdf-headingOne">
+                                    <div id="pdf-collapse" class="accordion-collapse collapse show"
+                                         aria-labelledby="pdf-headingOne">
                                         <div class="accordion-body">
                                             <div class="row g-3">
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <label for="name-category" class="form-label">Nome da Categoria</label>
-                                                        <input type="text" class="form-control erroForm @error('name-category') is-invalid @enderror"
-                                                               id="name-category" name="name-category" value="{{old('name-category')}}">
+                                                        <label for="name-category" class="form-label">Nome da
+                                                            Categoria</label>
+                                                        <input type="text"
+                                                               class="form-control erroForm @error('name-category') is-invalid @enderror"
+                                                               id="name-category" name="name-category"
+                                                               value="{{old('name-category')?:$category['name-category']}}">
                                                         @error('name-category')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
@@ -57,10 +64,17 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
                                                         <label for="status" class="form-label">Status</label>
-                                                        <select class="form-select erroForm @error('status') is-invalid @enderror"
-                                                                id="status" name="status">
-                                                            <option value="1" {{old('status') == '1' ? 'selected' : ''}}>Ativo</option>
-                                                            <option value="0" {{old('status') == '0' ? 'selected' : ''}}>Inativo</option>
+                                                        <select
+                                                            class="form-select erroForm @error('status') is-invalid @enderror"
+                                                            id="status" name="status">
+                                                            <option
+                                                                value="1" {{old('status') == '1' ? 'selected' : ($category['status'] == '1' ? 'selected' : '')}}>
+                                                                Ativo
+                                                            </option>
+                                                            <option
+                                                                value="0" {{old('status') == '0' ? 'selected' : ($category['status'] == '0' ? 'selected' : '')}}>
+                                                                Inativo
+                                                            </option>
                                                         </select>
                                                         @error('status')
                                                             <div class="invalid-feedback">

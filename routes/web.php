@@ -150,9 +150,15 @@ Route::prefix('blog')
 
         Route::get('view-create-categories', 'viewCreateCategories')->name('blog.view-create-categories');
         Route::post('/create-categories', 'createCategories')->name('blog.create-categories');
+        Route::get('/view-update-categories/{id}', 'viewUpdateCategories')->name('blog.view-update-categories');
+        Route::post('/update-categories/{id}', 'updateCategories')->name('blog.update-categories');
+        Route::get('/admin/pages/blog/delete-categories/{id}', 'deleteCategories')->name('blog.delete-categories');
 
         Route::get('view-create-notices', 'viewCreateNotices')->name('blog.view-create-notices');
         Route::post('/create-notices', 'createNotices')->name('blog.create-notices');
+        Route::get('/view-update-notices/{id}', 'viewUpdateNotices')->name('blog.view-update-notices');
+        Route::post('/update-notices/{id}', 'updateNotices')->name('blog.update-notices');
+        Route::get('/admin/pages/blog/delete/{id}', 'deleteNotices')->name('blog.delete-notices');
         Route::get('/view-details-notices/{id}', 'viewDetailsNotices')->name('blog.view-details-notices');
 
     });
@@ -193,6 +199,10 @@ Route::prefix('notices-blog')
     ->controller(NoticesBlogController::class)
     ->group(function () {
         Route::get('/view-details-notices/{id}', 'viewDetailsNotices')->name('notices-blog.view-details-notices');
+
+        Route::get('/view-all-notices', 'viewAllNotices')->name('notices-blog.view-all-notices');
+
+        Route::get('/view-notice-category/{id}', 'viewNoticeCategory')->name('notices-blog.view-notice-category');
     });
 
 /*
