@@ -39,7 +39,7 @@
                             <div class="accordion">
                                 <div class="accordion-item">
                                     <button
-                                        class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}"
+                                        class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['avatar'])}}"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                         aria-expanded="true" aria-controls="avatar-collapse">
                                         <i class="fa-solid fa-image font-medium-5"></i>
@@ -64,12 +64,19 @@
                                                                     @endisset
                                                                 </div>
                                                             </div>
-                                                            <input type="file" id="avatar" name="avatar"
+                                                            <input type="file" id="avatar"
+                                                                   class="@error('avatar') is-invalid @enderror"
+                                                                   name="avatar"
                                                                    accept="image/*">
 
                                                             <small class="type_permited">
                                                                 Permitido *.jpeg, *.jpg, *.png, *.gif, *.svg, *.webp
                                                             </small>
+                                                            @error('avatar')
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,11 +108,13 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="name">Nome</label>
-                                                            <input type="text" class="form-control" id="name"
+                                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                                                    name="name" placeholder="Nome"
                                                                    value="{{old('name')?:$user['name']}}">
                                                             @error('name')
-                                                            {!! form_collapse_errors_message('name', strtoupper($message)) !!}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -113,11 +122,13 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="email">E-mail</label>
-                                                            <input type="email" class="form-control" id="email"
+                                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
                                                                    name="email" placeholder="E-mail"
                                                                    value="{{old('email')?:$user['email']}}">
                                                             @error('email')
-                                                            {!! form_collapse_errors_message('email', strtoupper($message)) !!}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -127,7 +138,7 @@
                                                             <div class="col-12 col-md-4 col-xl-4">
                                                                 <div class="form-group">
                                                                     <label for="type">Tipo de Usuário</label>
-                                                                    <select class="form-select" id="type" name="type" readonly="true">
+                                                                    <select class="form-select @error('type') is-invalid @enderror" id="type" name="type" readonly="true">
                                                                         <option value="" disabled selected>Selecione o
                                                                             tipo
                                                                         </option>
@@ -141,7 +152,9 @@
                                                                         </option>
                                                                     </select>
                                                                     @error('type')
-                                                                    {!! form_collapse_errors_message('type', strtoupper($message)) !!}
+                                                                        <div class="invalid-feedback">
+                                                                            {{$message}}
+                                                                        </div>
                                                                     @enderror
                                                                 </div>
                                                             </div>
@@ -149,12 +162,14 @@
                                                             <div class="col-12 col-md-4 col-xl-4">
                                                                 <div class="form-group">
                                                                     <label for="type">Tipo de Usuário</label>
-                                                                    <input type="text" class="form-control" id="type"
+                                                                    <input type="text" class="form-control @error('type') is-invalid @enderror" id="type"
                                                                            name="type" placeholder="Tipo de Usuário"
                                                                            value="{{old('type')?:$user['type']}}"
                                                                            readonly>
                                                                     @error('type')
-                                                                    {!! form_collapse_errors_message('type', strtoupper($message)) !!}
+                                                                        <div class="invalid-feedback">
+                                                                            {{$message}}
+                                                                        </div>
                                                                     @enderror
                                                                 </div>
                                                             </div>

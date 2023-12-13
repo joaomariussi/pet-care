@@ -5,7 +5,7 @@ namespace App\Http\Requests\admin\Blog;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class NoticesBlogRequest extends FormRequest
+class NoticesBlogUpdateRequest extends FormRequest
 {
     /**
      * @return bool
@@ -25,7 +25,7 @@ class NoticesBlogRequest extends FormRequest
             'title' => 'required|string|max:100',
             'subtitle' => 'required|string|max:150',
             'content' => 'required|string',
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'avatar' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'status' => 'required|boolean'
         ];
     }
@@ -46,7 +46,6 @@ class NoticesBlogRequest extends FormRequest
             'subtitle.max' => 'O subtítulo deve ter no máximo 150 caracteres',
             'content.required' => 'O conteúdo é obrigatório',
             'content.string' => 'O conteúdo deve ser uma string',
-            'avatar.required' => 'A imagem para a notícia é obrigatória',
             'avatar.image' => 'O arquivo deve ser uma imagem',
             'avatar.mimes' => 'O avatar deve ser uma imagem do tipo: jpeg, png, jpg, gif, svg,webp',
             'avatar.max' => 'O tamanho máximo do avatar é 2MB',

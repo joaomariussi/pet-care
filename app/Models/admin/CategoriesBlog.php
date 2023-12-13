@@ -29,10 +29,12 @@ class CategoriesBlog extends Model
     ];
 
     /**
+     * @info Relacionamento com a tabela notices_blog
      * @return HasMany
      */
     public function noticesBlog(): HasMany
     {
-        return $this->hasMany(NoticesBlog::class, 'category_id', 'id');
+        return $this->hasMany(NoticesBlog::class, 'category_id', 'id')
+            ->orderBy('id', 'desc');
     }
 }

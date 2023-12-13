@@ -1,6 +1,10 @@
 @extends('admin.layouts.menusLayout')
 
-@section('title', 'Blog')
+@section('title', 'Notícias do Blog')
+
+@section('page-styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/datatable/css/dataTables.bootstrap5.min.css') }}">
+@endsection
 
 @section('content')
     <section class="index-sectors">
@@ -69,12 +73,12 @@
                                             <b class="title-geral-etapas">Lista de Notícias do Blog</b>
                                             <a href="{{route('blog.view-create-notices')}}"
                                                class="btn button_register float-end ms-2 buttonInsert">
-                                                <i class='fa-solid fa-plus'></i> Novo Notícia
+                                                <i class='fa-solid fa-plus'></i> Nova Notícia
                                             </a>
                                         </div>
                                         <div class="card-content">
                                             <div class="card-body card-dashboard">
-
+                                                {{$dataTable->table()}}
                                             </div>
                                         </div>
                                     </div>
@@ -86,4 +90,11 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('page-scripts')
+    <script src="{{ asset('plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('js/scripts/datatables/datatable.js') }}"></script>
+    {{$dataTable->scripts()}}
 @endsection

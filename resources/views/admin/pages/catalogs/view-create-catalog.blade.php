@@ -36,7 +36,7 @@
                         <div class="col-12 col-md-4 col-xl-4">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','status','avatar', ['fileUpload']])}}"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['fileUpload'])}}"
                                             type="button" data-bs-toggle="collapse" data-bs-target="#pdf-collapse"
                                             aria-expanded="true" aria-controls="pdf-collapse">
                                         <i class="fa-solid fa-cloud-arrow-down font-medium-5"></i>
@@ -48,7 +48,9 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="uploader">
-                                                        <input id="file-upload" type="file" name="fileUpload"
+                                                        <input id="file-upload" type="file"
+                                                               class="@error('fileUpload') is-invalid @enderror"
+                                                               name="fileUpload"
                                                                accept="application/pdf" />
 
                                                         <label for="file-upload" id="file-drag">
@@ -72,10 +74,12 @@
                                                                 </div>
                                                             </div>
                                                         </label>
+                                                        @error('fileUpload')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                        @enderror
                                                     </div>
-                                                    @error('fileUpload')
-                                                        {{form_collapse_errors_message('fileUpload', $message)}}
-                                                    @enderror
 
                                                 </div>
                                             </div>
@@ -88,7 +92,7 @@
                         <div class="col-12 col-md-8 col-xl-8">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','status','avatar', ['fileUpload']])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','status','avatar'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                             aria-expanded="true" aria-controls="avatar-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
                                         <span class="ms-2">Informações Gerais</span>
@@ -103,7 +107,9 @@
                                                             <label for="name" class="form-label">Nome</label>
                                                             <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
                                                             @error('name')
-                                                                {{form_collapse_errors_message('name', $message)}}
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -115,10 +121,12 @@
                                                                 <option value="0" {{old('status') == 0 ? 'selected' : ''}}>Inativo</option>
                                                                 <option value="1" {{old('status') == 1 ? 'selected' : ''}}>Ativo</option>
                                                             </select>
+                                                            @error('status')
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
+                                                            @enderror
                                                         </div>
-                                                        @error('status')
-                                                            {{form_collapse_errors_message('status', $message)}}
-                                                        @enderror
                                                     </div>
 
                                                     <div class="col-12 col-md-12 col-xl-12">
@@ -129,7 +137,9 @@
                                                                     <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
                                                                 </div>
                                                             </div>
-                                                            <input type="file" id="avatar" name="avatar" accept="image/*">
+                                                            <input type="file" id="avatar"
+                                                                   class="@error('avatar') is-invalid @enderror"
+                                                                   name="avatar" accept="image/*">
 
                                                             <small class="label-img">
                                                                 IMAGEM DO CATÁLOGO
@@ -140,10 +150,12 @@
                                                                 <br>
                                                                 Tamanho: 269x269px
                                                             </small>
+                                                            @error('avatar')
+                                                                <div class="invalid-feedback">
+                                                                    {{$message}}
+                                                                </div>
+                                                            @enderror
                                                         </div>
-                                                        @error('avatar')
-                                                            {{form_collapse_errors_message('avatar', $message)}}
-                                                        @enderror
                                                     </div>
                                                 </div>
                                             </fieldset>
