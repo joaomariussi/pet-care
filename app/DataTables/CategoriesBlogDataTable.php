@@ -73,7 +73,7 @@ class CategoriesBlogDataTable extends DataTable
                 ->printable(false)
                 ->width(60)
                 ->title('Ações'),
-            Column::make('name-category')->title('Nome da Categoria'),
+            Column::make('name_category')->title('Nome da Categoria'),
             Column::make('created_at')->title('Criado em')
         ];
     }

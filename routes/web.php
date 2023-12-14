@@ -195,16 +195,15 @@ Route::prefix('marcas')
         Route::get('/sellenza', 'indexSellenza')->name('sellenza');
     });
 
-Route::prefix('notices-blog')
+Route::prefix('blog')
     ->controller(NoticesBlogController::class)
     ->group(function () {
+        Route::get('/categoria/{slug}', 'viewNoticeCategory')->name('notices-blog.view-notice-category');
+
         Route::get('/view-details-notices/{id}', 'viewDetailsNotices')->name('notices-blog.view-details-notices');
 
-        Route::get('/view-all-notices', 'viewAllNotices')->name('notices-blog.view-all-notices');
-
-        Route::get('/view-notice-category/{id}', 'viewNoticeCategory')->name('notices-blog.view-notice-category');
+        Route::get('/todas-noticias', 'viewAllNotices')->name('notices-blog.view-all-notices');
     });
-
 /*
 |--------------------------------------------------------------------------
 | END Prefix Site Routes

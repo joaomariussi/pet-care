@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Throwable;
 
 class NoticesBlogController extends Controller
@@ -60,14 +61,18 @@ class NoticesBlogController extends Controller
 
     /**
      * @info View para visualizar os blogs dividios por categorias
-     * @param $id
+     * @param $name_category
      * @return View|Factory|Application|RedirectResponse
      */
-    public function viewNoticeCategory($id): View|Factory|Application|RedirectResponse
+    public function viewNoticeCategory($name_category): View|Factory|Application|RedirectResponse
     {
         try {
-            $activeCategoryId = $id;
-            $notices = CategoriesBlog::query()->with('noticesBlog')->where('id', $id)
+            $activeCategoryId = $name_category;
+
+            $slug = Str::slug($name_category);
+
+            $notices = CategoriesBlog::query()->with('noticesBlog')->where('name_category', $name_category)
+                ->where('name_category', $slug)
                 ->where('status', '1')
                 ->first();
             $allCategories = CategoriesBlog::query()->where('status', '1')->get();

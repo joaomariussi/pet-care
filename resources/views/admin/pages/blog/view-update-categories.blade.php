@@ -23,7 +23,7 @@
                     </div>
                 </section>
 
-                <b class="title-geral-etapas">Categoria: {{$category['name-category']}}</b>
+                <b class="title-geral-etapas">Categoria: {{$category['name_category']}}</b>
                 <p>Preencha o formulário abaixo para editar a categoria para as notícias do blog.</p>
 
                 <form method="POST" action="{{route('blog.update-categories', $category['id'])}}"
@@ -34,7 +34,7 @@
                             <div class="accordion">
                                 <div class="accordion-item">
                                     <button
-                                        class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name-category', 'status'])}}"
+                                        class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name_category', 'status'])}}"
                                         type="button" data-bs-toggle="collapse" data-bs-target="#pdf-collapse"
                                         aria-expanded="true" aria-controls="pdf-collapse">
                                         <i class="fa-solid fa-info-circle font-medium-5"></i>
@@ -47,13 +47,13 @@
                                             <div class="row g-3">
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <label for="name-category" class="form-label">Nome da
+                                                        <label for="name_category" class="form-label">Nome da
                                                             Categoria</label>
                                                         <input type="text"
-                                                               class="form-control erroForm @error('name-category') is-invalid @enderror"
-                                                               id="name-category" name="name-category"
-                                                               value="{{old('name-category')?:$category['name-category']}}">
-                                                        @error('name-category')
+                                                               class="form-control erroForm @error('name_category') is-invalid @enderror"
+                                                               id="name_category" name="name_category"
+                                                               value="{{old('name_category')?:$category['name_category']}}">
+                                                        @error('name_category')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

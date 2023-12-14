@@ -21,7 +21,7 @@ class CategoriesBlogCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name-category' => 'required|string|max:100',
+            'name_category' => 'required|string|max:100|unique:categories_blog,name_category',
             'status' => 'required|boolean'
         ];
     }
@@ -32,9 +32,10 @@ class CategoriesBlogCreateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name-category.required' => 'O nome é obrigatório',
-            'name-category.string' => 'O nome deve ser uma string',
-            'name-category.max' => 'O nome deve ter no máximo 100 caracteres',
+            'name_category.required' => 'O nome é obrigatório',
+            'name_category.string' => 'O nome deve ser uma string',
+            'name_category.max' => 'O nome deve ter no máximo 100 caracteres',
+            'name_category.unique' => 'O nome já está cadastrado',
             'status.required' => 'O status é obrigatório',
             'status.boolean' => 'O status deve ser um booleano'
         ];
