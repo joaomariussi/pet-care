@@ -29,9 +29,8 @@
                     <span class="alt-font font-weight-500 d-block text-white margin-20px-bottom xs-margin-10px-bottom">Empresa</span>
                     <ul>
                         <li><a href="{{route('quem-somos')}}" title="Sobre a Cassul Distribuidora">Sobre</a></li>
-                        <li><a href="our-services.html">Produtos</a></li>
-                        <li><a href="our-team.html">Contato</a></li>
-                        <li><a href="contact-us-classic.html">Trabalhe Conosco</a></li>
+                        <li><a href="{{route('contato-geral')}}" title="Contato">Contato</a></li>
+                        <li><a href="{{route('trabalhe-conosco')}}" title="Trabalhe Conosco">Trabalhe Conosco</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-3 col-sm-4 order-sm-4 order-lg-0 xs-margin-25px-bottom">

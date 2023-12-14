@@ -460,7 +460,7 @@
                         equipe que esta mudando a distribuição no Sul do Brasil.</h6>
                 </div>
                 <div class="col-12 col-xl-5 col-md-4 text-center text-md-end wow animate__fadeIn" data-wow-delay="0.2s">
-                    <a href="#"
+                    <a href="{{route('trabalhe-conosco')}}" title="Quero fazer parte da equipe Cassul"
                        class="btn btn-large btn-round-edge btn-transparent-fast-blue btn-slide-right-bg">Quero fazer parte da Cassul<span
                             class="bg-fast-blue"></span></a>
                 </div>
