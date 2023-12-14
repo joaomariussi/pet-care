@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (Schema::hasTable('categories_blog')) {
+        if (!Schema::hasColumn('categories_blog', 'name_category')) {
             Schema::table('categories_blog', function (Blueprint $table) {
                 $table->string('name_category')->after('id')->unique();
             });
         }
 
-        if (Schema::hasTable('categories_blog')) {
+        if (Schema::hasColumn('categories_blog', 'name-category')) {
             Schema::table('categories_blog', function (Blueprint $table) {
                 $table->dropColumn('name-category');
             });
