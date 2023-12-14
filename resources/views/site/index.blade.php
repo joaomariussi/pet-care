@@ -133,7 +133,7 @@
         </div>
     </section>
 
-    <section class="bg-light-gray min-section" id="portfolio">
+    <section class="bg-light-gray big-section" id="portfolio">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 text-center margin-3-rem-bottom md-margin-7-rem-bottom sm-margin-5-rem-bottom wow animate__fadeIn">
@@ -511,7 +511,7 @@
                             </div>
                         </div>
                         <!-- end feature box item -->
-                        <div class="col-12 margin-4-rem-top d-inline-block wow animate__fadeIn" data-wow-delay="0.4s"><a href="{{route('site.index')}}" class="btn btn-large btn-expand-ltr text-black section-link">Conheça nossa loja online<span class="bg-orange"></span></a></div>
+                        <div class="col-12 margin-4-rem-top d-inline-block wow animate__fadeIn" data-wow-delay="0.4s"><a href="https://vendasonline.cassul.com.br" target="_blank" class="btn btn-large btn-expand-ltr text-black section-link">Conheça nossa loja online<span class="bg-orange"></span></a></div>
                     </div>
                 </div>
             </div>
@@ -590,7 +590,7 @@
                 </div>
             </div>
         </div>
-        <video loop="" autoplay="" controls="" muted class="html-video" poster="{{asset('images/banners/imagem-video-fundo.jpg')}}">
+        <video loop="" autoplay="" controls="" muted autobuffer="true" class="html-video" poster="{{asset('images/banner/imagem-video-fundo.webp')}}">
             <source type="video/mp4" src="" />
             <source type="video/webm" src="" />
         </video>

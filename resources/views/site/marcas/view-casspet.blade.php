@@ -337,12 +337,12 @@
                         </h5>
 
                         <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
-                                <span class="title-extra-small text-gradient-yellow alt-font">
-                                    (47) 99999-9999
-                                </span>
+                            <span class="title-extra-small text-gradient-yellow alt-font">
+                                (54) 3520-1500
+                            </span>
                         </div>
 
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5547999999999&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Casspet."
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=555435201500&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Casspet."
                            class="btn btn-fancy btn-large btn-fast-yellow btn-round-edge w-100 font-size-16" title="Enviar mensagem">
                             <i class="fab fa-whatsapp"></i> Enviar mensagem
                         </a>

@@ -432,63 +432,6 @@
                 </div>
                 <!-- end text box item -->
             </div>
-            <div class="row justify-content-center">
-                <!-- start text box item -->
-                <div class="col-12 col-lg-4 col-md-6 col-sm-8 md-margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
-                        <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
-                            <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
-                                <!-- <i class="line-icon-Mail-Read d-block icon-medium text-fast-yellow margin-25px-bottom"></i> -->
-                            </div>
-                            <div class="feature-box-content last-paragraph-no-margin">
-                                <span class="text-white text-extra-medium d-block alt-font font-weight-500">Repelentes</span>
-                            </div>
-                            <div class="move-bottom-top margin-10px-top last-paragraph-no-margin">
-                                <p>Afaste os insetos indesejados com eficácia! Descubra a solução definitiva para desfrutar de momentos ao ar livre sem preocupações.</p>
-                            </div>
-                        </div>
-                        <div class="feature-box-overlay"></div>
-                    </div>
-                </div>
-                <!-- end text box item -->
-                <!-- start text box item -->
-                <div class="col-12 col-lg-4 col-md-6 col-sm-8 md-margin-30px-bottom xs-margin-15px-bottom">
-                    <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
-                        <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
-                            <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
-                            </div>
-                            <div class="feature-box-content last-paragraph-no-margin">
-                                <span class="text-white text-extra-medium d-block alt-font font-weight-500">XXXXXXXX</span>
-                            </div>
-                            <div class="move-bottom-top margin-10px-top last-paragraph-no-margin">
-                                <p>XXXXX</p>
-                            </div>
-                        </div>
-                        <div class="feature-box-overlay"></div>
-                    </div>
-                </div>
-                <!-- end text box item -->
-                <!-- start text box item -->
-                <div class="col-12 col-lg-4 col-md-6 col-sm-8">
-                    <div class="feature-box feature-box-hide-show-hover border-radius-6px overflow-hidden">
-                        <div class="feature-box-move-bottom-top padding-5-rem-lr padding-15px-tb lg-padding-2-half-rem-lr md-padding-4-half-rem-lr">
-                            <div class="feature-box-icon">
-                                <img src="https://via.placeholder.com/80x80" alt="" class="text-fast-yellow margin-25px-bottom">
-                            </div>
-                            <div class="feature-box-content last-paragraph-no-margin">
-                                <span class="text-white text-extra-medium d-block alt-font font-weight-500">XXXXXXX</span>
-                            </div>
-                            <div class="move-bottom-top margin-10px-top last-paragraph-no-margin">
-                                <p>XXXXX</p>
-                            </div>
-                        </div>
-                        <div class="feature-box-overlay"></div>
-                    </div>
-                </div>
-                <!-- end text box item -->
-            </div>
         </div>
     </section>
 
@@ -513,12 +456,12 @@
                         </h5>
 
                         <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
-                        <span class="title-extra-small text-gradient-red alt-font">
-                            (47) 99999-9999
-                        </span>
+                            <span class="title-extra-small text-gradient-red alt-font">
+                                (54) 3520-1500
+                            </span>
                         </div>
 
-                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5547999999999&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Imbatível."
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=555435201500&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Imbatível."
                            class="btn btn-fancy btn-large btn-fast-red btn-round-edge w-100 font-size-16" title="Enviar mensagem">
                             <i class="fab fa-whatsapp"></i> Enviar mensagem
                         </a>
