@@ -98,7 +98,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-12">
-                    {!! $job['description'] !!}
+                    <p>
+                        {!! $job['description'] !!}
+                    </p>
                 </div>
             </div>
         </div>
@@ -119,78 +121,134 @@
                                         <input type="text" class="form-control medium-input margin-25px-bottom required"
                                                readonly disabled
                                                value="{{$job['name']}}">
-                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
-                                               type="text"
-                                               name="name"
-                                               value="{{old('name')}}"
-                                               required
-                                               placeholder="Nome Completo">
-                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
-                                               type="email"
-                                               name="email"
-                                               value="{{old('email')}}"
-                                               required
-                                               placeholder="E-mail">
-                                        <div class="input-group">
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('name') is-invalid @enderror medium-input bg-white required"
+                                                   type="text"
+                                                   name="name"
+                                                   value="{{old('name')}}"
+                                                   required
+                                                   placeholder="Nome Completo">
+                                            @error('name')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('email') is-invalid @enderror medium-input bg-white required"
+                                                   type="email"
+                                                   name="email"
+                                                   value="{{old('email')}}"
+                                                   required
+                                                   placeholder="E-mail">
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <div class="input-group">
                                             <span class="input-group-text" style="max-height: 53px;">
                                                 <span id="selected-country-flag" class="flag-icon flag-icon-br"></span>
                                                 <span id="selected-country-code">+55</span>
                                             </span>
-                                            <input class="medium-input bg-white margin-25px-bottom required phone form-control"
-                                                   type="tel"
-                                                   name="phone"
-                                                   required
-                                                   value="{{old('phone')}}"
-                                                   placeholder="Contato">
+                                                <input class="medium-input @error('phone') is-invalid @enderror m-0 bg-white required phone form-control"
+                                                       type="tel"
+                                                       name="phone"
+                                                       required
+                                                       value="{{old('phone')}}"
+                                                       placeholder="Contato">
+                                            </div>
+                                            @error('phone')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
                                         </div>
-                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
-                                               type="date"
-                                               name="birth_date"
-                                               required
-                                               value="{{old('birth_date')}}"
-                                               placeholder="Sua Data de Nascimento">
-                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
-                                               name="city"
-                                               required
-                                               value="{{old('city')}}"
-                                               placeholder="Cidade">
-                                        <select class="form-control medium-input bg-white mb-0 required" name="state" required>
-                                            <option value="" disabled selected>Selecione o Estado</option>
-                                            <option value="AC">Acre</option>
-                                            <option value="AL">Alagoas</option>
-                                            <option value="AP">Amapá</option>
-                                            <option value="AM">Amazonas</option>
-                                            <option value="BA">Bahia</option>
-                                            <option value="CE">Ceará</option>
-                                            <option value="DF">Distrito Federal</option>
-                                            <option value="ES">Espírito Santo</option>
-                                            <option value="GO">Goiás</option>
-                                            <option value="MA">Maranhão</option>
-                                            <option value="MT">Mato Grosso</option>
-                                            <option value="MS">Mato Grosso do Sul</option>
-                                            <option value="MG">Minas Gerais</option>
-                                            <option value="PA">Pará</option>
-                                            <option value="PB">Paraíba</option>
-                                            <option value="PR">Paraná</option>
-                                            <option value="PE">Pernambuco</option>
-                                            <option value="PI">Piauí</option>
-                                            <option value="RJ">Rio de Janeiro</option>
-                                            <option value="RN">Rio Grande do Norte</option>
-                                            <option value="RS">Rio Grande do Sul</option>
-                                            <option value="RO">Rondônia</option>
-                                            <option value="RR">Roraima</option>
-                                            <option value="SC">Santa Catarina</option>
-                                            <option value="SP">São Paulo</option>
-                                            <option value="SE">Sergipe</option>
-                                            <option value="TO">Tocantins</option>
-                                        </select>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('birth_date') is-invalid @enderror medium-input bg-white required"
+                                                   type="date"
+                                                   name="birth_date"
+                                                   required
+                                                   value="{{old('birth_date')}}"
+                                                   placeholder="Sua Data de Nascimento">
+                                            @error('birth_date')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('city') is-invalid @enderror medium-input bg-white margin-25px-bottom required"
+                                                   name="city"
+                                                   required
+                                                   value="{{old('city')}}"
+                                                   placeholder="Cidade">
+                                            @error('city')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <select class="form-control @error('state') is-invalid @enderror medium-input bg-white mb-0 required" name="state" required>
+                                                <option value="" disabled selected>Selecione o Estado</option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
+                                            @error('state')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
+
                                     </div>
                                     <div class="col margin-4-rem-bottom sm-margin-10px-bottom">
                                         <h6 class="justify-content-center d-flex">
                                             Anexar Currículo
                                         </h6>
-                                        <input type="file" name="file_pdf" value="{{old('file_pdf')}}" accept="application/pdf"
-                                               required class="form-control medium-input bg-white margin-25px-bottom">
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <input type="file" name="file_pdf" value="{{old('file_pdf')}}" accept="application/pdf"
+                                                   required class="form-control @error('file_pdf') is-invalid @enderror medium-input bg-white ">
+                                            @error('file_pdf')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
 
                                         <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
                                         <div id="recaptchaError" class="text-danger"></div>

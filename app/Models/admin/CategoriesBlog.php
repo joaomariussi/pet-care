@@ -16,7 +16,7 @@ class CategoriesBlog extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name-category',
+        'name_category',
         'status'
     ];
 

@@ -618,8 +618,8 @@
                                             <a href="{{route('notices-blog.view-details-notices', $notice['id'])}}" title="{{$notice['title']}}">
                                                 <img src="data:image/jpeg;base64,{{$notice['avatar']}}" alt="{{$notice['title']}}">
                                             </a>
-                                            <a href="{{route('notices-blog.view-notice-category', $notice['categoryBlog']['id'])}}" class="blog-category alt-font">
-                                                {{$notice['categoryBlog']['name-category']}}
+                                            <a href="{{route('notices-blog.view-notice-category', ['slug' => Str::slug($notice['categoryBlog']['name_category'])])}}" class="blog-category alt-font">
+                                                {{$notice['categoryBlog']['name_category']}}
                                             </a>
                                         </div>
                                         <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">

@@ -74,7 +74,7 @@
             <div class="row align-items-stretch justify-content-center extra-small-screen">
                 <div class="col-12 col-xl-10 col-lg-7 col-md-8 page-title-medium text-center d-flex justify-content-center flex-column">
                     <h1 class="alt-font fw-bold text-orange margin-15px-bottom d-inline-block">
-                        Blog - {{$notices['name-category']}}
+                        Blog - {{$notices['name_category']}}
                     </h1>
                     <h2 class="text-extra-dark-gray alt-font font-weight-500 letter-spacing-minus-1px line-height-50 sm-line-height-45 xs-line-height-30 no-margin-bottom">
                         FIQUE POR DENTRO DAS NOSSAS NOVIDADES
@@ -89,18 +89,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <!-- start filter navigation -->
                         <ul class="grid-filter nav nav-tabs justify-content-center border-0 text-uppercase font-weight-500 alt-font md-padding-4-half-rem-bottom sm-padding-2-rem-bottom">
                             <li class="nav"><a title="Todas as notícias" href="{{route('notices-blog.view-all-notices')}}">Todos</a></li>
                             @foreach($allCategories as $categories)
-                                <li class="nav {{ $categories['id'] == $activeCategoryId ? 'active' : '' }}">
-                                    <a title="{{$categories['name-category']}}" href="{{route("notices-blog.view-notice-category", $categories['id'])}}">
-                                        {{$categories['name-category']}}
+                                <li class="nav {{ request('slug') == Str::slug($categories['name_category']) ? 'active' : '' }}">
+                                    <a title="{{$categories['name_category']}}"
+                                       href="{{route('notices-blog.view-notice-category', ['slug' => Str::slug($categories['name_category'])])}}">
+                                        {{$categories['name_category']}}
                                     </a>
                                 </li>
                             @endforeach
                         </ul>
-                        <!-- end filter navigation -->
                     </div>
                 </div>
             </div>
@@ -122,8 +121,8 @@
                                             <a href="{{route('notices-blog.view-details-notices', $noticesBlog['id'])}}" title="{{$noticesBlog['title']}}">
                                                 <img src="data:image/jpeg;base64,{{$noticesBlog['avatar']}}" alt="{{$noticesBlog['title']}}">
                                             </a>
-                                            <a href="{{route('notices-blog.view-notice-category', $notices['id'])}}" class="blog-category alt-font">
-                                                {{$notices['name-category']}}
+                                            <a href="{{route('notices-blog.view-notice-category', ['slug' => Str::slug($notices['name_category'])])}}" class="blog-category alt-font">
+                                                {{$notices['name_category']}}
                                             </a>
                                         </div>
                                         <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">

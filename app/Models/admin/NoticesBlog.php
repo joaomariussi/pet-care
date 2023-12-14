@@ -2,6 +2,7 @@
 
 namespace App\Models\admin;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -21,7 +22,8 @@ class NoticesBlog extends Model
         'subtitle',
         'content',
         'avatar',
-        'status'
+        'status',
+        'date'
     ];
 
     /**
@@ -38,5 +40,14 @@ class NoticesBlog extends Model
     public function categoryBlog(): BelongsTo
     {
         return $this->belongsTo(CategoriesBlog::class, 'category_id', 'id');
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public function getDateAttribute($value): string
+    {
+        return $value ? (new Carbon($value))->format('Y-m-d') : '';
     }
 }

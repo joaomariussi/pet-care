@@ -26,7 +26,8 @@ class NoticesBlogRequest extends FormRequest
             'subtitle' => 'required|string|max:150',
             'content' => 'required|string',
             'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'status' => 'required|boolean'
+            'status' => 'required|boolean',
+            'date' => 'required|date'
         ];
     }
 
@@ -51,7 +52,9 @@ class NoticesBlogRequest extends FormRequest
             'avatar.mimes' => 'O avatar deve ser uma imagem do tipo: jpeg, png, jpg, gif, svg,webp',
             'avatar.max' => 'O tamanho máximo do avatar é 2MB',
             'status.required' => 'O status é obrigatório',
-            'status.boolean' => 'O status deve ser um booleano'
+            'status.boolean' => 'O status deve ser um booleano',
+            'date.required' => 'A data é obrigatória',
+            'date.date' => 'A data deve ser uma data'
         ];
     }
 }

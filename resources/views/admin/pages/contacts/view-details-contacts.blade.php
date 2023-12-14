@@ -48,6 +48,13 @@
                                             <span class="fw-bold">E-mail:</span>
                                             <span class="w-100 d-block">{{$contact['email']}}</span>
                                         </li>
+                                        @if($contact['cnpj'])
+                                            <li class="mb-3">
+                                                <i class="fa-solid fa-building"></i>
+                                                <span class="fw-bold">CNPJ:</span>
+                                                <span class="w-100 d-block">{{$contact['cnpj']}}</span>
+                                            </li>
+                                        @endif
                                         <li class="mb-3">
                                             <i class="fa-solid fa-phone"></i>
                                             <span class="fw-bold">Telefone:</span>

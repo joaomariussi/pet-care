@@ -77,12 +77,14 @@
                         <ul class="list-unstyled margin-2-rem-bottom">
                             <li class="d-inline-block align-middle margin-25px-right">
                                 <i class="feather icon-feather-calendar text-fast-orange margin-10px-right"></i>
-                                {{ \Carbon\Carbon::parse($noticeBlog['created_at'])->locale('pt_BR')->isoFormat('D [de] MMMM [de] YYYY') }}
+                                {{ \Carbon\Carbon::parse($noticeBlog['date'])->locale('pt_BR')->isoFormat('D [de] MMMM [de] YYYY') }}
                             </li>
+
                             <li class="d-inline-block align-middle margin-25px-right">
                                 <i class="feather icon-feather-folder text-fast-orange margin-10px-right"></i>
-                                <a title="{$noticeBlog['categoryBlog']['name-category']}}" href="{{route('notices-blog.view-notice-category', $noticeBlog['categoryBlog']['id'])}}">
-                                    {{$noticeBlog['categoryBlog']['name-category']}}
+                                <a title="{{$noticeBlog['categoryBlog']['name_category']}}"
+                                   href="{{route('notices-blog.view-notice-category', ['slug' => Str::slug($noticeBlog['categoryBlog']['name_category'])])}}">
+                                    {{$noticeBlog['categoryBlog']['name_category']}}
                                 </a>
                             </li>
                             <li class="d-inline-block align-middle">
@@ -111,8 +113,11 @@
 
                     <ul class="list-style-07 list-unstyled">
                         @foreach($categories as $category)
-                            <li><a href="{{route('notices-blog.view-notice-category', $category['id'])}}" title="{{$category['name-category']}}">
-                                    {{$category['name-category']}}</a>
+                            <li>
+                                <a href="{{route('notices-blog.view-notice-category', ['slug' => Str::slug($category['name_category'])])}}"
+                                   title="{{$category['name_category']}}">
+                                    {{$category['name_category']}}
+                                </a>
                                 <span class="item-qty">
                                     {{count($category['noticesBlog'])}}
                                 </span>

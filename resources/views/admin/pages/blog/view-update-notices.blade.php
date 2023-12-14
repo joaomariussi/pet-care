@@ -159,7 +159,7 @@
                                                             <option value="" selected disabled>Escolha uma categoria</option>
                                                             @foreach($categories as $category)
                                                                 <option value="{{$category['id']}}" {{(old('category_id') == $category['id'] || $notice['category_id'] == $category['id']) ? 'selected' : ''}}>
-                                                                    {{$category['name-category']}}
+                                                                    {{$category['name_category']}}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -171,7 +171,21 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="date">Data de cadastro</label>
+                                                        <input type="date" class="form-control erroForm @error('date') is-invalid @enderror"
+                                                               id="date" name="date"
+                                                               value="{{old('date', $notice['date'] ?? '')}}">
+                                                        @error('date')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-3">
                                                     <div class="form-group">
                                                         <label for="status">Status</label>
                                                         <select class="form-select erroForm @error('status') is-invalid @enderror"

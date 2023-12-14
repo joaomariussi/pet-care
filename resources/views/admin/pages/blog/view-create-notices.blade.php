@@ -91,7 +91,7 @@
                         <div class="col-12 col-md-8 col-xl-8">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['title', 'subtitle', 'content', 'category_id', 'status'])}}"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['title', 'subtitle', 'content', 'category_id', 'status', 'date'])}}"
                                             type="button" data-bs-toggle="collapse" data-bs-target="#pdf-collapse"
                                             aria-expanded="true" aria-controls="pdf-collapse">
                                         <i class="fa-solid fa-info-circle font-medium-5"></i>
@@ -155,7 +155,7 @@
                                                             <option value="" selected disabled>Selecione uma categoria</option>
                                                             @foreach($categories as $category)
                                                                 <option value="{{$category->id}}" {{old('category_id') == $category->id ? 'selected' : ''}}>
-                                                                    {{$category['name-category']}}</option>
+                                                                    {{$category['name_category']}}</option>
                                                             @endforeach
                                                         </select>
                                                         @error('category_id')
@@ -166,7 +166,20 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="date">Data de Cadastro</label>
+                                                        <input type="date" class="form-control erroForm @error('date') is-invalid @enderror"
+                                                               id="date" name="date" value="{{old('date')}}">
+                                                        @error('date')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-3">
                                                     <div class="form-group">
                                                         <label for="status">Status</label>
                                                         <select class="form-select erroForm @error('status') is-invalid @enderror"

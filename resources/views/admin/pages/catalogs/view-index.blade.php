@@ -47,7 +47,7 @@
                                         <div class="card-body cards-geral">
                                             <i class="fa-solid fa-book font-large-1 color-yellow-geral"></i>
                                             <div class="card-produtos-quantidade ms-3">
-                                                <h5 class="mb-0 me-2 itenscadastrados registered-users color-yellow-geral">0</h5>
+                                                <h5 class="mb-0 me-2 itenscadastrados registered-users color-yellow-geral">{{$totalCatalogs}}</h5>
                                                 <b class="text-muted">Catálogos Cadastrados</b>
                                             </div>
                                         </div>

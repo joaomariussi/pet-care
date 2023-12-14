@@ -188,76 +188,147 @@
                                                 <option value="{{$sector->id}}">{{$sector['name']}}</option>
                                             @endforeach
                                         </select>
-                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
-                                               type="text"
-                                               name="name"
-                                               required
-                                               value="{{old('name')}}"
-                                               placeholder="Nome Completo">
-                                        <input class="form-control medium-input bg-white margin-25px-bottom required"
-                                               type="email"
-                                               name="email"
-                                               value="{{old('email')}}"
-                                               required
-                                               placeholder="E-mail">
-                                        <div class="input-group">
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('name') is-invalid @enderror medium-input bg-white required"
+                                                   type="text"
+                                                   name="name"
+                                                   required
+                                                   value="{{old('name')}}"
+                                                   placeholder="Nome Completo*">
+                                            @error('name')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('email') is-invalid @enderror medium-input bg-white required"
+                                                   type="email"
+                                                   name="email"
+                                                   value="{{old('email')}}"
+                                                   required
+                                                   placeholder="E-mail*">
+                                            @error('email')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('cnpj') is-invalid @enderror medium-input bg-white cnpj"
+                                                   type="text"
+                                                   name="cnpj"
+                                                   value="{{old('cnpj')}}"
+                                                   placeholder="CNPJ">
+                                            @error('cnpj')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <div class="input-group">
                                             <span class="input-group-text" style="max-height: 53px;">
                                                 <span id="selected-country-flag" class="flag-icon flag-icon-br"></span>
                                                 <span id="selected-country-code">+55</span>
                                             </span>
-                                            <input class="form-control medium-input bg-white margin-25px-bottom phone"
-                                                   type="tel"
-                                                   name="phone_number"
-                                                   value="{{old('phone_number')}}"
-                                                   required
-                                                   placeholder="Telefone">
+                                                <input class="form-control @error('phone_number') is-invalid @enderror m-0 medium-input bg-white phone"
+                                                       type="tel"
+                                                       name="phone_number"
+                                                       value="{{old('phone_number')}}"
+                                                       required
+                                                       placeholder="Telefone*">
+                                            </div>
+                                            @error('phone_number')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
                                         </div>
-                                        <input class="form-control medium-input bg-white margin-25px-bottom"
-                                               name="city_name"
-                                               value="{{old('city_name')}}"
-                                               required
-                                               placeholder="Cidade">
-                                        <select class="form-control medium-input bg-white mb-0 required"
-                                                value="{{old('state_uf')}}"
-                                                name="state_uf" required>
-                                            <option value="" disabled selected>Selecione o Estado</option>
-                                            <option value="AC">Acre</option>
-                                            <option value="AL">Alagoas</option>
-                                            <option value="AP">Amapá</option>
-                                            <option value="AM">Amazonas</option>
-                                            <option value="BA">Bahia</option>
-                                            <option value="CE">Ceará</option>
-                                            <option value="DF">Distrito Federal</option>
-                                            <option value="ES">Espírito Santo</option>
-                                            <option value="GO">Goiás</option>
-                                            <option value="MA">Maranhão</option>
-                                            <option value="MT">Mato Grosso</option>
-                                            <option value="MS">Mato Grosso do Sul</option>
-                                            <option value="MG">Minas Gerais</option>
-                                            <option value="PA">Pará</option>
-                                            <option value="PB">Paraíba</option>
-                                            <option value="PR">Paraná</option>
-                                            <option value="PE">Pernambuco</option>
-                                            <option value="PI">Piauí</option>
-                                            <option value="RJ">Rio de Janeiro</option>
-                                            <option value="RN">Rio Grande do Norte</option>
-                                            <option value="RS">Rio Grande do Sul</option>
-                                            <option value="RO">Rondônia</option>
-                                            <option value="RR">Roraima</option>
-                                            <option value="SC">Santa Catarina</option>
-                                            <option value="SP">São Paulo</option>
-                                            <option value="SE">Sergipe</option>
-                                            <option value="TO">Tocantins</option>
-                                        </select>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('city_name') is-invalid @enderror medium-input bg-white"
+                                                   name="city_name"
+                                                   value="{{old('city_name')}}"
+                                                   required
+                                                   placeholder="Cidade*">
+                                            @error('city_name')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <select class="form-control @error('state_uf') is-invalid @enderror medium-input bg-white mb-0 required"
+                                                    value="{{old('state_uf')}}"
+                                                    name="state_uf" required>
+                                                <option value="" disabled selected>Selecione o Estado</option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
+                                            @error('state_uf')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </div>
                                     <div class="col margin-1-rem-bottom sm-margin-10px-bottom">
-                                        <input class="form-control medium-input bg-white margin-25px-bottom"
-                                               type="text"
-                                               name="subject"
-                                               value="{{old('subject')}}"
-                                               placeholder="Assunto">
-                                        <textarea class="form-control medium-textarea h-200px bg-white" name="message" value="{{old('message')}}" required placeholder="Mensagem">
-                                        </textarea>
+                                        <div class="form-group margin-25px-bottom">
+                                            <input class="form-control @error('subject') is-invalid @enderror medium-input bg-white"
+                                                   type="text"
+                                                   name="subject"
+                                                   value="{{old('subject')}}"
+                                                   placeholder="Assunto*">
+                                            @error('subject')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group margin-25px-bottom">
+                                            <textarea class="form-control @error('message') is-invalid @enderror medium-textarea h-200px bg-white"
+                                                      name="message"
+                                                      value="{{old('message')}}"
+                                                      required
+                                                      placeholder="Mensagem*">
+                                            </textarea>
+                                            @error('message')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
 
                                         <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
                                         <div id="recaptchaError" class="text-danger"></div>

@@ -38,7 +38,7 @@ class NoticesBlogDataTable extends DataTable
     public function query(NoticesBlog $model): QueryBuilder
     {
         return $model->newQuery()->leftJoin('categories_blog', 'notices_blog.category_id', '=', 'categories_blog.id')
-            ->select('notices_blog.*', 'categories_blog.name-category as category_name')
+            ->select('notices_blog.*', 'categories_blog.name_category as category_name')
             ->orderBy('notices_blog.id', 'desc');
     }
 
