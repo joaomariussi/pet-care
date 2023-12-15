@@ -3533,7 +3533,7 @@ header .header-cart-icon .cart-count { position: absolute; top: -6px; right: -10
 ====================================== */
 
 .blog-post { position: relative; overflow: hidden; }
-.blog-post .blog-post-image img {height: 225px; -webkit-transition: all 1s cubic-bezier(0,0,.2,1); -moz-transition: all 1s cubic-bezier(0,0,.2,1); -ms-transition: all 1s cubic-bezier(0,0,.2,1); transition: all 1s cubic-bezier(0,0,.2,1); }
+.blog-post .blog-post-image img { -webkit-transition: all 1s cubic-bezier(0,0,.2,1); -moz-transition: all 1s cubic-bezier(0,0,.2,1); -ms-transition: all 1s cubic-bezier(0,0,.2,1); transition: all 1s cubic-bezier(0,0,.2,1); }
 .blog-post .blog-post-image { overflow: hidden; position: relative; }
 .blog-post:hover .blog-post-image img { opacity: 0.6; -webkit-transform: scale3d(1.1,1.1,1.1); -moz-transform: scale3d(1.1,1.1,1.1); -ms-transform: scale3d(1.1,1.1,1.1); transform: scale3d(1.1,1.1,1.1); }
 
@@ -5011,7 +5011,6 @@ input[type="checkbox"].error { box-shadow: 0px 0px 0px 1px rgb(255 0 0), 1px 1px
 .gdpr-container .gdpr-content { display: inline-block; margin-right: 20px;}
 .gdpr-container .btn { display: inline-block; }
 
-.img-vagas {max-height: 225px;}
 .pontos-fortes {background: #396B33; color: white; padding: 25px; border-radius: 5px;}
 .card-posicionamento {background-color: #CBE5C2; padding: 15px; border: 1px solid #396B33; display: grid; grid-template-columns: repeat(2, 1fr);}
 .card-safra {background-color: #CBE5C2; padding: 15px; border: 1px solid #396B33;}

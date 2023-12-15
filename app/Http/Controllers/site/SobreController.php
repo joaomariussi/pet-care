@@ -5,6 +5,8 @@ namespace App\Http\Controllers\site;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\site\ContactsCreateRequest;
 use App\Http\Requests\site\ResumesCreateRequest;
+use App\Mail\NovoCadastroMail;
+use App\Mail\NovoCurriculoRecebido;
 use App\Models\admin\Jobs;
 use App\Models\admin\Sectors;
 use App\Models\site\Contacts;
@@ -19,6 +21,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Throwable;
 
@@ -90,6 +93,12 @@ class SobreController extends Controller
                 $attributes['file_pdf'] = $saveFile['file_name'];
                 $attributes['job_id'] = $id;
                 $resumes = Resumes::query()->create($attributes);
+
+                $job = $resumes->job;
+                $sector = $job->sectors;
+
+                Mail::to($sector->email_sector)->send(new NovoCurriculoRecebido($resumes, $job, $sector));
+
                 Notifications::query()->create([
                     'message' => 'Novo currículo recebido!',
                     'link' => route('jobs.view-details-resumes', $resumes['id']),
@@ -148,6 +157,14 @@ class SobreController extends Controller
             if ($dados['success']) {
                 $attributes = $request->validated();
                 $contacts = Contacts::query()->create($attributes);
+
+                // Obter o e-mail do setor
+                $sectorId = $attributes['sector_id'];
+                $sector = Sectors::query()->findOrFail($sectorId);
+                $sectorEmail = $sector['email_sector'];
+
+                Mail::to($sectorEmail)->send(new NovoCadastroMail($contacts, $sector));
+
                 Notifications::query()->create([
                     'message' => 'Novo formulário de contato recebido!',
                     'link' => route('contacts.view-details', $contacts['id']),

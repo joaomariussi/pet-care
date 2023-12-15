@@ -31,7 +31,8 @@ class ContactsController extends Controller
     public function index(ContactsDataTable $dataTable): mixed
     {
         try {
-            return $dataTable->render('admin.pages.contacts.view-index');
+            $totalContacts = Contacts::query()->count();
+            return $dataTable->render('admin.pages.contacts.view-index', compact('totalContacts'));
         } catch (Throwable $t)  {
             throw new Exception($t->getMessage());
         }

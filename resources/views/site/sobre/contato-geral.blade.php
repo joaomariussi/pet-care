@@ -334,7 +334,7 @@
                                         <div id="recaptchaError" class="text-danger"></div>
 
                                         <div class="col mt-3">
-                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0" onclick="verifyRecaptcha()" type="submit">
+                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0 button_submit" onclick="verifyRecaptcha()" type="submit">
                                                 Enviar Mensagem
                                             </button>
                                         </div>
@@ -417,6 +417,12 @@
             document.getElementById("selected-country-flag").className = "flag-icon flag-icon-" + countryFlag;
             document.getElementById("selected-country-code").textContent = "+" + countryCode;
         }
+    </script>
+
+    <script>
+        $('#form_contact').on('submit', function () {
+            $('.button-submit').html('<i class="fa-solid fa-spinner fa-spin"></i> Enviando... ').attr('disabled', true);
+        })
     </script>
 
     <script src="{{asset('js/core/libraries/jquery-mask-plugin/jquery-mask.js')}}"></script>

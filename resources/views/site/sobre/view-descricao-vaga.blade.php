@@ -254,7 +254,7 @@
                                         <div id="recaptchaError" class="text-danger"></div>
 
                                         <div class="col-12 mt-3">
-                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0" onclick="verifyRecaptcha()" type="submit">
+                                            <button class="btn btn-medium btn-new-orange text-white btn-hvr-white mb-0 button-submit" onclick="verifyRecaptcha()" type="submit">
                                                 Candidatar-se
                                             </button>
                                         </div>
@@ -344,5 +344,12 @@
             document.getElementById("selected-country-flag").className = "flag-icon flag-icon-" + countryFlag;
             document.getElementById("selected-country-code").textContent = "+" + countryCode;
         }
+    </script>
+
+
+    <script>
+        $('#form-jobs').on('submit', function () {
+            $('.button-submit').html('<i class="fa-solid fa-spinner fa-spin"></i> Enviando... ').attr('disabled', true);
+        })
     </script>
 @endsection
