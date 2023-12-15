@@ -1,6 +1,6 @@
 @extends('site.includes.base-layout')
 
-@section('title', 'Blog')
+@section('title', 'Todas as Notícias')
 
 @section('content')
     <header>

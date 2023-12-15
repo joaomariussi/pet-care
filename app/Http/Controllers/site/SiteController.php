@@ -12,6 +12,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -25,8 +26,22 @@ class SiteController extends Controller
     public function index(): View|Application|Factory|RedirectResponse|null
     {
         try {
-            $catalogs = Catalogs::query()->where('status', '=', '1')->get();
-            $home = HomeConfig::query()->first();
+            if (Cache::has('catalogs')) {
+                $catalogs = Cache::get('catalogs');
+            } else {
+                $catalogs = Cache::remember('catalogs', now()->addHours(12), function () {
+                    return Catalogs::query()->where('status', '=', '1')->get();
+                });
+            }
+
+            if (Cache::has('home')) {
+                $home = Cache::get('home');
+            } else {
+                $home = Cache::remember('home', now()->addHours(12), function () {
+                    return HomeConfig::query()->first();
+                });
+            }
+
             $notices = NoticesBlog::query()->with('categoryBlog')
                 ->where('status', '=', '1')
                 ->whereHas('categoryBlog', function ($query) {

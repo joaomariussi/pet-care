@@ -13,6 +13,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -81,6 +82,7 @@ class CatalogsController extends Controller
             $saveFile = $this->saveLocal($file, 'catalogs', $file->getClientOriginalName());
             $attributes['fileUpload'] = $saveFile['file_name'];
             $this->catalogs::query()->create($attributes);
+            Cache::forget('catalogs');
             UserNotification::success('Catálogo criado com sucesso');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -126,6 +128,7 @@ class CatalogsController extends Controller
             $saveFile = $this->saveLocal($file, 'catalogs', $file->getClientOriginalName());
             $attributes['fileUpload'] = $saveFile['file_name'];
             $this->catalogs::query()->find($id)->update($attributes);
+            Cache::forget('catalogs');
             UserNotification::success('Catálogo atualizado com sucesso');
         } catch (Throwable $t) {
             Log::error($t->getMessage());

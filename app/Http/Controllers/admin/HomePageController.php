@@ -11,6 +11,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -59,6 +60,7 @@ class HomePageController extends Controller
                 $homeConfig['avatar'] = $imageBase64;
             }
             $this->homeConfig::query()->create($homeConfig);
+            Cache::forget('home');
             UserNotification::success('Configuração da home criada com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -77,6 +79,7 @@ class HomePageController extends Controller
                 $homeConfig['avatar'] = $imageBase64;
             }
             $this->homeConfig::query()->update($homeConfig);
+            Cache::forget('home');
             UserNotification::success('Configuração da home atualizada com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());

@@ -1,6 +1,6 @@
 @extends('site.includes.base-layout')
 
-@section('title', 'Categoria')
+@section('title', $notices['name_category'])
 
 @section('content')
     <header>
