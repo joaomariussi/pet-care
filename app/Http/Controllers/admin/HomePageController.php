@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\Home\HomeConfigCreateRequest;
 use App\Models\admin\HomeConfig;
+use App\Models\site\Notifications;
 use App\Notifications\UserNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

@@ -44,20 +44,6 @@
                         <div class="tab-pane active" id="contacts" aria-labelledby="contacts" role="tabpanel">
 
                             <div class="row">
-                                <div class="col-xl-3 col-sm-6 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body cards-geral">
-                                            <i class="fa-solid fa-file font-large-1 color-blue-geral"></i>
-                                            <div class="card-produtos-quantidade ms-3">
-                                                <h5 class="mb-0 me-2 itenscadastrados registered-users color-blue-geral">0</h5>
-                                                <b class="text-muted">Currículos Recebidos</b>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body align-items-center">

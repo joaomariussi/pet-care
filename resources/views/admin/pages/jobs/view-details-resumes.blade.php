@@ -45,6 +45,16 @@
                                 <div class="info-container">
                                     <ul class="list-unstyled mt-3 mb-4">
                                         <li class="mb-3">
+                                            <i class="fa-solid fa-building"></i>
+                                            <span class="fw-bold">Setor:</span>
+                                            <span class="w-100 d-block">{{$resumes[0]['job']['sectors']['name']}}</span>
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fa-solid fa-briefcase"></i>
+                                            <span class="fw-bold">Vaga:</span>
+                                            <span class="w-100 d-block">{{$resumes[0]['job']['name']}}</span>
+                                        </li>
+                                        <li class="mb-3">
                                             <i class="fa-solid fa-scroll"></i>
                                             <span class="fw-bold">Nome:</span>
                                             <span class="w-100 d-block">{{$resumes[0]['name']}}</span>
@@ -71,7 +81,7 @@
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-calendar"></i>
-                                            <span class="fw-bold">Data de Cadastro:</span>
+                                            <span class="fw-bold">Recebido em:</span>
                                             <span class="w-100 d-block">{{\Carbon\Carbon::parse($resumes[0]['created_at'])->format('d/m/Y')}}</span>
                                         </li>
                                     </ul>

@@ -47,6 +47,9 @@
                                             <i class="fa-solid fa-envelope"></i>
                                             <span class="fw-bold">E-mail:</span>
                                             <span class="w-100 d-block">{{$contact['email']}}</span>
+                                            <a title="Enviar e-mail" class="btn-link" href="">
+                                                Enviar e-mail
+                                            </a>
                                         </li>
                                         @if($contact['cnpj'])
                                             <li class="mb-3">
@@ -59,6 +62,12 @@
                                             <i class="fa-solid fa-phone"></i>
                                             <span class="fw-bold">Telefone:</span>
                                             <span class="w-100 d-block">{{$contact['phone_number']}}</span>
+                                            <a class="btn-link" target="_blank"
+                                               href="https://api.whatsapp.com/send?phone={{$contact['phone_number']}}&text=Olá%20{{$contact['name']}}
+                                               %20somos%20da%20Cassul%20Distribuidora,%20recebemos%20o%20seu%20formulário%20de%20contato,
+                                               %20através%20do%20nosso%20site.%20Como%20podemos%20te%20ajudar?">
+                                                Entrar em contato
+                                            </a>
                                         </li>
                                         <li class="mb-3">
                                             <i class="fa-solid fa-map-marker"></i>

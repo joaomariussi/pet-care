@@ -174,7 +174,10 @@ class JobsController extends Controller
     public function viewDetailsResumes($id): View|Factory|RedirectResponse|Application
     {
         try {
-            $resumes = Resumes::query()->where('id', $id)->get();
+            $resumes = Resumes::query()->where('id', $id)
+                ->with('job')
+                ->get();
+
             return view('admin.pages.jobs.view-details-resumes', compact('resumes'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
