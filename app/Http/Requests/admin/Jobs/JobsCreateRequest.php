@@ -22,7 +22,7 @@ class JobsCreateRequest extends FormRequest
     {
         return [
             'sector_id' => 'required|integer',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:191',
             'description' => 'required|string',
             'status' => 'required|boolean'
         ];
@@ -38,7 +38,7 @@ class JobsCreateRequest extends FormRequest
             'sector_id.integer' => 'O setor deve ser um inteiro',
             'name.required' => 'O nome é obrigatório',
             'name.string' => 'O nome deve ser uma string',
-            'name.max' => 'O nome deve ter no máximo 255 caracteres',
+            'name.max' => 'O nome deve ter no máximo 191 caracteres',
             'description.required' => 'A descrição é obrigatória',
             'description.string' => 'A descrição deve ser uma string',
             'status.required' => 'O status é obrigatório',

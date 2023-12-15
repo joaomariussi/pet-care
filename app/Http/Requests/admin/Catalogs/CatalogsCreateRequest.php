@@ -10,7 +10,7 @@ class CatalogsCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:191',
             'status' => 'required|boolean',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'fileUpload' => 'sometimes|file|mimes:pdf|max:10240',
@@ -21,7 +21,7 @@ class CatalogsCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'O nome é obrigatório',
-            'name.max' => 'O nome excede o tamanho máximo permitido',
+            'name.max' => 'O maximo de caracteres permitidos é 191',
             'status.required' => 'O status é obrigatório',
             'status.boolean' => 'O status deve ser um valor booleano',
             'avatar.image' => 'O avatar deve ser uma imagem',

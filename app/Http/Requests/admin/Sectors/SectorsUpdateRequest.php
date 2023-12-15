@@ -22,7 +22,7 @@ class SectorsUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:191',
             'description' => 'required|string',
             'avatar' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'status' => 'required|boolean',
@@ -39,7 +39,7 @@ class SectorsUpdateRequest extends FormRequest
         return [
             'name.required' => 'O nome é obrigatório',
             'name.string' => 'O nome deve ser uma string',
-            'name.max' => 'O nome deve ter no máximo 255 caracteres',
+            'name.max' => 'O nome deve ter no máximo 191 caracteres',
             'description.required' => 'A descrição é obrigatória',
             'description.string' => 'A descrição deve ser uma string',
             'avatar.image' => 'O arquivo deve ser uma imagem',
