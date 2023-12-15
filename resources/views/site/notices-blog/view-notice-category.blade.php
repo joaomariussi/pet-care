@@ -151,7 +151,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <h2 class="alt-font text-extra-dark-gray font-weight-600 mb-0">Ops!</h2>
-                    <p class="mt-3 text-medium-gray text-uppercase">Ainda não há notícias cadastradas.</p>
+                    <p class="mt-3 text-dark-gray text-uppercase">Ainda não há notícias cadastradas.</p>
                 </div>
             </div>
         </div>

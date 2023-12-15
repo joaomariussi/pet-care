@@ -572,7 +572,7 @@
                 <div class="row text-center row-cols-1 row-cols-lg-4 row-cols-sm-2">
                     <div class="w-100 text-center">
                         <h2 class="alt-font text-extra-dark-gray font-weight-600 mb-0">Ops!</h2>
-                        <p class="mt-3 text-medium-gray text-uppercase">Ainda não há catálogos cadastrados.</p>
+                        <p class="mt-3 text-dark-gray text-uppercase">Ainda não há catálogos cadastrados.</p>
                     </div>
                 </div>
             </div>
