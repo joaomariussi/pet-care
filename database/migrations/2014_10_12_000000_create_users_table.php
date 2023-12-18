@@ -20,7 +20,7 @@ return new class extends Migration
                 $table->string('password', '156')->default(null);
                 $table->string('type', '156')->default('webmaster');
                 $table->timestamp('email_verified_at')->nullable();
-                $table->string('password_recovery_token')->nullable();
+                $table->string('password_recovery_token', '191')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
             });
