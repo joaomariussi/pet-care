@@ -2,6 +2,8 @@
 
 @section('title', 'Sobre a empresa')
 
+@section('description', 'Fundada em 1983, surgimos como uma das mais inovadoras empresas do Brasil no segmento de varejo e distribuição.')
+
 @section('content')
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent header-light fixed-top navbar-boxed header-reverse-scroll nav-general">

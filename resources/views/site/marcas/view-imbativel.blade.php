@@ -2,6 +2,8 @@
 
 @section('title', 'Imbatível')
 
+@section('description', 'Com um amplo portfólio de produtos, atendemos demandas profissionais e domésticas, oferecendo soluções inteligentes para o controle de pragas e insetos.')
+
 @section('content')
     <style type="text/css">
         .outras-marcas {

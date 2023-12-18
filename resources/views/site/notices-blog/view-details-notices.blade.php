@@ -2,6 +2,8 @@
 
 @section('title', $noticeBlog['title'])
 
+@section('description', strip_tags($noticeBlog['content']))
+
 @section('content')
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent border-bottom border-color-black-transparent header-light fixed-top top-space header-reverse-scroll">

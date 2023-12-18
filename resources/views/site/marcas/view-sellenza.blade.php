@@ -2,6 +2,8 @@
 
 @section('title', 'Sellenza')
 
+@section('description', 'O poder de uma genética superior, com alta tolerância a cigarrinha-do-milho, que garante um novo patamar de produtividade. Sellenza é a nova marca de sementes de milho da Cassul Distribuidora, que chega para revolucionar o mercado de sementes.')
+
 @section('content')
     <style type="text/css">
         .outras-marcas {

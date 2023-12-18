@@ -2,6 +2,8 @@
 
 @section('title', 'Trabalhe Conosco')
 
+@section('description', 'Estamos sempre em busca de novos talentos para fazer parte do nosso time. Venha trabalhar conosco!')
+
 @section('content')
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent header-light fixed-top navbar-boxed header-reverse-scroll nav-general">

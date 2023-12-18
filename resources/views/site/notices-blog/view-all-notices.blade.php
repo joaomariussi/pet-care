@@ -2,6 +2,8 @@
 
 @section('title', 'Todas as Notícias')
 
+@section('description', 'Descubra as últimas notícias e atualizações em nosso blog. Mantenha-se informado sobre os tópicos mais relevantes e interessantes. Explore agora para obter insights valiosos e conteúdo exclusivo.')
+
 @section('content')
     <header>
         <nav class="navbar navbar-expand-lg bg-gradient-dark-slate-blue navbar-light bg-transparent border-bottom border-color-black-transparent header-light fixed-top top-space header-reverse-scroll">

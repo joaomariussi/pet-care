@@ -2,6 +2,8 @@
 
 @section('title', 'Contato Geral')
 
+@section('description', 'Entre em contato com a Cassul Distribuidora, tire suas dúvidas, faça sugestões, reclamações ou elogios.')
+
 @section('content')
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent header-light fixed-top navbar-boxed header-reverse-scroll nav-general">

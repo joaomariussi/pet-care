@@ -2,6 +2,8 @@
 
 @section('title', 'Casspet')
 
+@section('description', 'A marca Casspet está inserida no mercado desde 2002. Atua em 3 segmentos, com um amplo portfólio de produtos para as linhas Food, Beauty and Care e Fun.')
+
 @section('content')
     <style type="text/css">
         .outras-marcas {

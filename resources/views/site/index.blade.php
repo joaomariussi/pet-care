@@ -2,6 +2,8 @@
 
 @section('title', 'Erechim - RS')
 
+@section('description', 'Distribuidora de produtos agropecuários, pet shops, ferragens. Entrega rápida. Abasteça seu estoque aqui.')
+
 @section('content')
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent header-light fixed-top navbar-boxed header-reverse-scroll nav-general">

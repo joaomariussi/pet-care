@@ -3,6 +3,8 @@
 
 @section('title', 'LactoMais')
 
+@section('description', 'Fornecer soluções inteligentes para produtores, incluindo suplementos nutracêuticos, minerais e vitaminas, pré e pós-dipping, detergentes higienizadores para equipamentos de ordenha e acessórios diversos.')
+
 @section('content')
     <style type="text/css">
         .outras-marcas {

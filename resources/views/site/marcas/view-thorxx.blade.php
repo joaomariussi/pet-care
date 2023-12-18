@@ -2,6 +2,8 @@
 
 @section('title', 'Thorxx')
 
+@section('description', 'A Thorxx busca através de seus produtos trazer para o mercado soluções de alta performance, que vão desde ferragens e ferramentas manuais para uso agrícola e jardinagem, até uma linha completa de instrumentos para a construção civil')
+
 @section('content')
     <style type="text/css">
         .outras-marcas {
@@ -102,7 +104,10 @@
                     </h5>
                     <p class="w-85 lg-w-90">
                         Comprometida com a qualidade e eficiência, a Thorxx transforma necessidades em soluções.
-                        Essa é a nossa filosofia. Transformar o dia a dia das pessoas, tornando-o mais fácil, eficiente e produtivo. Especializada no segmento de ferragens, a Thorxx busca através de seus produtos trazer para o mercado soluções de alta performance, que vão desde ferragens e ferramentas manuais para uso agrícola e jardinagem, até uma linha completa de instrumentos para a construção civil. área.
+                        Essa é a nossa filosofia. Transformar o dia a dia das pessoas, tornando-o mais fácil, eficiente e produtivo.
+                        Especializada no segmento de ferragens, a Thorxx busca através de seus produtos trazer para o mercado soluções de
+                        alta performance, que vão desde ferragens e ferramentas manuais para uso agrícola e jardinagem, até uma linha completa
+                        de instrumentos para a construção civil.
                     </p>
                 </div>
             </div>

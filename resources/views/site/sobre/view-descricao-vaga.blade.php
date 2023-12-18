@@ -1,6 +1,8 @@
 @extends('site.includes.base-layout')
 
-@section('title', 'Trabalhe Conosco')
+@section('title', $job['name'])
+
+@section('description', strip_tags($job['description']))
 
 @section('content')
     <header>

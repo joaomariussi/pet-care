@@ -2,6 +2,8 @@
 
 @section('title', $notices['name_category'])
 
+@section('description', $notices['name_category'])
+
 @section('content')
     <header>
         <nav class="navbar navbar-expand-lg bg-gradient-dark-slate-blue navbar-light bg-transparent border-bottom border-color-black-transparent header-light fixed-top top-space header-reverse-scroll">

@@ -4,12 +4,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Cassul Distribuidora">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Conheça a Cassul Distribuidora, uma referência no mercado de distribuição e varejo desde 1983. Conheça nossas marcas próprias e produtos de alta qualidade em diversos segmentos.">
+    <meta name="description" content="@yield('description')">
     <meta name="theme-color" content="#f36e4a"/>
     <meta name="language" content="pt-br">
 
     <meta property="og:title" content="Cassul Distribuidora | @yield('title')">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="@yield('description')">
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
