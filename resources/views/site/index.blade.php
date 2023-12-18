@@ -2,7 +2,7 @@
 
 @section('title', 'Erechim - RS')
 
-@section('description', 'Distribuidora de produtos agropecuários, pet shops, ferragens. Entrega rápida. Abasteça seu estoque aqui.')
+@section('description', 'Distribuidora de produtos Agropecuários, Pet Shop, Ferragens e Sementes.')
 
 @section('content')
     <header>
