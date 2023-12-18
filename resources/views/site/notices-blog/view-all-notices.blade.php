@@ -131,8 +131,9 @@
                                         </div>
                                         <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
                                             <a href="{{route('notices-blog.view-details-notices', ['slug' => $notice['slug']])}}" class="alt-font text-small d-inline-block margin-10px-bottom">
-                                                {{ \Carbon\Carbon::parse($notice['created_at'])->locale('pt_BR')->isoFormat('D [de] MMMM [de] YYYY') }}
+                                                {{ \Carbon\Carbon::parse($notice['date'])->locale('pt_BR')->isoFormat('D [de] MMMM [de] YYYY') }}
                                             </a>
+
                                             <a href="{{route('notices-blog.view-details-notices', ['slug' => $notice['slug']])}}"
                                                class="alt-font font-weight-500 text-extra-medium text-extra-dark-gray margin-15px-bottom d-block">
                                                 {{$notice['title']}}

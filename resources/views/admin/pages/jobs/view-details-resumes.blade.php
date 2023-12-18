@@ -63,11 +63,21 @@
                                             <i class="fa-solid fa-envelope"></i>
                                             <span class="fw-bold">E-mail:</span>
                                             <span class="w-100 d-block">{{$resumes[0]['email']}}</span>
+                                            <a class="btn-link" target="_blank"
+                                               href="mailto:{{$resumes[0]['email']}}?subject=Currículo%20Enviado">
+                                                Enviar e-mail
+                                            </a>
                                         </li>
                                         <li class="mb-3">
                                             <i class="fa-solid fa-phone"></i>
                                             <span class="fw-bold">Telefone:</span>
                                             <span class="w-100 d-block">{{$resumes[0]['phone']}}</span>
+                                            <a class="btn-link" target="_blank"
+                                               href="https://api.whatsapp.com/send?phone={{$resumes[0]['phone_number']}}&text=Olá%20{{$resumes[0]['name']}}
+                                               %20somos%20da%20Cassul%20Distribuidora,%20recebemos%20o%20seu%20cadastro%20para%20a
+                                               %20vaga%20de%20{{$resumes[0]['job']['name']}}.%20Você%20ainda%20tem%20interesse?">
+                                                Entrar em contato
+                                            </a>
                                         </li>
                                         <li class="mb-3">
                                             <i class="fa-solid fa-calendar"></i>
