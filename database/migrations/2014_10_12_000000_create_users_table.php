@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -25,6 +27,25 @@ return new class extends Migration
                 $table->timestamps();
             });
         }
+
+        DB::table('users_table')->insert([
+            [
+                'name' => 'Gustavo May',
+                'email' => 'gustavo@rockyecommerce.com.br',
+                'password' => Hash::make('UntDev@r'),
+                'type' => 'webmaster',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Lucas Chiarello',
+                'email' => 'lucas@rockyecommerce.com.br',
+                'password' => Hash::make('UntDev@r'),
+                'type' => 'webmaster',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        ]);
     }
 
     /**
