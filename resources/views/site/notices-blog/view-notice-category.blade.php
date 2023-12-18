@@ -118,18 +118,20 @@
                                 <li class="grid-item wow animate__fadeIn">
                                     <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                         <div class="blog-post-image bg-medium-slate-blue">
-                                            <a href="{{route('notices-blog.view-details-notices', $noticesBlog['id'])}}" title="{{$noticesBlog['title']}}">
+                                            <a href="{{route('notices-blog.view-details-notices', ['slug' => $noticesBlog['slug']])}}" title="{{$noticesBlog['title']}}">
                                                 <img src="data:image/jpeg;base64,{{$noticesBlog['avatar']}}" alt="{{$noticesBlog['title']}}">
                                             </a>
-                                            <a href="{{route('notices-blog.view-notice-category', ['slug' => Str::slug($notices['name_category'])])}}" class="blog-category alt-font">
+                                            <a href="{{route('notices-blog.view-notice-category', ['slug' => $notices['slug']])}}"
+                                               class="blog-category alt-font">
                                                 {{$notices['name_category']}}
                                             </a>
                                         </div>
                                         <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                            <a href="{{route('notices-blog.view-details-notices', $noticesBlog['id'])}}" class="alt-font text-small d-inline-block margin-10px-bottom">
+                                            <a href="{{route('notices-blog.view-details-notices', ['slug' => $noticesBlog['slug']])}}"
+                                               class="alt-font text-small d-inline-block margin-10px-bottom">
                                                 {{ \Carbon\Carbon::parse($noticesBlog['created_at'])->locale('pt_BR')->isoFormat('D [de] MMMM [de] YYYY') }}
                                             </a>
-                                            <a href="{{route('notices-blog.view-details-notices', $noticesBlog['id'])}}"
+                                            <a href="{{route('notices-blog.view-details-notices', ['slug' => $noticesBlog['slug']])}}"
                                                title="{{$noticesBlog['title']}}"
                                                class="alt-font font-weight-500 text-extra-medium text-extra-dark-gray margin-15px-bottom d-block">
                                                 {{$noticesBlog['title']}}

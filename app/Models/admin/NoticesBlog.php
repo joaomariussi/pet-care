@@ -19,11 +19,12 @@ class NoticesBlog extends Model
     protected $fillable = [
         'category_id',
         'title',
+        'slug',
         'subtitle',
         'content',
         'avatar',
         'status',
-        'date'
+        'date',
     ];
 
     /**

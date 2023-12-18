@@ -95,7 +95,7 @@
                             @foreach($categories as $categorys)
                                 <li class="nav">
                                     <a title="{{$categorys['name_category']}}"
-                                       href="{{route("notices-blog.view-notice-category", ['slug' => Str::slug($categorys['name_category'])])}}">
+                                       href="{{route("notices-blog.view-notice-category", ['slug' => $categorys['slug']])}}">
                                         {{$categorys['name_category']}}
                                     </a>
                                 </li>
@@ -122,18 +122,18 @@
                                 <li class="grid-item wow animate__fadeIn">
                                     <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                         <div class="blog-post-image bg-medium-slate-blue">
-                                            <a href="{{route('notices-blog.view-details-notices', $notice['id'])}}" title="{{$notice['title']}}">
+                                            <a href="{{route('notices-blog.view-details-notices', ['slug' => $notice['slug']])}}" title="{{$notice['title']}}">
                                                 <img src="data:image/jpeg;base64,{{$notice['avatar']}}" alt="{{$notice['title']}}">
                                             </a>
-                                            <a href="{{route('notices-blog.view-notice-category', ['slug' => Str::slug($notice['categoryBlog']['name_category'])])}}" class="blog-category alt-font">
+                                            <a href="{{route('notices-blog.view-notice-category', ['slug' => $notice['categoryBlog']['slug']])}}" class="blog-category alt-font">
                                                 {{$notice['categoryBlog']['name_category']}}
                                             </a>
                                         </div>
                                         <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                            <a href="{{route('notices-blog.view-details-notices', $notice['id'])}}" class="alt-font text-small d-inline-block margin-10px-bottom">
+                                            <a href="{{route('notices-blog.view-details-notices', ['slug' => $notice['slug']])}}" class="alt-font text-small d-inline-block margin-10px-bottom">
                                                 {{ \Carbon\Carbon::parse($notice['created_at'])->locale('pt_BR')->isoFormat('D [de] MMMM [de] YYYY') }}
                                             </a>
-                                            <a href="{{route('notices-blog.view-details-notices', $notice['id'])}}"
+                                            <a href="{{route('notices-blog.view-details-notices', ['slug' => $notice['slug']])}}"
                                                class="alt-font font-weight-500 text-extra-medium text-extra-dark-gray margin-15px-bottom d-block">
                                                 {{$notice['title']}}
                                             </a>

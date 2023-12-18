@@ -4,6 +4,7 @@ namespace App\Http\Requests\admin\Blog;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class NoticesBlogRequest extends FormRequest
 {
@@ -20,9 +21,12 @@ class NoticesBlogRequest extends FormRequest
      */
     public function rules(): array
     {
+        $this['slug'] = Str::slug($this['title']);
+
         return [
             'category_id' => 'required|integer',
             'title' => 'required|string|max:100',
+            'slug' => 'required',
             'subtitle' => 'required|string|max:150',
             'content' => 'required|string',
             'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',

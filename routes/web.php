@@ -200,9 +200,9 @@ Route::prefix('blog')
     ->group(function () {
         Route::get('/categoria/{slug}', 'viewNoticeCategory')->name('notices-blog.view-notice-category');
 
-        Route::get('/noticia/{id}', 'viewDetailsNotices')->name('notices-blog.view-details-notices');
-
         Route::get('/todas-noticias', 'viewAllNotices')->name('notices-blog.view-all-notices');
+
+        Route::get('{slug}', 'viewDetailsNotices')->name('notices-blog.view-details-notices');
     });
 /*
 |--------------------------------------------------------------------------

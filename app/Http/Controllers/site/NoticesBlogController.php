@@ -19,17 +19,18 @@ class NoticesBlogController extends Controller
     /*
      * @var NoticesBlog
      */
-    public function viewDetailsNotices($id): View|Factory|Application|RedirectResponse
+    public function viewDetailsNotices($slug): View|Factory|Application|RedirectResponse
     {
         try {
             $noticeBlog = NoticesBlog::query()
-                ->with('categoryBlog')
-                ->where('id', $id)
+                ->where('slug', $slug)
+                ->where('status', '1')
                 ->first();
+
             $categories = CategoriesBlog::query()
-                ->with('noticesBlog')
                 ->where('status', '1')
                 ->get();
+
             return view('site.notices-blog.view-details-notices', compact('noticeBlog', 'categories'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -52,6 +53,7 @@ class NoticesBlogController extends Controller
                 })
                 ->orderBy('id', 'desc')
                 ->paginate(8);
+
             return view('site.notices-blog.view-all-notices', compact('notices', 'categories'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
