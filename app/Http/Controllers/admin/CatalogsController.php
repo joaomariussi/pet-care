@@ -83,8 +83,10 @@ class CatalogsController extends Controller
             $attributes['fileUpload'] = $saveFile['file_name'];
             $this->catalogs::query()->create($attributes);
             Cache::forget('catalogs');
+            dd($attributes);
             UserNotification::success('Catálogo criado com sucesso');
         } catch (Throwable $t) {
+            dd($t->getMessage());
             Log::error($t->getMessage());
             UserNotification::error('Erro ao criar catálogo', 'Não foi possível criar o catálogo');
             return redirect()->back()->withInput();
