@@ -56,9 +56,16 @@ class CatalogsController extends Controller
     /*
     * View Create Catalog
     */
-    public function viewCreateCatalog()
+    public function viewCreateCatalog(): View|Factory|RedirectResponse|Application
     {
-        return view('admin.pages.catalogs.view-create-catalog');
+        try {
+            return view('admin.pages.catalogs.view-create-catalog');
+        } catch (Throwable $t) {
+            dd($t->getMessage());
+            Log::error($t->getMessage());
+            UserNotification::error('Erro ao acessar a tela de criação de catálogos!');
+            return redirect()->back()->withInput();
+        }
     }
 
 
