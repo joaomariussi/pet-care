@@ -13,7 +13,7 @@ class CatalogsCreateRequest extends FormRequest
             'name' => 'required|string|max:191',
             'status' => 'required|boolean',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'fileUpload' => 'sometimes|file|mimes:pdf|max:10240',
+            'fileUpload' => 'sometimes|file|mimes:pdf|max:50240',
         ];
     }
 

@@ -61,7 +61,6 @@ class CatalogsController extends Controller
         try {
             return view('admin.pages.catalogs.view-create-catalog');
         } catch (Throwable $t) {
-            dd($t->getMessage());
             Log::error($t->getMessage());
             UserNotification::error('Erro ao acessar a tela de criação de catálogos!');
             return redirect()->back()->withInput();
@@ -90,10 +89,8 @@ class CatalogsController extends Controller
             $attributes['fileUpload'] = $saveFile['file_name'];
             $this->catalogs::query()->create($attributes);
             Cache::forget('catalogs');
-            dd($attributes);
             UserNotification::success('Catálogo criado com sucesso');
         } catch (Throwable $t) {
-            dd($t->getMessage());
             Log::error($t->getMessage());
             UserNotification::error('Erro ao criar catálogo', 'Não foi possível criar o catálogo');
             return redirect()->back()->withInput();
@@ -155,6 +152,7 @@ class CatalogsController extends Controller
     {
         try {
             $this->catalogs::query()->find($id)->delete();
+            Cache::forget('catalogs');
             UserNotification::success('Catálogo deletado com sucesso');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
