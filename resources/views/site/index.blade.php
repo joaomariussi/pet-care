@@ -554,12 +554,12 @@
                     @endforeach
                 </div>
 
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <a href="#" class="btn btn-link thin btn-extra-large text-extra-dark-gray margin-70px-top d-inline-block
-                            -margin-40px-top sm-margin-20px-top">Visualizar todos os catálogos</a>
-                    </div>
-                </div>
+{{--                <div class="row">--}}
+{{--                    <div class="col-12 text-center">--}}
+{{--                        <a href="#" class="btn btn-link thin btn-extra-large text-extra-dark-gray margin-70px-top d-inline-block--}}
+{{--                            -margin-40px-top sm-margin-20px-top">Visualizar todos os catálogos</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </section>
     @else
