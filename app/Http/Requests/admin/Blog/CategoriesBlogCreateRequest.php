@@ -16,13 +16,16 @@ class CategoriesBlogCreateRequest extends FormRequest
         return Auth::check();
     }
 
+    protected function prepareForValidation(): void
+    {
+        $this['slug'] = Str::slug($this['name_category']);
+    }
+
     /**
      * @return array
      */
     public function rules(): array
     {
-        $this['slug'] = Str::slug($this['name_category']);
-
         return [
             'name_category' => 'required|string|max:100|unique:categories_blog,name_category',
             'status' => 'required|boolean',
