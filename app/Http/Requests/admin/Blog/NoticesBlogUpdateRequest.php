@@ -17,12 +17,18 @@ class NoticesBlogUpdateRequest extends FormRequest
     }
 
     /**
+     * @return void
+     */
+    protected function prepareForValidation(): void
+    {
+        $this['slug'] = Str::slug($this['title']);
+    }
+
+    /**
      * @return array
      */
     public function rules(): array
     {
-        $this['slug'] = Str::slug($this['title']);
-
         return [
             'category_id' => 'required|integer',
             'title' => 'required|string|max:100',
