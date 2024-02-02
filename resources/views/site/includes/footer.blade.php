@@ -54,7 +54,7 @@
                     </div>
                     <div>
                         <i class="feather icon-feather-mail icon-very-small margin-10px-right text-white"></i>
-                        <a href="#">info@yourdomain.com</a></div>
+                        <a href="mailto:contato@cassul.com.br">contato@cassul.com.br</a></div>
                 </div>
             </div>
         </div>

@@ -148,7 +148,7 @@
             <div class="row g-3 margin-15px-bottom">
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/linha-pet" title="Linha de Produtos Per" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/pet.webp')}}" class="img-fluid" alt="Linha de produtos PET" />
@@ -167,7 +167,7 @@
                 </div>
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/linha-grandes" title="Linha de produtos Grandes Animais" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/grandes-animais.webp')}}" class="img-fluid" alt="Linha de produtos para Grandes Animais" />
@@ -186,7 +186,7 @@
                 </div>
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/" title="Linha de produtos nossas exclusividades" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/exclusividades.webp')}}" class="img-fluid" alt="Linha de produtos exclusivos" />
@@ -205,7 +205,7 @@
                 </div>
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item photography logos wow animate__fadeIn">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/linha-agro" title="Linha de produtos Agro" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/agro.webp')}}" class="img-fluid" alt="Linha de produtos Agro" />
@@ -226,7 +226,7 @@
             <div class="row g-3">
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item photography logos wow animate__fadeIn">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/linha-garden" title="Linha de produtos Garden" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/garden.webp')}}" class="img-fluid" alt="Linha de produtos garden" />
@@ -245,7 +245,7 @@
                 </div>
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item logos web photography wow animate__fadeIn" data-wow-delay="0.4s">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/linha-ferragens" title="Linha de produtos Ferragens" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/ferragens.webp')}}" class="img-fluid" alt="Linha de produtos ferragens" />
@@ -264,7 +264,7 @@
                 </div>
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item photography logos wow animate__fadeIn">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/linha-epi" title="Linha de produtos EPI's" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/epis.webp')}}" class="img-fluid" alt="Linha de produtos EPI's" />
@@ -283,7 +283,7 @@
                 </div>
                 <div class="col-12 col-md-3 col-sm-6">
                     <div class="grid-item photography wow animate__fadeIn" data-wow-delay="0.2s">
-                        <a href="#">
+                        <a href="https://vendasonline.cassul.com.br/linha-domissanitaria" title="Linha de produtos Domissanitários" target="_blank">
                             <div class="portfolio-box">
                                 <div class="portfolio-image">
                                     <img src="{{asset('images/linha/domissanitarios.webp')}}" class="img-fluid" alt="Linha de produtos domissanitarios" />

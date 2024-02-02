@@ -136,8 +136,8 @@
                         <span class="alt-font font-weight-500 margin-10px-bottom d-block text-extra-dark-gray text-small text-uppercase">
                             Envie um e-mail
                         </span>
-                            <p><a href="mailto:info@yourdomain.com" class="text-sky-blue-hover">
-                                    info@yourdomain.com
+                            <p><a href="mailto:contato@cassul.com.br" class="text-sky-blue-hover">
+                                    contato@cassul.com.br
                                 </a>
                             </p>
                         </div>
@@ -155,7 +155,7 @@
                             Informações
                         </span>
                             <p class="d-inline-block w-70 lg-w-90 md-w-60 sm-w-80 xs-w-100">
-                                Lorem ipsum dolor sit amet
+                                Entre em contato e tire suas dúvidas conosco.
                             </p>
                         </div>
                     </div>
