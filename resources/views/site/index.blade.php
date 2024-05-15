@@ -513,7 +513,7 @@
                             </div>
                         </div>
                         <!-- end feature box item -->
-                        <div class="col-12 margin-4-rem-top d-inline-block wow animate__fadeIn" data-wow-delay="0.4s"><a href="https://taplink.cc/catalogoscassuldistribuidora" target="_blank" class="btn btn-large btn-expand-ltr text-black section-link">Conheça nossos Catálogos<span class="bg-orange"></span></a></div>
+                        <div class="col-12 margin-4-rem-top d-inline-block wow animate__fadeIn" data-wow-delay="0.4s"><a href="https://taplink.cc/cassuldistribuidora" target="_blank" class="btn btn-large btn-expand-ltr text-black section-link">Conheça nossos Catálogos<span class="bg-orange"></span></a></div>
                     </div>
                 </div>
             </div>
