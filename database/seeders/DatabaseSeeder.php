@@ -15,20 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         User::query()->create([
-             'name' => 'Gustavo May',
-             'email' => 'gustavo@rockyecommerce.com.br',
-             'password' => Hash::make('UntDev@2023'),
-             'password_recovery_token' => encrypt('UntDev@2023'),
-             'type' => 'webmaster'
-         ]);
-
-         User::query()->create([
-             'name' => 'Lucas Chiarello',
-             'email' => 'lucas@rockyecommerce.com.br',
-             'password' => Hash::make('UntDev@2023'),
-             'password_recovery_token' => encrypt('UntDev@2023'),
-             'type' => 'webmaster'
-         ]);
+        $this->call(UsuarioSeeder::class);
     }
 }

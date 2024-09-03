@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('home_config', function (Blueprint $table) {
+        Schema::create('servicos', function (Blueprint $table) {
             $table->id();
-            $table->string('home_title', 70);
-            $table->string('home_subtitle', 50);
-            $table->longText('avatar');
+            $table->string('nome', 255);
+            $table->text('descricao')->nullable();
+            $table->decimal('preco', 10, 2);
+            $table->integer('tempo_servico');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('home_config');
+        Schema::dropIfExists('servicos');
     }
 };

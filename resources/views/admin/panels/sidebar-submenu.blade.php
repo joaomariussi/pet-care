@@ -13,7 +13,7 @@
                             @include('panels.sidebar-submenu',['menu'=>$submenu->submenu])
                         @endif
                     </li>
-                @endcan
+                @endcan1
             @endforeach
         @endif
     </ul>

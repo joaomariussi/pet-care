@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('users_table')) {
-            Schema::create('users_table', function (Blueprint $table) {
+        if (!Schema::hasTable('usuarios')) {
+            Schema::create('usuarios', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
+                $table->string('nome');
                 $table->string('email','191')->unique();
                 $table->longText('avatar')->nullable();
                 $table->string('password', '156')->default(null);
@@ -27,25 +27,6 @@ return new class extends Migration
                 $table->timestamps();
             });
         }
-
-        DB::table('users_table')->insert([
-            [
-                'name' => 'Gustavo May',
-                'email' => 'gustavo@rockyecommerce.com.br',
-                'password' => Hash::make('UntDev@r'),
-                'type' => 'webmaster',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Lucas Chiarello',
-                'email' => 'lucas@rockyecommerce.com.br',
-                'password' => Hash::make('UntDev@r'),
-                'type' => 'webmaster',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-        ]);
     }
 
     /**

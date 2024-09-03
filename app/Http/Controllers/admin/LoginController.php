@@ -67,9 +67,10 @@ class LoginController extends Controller
                 return redirect()->route('login');
             }
         } catch (Throwable $t) {
-            applicationError($t, 'Falha ao realizar o login.');
+            Log::error('Erro ao realizar o login: ' . $t->getMessage());
+            UserNotification::error('Erro ao realizar o login.');
+            return redirect()->route('login');
         }
-        return redirect()->route($this->redirectTo);
     }
 
     /**
