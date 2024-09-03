@@ -7,43 +7,37 @@
             "icon": "fa-solid fa-gauge"
         },
         {
-            "navheader": "gerenciamento - site"
+            "navheader": "gerenciamento - painel"
         },
         {
-            "can": "user",
-            "url": "home/",
-            "name": "Home",
-            "icon": "fa-solid fa-home"
+            "can": "agendamentos",
+            "url": "agendamentos/",
+            "name": "Agendamentos",
+            "icon": "fa-solid fa-calendar-check"
         },
         {
-            "can": "user",
-            "url": "contacts/",
-            "name": "Contatos",
-            "icon": "fa-solid fa-address-book"
+            "can": "funcionarios",
+            "url": "funcionarios/",
+            "name": "Funcionários",
+            "icon": "fa-regular fa-user"
         },
         {
-            "can": "user",
-            "url": "jobs/",
-            "name": "Trabalhe Conosco",
-            "icon": "fa-solid fa-briefcase"
+            "can": "pets",
+            "url": "pets/",
+            "name": "Pets",
+            "icon": "fa-solid fa-paw"
         },
         {
-            "can": "user",
-            "url": "sectors/",
-            "name": "Setores",
-            "icon": "fa-solid fa-building"
+            "can": "proprietarios",
+            "url": "proprietarios/",
+            "name": "Proprietários",
+            "icon": "fa-solid fa-user-tie"
         },
         {
-            "can": "user",
-            "url": "catalogs/",
-            "name": "Catálogos",
-            "icon": "fa-solid fa-book"
-        },
-        {
-            "can": "user",
-            "url": "blog/",
-            "name": "Blog",
-            "icon": "fa-solid fa-blog"
+            "can": "servicos",
+            "url": "servicos/",
+            "name": "Serviços",
+            "icon": "fa-solid fa-tools"
         },
         {
             "navheader": "administração"

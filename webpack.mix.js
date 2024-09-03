@@ -1,25 +1,5 @@
 const mix = require('laravel-mix');
-// const exec = require('child_process').exec;
-
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
-
-const mix = require('laravel-mix');
-// const path = require('path')
-
-/*
- |--------------------------------------------------------------------------
- | Vendor assets
- |--------------------------------------------------------------------------
- */
+const {glob} = require("glob");
 
 function mixAssetsDir(query, cb) {
     (glob.sync('resources/' + query) || []).forEach(f => {
@@ -58,7 +38,6 @@ mix.copyDirectory('resources/images', 'public/images');
 mix.copyDirectory('resources/vendors', 'public/vendors');
 mix.copyDirectory('resources/data', 'public/data');
 mix.copyDirectory('resources/plugins', 'public/plugins');
-mix.copyDirectory('resources/css/site', 'public/css/site');
 mix.copyDirectory('resources/fonts', 'public/fonts');
 
 mix.copy('node_modules/@popperjs/core/dist/umd/popper.min.js', 'public/js/core/libraries/popper/popper.js').sourceMaps();
@@ -69,12 +48,13 @@ mix.copy('node_modules/jquery-confirm/dist/jquery-confirm.min.js', 'public/js/co
 mix.sass('resources/sass/admin/bootstrap-extended.scss', 'public/css/admin')
     .sass('resources/sass/admin/bootstrap.scss', 'public/css/admin')
     .sass('resources/sass/admin/colors.scss', 'public/css/admin')
-    .sass('resources/sass/admin/components.scss', 'public/css/admin')
+    .sass('resources/sass/admin/components.scss', 'public/css/admin');
 
 mix.version();
 
-// descomentar para visualizar log de erro
+// Configura o modo de acordo com o ambiente
 // mix.webpackConfig({
+//     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 //     stats: {
 //         children: true
 //     }

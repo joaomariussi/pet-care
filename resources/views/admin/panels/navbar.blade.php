@@ -14,36 +14,9 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav lojaInfos">
-                        <li class="nav navbar-nav">
-
-                            <div class="btn btn-site d-flex align-items-center custom-control custom-switch custom-switch-success custom-control-inline ms-1">
-                                <i id="corIcon" class="fa-solid fa-arrow-up-right-from-square"></i>
-                                <a href="/" target="_blank" class="Ver Site">
-                                    <span class="loja-online irLoja">Ver site</span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
                 <div class="float-end bookmark-wrapper d-flex align-items-center">
                     <ul class="nav navbar-nav float-end navbarInfos">
-
-                        <li class="dropdown dropdown-notification nav-item">
-                            <a class="nav-link nav-link-label" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                @if(session('countNotifications') > 0)
-                                    <i class="fa-regular fa-bell fa-shake font-medium-5"></i>
-                                    <span class="badge badge-pill badge-danger badge-up">
-                                        {{session('countNotifications', 0)}}
-                                    </span>
-                                @else
-                                    <i class="fa-regular fa-bell font-medium-5"></i>
-                                    <span class="badge badge-pill badge-danger badge-up">
-                                        {{session('countNotifications', 0)}}
-                                    </span>
-                                @endif
-                            </a>
-                        </li>
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-bs-toggle="dropdown">
                                 <div class="user-nav d-sm-flex">
@@ -58,7 +31,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                    <a class="dropdown-item" href="{{route('profile-user')}}">
+                                    <a class="dropdown-item" href="#">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0 me-3">
                                                 <div class="avatar avatar-online">
@@ -81,7 +54,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="dropdown-item" href="{{route('profile-user')}}">
+                                    <a class="dropdown-item" href="#">
                                         <i class="fa-solid fa-user me-2"></i>
                                         <span class="align-middle">Meu Perfil</span>
                                     </a>
@@ -104,7 +77,3 @@
         </div>
     </div>
 </nav>
-
-@include('admin.notifications.offcanvas-notifications')
-
-<?php /**PATH C:\Users\usuario\Desktop\Rocky_clone\rockyadmin-laravel\resources\views/panels/navbar.blade.php ENDPATH**/ ?>

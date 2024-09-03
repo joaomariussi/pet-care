@@ -53,14 +53,6 @@
                 @endif
             </ul>
         </div>
-
-        <div class="navbar-header logo-sociais">
-            <div class="nav-item brand-text text-center">
-                <a class="img-fluid" href="/">
-                    <img src="{{asset('images/rocky-logo.webp')}}" class="logo-partner" alt="Logo">
-                </a>
-            </div>
-        </div>
     </div>
 @endif
 

@@ -8,11 +8,10 @@
 
 @section('content')
     <div class="authentication-wrapper authentication-cover">
-        <div class="authentication-inner row">
-            <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center background_img">
+            <div class="authentication-inner row">
+                <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center background_img">
                 <div class="flex-row text-center mx-auto">
-                    <img src="{{asset('images/Login.webp')}}"
-                         alt="Backgroud imagem login"
+                    <img src="{{asset('images/Login.webp')}}" alt="Backgroud imagem login"
                          class="img-fluid authentication-cover-img">
                 </div>
             </div>
@@ -22,12 +21,12 @@
                     <div class="app-brand mb-4">
                         <a href="#" class="app-brand-link gap-2 mb-2">
                             <span class="app-brand-logo demo">
-                                <img class="img-fluid" src="{{asset('images/logo-orange.png')}}" alt="Logo Cassul">
+                                <img class="img-fluid" src="{{asset('images/logo-login.png')}}" alt="Logo Cassul">
                             </span>
                         </a>
                     </div>
                     <h4 class="mb-2">Bem-vindo(a) 👋</h4>
-                    <p class="mb-4">Acesse o painel de gerenciamento do seu web site!</p>
+                    <p class="mb-4">Acesse o painel de gerenciamento do seu sistema.</p>
 
                     <form id="formAuthentication" class="mb-3" action="{{ route('authenticate') }}"
                           method="POST">
@@ -93,18 +92,13 @@
                             </div>
 
                             <div class="col-12">
-                                <button type="submit" class="btn button_access btn-block w-100">
+                                <button type="submit" class="btn btn-success btn-block w-100">
                                     <i class="fa-solid fa-right-to-bracket"></i> Acessar
                                 </button>
                                 <input type="hidden">
                             </div>
                         </div>
                     </form>
-
-
-                    <div class="divider my-4">
-                        <div class="divider-text">Developed by Plataforma Rocky</div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -19,10 +19,6 @@ class NotificationsMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        $notification = Notifications::where('read', false)->get();
-        $countNotifications = $notification->count();
-        session()->put('notification', $notification);
-        session()->put('countNotifications', $countNotifications);
         return $next($request);
     }
 }
