@@ -11,21 +11,21 @@
     .invoice-action i:hover,
     .dropdown-item:hover, .dropdown-item:focus,
     .pagination .page-item.previous .page-link, .pagination .page-item.next .page-link, .pagination .page-item.first .page-link, .pagination .page-item.last .page-link {
-        color: #e28100 !important;
+        color: #4d585e !important;
     }
 
     .header-navbar .navbar-container ul.nav li .badge.badge-up,
     .dropdown-notification .dropdown-menu-header,
     .pagination .page-item.active .page-link, .pagination .page-item.active .page-link:hover,
     .tutorial .alert {
-        background-color: #e28100 !important;
+        background-color: #0a0a0a !important;
     }
 
     .vertical-layout.vertical-menu-modern .main-menu .navigation .menu-content > li > a > i,
     .main-menu.menu-light .navigation > li.nav-item.open > a i, .main-menu.menu-light .navigation > li.nav-item.sidebar-group-active > a i,
     .vertical-layout.vertical-menu-modern.menu-expanded .main-menu .navigation li.has-sub > a:not(.mm-next):after,
     .vertical-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after {
-        color: #e28100 !important;
+        color: #000000 !important;
     }
 
     .scroll-top {
@@ -34,8 +34,11 @@
     }
 
     .accordion-button:not(.collapsed) {
-        background: rgba(226, 129, 0, 0.1);
-        color: #e28100 !important;
+        order-top-left-radius: var(--bs-accordion-inner-border-radius);
+        border-top-right-radius: var(--bs-accordion-inner-border-radius);
+        .accordion-button {
+            color: #566a7f;
+        }
     }
 
     .button_register {

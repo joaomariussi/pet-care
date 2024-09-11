@@ -8,7 +8,7 @@
                     <a class="navbar-brand">
                         <div id="corIcon" class="plano-loja">
                             <a href="{{route('dashboard')}}" title="Dashboard">
-                                <img src="{{asset('images/logo-orange.png')}}" alt="logo" class="logo">
+                                <img src="{{asset('images/logo.png')}}" alt="logo" class="logo">
                             </a>
                         </div>
                     </a>

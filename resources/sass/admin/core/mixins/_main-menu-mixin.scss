@@ -162,16 +162,6 @@
                     display: none;
                 }
             }
-            // menu-item active
-            &.active {
-                &:not(.sidebar-group-active){
-
-                    > a {
-                        background: rgb(226 129 0 / 10%);
-                        color: #e28100;
-                    }
-                }
-            }
             // Sub-menu item active
             .active {
                 > a {
