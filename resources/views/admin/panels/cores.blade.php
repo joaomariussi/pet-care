@@ -11,26 +11,26 @@
     .invoice-action i:hover,
     .dropdown-item:hover, .dropdown-item:focus,
     .pagination .page-item.previous .page-link, .pagination .page-item.next .page-link, .pagination .page-item.first .page-link, .pagination .page-item.last .page-link {
-        color: #4d585e !important;
+        color: #6364e4 !important;
     }
 
     .header-navbar .navbar-container ul.nav li .badge.badge-up,
     .dropdown-notification .dropdown-menu-header,
     .pagination .page-item.active .page-link, .pagination .page-item.active .page-link:hover,
     .tutorial .alert {
-        background-color: #0a0a0a !important;
+        background-color: #6364e4 !important;
     }
 
     .vertical-layout.vertical-menu-modern .main-menu .navigation .menu-content > li > a > i,
     .main-menu.menu-light .navigation > li.nav-item.open > a i, .main-menu.menu-light .navigation > li.nav-item.sidebar-group-active > a i,
     .vertical-layout.vertical-menu-modern.menu-expanded .main-menu .navigation li.has-sub > a:not(.mm-next):after,
     .vertical-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after {
-        color: #000000 !important;
+        color: #6364e4 !important;
     }
 
     .scroll-top {
-        background-color: #e28100 !important;
-        border: 1px solid #e28100 !important;
+        background-color: #6364e4 !important;
+        border: 1px solid #6364e4 !important;
     }
 
     .accordion-button:not(.collapsed) {
@@ -55,14 +55,14 @@
     }
 
     .button_access {
-        background-color: #e28100;
-        border: 1px solid #e28100;
+        background-color: #6364e4;
+        border: 1px solid #6364e4;
         color: white;
         height: 50px;
     }
 
     .button_access:hover {
-        background-color: #e28100;
+        background-color: #6364e4;
         color: white;
         opacity: .7;
     }

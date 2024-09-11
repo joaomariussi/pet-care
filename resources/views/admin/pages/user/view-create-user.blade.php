@@ -36,13 +36,15 @@
                         <div class="col-12 col-md-4">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['avatar'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
+                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['avatar'])}}"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#avatar-collapse"
                                             aria-expanded="true" aria-controls="avatar-collapse">
                                         <i class="fa-solid fa-image font-medium-5"></i>
                                         <span class="ms-2">Avatar</span>
                                     </button>
 
-                                    <div id="avatar-collapse" class="accordion-collapse collapse show" aria-labelledby="avatar-headingOne">
+                                    <div id="avatar-collapse" class="accordion-collapse collapse show"
+                                         aria-labelledby="avatar-headingOne">
                                         <div class="accordion-body">
                                             <fieldset>
                                                 <div class="row">
@@ -51,7 +53,8 @@
                                                             <label hidden class="mb-3" for="avatar">Avatar</label>
                                                             <div class="max-width">
                                                                 <div class="imageContainer">
-                                                                    <img src="{{asset('images/camera.png')}}" alt="Selecione uma imagem" id="imgPhoto">
+                                                                    <img src="{{asset('images/camera.png')}}"
+                                                                         alt="Selecione uma imagem" id="imgPhoto">
                                                                 </div>
                                                             </div>
                                                             <input type="file" id="avatar"
@@ -79,21 +82,26 @@
                         <div class="col-12 col-md-8">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','password'])}}" type="button" data-bs-toggle="collapse" data-bs-target="#informacoesGerais-collapse"
+                                    <button class="accordion-button erroInfoGerais
+                                    {{form_collapse_errors($errors, ['nome','email','password'])}}" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
                                         <span class="ms-2">Informações Gerais</span><small class="ms-1">(Obrigatório)</small>
                                     </button>
 
-                                    <div id="informacoesGerais-collapse" class="accordion-collapse collapse show" aria-labelledby="informacoesGerais-headingOne">
+                                    <div id="informacoesGerais-collapse" class="accordion-collapse collapse show"
+                                         aria-labelledby="informacoesGerais-headingOne">
                                         <div class="accordion-body">
                                             <fieldset>
                                                 <div class="row g-3">
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
-                                                            <label for="name">Nome</label>
-                                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome" value="{{old('name')}}">
-                                                            @error('name')
+                                                            <label for="nome">Nome</label>
+                                                            <input type="text" class="form-control @error('nome')
+                                                             is-invalid @enderror" id="nome" name="nome" placeholder="Nome"
+                                                                   value="{{old('nome')}}">
+                                                            @error('nome')
                                                                 <div class="invalid-feedback">
                                                                     {{$message}}
                                                                 </div>
@@ -104,7 +112,9 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="email">E-mail</label>
-                                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="E-mail" value="{{old('email')}}">
+                                                            <input type="text" class="form-control @error('email')
+                                                            is-invalid @enderror" id="email" name="email" placeholder="E-mail"
+                                                                   value="{{old('email')}}">
                                                             @error('email')
                                                                 <div class="invalid-feedback">
                                                                     {{$message}}
@@ -116,11 +126,13 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="password">Senha</label>
-                                                            <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                                            <input type="password" class="form-control @error('password')
+                                                             is-invalid @enderror"
                                                                    id="password"
                                                                    name="password"
                                                                    placeholder="Senha" value="{{old('password')}}">
-                                                            <span toggle="#password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
+                                                            <span toggle="#password" class="fa -fa-fw fa-eye field-icon
+                                                            toggle-password"></span>
                                                             @error('password')
                                                                 <div class="invalid-feedback">
                                                                     {{$message}}
@@ -132,9 +144,12 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="type">Tipo de Usuário</label>
-                                                            <select class="form-select @error('type') is-invalid @enderror" id="type" name="type">
-                                                                <option value="admin" {{old('type') == 'admin' ? 'selected' : ''}}>admin</option>
-                                                                <option value="user" {{old('type') == 'user' ? 'selected' : ''}}>user</option>
+                                                            <select class="form-select @error('type') is-invalid @enderror"
+                                                                    id="type" name="type">
+                                                                <option value="admin" {{old('type') == 'admin' ? 'selected' : ''}}>
+                                                                    Administrador</option>
+                                                                <option value="user" {{old('type') == 'user' ? 'selected' : ''}}>
+                                                                    Usuário</option>
                                                             </select>
                                                             @error('type')
                                                                 <div class="invalid-feedback">
@@ -153,7 +168,10 @@
                         </div>
                     </div>
                     <div class="btnsSave mt-3 justify-content-between d-flex float-end">
-                        <button type="submit" class="btn button_save_forms saveForm"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+                        <button type="submit" class="btn button_save_forms saveForm">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Salvar
+                        </button>
                     </div>
                 </form>
             </div>

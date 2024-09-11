@@ -26,7 +26,7 @@
                     </div>
                 </section>
 
-                <b class="title-geral-etapas">Usuário: {{$user['name']}}</b>
+                <b class="title-geral-etapas">Usuário: {{$user['nome']}}</b>
                 <p>Preencha os formulários abaixo para editar o usuário desejado.</p>
 
                 <form method="POST" action="{{route('user.update', $user['id'])}}"
@@ -91,7 +91,8 @@
                             <div class="accordion">
                                 <div class="accordion-item">
                                     <button
-                                        class="accordion-button erroInfoGerais {{form_collapse_errors($errors, ['name','email','type'])}}"
+                                        class="accordion-button erroInfoGerais
+                                        {{form_collapse_errors($errors, ['name','email','type'])}}"
                                         type="button" data-bs-toggle="collapse"
                                         data-bs-target="#informacoesGerais-collapse"
                                         aria-expanded="true" aria-controls="informacoesGerais-collapse">
@@ -107,11 +108,12 @@
                                                 <div class="row g-3">
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
-                                                            <label for="name">Nome</label>
-                                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                                                   name="name" placeholder="Nome"
-                                                                   value="{{old('name')?:$user['name']}}">
-                                                            @error('name')
+                                                            <label for="nome">Nome</label>
+                                                            <input type="text" class="form-control @error('nome')
+                                                             is-invalid @enderror" id="nome"
+                                                                   name="nome" placeholder="Nome"
+                                                                   value="{{old('nome')?:$user['nome']}}">
+                                                            @error('nome')
                                                                 <div class="invalid-feedback">
                                                                     {{$message}}
                                                                 </div>

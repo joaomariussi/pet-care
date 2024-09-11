@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\admin\User\UserUpdateRequest;
+use App\Http\Requests\User\UserUpdateRequest;
 use App\Notifications\UserNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

@@ -33,7 +33,6 @@ class UserDataTable extends DataTable
             ->setRowId('id');
     }
 
-
     /**
      * Get the query source of dataTable.
      */
@@ -79,7 +78,7 @@ class UserDataTable extends DataTable
                 ->width(60)
                 ->addClass('text-center')
                 ->title('Ações'),
-                Column::make('name')->title('Nome'),
+                Column::make('nome')->title('Nome'),
                 Column::make('type')->title('Tipo'),
                 Column::make('email')->title('E-mail'),
                 Column::make('created_at')->title('Criado em')

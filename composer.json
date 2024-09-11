@@ -1,18 +1,14 @@
 {
-    "name": "rocky-admin/cassul",
+    "name": "joaomariussi/pet-care-system",
     "type": "project",
-    "description": "Cassull platform admin panel and app/Http/Controllers/site web",
+    "description": "Pet Care System",
     "authors": [
         {
-            "name": "Gustavo May",
-            "email": "gustavo@rockyecommerce.com.br"
-        },
-        {
-            "name": "Eunir Kaiser",
-            "email": "eunir@uniom.team"
+            "name": "João Pedro Mariussi",
+            "email": "joaomariussi10@gmail.com"
         }
     ],
-    "keywords": ["Rocky", "Site", "Admin"],
+    "keywords": ["pet", "care", "system"],
     "license": "MIT",
     "require": {
         "php": "^8.2",

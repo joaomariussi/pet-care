@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\UserDataTable;
-use App\Http\Requests\admin\User\NewPasswordValidate;
-use App\Http\Requests\admin\User\UserAvatarUpdateRequest;
-use App\Http\Requests\admin\User\UserCreateRequest;
-use App\Http\Requests\admin\User\UserProfileUpdateRequest;
-use App\Http\Requests\admin\User\UserUpdateRequest;
+use App\Http\Requests\User\NewPasswordValidate;
+use App\Http\Requests\User\UserAvatarUpdateRequest;
+use App\Http\Requests\User\UserCreateRequest;
+use App\Http\Requests\User\UserProfileUpdateRequest;
+use App\Http\Requests\User\UserUpdateRequest;
 use App\Models\User;
 use App\Notifications\UserNotification;
 use Exception;
@@ -51,7 +51,7 @@ class UserController extends Controller
     /**
      * @return View|Factory|Application
      */
-    public function ViewCreateUser()
+    public function ViewCreateUser(): View|Factory|Application
     {
         return view('admin.pages.user.view-create-user');
     }
@@ -198,7 +198,6 @@ class UserController extends Controller
         return redirect()->route('profile-user');
     }
 
-
     /**
      * @param NewPasswordValidate $request
      * @return RedirectResponse
@@ -210,7 +209,6 @@ class UserController extends Controller
 
             $user = Auth::user();
             $attributes = $request->validated();
-
 
             if (!Auth::validate(['email' => $user->email, 'password' => $request->input('current_password')])) {
                 UserNotification::error('Senha atual incorreta.');

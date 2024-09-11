@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
-use App\Http\Requests\admin\Auth\LoginRequestValidate;
+use App\Http\Requests\Auth\LoginRequestValidate;
 use App\Notifications\UserNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
