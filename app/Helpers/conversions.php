@@ -39,7 +39,7 @@ function mask($mask,$str): mixed
 }
 
 /**
- * Remove qualquer caracter que não seja número
+ * Remove qualquer caractere que não seja número
  * @param $attribute
  * @return string
  */

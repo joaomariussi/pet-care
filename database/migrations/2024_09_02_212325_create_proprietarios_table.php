@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('cpf', 14)->unique();
             $table->string('email', 255)->unique();
             $table->string('telefone', 20);
+            $table->string('celular', 20)->nullable();
+            $table->date('data_nasc');
+            $table->enum('genero', ['Masculino', 'Feminino', 'Outro']);
             $table->string('endereco', 255);
             $table->string('bairro', 255);
             $table->string('numero', 10);
@@ -24,7 +27,6 @@ return new class extends Migration
             $table->string('cep', 10);
             $table->string('cidade', 100);
             $table->string('estado', 2);
-            $table->enum('genero', ['Masculino', 'Feminino', 'Outro']);
             $table->timestamps();
         });
     }

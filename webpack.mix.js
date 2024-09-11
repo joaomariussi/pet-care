@@ -52,10 +52,8 @@ mix.sass('resources/sass/admin/bootstrap-extended.scss', 'public/css/admin')
 
 mix.version();
 
-// Configura o modo de acordo com o ambiente
-// mix.webpackConfig({
-//     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-//     stats: {
-//         children: true
-//     }
-// });
+mix.webpackConfig({
+    stats: {
+        children: false // Exibe mais detalhes sobre os warnings
+    }
+});

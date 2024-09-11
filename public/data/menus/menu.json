@@ -1,8 +1,8 @@
 {
     "menu": [
         {
-            "can": "user",
-            "url": "admin/",
+            "can": "dashboard",
+            "url": "dashboard/",
             "name": "Dashboard",
             "icon": "fa-solid fa-gauge"
         },
@@ -28,8 +28,8 @@
             "icon": "fa-solid fa-paw"
         },
         {
-            "can": "proprietarios",
-            "url": "proprietarios/",
+            "can": "owners",
+            "url": "owners/",
             "name": "Proprietários",
             "icon": "fa-solid fa-user-tie"
         },

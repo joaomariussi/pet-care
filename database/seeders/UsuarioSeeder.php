@@ -15,7 +15,7 @@ class UsuarioSeeder extends Seeder
     {
         User::query()->create([
             'nome' => 'João Pedro Mariussi',
-            'email' => 'joaomariussi10@gmail.com.br',
+            'email' => 'joaomariussi10@gmail.com',
             'password' => Hash::make('123'),
             'password_recovery_token' => encrypt('123'),
             'type' => 'webmaster'
