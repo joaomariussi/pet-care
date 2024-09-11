@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Requests\admin\User;
+namespace App\Http\Requests\User;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,13 +19,13 @@ class UserUpdateRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users_table,email,'. $this['id'],
+            'nome' => 'required',
+            'email' => 'required|email|unique:usuarios,email,'. $this['id'],
             'type' => 'required',
         ];
     }
@@ -32,7 +33,7 @@ class UserUpdateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'O nome é obrigatório',
+            'nome.required' => 'O nome é obrigatório',
             'email.required' => 'O e-mail é obrigatório',
             'email.email' => 'E-mail inválido',
             'email.unique' => 'Este e-mail já está em uso',

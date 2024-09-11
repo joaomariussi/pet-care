@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\admin\User;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +15,8 @@ class UserProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users_table,email,'. $this['id'],
+            'nome' => 'required',
+            'email' => 'required|email|unique:usuarios,email,'. $this['id'],
             'type' => 'required|sometimes',
         ];
     }
@@ -24,7 +24,7 @@ class UserProfileUpdateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'O nome é obrigatório',
+            'nome.required' => 'O nome é obrigatório',
             'email.required' => 'O e-mail é obrigatório',
             'email.email' => 'E-mail inválido',
             'email.unique' => 'E-mail já cadastrado anteriormente',

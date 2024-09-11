@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Requests\admin\User;
+namespace App\Http\Requests\User;
 
 use App\Exceptions\CustomLog;
-use AWS\CRT\Log;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Throwable;
