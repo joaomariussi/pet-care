@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_proprietario')->constrained('proprietarios')->onDelete('cascade');
-            $table->string('nome', 255);
-            $table->date('data_nascimento');
-            $table->string('especie', 255);
-            $table->string('raca', 255);
-            $table->string('genero', 50);
-            $table->string('cor', 255);
-            $table->double('peso', 5, 2);
-            $table->text('historico_medico')->nullable();
-            $table->string('foto', 255)->nullable();
+            $table->foreignId('owner_id')->constrained('owners')->onDelete('cascade');
+            $table->string('name', 255);
+            $table->date('date_birth');
+            $table->string('species', 255);
+            $table->string('race', 255);
+            $table->string('gender', 50);
+            $table->string('color', 255);
+            $table->double('weight', 5, 2);
+            $table->string('photo', 255)->nullable();
             $table->timestamps();
         });
     }

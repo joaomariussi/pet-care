@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agendamentos', function (Blueprint $table) {
+        Schema::create('medical_histories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
-            $table->foreignId('servico_id')->constrained('servicos')->onDelete('cascade');
-            $table->foreignId('funcionario_id')->constrained('funcionarios')->onDelete('cascade');
-            $table->date('data_agendamento');
-            $table->time('hora_agendamento');
-            $table->enum('status', ['Em Andamento', 'Confirmado', 'Cancelado', 'Concluido']);
+            $table->foreignId('veterinarian_id')->constrained('veterinarians')->onDelete('cascade');
+            $table->string('diagnosis', 255);
+            $table->string('treatment', 255);
+            $table->date('date');
+            $table->string('observations', 255);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agendamentos');
+        Schema::dropIfExists('medical_histories');
     }
 };

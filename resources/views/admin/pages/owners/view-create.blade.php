@@ -43,8 +43,8 @@
                             <div class="accordion">
                                 <div class="accordion-item">
                                     <button class="accordion-button erroInfoGerais
-                                    {{form_collapse_errors($errors, ['nome','cpf','email', 'telefone','data_nasc',
-                                    'genero', 'endereco','bairro', 'numero', 'cep', 'cidade','estado'])}}"
+                                    {{form_collapse_errors($errors, ['name','cpf','email', 'telephone', 'cell_phone',
+                                    'date_birth','gender', 'address','neighborhood', 'number', 'zip_code', 'city','state'])}}"
                                             type="button" data-bs-toggle="collapse"
                                             data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
@@ -60,12 +60,12 @@
                                                 <div class="row g-3">
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="nome">Nome*</label>
-                                                            <input type="text" class="form-control @error('nome')
-                                                            is-invalid @enderror" id="nome" name="nome" required
+                                                            <label for="name">Nome*</label>
+                                                            <input type="text" class="form-control @error('name')
+                                                            is-invalid @enderror" id="name" name="name" required
                                                                    placeholder="Nome do Proprietário"
-                                                                   value="{{old('nome')}}">
-                                                            @error('nome')
+                                                                   value="{{old('name')}}">
+                                                            @error('name')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -105,12 +105,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="telefone">Telefone*</label>
-                                                            <input type="text" class="form-control @error('telefone')
-                                                            is-invalid @enderror" id="telefone" name="telefone" required
+                                                            <label for="telephone">Telefone*</label>
+                                                            <input type="text" class="form-control @error('telephone')
+                                                            is-invalid @enderror" id="telephone" name="telephone" required
                                                                    placeholder="Informe um telefone válido" maxlength="15"
-                                                                   value="{{old('telefone')}}">
-                                                            @error('telefone')
+                                                                   value="{{old('telephone')}}">
+                                                            @error('telephone')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -120,12 +120,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="celular">Celular</label>
-                                                            <input type="text" class="form-control @error('celular')
-                                                            is-invalid @enderror" id="celular" name="celular"
+                                                            <label for="cell_phone">Celular</label>
+                                                            <input type="text" class="form-control @error('cell_phone')
+                                                            is-invalid @enderror" id="cell_phone" name="cell_phone"
                                                                    placeholder="Informe um celular válido" maxlength="15"
-                                                                   value="{{old('celular')}}">
-                                                            @error('celular')
+                                                                   value="{{old('cell_phone')}}">
+                                                            @error('cell_phone')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -135,11 +135,11 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="data_nasc">Data de Nascimento*</label>
-                                                            <input type="date" class="form-control @error('data_nasc')
-                                                            is-invalid @enderror" id="data_nasc" name="data_nasc" required
-                                                                   value="{{old('data_nasc')}}">
-                                                            @error('data_nasc')
+                                                            <label for="date_birth">Data de Nascimento*</label>
+                                                            <input type="date" class="form-control @error('date_birth')
+                                                            is-invalid @enderror" id="date_birth" name="date_birth" required
+                                                                   value="{{old('date_birth')}}">
+                                                            @error('date_birth')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -149,24 +149,24 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="genero">Gênero*</label>
-                                                            <select class="form-select @error('genero') is-invalid @enderror"
-                                                                    required id="genero" name="genero">
+                                                            <label for="gender">Gênero*</label>
+                                                            <select class="form-select @error('gender') is-invalid @enderror"
+                                                                    required id="gender" name="gender">
                                                                 <option value="" selected>Selecione o gênero</option>
                                                                 <option value="Masculino"
-                                                                    {{old('genero') == 'M' ? 'selected' : ''}}>
+                                                                    {{old('gender') == 'M' ? 'selected' : ''}}>
                                                                     Masculino
                                                                 </option>
                                                                 <option value="Feminino"
-                                                                    {{old('genero') == 'F' ? 'selected' : ''}}>
+                                                                    {{old('gender') == 'F' ? 'selected' : ''}}>
                                                                     Feminino
                                                                 </option>
                                                                 <option value="Outro"
-                                                                    {{old('genero') == 'O' ? 'selected' : ''}}>
+                                                                    {{old('gender') == 'O' ? 'selected' : ''}}>
                                                                     Outro
                                                                 </option>
                                                             </select>
-                                                            @error('genero')
+                                                            @error('gender')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -202,12 +202,12 @@
                                                 <div class="row g-3">
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="endereco">Endereço*</label>
-                                                            <input type="text" class="form-control @error('endereco')
-                                                            is-invalid @enderror" id="endereco" name="endereco" required
-                                                                   placeholder="Preencha o seu endereço"
-                                                                   value="{{old('endereco')}}">
-                                                            @error('endereco')
+                                                            <label for="address">Endereço*</label>
+                                                            <input type="text" class="form-control @error('address')
+                                                            is-invalid @enderror" id="address" name="address" required
+                                                                   placeholder="Informe o endereço"
+                                                                   value="{{old('address')}}">
+                                                            @error('address')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -217,12 +217,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="bairro">Bairro*</label>
-                                                            <input type="text" class="form-control @error('bairro')
-                                                                is-invalid @enderror" id="bairro" name="bairro" required
+                                                            <label for="neighborhood">Bairro*</label>
+                                                            <input type="text" class="form-control @error('neighborhood')
+                                                                is-invalid @enderror" id="neighborhood" name="neighborhood" required
                                                                    placeholder="Informe o bairro"
-                                                                   value="{{old('bairro')}}">
-                                                            @error('bairro')
+                                                                   value="{{old('neighborhood')}}">
+                                                            @error('neighborhood')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -232,12 +232,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="numero">Número*</label>
+                                                            <label for="number">Número*</label>
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control @error('numero')
-                                                                is-invalid @enderror" id="numero" name="numero" required
+                                                                <input type="text" class="form-control @error('number')
+                                                                is-invalid @enderror" id="number" name="number" required
                                                                        placeholder="Informe o número"
-                                                                       value="{{ old('numero') }}" maxlength="10">
+                                                                       value="{{ old('number') }}" maxlength="10">
                                                                 <div class="input-group-text">
                                                                     <input class="form-check-input mt-0"
                                                                            type="checkbox" value="S/N" name="s_n" id="s_n"
@@ -257,12 +257,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="complemento">Complemento</label>
-                                                            <input type="text" class="form-control @error('complemento')
-                                                                is-invalid @enderror" id="complemento" name="complemento"
+                                                            <label for="complement">Complemento</label>
+                                                            <input type="text" class="form-control @error('complement')
+                                                                is-invalid @enderror" id="complement" name="complement"
                                                                    placeholder="Informe um complemento ao endereço"
-                                                                   value="{{old('complemento')}}">
-                                                            @error('complemento')
+                                                                   value="{{old('complement')}}">
+                                                            @error('complement')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -272,12 +272,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="cep">CEP*</label>
-                                                            <input type="text" class="form-control @error('cep')
-                                                                is-invalid @enderror" id="cep" name="cep"
+                                                            <label for="zip_code">CEP*</label>
+                                                            <input type="text" class="form-control @error('zip_code')
+                                                                is-invalid @enderror" id="zip_code" name="zip_code" required
                                                                    placeholder="Informe um CEP válido" maxlength="9"
-                                                                   value="{{old('cep')}}">
-                                                            @error('cep')
+                                                                   value="{{old('zip_code')}}">
+                                                            @error('zip_code')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -292,12 +292,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="cidade">Cidade*</label>
-                                                            <input type="text" class="form-control @error('cidade')
-                                                                is-invalid @enderror" id="cidade" name="cidade"
+                                                            <label for="city">Cidade*</label>
+                                                            <input type="text" class="form-control @error('city')
+                                                                is-invalid @enderror" id="city" name="city" required
                                                                    placeholder="Informe uma cidade válida"
-                                                                   value="{{old('cidade')}}">
-                                                            @error('cidade')
+                                                                   value="{{old('city')}}">
+                                                            @error('city')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

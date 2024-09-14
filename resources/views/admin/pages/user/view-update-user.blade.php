@@ -26,7 +26,7 @@
                     </div>
                 </section>
 
-                <b class="title-geral-etapas">Usuário: {{$user['nome']}}</b>
+                <b class="title-geral-etapas">Usuário: {{$user['name']}}</b>
                 <p>Preencha os formulários abaixo para editar o usuário desejado.</p>
 
                 <form method="POST" action="{{route('user.update', $user['id'])}}"
@@ -108,12 +108,12 @@
                                                 <div class="row g-3">
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
-                                                            <label for="nome">Nome</label>
-                                                            <input type="text" class="form-control @error('nome')
-                                                             is-invalid @enderror" id="nome"
+                                                            <label for="name">Nome</label>
+                                                            <input type="text" class="form-control @error('name')
+                                                             is-invalid @enderror" id="name"
                                                                    name="nome" placeholder="Nome"
-                                                                   value="{{old('nome')?:$user['nome']}}">
-                                                            @error('nome')
+                                                                   value="{{old('nome')?:$user['name']}}">
+                                                            @error('name')
                                                                 <div class="invalid-feedback">
                                                                     {{$message}}
                                                                 </div>
@@ -124,7 +124,8 @@
                                                     <div class="col-12 col-md-4 col-xl-4">
                                                         <div class="form-group">
                                                             <label for="email">E-mail</label>
-                                                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                                                            <input type="email" class="form-control
+                                                             @error('email') is-invalid @enderror" id="email"
                                                                    name="email" placeholder="E-mail"
                                                                    value="{{old('email')?:$user['email']}}">
                                                             @error('email')
@@ -140,17 +141,18 @@
                                                             <div class="col-12 col-md-4 col-xl-4">
                                                                 <div class="form-group">
                                                                     <label for="type">Tipo de Usuário</label>
-                                                                    <select class="form-select @error('type') is-invalid @enderror" id="type" name="type" readonly="true">
+                                                                    <select class="form-select @error('type')
+                                                                    is-invalid @enderror" id="type" name="type" readonly="true">
                                                                         <option value="" disabled selected>Selecione o
                                                                             tipo
                                                                         </option>
                                                                         <option
                                                                             value="admin" {{old('type') == 'admin' || $user['type'] == 'admin' ? 'selected' : ''}}>
-                                                                            admin
+                                                                            Administrador
                                                                         </option>
                                                                         <option
                                                                             value="user" {{old('type') == 'user' || $user['type'] == 'user' ? 'selected' : ''}}>
-                                                                            user
+                                                                            Usuário
                                                                         </option>
                                                                     </select>
                                                                     @error('type')
@@ -164,7 +166,8 @@
                                                             <div class="col-12 col-md-4 col-xl-4">
                                                                 <div class="form-group">
                                                                     <label for="type">Tipo de Usuário</label>
-                                                                    <input type="text" class="form-control @error('type') is-invalid @enderror" id="type"
+                                                                    <input type="text" class="form-control
+                                                                     @error('type') is-invalid @enderror" id="type"
                                                                            name="type" placeholder="Tipo de Usuário"
                                                                            value="{{old('type')?:$user['type']}}"
                                                                            readonly>

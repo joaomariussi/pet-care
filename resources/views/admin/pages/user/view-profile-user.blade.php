@@ -1,3 +1,4 @@
+@php use Carbon\Carbon; @endphp
 @extends('admin.layouts.menusLayout')
 
 @section('title', 'Meu Perfil')
@@ -68,13 +69,17 @@
                                         <li class="mb-3">
                                             <i class="fa-solid fa-calendar-days"></i>
                                             <span class="fw-bold">Data de Cadastro:</span>
-                                            <span class="w-100 d-block">{{\Carbon\Carbon::parse($user['created_at'])->format('d/m/Y H:i:s')}}</span>
+                                            <span
+                                                class="w-100 d-block">
+                                                {{Carbon::parse($user['created_at'])->format('d/m/Y H:i:s')}}</span>
                                         </li>
 
                                         <li class="mb-3">
                                             <i class="fa-solid fa-calendar-days"></i>
                                             <span class="fw-bold">Data de Atualização:</span>
-                                            <span class="w-100 d-block">{{\Carbon\Carbon::parse($user['updated_at'])->format('d/m/Y H:i:s')}}</span>
+                                            <span
+                                                class="w-100 d-block">
+                                                {{Carbon::parse($user['updated_at'])->format('d/m/Y H:i:s')}}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,23 +126,46 @@
                                                     @if($user['type'] != 'webmaster')
                                                         <div class="col-12 col-md-4 col-xl-4">
                                                             <div class="form-group">
-                                                                <label for="type" class="form-label">Tipo de Usuário</label>
-                                                                <select class="form-select" id="type" name="type" required>
-                                                                    <option value="" disabled selected>Selecione o tipo</option>
-                                                                    <option value="admin" <?= $user['type'] == 'admin' ? 'selected' : '' ?>>admin</option>
-                                                                    <option value="user" <?= $user['type'] == 'user' ? 'selected' : '' ?>>user</option>
+                                                                <label for="type" class="form-label">Tipo de
+                                                                    Usuário</label>
+                                                                <select class="form-select" id="type" name="type"
+                                                                        required>
+                                                                    <option value="" disabled selected>Selecione o
+                                                                        tipo
+                                                                    </option>
+                                                                    <option
+                                                                        value="admin" <?= $user['type'] == 'admin' ? 'selected' : '' ?>>
+                                                                        admin
+                                                                    </option>
+                                                                    <option
+                                                                        value="user" <?= $user['type'] == 'user' ? 'selected' : '' ?>>
+                                                                        user
+                                                                    </option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                     @else
                                                         <div class="col-12 col-md-4 col-xl-4">
                                                             <div class="form-group">
-                                                                <label for="type" class="form-label">Tipo de Usuário</label>
-                                                                <select class="form-select" id="type" name="type" required disabled>
-                                                                    <option value="" disabled selected>Selecione o tipo</option>
-                                                                    <option value="webmaster" <?= $user['type'] == 'webmaster' ? 'selected' : '' ?>>webmaster</option>
-                                                                    <option value="admin" <?= $user['type'] == 'admin' ? 'selected' : '' ?>>admin</option>
-                                                                    <option value="user" <?= $user['type'] == 'user' ? 'selected' : '' ?>>user</option>
+                                                                <label for="type" class="form-label">Tipo de
+                                                                    Usuário</label>
+                                                                <select class="form-select" id="type" name="type"
+                                                                        required disabled>
+                                                                    <option value="" disabled selected>Selecione o
+                                                                        tipo
+                                                                    </option>
+                                                                    <option
+                                                                        value="webmaster" <?= $user['type'] == 'webmaster' ? 'selected' : '' ?>>
+                                                                        webmaster
+                                                                    </option>
+                                                                    <option
+                                                                        value="admin" <?= $user['type'] == 'admin' ? 'selected' : '' ?>>
+                                                                        admin
+                                                                    </option>
+                                                                    <option
+                                                                        value="user" <?= $user['type'] == 'user' ? 'selected' : '' ?>>
+                                                                        user
+                                                                    </option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -160,10 +188,11 @@
                         <div class="accordion mt-3">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="avatar-collapse">
-                                    <button class="accordion-button collapsed {{form_collapse_errors($errors, ['avatar'])}}"
-                                            type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#avatar-collapseOne" aria-expanded="true"
-                                            aria-controls="avatar-collapseOne">
+                                    <button
+                                        class="accordion-button collapsed {{form_collapse_errors($errors, ['avatar'])}}"
+                                        type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#avatar-collapseOne" aria-expanded="true"
+                                        aria-controls="avatar-collapseOne">
                                         <i class="fa-solid fa-image font-medium-5"></i>
                                         <span class="ms-2">Alterar Avatar</span>
                                     </button>
@@ -172,7 +201,8 @@
                                      aria-labelledby="avatar-collapse">
                                     <div class="accordion-body">
                                         <fieldset>
-                                            <form method="POST" action="{{route('user.update-avatar', $user['id'])}}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('user.update-avatar', $user['id'])}}"
+                                                  enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-12">
@@ -181,7 +211,9 @@
                                                             <div class="max-width" style="max-width: 100%;">
                                                                 <div class="imageContainer">
                                                                     @isset($user['avatar'])
-                                                                        <img src="data:image/jpeg;base64,{{$user['avatar']}}" alt="Logo Usuário" id="imgPhoto">
+                                                                        <img
+                                                                            src="data:image/jpeg;base64,{{$user['avatar']}}"
+                                                                            alt="Logo Usuário" id="imgPhoto">
                                                                     @else
                                                                         <img src="{{asset('images/camera.png')}}"
                                                                              alt="Selecione uma imagem" id="imgPhoto">
@@ -217,9 +249,11 @@
                         <div class="accordion mt-3">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="password">
-                                    <button class="accordion-button collapsed {{form_collapse_errors($errors, ['current_password', 'new_password', 'confirm_new_password'])}}" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#password-collapseOne" aria-expanded="true"
-                                            aria-controls="password-collapseOne">
+                                    <button
+                                        class="accordion-button collapsed {{form_collapse_errors($errors, ['current_password', 'new_password', 'confirm_new_password'])}}"
+                                        type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#password-collapseOne" aria-expanded="true"
+                                        aria-controls="password-collapseOne">
                                         <i class="fa-solid fa-lock font-medium-5"></i>
                                         <span class="ms-2">Alterar Senha</span>
                                     </button>
@@ -227,14 +261,18 @@
                                 <div id="password-collapseOne" class="accordion-collapse collapse"
                                      aria-labelledby="password">
                                     <div class="accordion-body">
-                                        <form method="POST" action="{{route('user.update-password', $user['id'])}}" enctype="multipart/form-data">
+                                        <form method="POST" action="{{route('user.update-password', $user['id'])}}"
+                                              enctype="multipart/form-data">
                                             @csrf
                                             <div class="row g-3">
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="current_password" class="form-label">Senha Atual</label>
-                                                        <input type="password" class="form-control" id="current_password" name="current_password">
-                                                        <span toggle="#current_password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
+                                                        <label for="current_password" class="form-label">Senha
+                                                            Atual</label>
+                                                        <input type="password" class="form-control"
+                                                               id="current_password" name="current_password">
+                                                        <span toggle="#current_password"
+                                                              class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                     </div>
                                                     @error('current_password')
                                                     {!! form_collapse_errors_message('current_password', strtoupper($message)) !!}
@@ -244,8 +282,10 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
                                                         <label for="new_password" class="form-label">Nova Senha</label>
-                                                        <input type="password" class="form-control" id="new_password" name="new_password">
-                                                        <span toggle="#new_password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
+                                                        <input type="password" class="form-control" id="new_password"
+                                                               name="new_password">
+                                                        <span toggle="#new_password"
+                                                              class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                     </div>
                                                     @error('new_password')
                                                     {!! form_collapse_errors_message('new_password', strtoupper($message)) !!}
@@ -254,9 +294,12 @@
 
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <label for="confirm_new_password" class="form-label">Confirmar Nova Senha</label>
-                                                        <input type="password" class="form-control" id="confirm_new_password" name="confirm_new_password">
-                                                        <span toggle="#confirm_new_password" class="fa -fa-fw fa-eye field-icon toggle-password"></span>
+                                                        <label for="confirm_new_password" class="form-label">Confirmar
+                                                            Nova Senha</label>
+                                                        <input type="password" class="form-control"
+                                                               id="confirm_new_password" name="confirm_new_password">
+                                                        <span toggle="#confirm_new_password"
+                                                              class="fa -fa-fw fa-eye field-icon toggle-password"></span>
                                                     </div>
                                                     @error('confirm_new_password')
                                                     {!! form_collapse_errors_message('confirm_new_password', strtoupper($message)) !!}

@@ -49,7 +49,8 @@
                                         <div class="card-body cards-geral">
                                             <i class="fa-solid fa-users font-large-1 color-yellow-geral"></i>
                                             <div class="card-produtos-quantidade ms-3">
-                                                <h5 class="mb-0 me-2 itenscadastrados registered-users color-yellow-geral">{{$totalUsers}}</h5>
+                                                <h5 class="mb-0 me-2 itenscadastrados registered-users color-yellow-geral">
+                                                    {{$totalUsers}}</h5>
                                                 <b class="text-muted">Usuários Cadastrados</b>
                                             </div>
                                         </div>

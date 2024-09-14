@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funcionarios', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 255);
+            $table->string('name', 255);
             $table->string('cpf', 14)->unique();
             $table->string('email', 255)->unique();
-            $table->string('telefone', 20);
-            $table->string('cargo', 100);
-            $table->date('data_contratacao');
+            $table->string('telephone', 20);
+            $table->foreignId('position_id')->constrained('positions')->onDelete('cascade');
+            $table->date('admission_date');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funcionarios');
+        Schema::dropIfExists('employees');
     }
 };

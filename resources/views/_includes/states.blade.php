@@ -1,6 +1,6 @@
 <div class="form-group">
-    <label for="estado">Estado*</label>
-    <select class="form-control @error('estado') is-invalid @enderror" id="estado" name="estado" required>
+    <label for="state'">Estado*</label>
+    <select class="form-control @error('state') is-invalid @enderror" id="state" name="state" required>
         <option value="" disabled selected>Selecione o estado</option>
         <option value="AC" {{ old('estado') == 'AC' ? 'selected' : '' }}>Acre</option>
         <option value="AL" {{ old('estado') == 'AL' ? 'selected' : '' }}>Alagoas</option>
@@ -30,7 +30,7 @@
         <option value="SE" {{ old('estado') == 'SE' ? 'selected' : '' }}>Sergipe</option>
         <option value="TO" {{ old('estado') == 'TO' ? 'selected' : '' }}>Tocantins</option>
     </select>
-    @error('estado')
+    @error('state')
     <div class="invalid-feedback">
         {{$message}}
     </div>

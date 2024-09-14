@@ -6,48 +6,64 @@
             "name": "Dashboard",
             "icon": "fa-solid fa-gauge"
         },
+
         {
             "navheader": "gerenciamento - painel"
         },
+
         {
             "can": "agendamentos",
             "url": "agendamentos/",
             "name": "Agendamentos",
             "icon": "fa-solid fa-calendar-check"
         },
+
+        {
+            "can": "cargos",
+            "url": "cargos/",
+            "name": "Cargos",
+            "icon": "fa-solid fa-user-tag"
+        },
+
         {
             "can": "funcionarios",
             "url": "funcionarios/",
             "name": "Funcionários",
             "icon": "fa-regular fa-user"
         },
+
         {
             "can": "pets",
             "url": "pets/",
             "name": "Pets",
             "icon": "fa-solid fa-paw"
         },
+
         {
             "can": "owners",
             "url": "owners/",
             "name": "Proprietários",
             "icon": "fa-solid fa-user-tie"
         },
+
         {
             "can": "servicos",
             "url": "servicos/",
             "name": "Serviços",
             "icon": "fa-solid fa-tools"
         },
+
         {
             "navheader": "administração"
         },
+
         {
             "can": "admin",
             "url": "user/",
             "name": "Usuários",
             "icon": "fa-solid fa-user"
         },
+
         {
             "can": "user",
             "url": "user/view-profile-user",

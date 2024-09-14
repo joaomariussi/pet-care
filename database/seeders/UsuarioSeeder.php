@@ -14,7 +14,7 @@ class UsuarioSeeder extends Seeder
     public function run(): void
     {
         User::query()->create([
-            'nome' => 'João Pedro Mariussi',
+            'name' => 'João Pedro Mariussi',
             'email' => 'joaomariussi10@gmail.com',
             'password' => Hash::make('123'),
             'password_recovery_token' => encrypt('123'),

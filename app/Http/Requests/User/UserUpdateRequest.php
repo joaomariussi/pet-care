@@ -24,8 +24,8 @@ class UserUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required',
-            'email' => 'required|email|unique:usuarios,email,'. $this['id'],
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'. $this['id'],
             'type' => 'required',
         ];
     }
@@ -33,7 +33,7 @@ class UserUpdateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'nome.required' => 'O nome é obrigatório',
+            'name.required' => 'O nome é obrigatório',
             'email.required' => 'O e-mail é obrigatório',
             'email.email' => 'E-mail inválido',
             'email.unique' => 'Este e-mail já está em uso',

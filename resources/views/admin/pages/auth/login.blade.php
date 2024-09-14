@@ -25,7 +25,7 @@
                             </span>
                         </a>
                     </div>
-                    <h4 class="mb-2">Bem-vindo(a) 👋</h4>
+                    <h4 class="mb-2">Bem-vindo(a) </h4>
                     <p class="mb-4">Acesse o painel de gerenciamento do seu sistema.</p>
 
                     <form id="formAuthentication" class="mb-3" action="{{ route('authenticate') }}"
@@ -70,7 +70,8 @@
                                         <div class="alert alert-danger mt-3" role="alert">
                                             <ul class="mb-0 p-0 list-unstyled">
                                                 <li>
-                                                    <i class="fa-solid fa-triangle-exclamation"></i> Usuário ou senha inválidos
+                                                    <i class="fa-solid fa-triangle-exclamation"></i> Usuário ou
+                                                    senha inválidos
                                                 </li>
                                             </ul>
                                         </div>

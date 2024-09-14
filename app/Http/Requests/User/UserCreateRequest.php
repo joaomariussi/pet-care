@@ -24,8 +24,8 @@ class UserCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required',
-            'email' => 'required|email|unique:usuarios,email',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'password' => [
                 'required',
@@ -44,7 +44,7 @@ class UserCreateRequest extends FormRequest
     public function messages():array
     {
         return [
-            'nome.required' => 'O nome é obrigatório',
+            'name.required' => 'O nome é obrigatório',
             'email.required' => 'O e-mail é obrigatório',
             'email.email' => 'E-mail inválido',
             'email.unique' => 'Este e-mail já está em uso',

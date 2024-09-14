@@ -69,7 +69,7 @@ Route::prefix('owners')
         Route::get('/view-update-owner/{id}', 'viewUpdateOwner')->name('owners.view-update');
         Route::post('/update/{id}', 'update')->name('owners.update');
 
-        Route::get('/admin/pages/owners/delete/{id}', 'delete')->name('delete-owner');
+        Route::get('/admin/pages/owners/delete/{id}', 'delete')->name('delete-owners');
     });
 
 /*

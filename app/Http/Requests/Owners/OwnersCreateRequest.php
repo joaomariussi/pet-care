@@ -24,19 +24,20 @@ class OwnersCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required|max:191',
+            'name' => 'required|max:191',
             'cpf' => 'required|max:14',
-            'email' => 'required|max:191',
-            'telefone' => 'required|max:15',
-            'celular' => 'max:15',
-            'data_nasc' => 'required',
-            'genero' => 'required',
-            'endereco' => 'required|max:191',
-            'bairro' => 'required|max:191',
-            'numero' => 'required|max:10',
-            'cep' => 'required|max:9',
-            'cidade' => 'required|max:191',
-            'estado' => 'required|max:2',
+            'email' => 'required|email|unique:proprietarios,email',
+            'telephone' => 'required|max:15',
+            'cell_phone' => 'max:15',
+            'date_birth' => 'required',
+            'gender' => 'required',
+            'address' => 'required|max:191',
+            'neighborhood' => 'required|max:191',
+            'number' => 'required|max:10',
+            'complement' => 'max:100',
+            'zip_code' => 'required|max:9',
+            'city' => 'required|max:191',
+            'state' => 'required|max:2',
         ];
     }
 
@@ -45,26 +46,27 @@ class OwnersCreateRequest extends FormRequest
      *
      * @return array<string, string>
      */
-
     public function messages(): array
     {
         return [
-            'nome.required' => 'O nome é obrigatório',
+            'name.required' => 'O nome é obrigatório',
             'cpf.required' => 'O CPF é obrigatório',
             'cpf.max' => 'O CPF deve ter no máximo 14 caracteres',
             'email.required' => 'O email é obrigatório',
-            'telefone.required' => 'O telefone é obrigatório',
-            'telefone.max' => 'O telefone deve ter no máximo 15 caracteres',
-            'celular.max' => 'O celular deve ter no máximo 15 caracteres',
-            'data_nasc.required' => 'A data de nascimento é obrigatória',
-            'genero.required' => 'O gênero é obrigatório',
-            'endereco.required' => 'O endereço é obrigatório',
-            'bairro.required' => 'O bairro é obrigatório',
-            'numero.required' => 'O número é obrigatório',
-            'cep.required' => 'O CEP é obrigatório',
-            'cep.max' => 'O CEP deve ter no máximo 9 caracteres',
-            'cidade.required' => 'A cidade é obrigatória',
-            'estado.required' => 'O estado é obrigatório',
+            'email.email' => 'Email inválido',
+            'email.unique' => 'Este email já está em uso',
+            'telephone.required' => 'O telefone é obrigatório',
+            'telephone.max' => 'O telefone deve ter no máximo 15 caracteres',
+            'cell_phone.max' => 'O celular deve ter no máximo 15 caracteres',
+            'date_birth.required' => 'A data de nascimento é obrigatória',
+            'gender.required' => 'O gênero é obrigatório',
+            'address.required' => 'O endereço é obrigatório',
+            'neighborhood.required' => 'O bairro é obrigatório',
+            'number.required' => 'O número é obrigatório',
+            'zip_code.required' => 'O CEP é obrigatório',
+            'zip_code.max' => 'O CEP deve ter no máximo 9 caracteres',
+            'city.required' => 'A cidade é obrigatória',
+            'state.required' => 'O estado é obrigatório',
         ];
     }
 }

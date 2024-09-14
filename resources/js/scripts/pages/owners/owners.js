@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona o input de número e o checkbox
-    const numeroInput = document.getElementById('numero');
+    // Seleciona os campos do formulário
+    const numeroInput = document.getElementById('number');
     const s_nCheckbox = document.getElementById('s_n');
     const cpfInput = document.getElementById('cpf');
-    const telefoneInput = document.getElementById('telefone');
-    const celularInput = document.getElementById('celular');
-    const cepInput = document.getElementById('cep');
+    const telefoneInput = document.getElementById('telephone');
+    const celularInput = document.getElementById('cell_phone');
+    const cepInput = document.getElementById('zip_code');
 
     // Função para habilitar/desabilitar o input com base no estado do checkbox
     const toggleNumeroInput = function () {
@@ -43,11 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return value;
     };
 
-    // Aplica a máscara de CPF no evento de input
-    cpfInput.addEventListener('input', function (e) {
-        e.target.value = applyCpfMask(e.target.value);
-    });
-
     // Função para aplicar a máscara de telefone fixo
     const applyPhoneMask = function (value) {
         value = value.replace(/\D/g, ''); // Remove caracteres não numéricos
@@ -81,6 +76,11 @@ document.addEventListener('DOMContentLoaded', function () {
         return value;
     };
 
+    // Aplica a máscara de CPF no evento de input
+    cpfInput.addEventListener('input', function (e) {
+        e.target.value = applyCpfMask(e.target.value);
+    });
+
     // Aplica a máscara de telefone fixo no evento de input
     telefoneInput.addEventListener('input', function (e) {
         e.target.value = applyPhoneMask(e.target.value);
@@ -95,4 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
     cepInput.addEventListener('input', function (e) {
         e.target.value = applyCepMask(e.target.value);
     });
+
+    // Aplica as máscaras nos campos já preenchidos quando a página carrega
+    cpfInput.value = applyCpfMask(cpfInput.value);
+    telefoneInput.value = applyPhoneMask(telefoneInput.value);
+    celularInput.value = applyCellMask(celularInput.value);
+    cepInput.value = applyCepMask(cepInput.value);
 });
