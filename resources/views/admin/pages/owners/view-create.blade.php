@@ -3,7 +3,7 @@
 @section('title', 'Cadastro de Proprietários')
 
 @section('page-styles')
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/user/create.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/owners/create.css') }}">
 @endsection
 
 @section('vendor-styles')
@@ -187,15 +187,15 @@
                         <div class="col-12 col-md-12">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoEndereco" type="button"
+                                    <button class="accordion-button erroInfoEndereco collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#informacoesEndereco-collapse"
-                                            aria-expanded="true" aria-controls="informacoesEndereco-collapse">
+                                            aria-expanded="false" aria-controls="informacoesEndereco-collapse">
                                         <i class="fa-solid fa-location-dot font-medium-5"></i>
                                         <span class="ms-2">Informações de Endereço</span>
                                         <small class="ms-1">(Obrigatório)</small>
                                     </button>
 
-                                    <div id="informacoesEndereco-collapse" class="accordion-collapse collapse show"
+                                    <div id="informacoesEndereco-collapse" class="accordion-collapse collapse"
                                          aria-labelledby="informacoesEndereco-headingOne">
                                         <div class="accordion-body">
                                             <fieldset>

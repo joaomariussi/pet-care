@@ -62,9 +62,9 @@ class OwnersController extends Controller
 
             // Removendo as máscaras
             $data['cpf'] = removeMask($data['cpf']);
-            $data['telefone'] = removeMask($data['telefone']);
-            $data['celular'] = removeMask($data['celular']);
-            $data['cep'] = removeMask($data['cep']);
+            $data['telephone'] = removeMask($data['telephone']);
+            $data['cell_phone'] = removeMask($data['cell_phone']);
+            $data['zip_code'] = removeMask($data['zip_code']);
 
             $this->owners::query()->create($data);
             UserNotification::success('Proprietário cadastrado com sucesso!');
@@ -107,9 +107,9 @@ class OwnersController extends Controller
 
             // Removendo as máscaras
             $data['cpf'] = removeMask($data['cpf']);
-            $data['telefone'] = removeMask($data['telefone']);
-            $data['celular'] = removeMask($data['celular']);
-            $data['cep'] = removeMask($data['cep']);
+            $data['telephone'] = removeMask($data['telephone']);
+            $data['cell_phone'] = removeMask($data['cell_phone']);
+            $data['zip_code'] = removeMask($data['zip_code']);
 
             $this->owners::query()->find($id)->update($data);
             UserNotification::success('Proprietário atualizado com sucesso!');
@@ -123,4 +123,33 @@ class OwnersController extends Controller
         return redirect()->route('owners');
     }
 
+    /**
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function delete($id): RedirectResponse
+    {
+        try {
+            $this->owners::query()->find($id)->delete();
+            UserNotification::success('Proprietário excluído com sucesso!');
+        } catch (Throwable $t) {
+            Log::error($t->getMessage());
+            UserNotification::error('Erro ao excluir o proprietário!');
+        }
+
+        return redirect()->route('owners');
+    }
+
+    public function viewDetailsOwner($id): View|Factory|RedirectResponse|Application
+    {
+        try {
+            $owner = $this->owners::query()->find($id);
+            return view('admin.pages.owners.view-details', compact('owner'));
+        } catch (Throwable $t) {
+            Log::error($t->getMessage());
+            UserNotification::error('Erro ao buscar o proprietário!');
+        }
+
+        return redirect()->route('owners');
+    }
 }

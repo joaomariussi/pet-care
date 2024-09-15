@@ -1,0 +1,61 @@
+/* Estilos principais para a página de detalhes do proprietário */
+.owner-details .card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    margin-bottom: 20px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.owner-details .card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo do cabeçalho do card */
+.owner-details .card-header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Título do card */
+.owner-details .card-title {
+    font-weight: bold;
+    color: #007bff; /* Azul padrão mais moderno */
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.owner-details .card-title i {
+    margin-right: 10px;
+}
+
+/* Lista de informações no card */
+.owner-details .list-group-item {
+    background-color: transparent;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    color: #495057;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.owner-details .list-group-item i {
+    margin-right: 15px;
+    color: #6c757d;
+    font-size: 1.2rem; /* Aumenta o tamanho dos ícones */
+}
+
+/* Responsividade para o layout */
+@media (max-width: 992px) {
+    .owner-details .col-lg-6 {
+        margin-bottom: 20px;
+    }
+}
+
+.owner-details .btn-outline-secondary:hover {
+    background-color: #007bff;
+    color: white;
+}

@@ -26,7 +26,7 @@ class OwnersCreateRequest extends FormRequest
         return [
             'name' => 'required|max:191',
             'cpf' => 'required|max:14',
-            'email' => 'required|email|unique:proprietarios,email',
+            'email' => 'required|email|unique:owners,email',
             'telephone' => 'required|max:15',
             'cell_phone' => 'max:15',
             'date_birth' => 'required',

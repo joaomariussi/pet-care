@@ -28,6 +28,9 @@ class OwnersDataTable extends DataTable
             ->editColumn('created_at', function ($query) {
                 return $this->getCreatedAt($query->created_at);
             })
+            ->editColumn('cpf', function ($query) {
+                return $this->formatCpf($query->cpf);
+            })
             ->escapeColumns([])
             ->setRowId('id');
     }
@@ -74,7 +77,7 @@ class OwnersDataTable extends DataTable
                 ->width(60)
                 ->addClass('text-center')
                 ->title('Ações'),
-            Column::make('nome')->title('Nome'),
+            Column::make('name')->title('Nome'),
             Column::make('cpf')->title('CPF'),
             Column::make('email')->title('E-mail'),
             Column::make('created_at')->title('Criado em')
@@ -97,6 +100,16 @@ class OwnersDataTable extends DataTable
     private function getCreatedAt($created_at): string
     {
         return Carbon::parse($created_at)->format('d/m/Y H:i:s');
+    }
+
+    /**
+     * Formata o CPF
+     * @param $cpf
+     * @return string
+     */
+    public function formatCpf($cpf): string
+    {
+        return preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "$1.$2.$3-$4", $cpf);
     }
 }
 

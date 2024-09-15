@@ -9,23 +9,23 @@ class Owners extends Model
 {
     use HasFactory;
 
-    protected $table = 'proprietarios';
+    protected $table = 'owners';
 
     protected $fillable = [
-        'nome',
+        'name',
         'cpf',
         'email',
-        'telefone',
-        'celular',
-        'data_nasc',
-        'genero',
-        'endereco',
-        'bairro',
-        'numero',
-        'complemento',
-        'cep',
-        'cidade',
-        'estado',
+        'telephone',
+        'cell_phone',
+        'date_birth',
+        'gender',
+        'address',
+        'neighborhood',
+        'number',
+        'complement',
+        'zip_code',
+        'city',
+        'state',
     ];
 
     protected $hidden = [

@@ -2,7 +2,7 @@
 
     <a type="button"
        class="invoice-action-edit cursor-pointer alert-heading"
-       onclick=""
+         href="{{ route('owners.view-details', $id) }}"
        title="Visualizar">
         <i class="fa-solid fa-eye"></i>
     </a>
@@ -15,7 +15,7 @@
 
     <a type="button"
        class="invoice-action-edit cursor-pointer ms-3 alert-heading"
-       onclick=""
+       onclick="return confirmDeletion('{{ route('delete-owners', ['id' => $id]) }}')"
        title="Excluir">
         <i class="fa-solid fa-trash-alt"></i>
     </a>

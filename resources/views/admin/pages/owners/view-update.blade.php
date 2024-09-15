@@ -3,7 +3,7 @@
 @section('title', 'Editar Proprietários')
 
 @section('page-styles')
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/user/create.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/owners/create.css') }}">
 @endsection
 
 @section('vendor-styles')
@@ -32,7 +32,7 @@
                     </div>
                 </section>
 
-                <b class="title-geral-etapas">Editar Proprietário - {{$owner->nome}}</b>
+                <b class="title-geral-etapas">Editar Proprietário - {{$owner->name}}</b>
                 <p class="sub-title-geral-etapas">Edite as informações do proprietário</p>
 
                 <form method="POST" action="{{route('owners.update', $owner->id)}}" class="form form-insert-user">
@@ -47,7 +47,6 @@
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
                                         <span class="ms-2">Informações Gerais</span>
-                                        <small class="ms-1">(Obrigatório)</small>
                                     </button>
 
                                     <div id="informacoesGerais-collapse" class="accordion-collapse collapse show"
@@ -57,11 +56,12 @@
                                                 <div class="row g-3">
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="nome">Nome*</label>
-                                                            <input type="text" class="form-control @error('nome') is-invalid @enderror"
-                                                                   id="nome" name="nome" required placeholder="Nome do Proprietário"
-                                                                   value="{{ old('nome') ?? $owner->nome }}">
-                                                            @error('nome')
+                                                            <label for="name">Nome*</label>
+                                                            <input type="text" class="form-control @error('name')
+                                                            is-invalid @enderror" id="name" name="name" required
+                                                                   placeholder="Nome do Proprietário"
+                                                                   value="{{ old('name') ?? $owner->name }}">
+                                                            @error('name')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -72,8 +72,9 @@
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="email">E-mail*</label>
-                                                            <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                                                   id="email" name="email" required placeholder="Informe um e-mail válido"
+                                                            <input type="text" class="form-control
+                                                            @error('email') is-invalid @enderror" id="email" name="email"
+                                                                   required placeholder="Informe um e-mail válido"
                                                                    value="{{ old('email') ?? $owner->email }}">
                                                             @error('email')
                                                             <div class="invalid-feedback">
@@ -86,9 +87,10 @@
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="cpf">CPF*</label>
-                                                            <input type="text" class="form-control @error('cpf') is-invalid @enderror"
-                                                                   id="cpf" name="cpf" required placeholder="Informe um CPF válido"
-                                                                   maxlength="14" value="{{ old('cpf') ?? $owner->cpf }}">
+                                                            <input type="text" class="form-control @error('cpf')
+                                                            is-invalid @enderror" id="cpf" name="cpf" required
+                                                                   placeholder="Informe um CPF válido" maxlength="14"
+                                                                   value="{{ old('cpf') ?? $owner->cpf }}">
                                                             @error('cpf')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
@@ -99,12 +101,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="telefone">Telefone*</label>
-                                                            <input type="text" class="form-control @error('telefone') is-invalid @enderror"
-                                                                   id="telefone" name="telefone" required
+                                                            <label for="telephone">Telefone*</label>
+                                                            <input type="text" class="form-control @error('telephone')
+                                                            is-invalid @enderror" id="telephone" name="telephone" required
                                                                    placeholder="Informe um telefone válido" maxlength="15"
-                                                                   value="{{ old('telefone') ?? $owner->telefone }}">
-                                                            @error('telefone')
+                                                                   value="{{ old('telephone') ?? $owner->telephone }}">
+                                                            @error('telephone')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -114,11 +116,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="celular">Celular</label>
-                                                            <input type="text" class="form-control @error('celular') is-invalid @enderror"
-                                                                   id="celular" name="celular" placeholder="Informe um celular válido"
-                                                                   maxlength="15" value="{{ old('celular') ?? $owner->celular }}">
-                                                            @error('celular')
+                                                            <label for="cell_phone">Celular</label>
+                                                            <input type="text" class="form-control @error('cell_phone')
+                                                            is-invalid @enderror" id="cell_phone" name="cell_phone"
+                                                                   placeholder="Informe um celular válido" maxlength="15"
+                                                                   value="{{ old('cell_phone') ?? $owner->cell_phone }}">
+                                                            @error('cell_phone')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -128,11 +131,11 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="data_nasc">Data de Nascimento*</label>
-                                                            <input type="date" class="form-control @error('data_nasc') is-invalid @enderror"
-                                                                   id="data_nasc" name="data_nasc" required
-                                                                   value="{{ old('data_nasc') ?? $owner->data_nasc }}">
-                                                            @error('data_nasc')
+                                                            <label for="date_birth">Data de Nascimento*</label>
+                                                            <input type="date" class="form-control @error('date_birth')
+                                                            is-invalid @enderror" id="date_birth" name="date_birth" required
+                                                                   value="{{ old('date_birth') ?? $owner->date_birth }}">
+                                                            @error('date_birth')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -142,24 +145,24 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="genero">Gênero*</label>
-                                                            <select class="form-select @error('genero') is-invalid @enderror" required
-                                                                    id="genero" name="genero">
+                                                            <label for="gender">Gênero*</label>
+                                                            <select class="form-select @error('gender') is-invalid
+                                                            @enderror" required id="gender" name="gender">
                                                                 <option value="" selected>Selecione o gênero</option>
                                                                 <option value="Masculino"
-                                                                    {{ old('genero', $owner->genero) == 'Masculino' ? 'selected' : '' }}>
+                                                                    {{ old('gender', $owner->gender) == 'Masculino' ? 'selected' : '' }}>
                                                                     Masculino
                                                                 </option>
                                                                 <option value="Feminino"
-                                                                    {{ old('genero', $owner->genero) == 'Feminino' ? 'selected' : '' }}>
+                                                                    {{ old('gender', $owner->gender) == 'Feminino' ? 'selected' : '' }}>
                                                                     Feminino
                                                                 </option>
                                                                 <option value="Outro"
-                                                                    {{ old('genero', $owner->genero) == 'Outro' ? 'selected' : '' }}>
+                                                                    {{ old('gender', $owner->gender) == 'Outro' ? 'selected' : '' }}>
                                                                     Outro
                                                                 </option>
                                                             </select>
-                                                            @error('genero')
+                                                            @error('gender')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -180,26 +183,26 @@
                         <div class="col-12 col-md-12">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoEndereco" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#informacoesEndereco-collapse"
+                                    <button class="accordion-button erroInfoEndereco collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#informacoesEndereco-collapse"
                                             aria-expanded="true" aria-controls="informacoesEndereco-collapse">
                                         <i class="fa-solid fa-location-dot font-medium-5"></i>
                                         <span class="ms-2">Endereço</span>
                                     </button>
 
-                                    <div id="informacoesEndereco-collapse" class="accordion-collapse collapse show"
+                                    <div id="informacoesEndereco-collapse" class="accordion-collapse collapse"
                                          aria-labelledby="informacoesEndereco-headingOne">
                                         <div class="accordion-body">
                                             <fieldset>
                                                 <div class="row g-3">
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="endereco">Endereço*</label>
-                                                            <input type="text" class="form-control @error('endereco') is-invalid @enderror"
-                                                                   id="endereco" name="endereco" required
-                                                                   placeholder="Preencha o seu endereço"
-                                                                   value="{{ old('endereco') ?? $owner->endereco }}">
-                                                            @error('endereco')
+                                                            <label for="address">Endereço*</label>
+                                                            <input type="text" class="form-control @error('address')
+                                                            is-invalid @enderror" id="address" name="address" required
+                                                                   placeholder="Preencha o endereço"
+                                                                   value="{{ old('address') ?? $owner->address }}">
+                                                            @error('address')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -209,11 +212,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="bairro">Bairro*</label>
-                                                            <input type="text" class="form-control @error('bairro') is-invalid @enderror"
-                                                                   id="bairro" name="bairro" required placeholder="Informe o bairro"
-                                                                   value="{{ old('bairro') ?? $owner->bairro }}">
-                                                            @error('bairro')
+                                                            <label for="neighborhood">Bairro*</label>
+                                                            <input type="text" class="form-control @error('neighborhood')
+                                                            is-invalid @enderror" id="neighborhood" name="neighborhood" required 7
+                                                                   placeholder="Informe o bairro"
+                                                                   value="{{ old('neighborhood') ?? $owner->neighborhood }}">
+                                                            @error('neighborhood')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -223,33 +227,38 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="numero">Número*</label>
+                                                            <label for="number">Número*</label>
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control @error('numero') is-invalid @enderror"
-                                                                       id="numero" name="numero" required placeholder="Informe o número"
-                                                                       value="{{ old('numero') ?? $owner->numero }}" maxlength="10">
+                                                                <input type="text" class="form-control @error('number')
+                                                                is-invalid @enderror" id="number" name="number" required
+                                                                       placeholder="Informe o número"
+                                                                       value="{{ old('number') ?? $owner->number }}"
+                                                                       maxlength="10">
                                                                 <div class="input-group-text">
-                                                                    <input class="form-check-input mt-0" type="checkbox" value="S/N" name="s_n"
-                                                                           id="s_n" {{ old('s_n', $owner->s_n) == 'S/N' ? 'checked' : '' }}>
-                                                                    <label for="s_n" class="ms-1" style="font-size: 12px">S/N</label>
+                                                                    <input class="form-check-input mt-0" type="checkbox"
+                                                                           value="S/N" name="s_n" id="s_n"
+                                                                        {{ old('s_n', $owner->s_n) == 'S/N' ? 'checked' : '' }}>
+                                                                    <label for="s_n" class="ms-1" style="font-size: 12px">
+                                                                        S/N
+                                                                    </label>
                                                                 </div>
                                                             </div>
-                                                            @error('numero')
+                                                            @error('number')
                                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                             @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="complemento">Complemento</label>
-                                                            <input type="text" class="form-control @error('complemento') is-invalid @enderror"
-                                                                   id="complemento" name="complemento"
+                                                            <label for="complement">Complemento</label>
+                                                            <input type="text" class="form-control @error('complement')
+                                                            is-invalid @enderror" id="complement" name="complement"
                                                                    placeholder="Informe um complemento ao endereço"
-                                                                   value="{{ old('complemento') ?? $owner->complemento }}">
-                                                            @error('complemento')
+                                                                   value="{{ old('complement') ?? $owner->complement }}">
+                                                            @error('complement')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -259,11 +268,12 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="cep">CEP*</label>
-                                                            <input type="text" class="form-control @error('cep') is-invalid @enderror"
-                                                                   id="cep" name="cep" placeholder="Informe um CEP válido" maxlength="9"
-                                                                   value="{{ old('cep') ?? $owner->cep }}">
-                                                            @error('cep')
+                                                            <label for="zip_code">CEP*</label>
+                                                            <input type="text" class="form-control @error('zip_code')
+                                                            is-invalid @enderror" id="zip_code" name="zip_code" required
+                                                                   placeholder="Informe um CEP válido" maxlength="9"
+                                                                   value="{{ old('zip_code') ?? $owner->zip_code }}">
+                                                            @error('zip_code')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -273,16 +283,18 @@
 
                                                     <div class="col-12 col-md-4">
                                                         <!-- Incluindo a view para a lista de estados -->
-                                                        @include('_includes.states', ['selected' => old('estado') ?? $owner->estado])
+                                                        @include('_includes.states', ['selected' => old('state') ??
+                                                        $owner->state])
                                                     </div>
 
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
-                                                            <label for="cidade">Cidade*</label>
-                                                            <input type="text" class="form-control @error('cidade') is-invalid @enderror"
-                                                                   id="cidade" name="cidade" placeholder="Informe uma cidade válida"
-                                                                   value="{{ old('cidade') ?? $owner->cidade }}">
-                                                            @error('cidade')
+                                                            <label for="city">Cidade*</label>
+                                                            <input type="text" class="form-control @error('city')
+                                                            is-invalid @enderror" id="city" name="city" required
+                                                                   placeholder="Informe uma cidade válida"
+                                                                   value="{{ old('city') ?? $owner->city }}">
+                                                            @error('city')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
