@@ -42,7 +42,9 @@
                         <div class="col-12 col-md-12">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button erroInfoGerais"
+                                            {{form_collapse_errors($errors), ['name', 'email', 'cpf', 'telephone',
+                                            'date', 'gender']}} type="button" data-bs-toggle="collapse"
                                             data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>

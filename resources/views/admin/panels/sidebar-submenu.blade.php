@@ -10,10 +10,10 @@
                             <span class="menu-item">{{ __(' '.$submenu->name)}}</span>
                         </a>
                         @if(isset($submenu->submenu))
-                            @include('panels.sidebar-submenu',['menu'=>$submenu->submenu])
+                            @include('admin.panels.sidebar-submenu',['menu'=>$submenu->submenu])
                         @endif
                     </li>
-                @endcan1
+                @endcan
             @endforeach
         @endif
     </ul>

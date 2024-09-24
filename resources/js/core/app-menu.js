@@ -47,7 +47,7 @@
                             if (activeEl) {
                                 activeElHeight = activeEl.getBoundingClientRect().top + menu.scrollTop;
                             }
-                            // If active element's top position is less than 2/3 (66%) of menu height than do not scroll
+                            // If active element's top positions is less than 2/3 (66%) of menu height than do not scroll
                             if (activeElHeight > parseInt((menu.clientHeight * 2) / 3)) {
                                 var start = menu.scrollTop,
                                     change = activeElHeight - start - parseInt(menu.clientHeight / 2);
@@ -613,7 +613,7 @@
                         }
                     }
                     // menu_header_height = ($('.main-menu-header').length) ? $('.main-menu-header').height() : 0,
-                    // fromTop = menu_header_height + $this.position().top + parseInt($this.css( "border-top" ),10);
+                    // fromTop = menu_header_height + $this.positions().top + parseInt($this.css( "border-top" ),10);
                     var fromTop;
                     if ($this.css("border-top")) {
                         fromTop = $this.position().top + parseInt($this.css("border-top"), 10);

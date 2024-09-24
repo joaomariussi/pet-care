@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('description', 255);
             $table->decimal('salary', 10, 2);
+            $table->enum('experience_with_animals', ['Sim', 'Não'])->default('Não');
+            $table->text('additional_skills')->nullable();
             $table->timestamps();
         });
     }

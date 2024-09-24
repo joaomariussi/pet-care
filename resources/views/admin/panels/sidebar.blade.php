@@ -35,7 +35,9 @@
                         @else
                             @can($menu->can)
                                 <li class="nav-item {{ $menu->url === config('view.active_sidebar') ? 'active' : '' }}">
-                                    <a href="@if(isset($menu->url)){{asset($menu->url)}} @endif" @if(isset($menu->newTab)){{"target=_blank"}}@endif>
+                                    <a href="@if(isset($menu->url)){{asset($menu->url)}} @endif" @if(isset($menu->newTab))
+                                        {{"target=_blank"}}
+                                        @endif>
                                         @if(isset($menu->icon))
                                             <i class="{{$menu->icon}}"></i>
                                         @endif
@@ -44,7 +46,7 @@
                                         @endif
                                     </a>
                                     @if(isset($menu->submenu))
-                                        @include('panels.sidebar-submenu',['menu' => $menu->submenu])
+                                        @include('admin.panels.sidebar-submenu',['menu' => $menu->submenu])
                                     @endif
                                 </li>
                             @endcan

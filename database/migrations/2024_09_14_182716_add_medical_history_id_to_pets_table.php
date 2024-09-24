@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('pets', function (Blueprint $table) {
             $table->foreignId('medical_history_id')->nullable()->constrained('medical_histories')
-                ->onDelete('cascade')->after('date_birth');
+                ->onDelete('cascade')->after('name');
         });
     }
 

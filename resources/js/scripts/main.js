@@ -293,7 +293,7 @@
         });
     }
 
-    /****** Justified Gallery Tooltip at cursor position ******/
+    /****** Justified Gallery Tooltip at cursor positions ******/
     if( ! isMobile ) {
         $( document ).on( 'mousemove', '.jg-entry', function (e) {
             var imageWidth      = $( this ).width();
@@ -1386,10 +1386,10 @@
         /***** Revolution slider navigation effect *****/
         RevolutionArrowEffect();
 
-        /***** Top overlap section position *****/
+        /***** Top overlap section positions *****/
         setOverLayerPosition();
 
-        /****** Bottom overlap section position ******/
+        /****** Bottom overlap section positions ******/
         setBottomOverLayerPosition();
     });
 
@@ -1742,7 +1742,7 @@
         };
     }
 
-    /****** Top overlap section position ******/
+    /****** Top overlap section positions ******/
     function setOverLayerPosition() {
         if ( ( $( '.overlap-section' ).length > 0 || $( '.overlap-section-one-fourth' ).length > 0 || $( '.overlap-section-three-fourth' ).length > 0 ) && getWindowWidth() >= 768 ) {
             $( '.overlap-section, .overlap-section-one-fourth, .overlap-section-three-fourth' ).each( function () {
@@ -1778,7 +1778,7 @@
         }
     }
 
-    /****** Bottom overlap section position ******/
+    /****** Bottom overlap section positions ******/
     function setBottomOverLayerPosition( delay ) {
         if ( ( $( '.overlap-section-bottom' ).length > 0 ) && getWindowWidth() >= 768 ) {
             $( '.overlap-section-bottom' ).each( function () {
@@ -1931,7 +1931,7 @@
         });
     }
 
-    /****** Menu position ******/
+    /****** Menu positions ******/
     function menuPosition( element ) {
         var windowWidth     = getWindowWidth();
         if ( element.hasClass( 'simple-dropdown' ) ) {

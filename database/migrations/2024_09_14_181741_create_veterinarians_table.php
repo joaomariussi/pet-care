@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('email', 255)->unique();
             $table->string('phone', 50);
             $table->string('crm', 50)->unique();
-            $table->foreignId('position_id')->constrained('positions')->onDelete('cascade');
             $table->timestamps();
         });
     }

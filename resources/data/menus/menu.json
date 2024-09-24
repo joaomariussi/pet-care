@@ -19,10 +19,10 @@
         },
 
         {
-            "can": "cargos",
-            "url": "cargos/",
+            "can": "positions",
+            "url": "positions/",
             "name": "Cargos",
-            "icon": "fa-solid fa-user-tag"
+            "icon": "fa-solid fa-building"
         },
 
         {

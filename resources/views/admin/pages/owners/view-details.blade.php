@@ -116,12 +116,10 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-end">
-                    <div class="col-12 col-md-3 col-lg-2">
-                        <a href="{{ route('owners.view-update', $owner->id) }}" class="btn btn-outline-secondary">
-                            <i class="fa-solid fa-pen"></i> Editar Proprietário
-                        </a>
-                    </div>
+                <div class="btnsSave mt-3 justify-content-between d-flex float-end">
+                    <a href="{{ route('owners.view-update', $owner->id) }}" class="btn btn-outline-secondary">
+                        <i class="fa-solid fa-pen"></i> Editar Proprietário
+                    </a>
                 </div>
             </div>
         </div>

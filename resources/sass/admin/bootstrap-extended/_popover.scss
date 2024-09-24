@@ -12,11 +12,11 @@
   .popover-body{
     color: $body-color;
   }
-  // arrow position for popover top
+  // arrow positions for popover top
   &.bs-popover-top > .arrow::after{
     bottom: 2px;
   }
-  // arrow position for popover left
+  // arrow positions for popover left
   &.bs-popover-left > .arrow::after{
     right: 2px;
   }

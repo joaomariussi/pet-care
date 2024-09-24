@@ -15,7 +15,7 @@
 
     <a type="button"
        class="invoice-action-edit cursor-pointer ms-3 alert-heading"
-       onclick="return confirmDeletion('{{ route('delete-owners', ['id' => $id]) }}')"
+       onclick="return confirmDeletion('{{ route('owners.delete', ['id' => $id]) }}')"
        title="Excluir">
         <i class="fa-solid fa-trash-alt"></i>
     </a>

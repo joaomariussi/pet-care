@@ -19,7 +19,10 @@
     <script src="{{asset('js/scripts/footer.js')}}"></script>
     <script src="{{asset('js/scripts/customizer.js')}}"></script>
     <script src="{{asset('js/core/libraries/jquery-mask-plugin/jquery-mask.js')}}"></script>
-    <script src="{{asset('js/scripts/extensions/masks.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
+ <script src="{{asset('js/scripts/extensions/masks.js')}}"></script>
 
      <script>
          $(document).ready(function () {

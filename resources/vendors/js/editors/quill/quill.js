@@ -7694,7 +7694,7 @@ var DIFF_EQUAL = 0;
  * any common prefix or suffix off the texts before diffing.
  * @param {string} text1 Old string to be diffed.
  * @param {string} text2 New string to be diffed.
- * @param {Int} cursor_pos Expected edit position in text1 (optional)
+ * @param {Int} cursor_pos Expected edit positions in text1 (optional)
  * @return {Array} Array of diff tuples.
  */
 function diff_main(text1, text2, cursor_pos) {
@@ -8036,7 +8036,7 @@ function diff_halfMatch_(text1, text2) {
    * @private
    */
   function diff_halfMatchI_(longtext, shorttext, i) {
-    // Start with a 1/4 length substring at position i as a seed.
+    // Start with a 1/4 length substring at positions i as a seed.
     var seed = longtext.substring(i, i + Math.floor(longtext.length / 4));
     var j = -1;
     var best_common = '';
@@ -8234,7 +8234,7 @@ diff.EQUAL = DIFF_EQUAL;
 module.exports = diff;
 
 /*
- * Modify a diff such that the cursor position points to the start of a change:
+ * Modify a diff such that the cursor positions points to the start of a change:
  * E.g.
  *   cursor_normalize_diff([[DIFF_EQUAL, 'abc']], 1)
  *     => [1, [[DIFF_EQUAL, 'a'], [DIFF_EQUAL, 'bc']]]
@@ -8242,7 +8242,7 @@ module.exports = diff;
  *     => [2, [[DIFF_INSERT, 'new'], [DIFF_DELETE, 'xy'], [DIFF_DELETE, 'z']]]
  *
  * @param {Array} diffs Array of diff tuples
- * @param {Int} cursor_pos Suggested edit position. Must not be out of bounds!
+ * @param {Int} cursor_pos Suggested edit positions. Must not be out of bounds!
  * @return {Array} A tuple [cursor location in the modified diff, modified diff]
  */
 function cursor_normalize_diff (diffs, cursor_pos) {
@@ -8273,7 +8273,7 @@ function cursor_normalize_diff (diffs, cursor_pos) {
 }
 
 /*
- * Modify a diff such that the edit position is "shifted" to the proposed edit location (cursor_position).
+ * Modify a diff such that the edit positions is "shifted" to the proposed edit location (cursor_position).
  *
  * Case 1)
  *   Check if a naive shift is possible:
@@ -8287,7 +8287,7 @@ function cursor_normalize_diff (diffs, cursor_pos) {
  *         d          d_next
  *
  * @param {Array} diffs Array of diff tuples
- * @param {Int} cursor_pos Suggested edit position. Must not be out of bounds!
+ * @param {Int} cursor_pos Suggested edit positions. Must not be out of bounds!
  * @return {Array} Array of diff tuples
  */
 function fix_cursor (diffs, cursor_pos) {

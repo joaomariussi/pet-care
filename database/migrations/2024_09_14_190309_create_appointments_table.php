@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
             $table->time('schedule_date');
             $table->enum('status', ['Em Andamento', 'Confirmado', 'Cancelado', 'Concluido']);
+            $table->string('observations', 255);
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }

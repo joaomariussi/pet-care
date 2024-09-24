@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OwnersController;
+use App\Http\Controllers\PositionsController;
+use App\Http\Controllers\SectorsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,9 +71,26 @@ Route::prefix('owners')
         Route::get('/view-update-owner/{id}', 'viewUpdateOwner')->name('owners.view-update');
         Route::post('/update/{id}', 'update')->name('owners.update');
 
-        Route::get('/admin/pages/owners/delete/{id}', 'delete')->name('delete-owners');
+        Route::get('/admin/pages/owners/delete/{id}', 'delete')->name('owners.delete');
 
         Route::get('/view-details-owner/{id}', 'viewDetailsOwner')->name('owners.view-details');
+    });
+
+Route::prefix('positions')
+    ->controller(PositionsController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('positions');
+
+        Route::get('/datatable', 'positionsDataTable')->name('positions-datatable');
+
+        Route::get('/view-create-positions', 'viewCreatePositions')->name('positions.view-create');
+        Route::post('/create', 'create')->name('positions.create');
+
+        Route::get('/view-update-positions/{id}', 'viewUpdatePositions')->name('positions.view-update');
+        Route::post('/update/{id}', 'update')->name('positions.update');
+
+        Route::get('/admin/pages/positions/delete/{id}', 'delete')->name('positions-delete');
     });
 
 /*
