@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('position_id')->constrained('positions')->onDelete('cascade');
             $table->string('name', 255);
-            $table->string('cpf', 14)->unique();
-            $table->string('email', 255)->unique();
+            $table->string('cpf', 14);
+            $table->string('email', 255);
             $table->string('telephone', 20);
             $table->date('admission_date');
             $table->timestamps();

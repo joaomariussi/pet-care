@@ -26,8 +26,8 @@
         },
 
         {
-            "can": "funcionarios",
-            "url": "funcionarios/",
+            "can": "employees",
+            "url": "employees/",
             "name": "Funcionários",
             "icon": "fa-regular fa-user"
         },

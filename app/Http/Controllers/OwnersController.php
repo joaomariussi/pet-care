@@ -60,7 +60,7 @@ class OwnersController extends Controller
         try {
             $data = $request->validated();
 
-            // Removendo as máscaras
+            // Remove as máscaras dos campos
             $data['cpf'] = removeMask($data['cpf']);
             $data['telephone'] = removeMask($data['telephone']);
             $data['cell_phone'] = removeMask($data['cell_phone']);

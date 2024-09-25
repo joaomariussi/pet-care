@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\PositionsController;
-use App\Http\Controllers\SectorsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -91,6 +91,25 @@ Route::prefix('positions')
         Route::post('/update/{id}', 'update')->name('positions.update');
 
         Route::get('/admin/pages/positions/delete/{id}', 'delete')->name('positions-delete');
+    });
+
+Route::prefix('employees')
+    ->controller(EmployeesController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('employees');
+
+        Route::get('/datatable', 'employeesDataTable')->name('employees-datatable');
+
+        Route::get('/view-create-employees', 'viewCreateEmployees')->name('employees.view-create');
+        Route::post('/create', 'create')->name('employees.create');
+
+        Route::get('/view-update-employees/{id}', 'viewUpdateEmployees')->name('employees.view-update');
+        Route::post('/update/{id}', 'update')->name('employees.update');
+
+        Route::get('/admin/pages/employees/delete/{id}', 'delete')->name('employees.delete');
+
+        Route::get('/view-details-employees/{id}', 'viewDetailsEmployees')->name('employees.view-details');
     });
 
 /*
