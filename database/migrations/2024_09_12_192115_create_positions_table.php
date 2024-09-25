@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('description', 255);
+            $table->string('description', 255)->nullable();
             $table->decimal('salary', 10, 2);
-            $table->enum('experience_with_animals', ['Sim', 'Não'])->default('Não');
+            $table->enum('experience_with_animals', ['Iniciante', 'Moderado', 'Avançado', 'Especialista']);
             $table->text('additional_skills')->nullable();
+            $table->integer('weekly_workload')->default(40);
+            $table->string('work_area')->nullable();
             $table->timestamps();
         });
     }

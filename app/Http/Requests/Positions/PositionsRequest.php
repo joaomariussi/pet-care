@@ -29,6 +29,8 @@ class PositionsRequest extends FormRequest
             'salary' => 'required',
             'experience_with_animals' => 'required',
             'additional_skills' => 'required',
+            'weekly_workload' => 'required',
+            'work_area' => 'required',
         ];
     }
 
@@ -46,6 +48,8 @@ class PositionsRequest extends FormRequest
             'salary.required' => 'O salário é obrigatório',
             'experience_with_animals.required' => 'A experiência com animais é obrigatória',
             'additional_skills.required' => 'As habilidades adicionais são obrigatórias',
+            'weekly_workload.required' => 'A carga horária semanal é obrigatória',
+            'work_area.required' => 'A área de trabalho é obrigatória',
         ];
     }
 }

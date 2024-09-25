@@ -76,7 +76,8 @@
                                                             <label for="description">Descrição</label>
                                                             <textarea class="form-control @error('description') is-invalid @enderror"
                                                                       id="description" name="description" placeholder="Descrição do Cargo"
-                                                                      rows="1" style="white-space: pre-wrap;">{{ old('description') ?? $position->description }}</textarea>
+                                                                      rows="1" style="white-space: pre-wrap;">{{ old('description') ?? $position->description }}
+                                                            </textarea>
                                                             @error('description')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
@@ -108,13 +109,21 @@
                                                             <select class="form-control @error('experience_with_animals')
                                                             is-invalid @enderror" id="experience_with_animals"
                                                                     name="experience_with_animals">
-                                                                <option value="Sim"
-                                                                    {{old('experience_with_animals', $position->experience_with_animals) == 'Sim' ? 'selected' : '' }}>
-                                                                    Sim
+                                                                <option value="Iniciante"
+                                                                    {{old('experience_with_animals', $position->experience_with_animals) == 'Iniciante' ? 'selected' : '' }}>
+                                                                    Iniciante
                                                                 </option>
-                                                                <option value="Não"
-                                                                    {{ old('experience_with_animals', $position->experience_with_animals) == 'Não' ? 'selected' : '' }}>
-                                                                    Não
+                                                                <option value="Moderado"
+                                                                    {{ old('experience_with_animals', $position->experience_with_animals) == 'Moderado' ? 'selected' : '' }}>
+                                                                    Moderado
+                                                                </option>
+                                                                <option value="Avançado"
+                                                                    {{ old('experience_with_animals', $position->experience_with_animals) == 'Avançado' ? 'selected' : '' }}>
+                                                                    Avançado
+                                                                </option>
+                                                                <option value="Especialista"
+                                                                    {{ old('experience_with_animals', $position->experience_with_animals) == 'Especialista' ? 'selected' : '' }}>
+                                                                    Especialista
                                                                 </option>
                                                             </select>
                                                             @error('experience_with_animals')
@@ -132,6 +141,36 @@
                                                                       id="additional_skills" name="additional_skills" placeholder="Informe as habilidades adicionais"
                                                                       rows="1" style="white-space: pre-wrap;">{{ old('additional_skills') ?? $position->additional_skills }}</textarea>
                                                             @error('additional_skills')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="work_area">Área de Atuação*</label>
+                                                            <input type="text" class="form-control @error('work_area')
+                                                             is-invalid @enderror" id="work_area" name="work_area"
+                                                                   placeholder="Informe a área de atuação"
+                                                                   value="{{old('work_area') ?? $position->work_area}}">
+                                                            @error('work_area')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="weekly_workload">Carga Horária Semanal*</label>
+                                                            <input type="text" class="form-control @error('weekly_workload')
+                                                             is-invalid @enderror" id="weekly_workload" name="weekly_workload"
+                                                                   placeholder="Informe a carga horária semanal"
+                                                                   value="{{old('weekly_workload') ?? $position->weekly_workload}}">
+                                                            @error('weekly_workload')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

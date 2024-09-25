@@ -44,8 +44,9 @@
                                 <div class="accordion-item">
                                     <button class="accordion-button erroInfoGerais
                                     {{form_collapse_errors($errors, ['name','description', 'salary',
-                                    'experience_with_animals', 'additional_skills'])}}" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#informacoesGerais-collapse"
+                                    'experience_with_animals', 'additional_skills', 'weekly_workload', 'work_area'])}}"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
                                         <span class="ms-2">Informações do Cadastro</span>
@@ -110,13 +111,21 @@
                                                             <select class="form-control @error('experience_with_animals')
                                                             is-invalid @enderror" id="experience_with_animals"
                                                                     name="experience_with_animals">
-                                                                <option value="Sim"
-                                                                    {{ old('experience_with_animals') == 'Sim' ? 'selected' : '' }}>
-                                                                    Sim
+                                                                <option value="Iniciante"
+                                                                    {{ old('experience_with_animals') == 'Iniciante' ? 'selected' : '' }}>
+                                                                    Iniciante
                                                                 </option>
-                                                                <option value="Não"
-                                                                    {{ old('experience_with_animals') == 'Não' ? 'selected' : '' }}>
-                                                                    Não
+                                                                <option value="Moderado"
+                                                                    {{ old('experience_with_animals') == 'Moderado' ? 'selected' : '' }}>
+                                                                    Moderado
+                                                                </option>
+                                                                <option value="Avançado"
+                                                                    {{ old('experience_with_animals') == 'Avançado' ? 'selected' : '' }}>
+                                                                    Avançado
+                                                                </option>
+                                                                <option value="Especialista"
+                                                                    {{ old('experience_with_animals') == 'Especialista' ? 'selected' : '' }}>
+                                                                    Especialista
                                                                 </option>
                                                             </select>
                                                             @error('experience_with_animals')
@@ -137,6 +146,36 @@
                                                                       rows="1">{{old('additional_skills')}}
                                                             </textarea>
                                                             @error('additional_skills')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="weekly_workload">Carga Horária Semanal*</label>
+                                                            <input type="text" class="form-control @error('weekly_workload')
+                                                             is-invalid @enderror" id="weekly_workload" name="weekly_workload"
+                                                                   placeholder="Informe a carga horária semanal"
+                                                                   value="{{old('weekly_workload')}}">
+                                                            @error('weekly_workload')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="work_area">Área de Atuação*</label>
+                                                            <input type="text" class="form-control @error('work_area')
+                                                             is-invalid @enderror" id="work_area" name="work_area"
+                                                                   placeholder="Informe a área de atuação"
+                                                                   value="{{old('work_area')}}">
+                                                            @error('work_area')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

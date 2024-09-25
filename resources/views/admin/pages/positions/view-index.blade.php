@@ -33,7 +33,7 @@
                             <a class="nav-link active" id="contacts-tab" data-bs-toggle="tab" href="#contacts"
                                aria-controls="contacts" role="tab"
                                aria-selected="true">
-                                <i class="fa-solid fa-people-group"></i>
+                                <i class="fa-solid fa-briefcase"></i>
                                 <span class="align-middle">Cargos</span>
                             </a>
                         </li>
