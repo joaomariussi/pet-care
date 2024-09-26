@@ -13,7 +13,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -86,13 +85,7 @@ class EmployeesController extends Controller
     public function viewUpdateEmployees($id): View|Factory|RedirectResponse|Application
     {
         try {
-            $employee = $this->employees::query()->find($id);
-
-            if (!$employee) {
-                UserNotification::error('Funcionário não encontrado!');
-                return redirect()->route('employees');
-            }
-
+            $employee = $this->employees::query()->findOrFail($id);
             $positions = Positions::all();
             return view('admin.pages.employees.view-update', compact('employee', 'positions'));
         } catch (Throwable $t) {
@@ -110,9 +103,6 @@ class EmployeesController extends Controller
     public function update(EmployeesUpdateRequest $request, $id): RedirectResponse
     {
         try {
-            // Envolva em uma transação se necessário
-            DB::beginTransaction();
-
             $employee = $this->employees::query()->findOrFail($id);
 
             $data = $request->validated();
@@ -124,10 +114,8 @@ class EmployeesController extends Controller
             // Atualiza os dados do funcionário
             $employee->update($data);
 
-            DB::commit();
             UserNotification::success('Funcionário atualizado com sucesso!');
         } catch (Throwable $t) {
-            DB::rollBack();
             Log::error($t->getMessage());
             UserNotification::error('Erro ao atualizar o funcionário!');
         }

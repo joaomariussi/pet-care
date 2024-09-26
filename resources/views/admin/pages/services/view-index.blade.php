@@ -1,6 +1,6 @@
 @extends('admin.layouts.menusLayout')
 
-@section('title', 'Categorias')
+@section('title', 'Serviços')
 
 @section('page-styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/datatable/css/dataTables.bootstrap5.min.css') }}">
@@ -17,7 +17,7 @@
                                         class="fa-solid fa-house"></i></a>
                             </li>
                             <li class="breadcrumb-item">Gerenciamento</li>
-                            <li class="breadcrumb-item">Categorias</li>
+                            <li class="breadcrumb-item">Serviços</li>
                             <li class="breadcrumb-item active">Lista</li>
                         </ol>
                     </nav>
@@ -33,8 +33,8 @@
                             <a class="nav-link active" id="contacts-tab" data-bs-toggle="tab" href="#contacts"
                                aria-controls="contacts" role="tab"
                                aria-selected="true">
-                                <i class="fa-solid fa-list"></i>
-                                <span class="align-middle">Categorias</span>
+                                <i class="fa-solid fa-tools"></i>
+                                <span class="align-middle">Serviços</span>
                             </a>
                         </li>
                     </ul>
@@ -47,11 +47,11 @@
                                 <div class="col-xl-3 col-sm-6 col-md-6">
                                     <div class="card">
                                         <div class="card-body cards-geral">
-                                            <i class="fa-solid fa-list font-large-1 color-green-dark-geral"></i>
+                                            <i class="fa-solid fa-tools font-large-1 color-green-dark-geral"></i>
                                             <div class="card-produtos-quantidade ms-3">
                                                 <h5 class="mb-0 me-2 itenscadastrados registered-users color-green-dark-geral">
-                                                    {{$totalCategories}}</h5>
-                                                <b class="text-muted">Categorias Cadastradas</b>
+                                                    {{$totalServices}}</h5>
+                                                <b class="text-muted">Serviços Cadastrados</b>
                                             </div>
                                         </div>
                                     </div>
@@ -62,10 +62,10 @@
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <b class="title-geral-etapas">Lista de Categorias</b>
-                                            <a href="{{route('categories.view-create')}}"
+                                            <b class="title-geral-etapas">Lista de Serviços</b>
+                                            <a href="{{route('services.view-create')}}"
                                                class="btn button_register float-end ms-2 buttonInsert">
-                                                <i class='fa-solid fa-plus'></i> Nova Categoria
+                                                <i class='fa-solid fa-plus'></i> Novo Serviço
                                             </a>
                                         </div>
                                         <div class="card-content">
