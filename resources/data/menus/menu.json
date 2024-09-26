@@ -19,6 +19,13 @@
         },
 
         {
+            "can": "categories",
+            "url": "categories/",
+            "name": "Categorias",
+            "icon": "fa-solid fa-list"
+        },
+
+        {
             "can": "positions",
             "url": "positions/",
             "name": "Cargos",
@@ -47,8 +54,8 @@
         },
 
         {
-            "can": "servicos",
-            "url": "servicos/",
+            "can": "services",
+            "url": "services/",
             "name": "Serviços",
             "icon": "fa-solid fa-tools"
         },

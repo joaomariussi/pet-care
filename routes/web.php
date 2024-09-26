@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\PositionsController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -110,6 +112,40 @@ Route::prefix('employees')
         Route::get('/admin/pages/employees/delete/{id}', 'delete')->name('employees.delete');
 
         Route::get('/view-details-employees/{id}', 'viewDetailsEmployees')->name('employees.view-details');
+    });
+
+Route::prefix('categories')
+    ->controller(CategoriesController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('categories');
+
+        Route::get('/datatable', 'categoriesDataTable')->name('categories-datatable');
+
+        Route::get('/view-create-categories', 'viewCreateCategories')->name('categories.view-create');
+        Route::post('/create', 'create')->name('categories.create');
+
+        Route::get('/view-update-categories/{id}', 'viewUpdateCategories')->name('categories.view-update');
+        Route::post('/update/{id}', 'update')->name('categories.update');
+
+        Route::get('/admin/pages/categories/delete/{id}', 'delete')->name('categories.delete');
+    });
+
+Route::prefix('services')
+    ->controller(ServicesController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('services');
+
+        Route::get('/datatable', 'servicesDataTable')->name('services-datatable');
+
+        Route::get('/view-create-services', 'viewCreateServices')->name('services.view-create');
+        Route::post('/create', 'create')->name('services.create');
+
+        Route::get('/view-update-services/{id}', 'viewUpdateServices')->name('services.view-update');
+        Route::post('/update/{id}', 'update')->name('services.update');
+
+        Route::get('/admin/pages/services/delete/{id}', 'delete')->name('services.delete');
     });
 
 /*
