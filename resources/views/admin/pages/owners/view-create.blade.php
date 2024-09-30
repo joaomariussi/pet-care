@@ -1,6 +1,6 @@
 @extends('admin.layouts.menusLayout')
 
-@section('title', 'Cadastro de Proprietários')
+@section('title', 'Cadastro de Proprietário')
 
 @section('page-styles')
     <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/owners/create.css') }}">

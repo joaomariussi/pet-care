@@ -1,6 +1,6 @@
 @extends('admin.layouts.menusLayout')
 
-@section('title', 'Cadastro de Cargos')
+@section('title', 'Cadastro de Cargo')
 
 @section('page-styles')
     <link type="text/css" rel="stylesheet" href="{{ asset('css/admin/pages/positions/create.css') }}">

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('cpf', 14)->unique();
             $table->string('email', 255)->unique();
-            $table->string('phone', 50);
+            $table->string('cell_phone', 50);
             $table->string('crm', 50)->unique();
             $table->timestamps();
         });

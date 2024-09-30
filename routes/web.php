@@ -5,9 +5,11 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\OwnersController;
+use App\Http\Controllers\PetsController;
 use App\Http\Controllers\PositionsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VeterinariansController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -146,6 +148,42 @@ Route::prefix('services')
         Route::post('/update/{id}', 'update')->name('services.update');
 
         Route::get('/admin/pages/services/delete/{id}', 'delete')->name('services.delete');
+    });
+
+Route::prefix('veterinarians')
+    ->controller(VeterinariansController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('veterinarians');
+
+        Route::get('/datatable', 'veterinariansDataTable')->name('veterinarians-datatable');
+
+        Route::get('/view-create-veterinarians', 'viewCreateVeterinarians')->name('veterinarians.view-create');
+        Route::post('/create', 'create')->name('veterinarians.create');
+
+        Route::get('/view-update-veterinarians/{id}', 'viewUpdateVeterinarians')->name('veterinarians.view-update');
+        Route::post('/update/{id}', 'update')->name('veterinarians.update');
+
+        Route::get('/admin/pages/veterinarians/delete/{id}', 'delete')->name('veterinarians.delete');
+    });
+
+Route::prefix('pets')
+    ->controller(PetsController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('pets');
+
+        Route::get('/datatable', 'petsDataTable')->name('pets-datatable');
+
+        Route::get('/view-create-pets', 'viewCreatePets')->name('pets.view-create');
+        Route::post('/create', 'create')->name('pets.create');
+
+        Route::get('/view-update-pets/{id}', 'viewUpdatePets')->name('pets.view-update');
+        Route::post('/update/{id}', 'update')->name('pets.update');
+
+        Route::get('/admin/pages/pets/delete/{id}', 'delete')->name('pets.delete');
+
+        Route::get('/view-details-pets/{id}', 'viewDetailsPets')->name('pets.view-details');
     });
 
 /*

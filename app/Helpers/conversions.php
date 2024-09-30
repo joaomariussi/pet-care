@@ -39,13 +39,17 @@ function mask($mask,$str): mixed
 }
 
 /**
- * Remove qualquer caractere que não seja número
+ * Remove a máscara de um campo
  * @param $attribute
+ * @param string $type
  * @return string
  */
-function removeMask($attribute): string
+function removeMask($attribute, string $type = 'numeric'): string
 {
-    return preg_replace("/[^0-9]/", "", $attribute);
+    return match ($type) {
+        'alphanumeric' => preg_replace("/[^0-9A-Za-z]/", "", $attribute),
+        default => preg_replace("/[^0-9]/", "", $attribute),
+    };
 }
 
 /**

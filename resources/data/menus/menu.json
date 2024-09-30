@@ -61,6 +61,13 @@
         },
 
         {
+            "can": "veterinarians",
+            "url": "veterinarians/",
+            "name": "Veterinários",
+            "icon": "fa-solid fa-user-doctor"
+        },
+
+        {
             "navheader": "administração"
         },
 
