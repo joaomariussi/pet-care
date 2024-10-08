@@ -22,7 +22,7 @@ return new class extends Migration
             $table->enum('gender', ['Masculino', 'Feminino', 'Outro']);
             $table->string('address', 255);
             $table->string('neighborhood', 255);
-            $table->string('number', 10);
+            $table->string('number', 10)->nullable();
             $table->string('complement', 100)->nullable();
             $table->string('zip_code', 10);
             $table->string('city', 100);

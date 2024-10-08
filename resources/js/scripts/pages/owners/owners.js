@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona os campos do formulário
-    const numeroInput = document.getElementById('number');
-    const s_nCheckbox = document.getElementById('s_n');
     const cpfInput = document.getElementById('cpf');
     const telefoneInput = document.getElementById('telephone');
     const celularInput = document.getElementById('cell_phone');
     const cepInput = document.getElementById('zip_code');
+    const numeroInput = document.getElementById('number');
+    const s_nCheckbox = document.getElementById('s_n');
 
     // Função para habilitar/desabilitar o input com base no estado do checkbox
     const toggleNumeroInput = function () {

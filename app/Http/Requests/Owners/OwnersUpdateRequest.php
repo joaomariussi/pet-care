@@ -23,17 +23,19 @@ class OwnersUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        $ownerId = $this->route('owner'); // Obtém o ID do proprietário da rota
+
         return [
             'name' => 'required|max:191',
-            'cpf' => 'required|max:14',
-            'email' => 'required|email|unique:owners,email',
+            'cpf' => 'required|max:14|unique:owners,cpf,' . $ownerId, // Ignora o CPF do proprietário atual
+            'email' => 'required|email|unique:owners,email,' . $ownerId, // Ignora o email do proprietário atual
             'telephone' => 'required|max:15',
             'cell_phone' => 'max:15',
             'date_birth' => 'required',
             'gender' => 'required',
             'address' => 'required|max:191',
             'neighborhood' => 'required|max:191',
-            'number' => 'required|max:10',
+            'number' => 'max:10',
             'complement' => 'max:100',
             'zip_code' => 'required|max:9',
             'city' => 'required|max:191',
@@ -52,6 +54,7 @@ class OwnersUpdateRequest extends FormRequest
             'name.required' => 'O nome é obrigatório',
             'cpf.required' => 'O CPF é obrigatório',
             'cpf.max' => 'O CPF deve ter no máximo 14 caracteres',
+            'cpf.unique' => 'Este CPF já está em uso',
             'email.required' => 'O email é obrigatório',
             'email.email' => 'Email inválido',
             'email.unique' => 'Este email já está em uso',
@@ -62,7 +65,7 @@ class OwnersUpdateRequest extends FormRequest
             'gender.required' => 'O gênero é obrigatório',
             'address.required' => 'O endereço é obrigatório',
             'neighborhood.required' => 'O bairro é obrigatório',
-            'number.required' => 'O número é obrigatório',
+            'number.max' => 'O número deve ter no máximo 10 caracteres',
             'zip_code.required' => 'O CEP é obrigatório',
             'zip_code.max' => 'O CEP deve ter no máximo 9 caracteres',
             'city.required' => 'A cidade é obrigatória',
