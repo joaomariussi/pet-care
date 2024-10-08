@@ -20,6 +20,7 @@
     <script src="{{asset('js/scripts/customizer.js')}}"></script>
     <script src="{{asset('js/core/libraries/jquery-mask-plugin/jquery-mask.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.8/dist/jquery.inputmask.min.js"></script>
 
 
  <script src="{{asset('js/scripts/extensions/masks.js')}}"></script>

@@ -16,11 +16,11 @@ return new class extends Migration
             $table->foreignId('owner_id')->constrained('owners')->onDelete('cascade');
             $table->string('name', 255);
             $table->date('date_birth');
-            $table->string('species', 255);
-            $table->string('race', 255);
-            $table->string('gender', 50);
+            $table->enum('species', ['Cachorro', 'Gato', 'Pássaro', 'Roedor', 'Réptil', 'Outro']);
+            $table->string('race')->nullable()->default('Sem raça');
+            $table->enum('gender', ['Macho', 'Fêmea']);
             $table->string('color', 255);
-            $table->double('weight', 5, 2);
+            $table->double('weight', 13, 3);
             $table->string('photo', 255)->nullable();
             $table->timestamps();
         });

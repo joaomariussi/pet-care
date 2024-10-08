@@ -48,7 +48,7 @@ function removeMask($attribute, string $type = 'numeric'): string
 {
     return match ($type) {
         'alphanumeric' => preg_replace("/[^0-9A-Za-z]/", "", $attribute),
-        default => preg_replace("/[^0-9]/", "", $attribute),
+        default => preg_replace("/[^0-9.,]/", "", $attribute),
     };
 }
 

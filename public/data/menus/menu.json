@@ -40,6 +40,13 @@
         },
 
         {
+            "can": "medical-histories",
+            "url": "medical-histories/",
+            "name": "Histórico Médico",
+            "icon": "fa-solid fa-notes-medical"
+        },
+
+        {
             "can": "pets",
             "url": "pets/",
             "name": "Pets",

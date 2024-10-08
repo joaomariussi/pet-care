@@ -1,0 +1,79 @@
+/* Estilo do botão do accordion quando está fechado */
+.accordion-button {
+    background-color: transparent; /* Fundo neutro quando fechado */
+    color: #333; /* Texto escuro padrão */
+    border: none; /* Sem borda */
+    box-shadow: none; /* Sem sombra */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo do botão do accordion quando expandido (aberto) */
+.accordion-button:not(.collapsed) {
+    background-color: #e7f1ff; /* Fundo azul claro quando aberto */
+    color: #0056b3; /* Cor do texto quando aberto */
+    border-color: #0056b3; /* Borda azul quando expandido */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra suave quando aberto */
+    border-radius: 0.25rem 0.25rem 0 0; /* Canto superior arredondado */
+}
+
+/* Ícone rotacionando suavemente ao expandir */
+.accordion-button i {
+    transition: transform 0.3s ease;
+}
+
+/* Rotaciona o ícone para indicar que o accordion está expandido */
+.accordion-button:not(.collapsed) i {
+    transform: rotate(180deg);
+}
+
+/* Corpo do accordion */
+.accordion-body {
+    background-color: #fff; /* Fundo branco para o conteúdo */
+    border: 1px solid #ddd; /* Borda sutil */
+    border-radius: 0 0 0.25rem 0.25rem; /* Canto inferior arredondado */
+    padding: 1.5rem; /* Mais espaçamento interno */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Remove o destaque (outline) quando focado */
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+/* Estilo da área dos accordions */
+.accordion-item {
+    margin-bottom: 1rem; /* Espaçamento entre os accordions */
+    border-radius: 0.25rem; /* Bordas arredondadas para cada accordion */
+    overflow: hidden; /* Para garantir que as bordas não escapem do container */
+}
+
+/* Remove o outline quando o botão é clicado */
+.accordion-button:active,
+.accordion-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Remove a seta padrão do Bootstrap no botão do accordion */
+.accordion-button::after {
+    display: none;
+}
+
+/* Adiciona um ícone ao lado do título no botão do accordion */
+.accordion-button span {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 0.5rem; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Remove o estilo especial para o accordion fechado */
+.accordion-button.collapsed {
+    background-color: transparent;
+    color: #333;
+}
+
+/* Transição ao abrir/fechar */
+.accordion-button, .accordion-body {
+    transition: all 0.3s ease-in-out;
+}

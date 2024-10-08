@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\MedicalHistoriesController;
 use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\PetsController;
 use App\Http\Controllers\PositionsController;
@@ -165,6 +166,23 @@ Route::prefix('veterinarians')
         Route::post('/update/{id}', 'update')->name('veterinarians.update');
 
         Route::get('/admin/pages/veterinarians/delete/{id}', 'delete')->name('veterinarians.delete');
+    });
+
+Route::prefix('medical-histories')
+    ->controller(MedicalHistoriesController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('medical_history');
+
+        Route::get('/datatable', 'medicalHistoryDataTable')->name('medical_history-datatable');
+
+        Route::get('/view-create-medical_history', 'viewCreateMedicalHistory')->name('medical_history.view-create');
+        Route::post('/create', 'create')->name('medical_history.create');
+
+        Route::get('/view-update-medical_history/{id}', 'viewUpdateMedicalHistory')->name('medical_history.view-update');
+        Route::post('/update/{id}', 'update')->name('medical_history.update');
+
+        Route::get('/admin/pages/medical_history/delete/{id}', 'delete')->name('medical_history.delete');
     });
 
 Route::prefix('pets')
