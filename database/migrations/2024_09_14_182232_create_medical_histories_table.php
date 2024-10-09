@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('diagnosis', 255);
             $table->string('treatment', 255);
             $table->date('date');
-            $table->string('observations', 255);
+            $table->string('observations', 255)->nullable();
             $table->timestamps();
         });
     }

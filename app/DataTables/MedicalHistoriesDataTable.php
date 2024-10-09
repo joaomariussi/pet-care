@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
+use App\Models\MedicalHistories;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
@@ -11,8 +11,7 @@ use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-
-class UserDataTable extends DataTable
+class MedicalHistoriesDataTable extends DataTable
 {
 
     /**
@@ -26,19 +25,25 @@ class UserDataTable extends DataTable
             ->addColumn('action', function ($query) {
                 return $this->getActionButtons($query);
             })
+            ->editColumn('pet_id', function ($query) {
+                return $query->pet ? $query->pet->name : 'Sem pet';
+            })
+            ->editColumn('veterinarian_id', function ($query) {
+                return $query->veterinarian ? $query->veterinarian->name : 'Sem veterinário';
+            })
             ->editColumn('created_at', function ($query) {
                 return $this->getCreatedAt($query->created_at);
             })
             ->escapeColumns([])
             ->setRowId('id');
     }
-
     /**
      * Get the query source of dataTable.
      */
-    public function query(User $model): QueryBuilder
+    public function query(MedicalHistories $medicalHistory): QueryBuilder
     {
-        return $model->newQuery()
+        return $medicalHistory->newQuery()
+            ->with(['pet', 'veterinarian']) // Carrega a relação do pet e do veterinário
             ->where(function ($w) {
                 if (Auth::user()->type === 'webmaster') {
                     return;
@@ -47,7 +52,6 @@ class UserDataTable extends DataTable
                 $w->where('type', '!=', 'webmaster');
             });
     }
-
     public function html(): HtmlBuilder
     {
         return $this->builder()
@@ -66,7 +70,6 @@ class UserDataTable extends DataTable
                 // Button::make('reset'),
                 // Button::make('reload')
             ]);
-
     }
 
     public function getColumns(): array
@@ -78,10 +81,10 @@ class UserDataTable extends DataTable
                 ->width(60)
                 ->addClass('text-center')
                 ->title('Ações'),
-                Column::make('name')->title('Nome'),
-                Column::make('type')->title('Tipo'),
-                Column::make('email')->title('E-mail'),
-                Column::make('created_at')->title('Criado em')
+            Column::make('pet_id')->title('Nome do Pet'),
+            Column::make('veterinarian_id')->title('Nome do Veterinário'),
+            Column::make('diagnosis')->title('Diagnóstico'),
+            Column::make('created_at')->title('Criado em')
         ];
     }
 
@@ -91,7 +94,7 @@ class UserDataTable extends DataTable
      */
     private function getActionButtons($query): string
     {
-        return (string)view('_includes.datatable.user-options', ['id' => $query->id]);
+        return (string)view('_includes.datatable.medical-histories-options', ['id' => $query->id]);
     }
 
     /**
@@ -102,4 +105,6 @@ class UserDataTable extends DataTable
     {
         return Carbon::parse($created_at)->format('d/m/Y H:i:s');
     }
+
 }
+
