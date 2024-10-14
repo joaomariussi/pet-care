@@ -108,7 +108,10 @@ class VeterinariansController extends Controller
             $data = $request->validated();
 
             // Atualiza o veterinário
-            $this->veterinarians::query()->findOrFail($id)->update($data);
+            $veterinarian = Veterinarians::query()->findOrFail($id);
+
+            // Atualiza o veterinário
+            $veterinarian->update($data);
             UserNotification::success('Veterinário atualizado com sucesso!');
 
             return redirect()->route('veterinarians');

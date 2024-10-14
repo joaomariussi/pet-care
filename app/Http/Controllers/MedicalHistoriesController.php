@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\MedicalHistoriesDataTable;
-use App\Http\Requests\MedicalHistories\MedicalHistoriesRequest;
+use App\Http\Requests\MedicalHistories\MedicalHistoriesCreateRequest;
 use App\Http\Requests\MedicalHistories\MedicalHistoriesUpdateRequest;
 use App\Models\MedicalHistories;
 use App\Models\Pets;
@@ -26,29 +26,37 @@ class MedicalHistoriesController extends Controller
     }
 
     /**
-     * Carrega a DataTable de Histórico Médico
+     * Carrega a DataTable de históricos médicos
+     * @param MedicalHistoriesDataTable $datatable
+     * @return mixed
      * @throws Exception
      */
     public function index(MedicalHistoriesDataTable $datatable): mixed
     {
         try {
+            // Conta o total de históricos médicos
             $totalMedicalHistory = MedicalHistories::count();
-            return $datatable->render('admin.pages.medical-histories.view-index', compact('totalMedicalHistory'));
+            return $datatable->render('admin.pages.medical-histories.view-index',
+                compact('totalMedicalHistory'));
         } catch (Throwable $t) {
             throw new Exception($t->getMessage());
         }
     }
 
     /**
-     *  View para criar os históricos médicos
+     * View para criar um novo histórico médico
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewCreateMedicalHistory(): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca todos os pets
             $pets = Pets::all();
+
+            // Busca todos os veterinários
             $veterinarians = Veterinarians::all();
-            return view('admin.pages.medical-histories.view-create', compact('pets', 'veterinarians'));
+            return view('admin.pages.medical-histories.view-create',
+                compact('pets', 'veterinarians'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao buscar a página de cadastro de históricos médicos!');
@@ -59,12 +67,13 @@ class MedicalHistoriesController extends Controller
 
     /**
      * Cria um novo histórico médico
-     * @param MedicalHistoriesRequest $request
+     * @param MedicalHistoriesCreateRequest $request
      * @return RedirectResponse
      */
-    public function create(MedicalHistoriesRequest $request): RedirectResponse
+    public function create(MedicalHistoriesCreateRequest $request): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
 
             // Salva o histórico médico
@@ -86,15 +95,20 @@ class MedicalHistoriesController extends Controller
     }
 
     /**
-     * View para atualizar os históricos médicos
+     * View para atualizar um histórico médico
      * @param $id
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewUpdateMedicalHistory($id): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o histórico médico
             $medicalHistory = $this->medicalHistory::query()->find($id);
+
+            // Busca todos os pets
             $pets = Pets::all();
+
+            // Busca todos os veterinários
             $veterinarians = Veterinarians::all();
             return view('admin.pages.medical-histories.view-update',
                 compact('medicalHistory', 'pets', 'veterinarians'));
@@ -115,8 +129,13 @@ class MedicalHistoriesController extends Controller
     public function update(MedicalHistoriesUpdateRequest $request, $id): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
+
+            // Busca o histórico médico
             $medicalHistory = $this->medicalHistory::query()->findOrFail($id);
+
+            // Atualiza o histórico médico
             $medicalHistory->update($data);
             UserNotification::success('Histórico médico atualizado com sucesso!');
         } catch (Throwable $t) {
@@ -128,15 +147,15 @@ class MedicalHistoriesController extends Controller
     }
 
     /**
-     * Deleta o histórico médico
+     * Deleta um histórico médico
      * @param $id
      * @return RedirectResponse
      */
     public function delete($id): RedirectResponse
     {
         try {
-            $medicalHistory = $this->medicalHistory::query()->findOrFail($id);
-            $medicalHistory->delete();
+            // Busca o histórico médico e deleta
+            $this->medicalHistory::query()->findOrFail($id);
             UserNotification::success('Histórico médico deletado com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
