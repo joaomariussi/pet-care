@@ -29,6 +29,7 @@ class ServicesRequest extends FormRequest
             'description' => 'required',
             'price' => 'required',
             'duration' => 'required',
+            'simultaneous_services' => 'required|integer|numeric',
         ];
     }
 
@@ -48,6 +49,9 @@ class ServicesRequest extends FormRequest
             'description.required' => 'Descrição é obrigatória',
             'price.required' => 'Preço é obrigatório',
             'duration.required' => 'Duração é obrigatória',
+            'simultaneous_services.required' => 'Serviços simultâneos é obrigatório',
+            'simultaneous_services.integer' => 'Serviços simultâneos deve ser um número inteiro',
+            'simultaneous_services.numeric' => 'Serviços simultâneos deve ser um número',
         ];
     }
 }

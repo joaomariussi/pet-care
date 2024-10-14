@@ -19,7 +19,6 @@ return new class extends Migration
             $table->enum('experience_with_animals', ['Iniciante', 'Moderado', 'Avançado', 'Especialista']);
             $table->text('additional_skills')->nullable();
             $table->integer('weekly_workload')->default(40);
-            $table->string('work_area')->nullable();
             $table->timestamps();
         });
     }

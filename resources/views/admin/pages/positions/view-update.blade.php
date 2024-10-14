@@ -44,7 +44,8 @@
                             <div class="accordion">
                                 <div class="accordion-item">
                                     <button class="accordion-button erroInfoGerais
-                                    {{form_collapse_errors($errors, ['name', 'salary'])}}" type="button"
+                                    {{form_collapse_errors($errors, ['name','description', 'salary',
+                                    'experience_with_animals', 'additional_skills', 'weekly_workload'])}}" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
@@ -73,12 +74,12 @@
 
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group">
-                                                            <label for="description">Descrição</label>
-                                                            <textarea class="form-control @error('description') is-invalid @enderror"
-                                                                      id="description" name="description" placeholder="Descrição do Cargo"
-                                                                      rows="1" style="white-space: pre-wrap;">{{ old('description') ?? $position->description }}
-                                                            </textarea>
-                                                            @error('description')
+                                                            <label for="weekly_workload">Carga Horária Semanal*</label>
+                                                            <input type="text" class="form-control @error('weekly_workload')
+                                                             is-invalid @enderror" id="weekly_workload" name="weekly_workload"
+                                                                   placeholder="Informe a carga horária semanal"
+                                                                   value="{{old('weekly_workload')}}">
+                                                            @error('weekly_workload')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>
@@ -86,7 +87,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12 col-md-4">
+                                                    <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="salary">Salário*</label>
                                                             <input type="text" class="form-control @error('salary')
@@ -101,7 +102,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12 col-md-4">
+                                                    <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="experience_with_animals">
                                                                 Experiência com Animais*
@@ -134,12 +135,12 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12 col-md-4">
+                                                    <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="additional_skills">Habilidades Adicionais</label>
                                                             <textarea class="form-control @error('additional_skills') is-invalid @enderror"
                                                                       id="additional_skills" name="additional_skills" placeholder="Informe as habilidades adicionais"
-                                                                      rows="1" style="white-space: pre-wrap;">{{ old('additional_skills') ?? $position->additional_skills }}</textarea>
+                                                                      rows="2" style="white-space: pre-wrap;">{{ old('additional_skills') ?? $position->additional_skills }}</textarea>
                                                             @error('additional_skills')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
@@ -148,29 +149,15 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12 col-md-4">
+                                                    <div class="col-12 col-md-6">
                                                         <div class="form-group">
-                                                            <label for="work_area">Área de Atuação*</label>
-                                                            <input type="text" class="form-control @error('work_area')
-                                                             is-invalid @enderror" id="work_area" name="work_area"
-                                                                   placeholder="Informe a área de atuação"
-                                                                   value="{{old('work_area') ?? $position->work_area}}">
-                                                            @error('work_area')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-12 col-md-4">
-                                                        <div class="form-group">
-                                                            <label for="weekly_workload">Carga Horária Semanal*</label>
-                                                            <input type="text" class="form-control @error('weekly_workload')
-                                                             is-invalid @enderror" id="weekly_workload" name="weekly_workload"
-                                                                   placeholder="Informe a carga horária semanal"
-                                                                   value="{{old('weekly_workload') ?? $position->weekly_workload}}">
-                                                            @error('weekly_workload')
+                                                            <label for="description">Descrição</label>
+                                                            <textarea class="form-control @error('description')
+                                                             is-invalid @enderror" id="description" name="description"
+                                                                      placeholder="Descrição do Cargo"
+                                                                      rows="2">{{old('description')}}
+                                                            </textarea>
+                                                            @error('description')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

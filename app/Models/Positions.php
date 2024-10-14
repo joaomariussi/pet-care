@@ -18,7 +18,6 @@ class Positions extends Model
         'experience_with_animals',
         'additional_skills',
         'weekly_workload',
-        'work_area',
     ];
 
     protected $hidden = [

@@ -45,7 +45,7 @@
                                 <div class="accordion-item">
                                     <button class="accordion-button erroInfoGerais
                                             {{form_collapse_errors($errors, ['category_id','name','description', 'price',
-                                            'duration'])}}" type="button"
+                                            'duration', 'simultaneous_services'])}}" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
@@ -126,13 +126,28 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-12 col-md-4">
+                                                    <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="duration">Duração*</label>
                                                             <input type="time" class="form-control @error('duration')
                                                             is-invalid @enderror" id="duration" name="duration"
                                                                    value="{{ old('duration') ?? $service->duration }}">
                                                             @error('duration')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="simultaneous_services">Serviços Simultâneos*</label>
+                                                            <input type="text" class="form-control @error('simultaneous_services')
+                                                            is-invalid @enderror" id="simultaneous_services"
+                                                                   name="simultaneous_services"
+                                                                   value="{{ old('simultaneous_services') ?? $service->simultaneous_services }}">
+                                                            @error('simultaneous_services')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
                                                             </div>

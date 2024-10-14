@@ -17,6 +17,7 @@ class Services extends Model
         'description',
         'price',
         'duration',
+        'simultaneous_services',
     ];
 
     protected $hidden = [

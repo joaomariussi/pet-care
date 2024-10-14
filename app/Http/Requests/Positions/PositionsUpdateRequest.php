@@ -25,12 +25,11 @@ class PositionsUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|max:191',
-            'description' => 'required|max:191',
+            'description' => 'max:191',
             'salary' => 'required',
             'experience_with_animals' => 'required',
-            'additional_skills' => 'required',
+            'additional_skills' => 'max:191',
             'weekly_workload' => 'required',
-            'work_area' => 'required',
         ];
     }
 
@@ -44,12 +43,11 @@ class PositionsUpdateRequest extends FormRequest
     {
         return [
             'name.required' => 'O nome é obrigatório',
-            'description.required' => 'A descrição é obrigatória',
+            'description.required' => 'O campo descrição deve ter no máximo 191 caracteres',
             'salary.required' => 'O salário é obrigatório',
             'experience_with_animals.required' => 'A experiência com animais é obrigatória',
-            'additional_skills.required' => 'As habilidades adicionais são obrigatórias',
+            'additional_skills.required' => 'O campo habilidades adicionais deve ter no máximo 191 caracteres',
             'weekly_workload.required' => 'A carga horária semanal é obrigatória',
-            'work_area.required' => 'A área de trabalho é obrigatória',
         ];
     }
 }

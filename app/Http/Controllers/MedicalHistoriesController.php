@@ -127,6 +127,11 @@ class MedicalHistoriesController extends Controller
         return redirect()->route('medical-histories');
     }
 
+    /**
+     * Deleta o histórico médico
+     * @param $id
+     * @return RedirectResponse
+     */
     public function delete($id): RedirectResponse
     {
         try {

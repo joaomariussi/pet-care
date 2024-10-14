@@ -59,7 +59,6 @@ class ServicesController extends Controller
      * Cria um novo serviço
      * @throws Exception
      */
-
     public function create(ServicesRequest $request): RedirectResponse
     {
         try {
