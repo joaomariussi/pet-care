@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
@@ -202,6 +203,29 @@ Route::prefix('pets')
         Route::get('/admin/pages/pets/delete/{id}', 'delete')->name('pets.delete');
 
         Route::get('/view-details-pets/{id}', 'viewDetailsPets')->name('pets.view-details');
+    });
+
+Route::prefix('appointments')
+    ->controller(AppointmentsController::class)
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/', 'index')->name('appointments');
+
+        Route::get('/datatable', 'appointmentsDataTable')->name('appointments-datatable');
+
+        Route::get('/view-create-appointments', 'viewCreateAppointments')->name('appointments.view-create');
+        Route::post('/create', 'create')->name('appointments.create');
+
+        Route::get('/view-update-appointments/{id}', 'viewUpdateAppointments')->name('appointments.view-update');
+        Route::post('/update/{id}', 'update')->name('appointments.update');
+
+        Route::get('/admin/pages/appointments/delete/{id}', 'delete')->name('appointments.delete');
+
+        Route::get('/view-details-appointments/{id}', 'viewDetailsAppointments')->name('appointments.view-details');
+
+        Route::get('/unavailable-times', 'getUnavailableTimes')->name('appointments.unavailable-times');
+
+        Route::post('/appointments/update-status/{id}', 'updateStatus')->name('appointments.update-status');
     });
 
 /*

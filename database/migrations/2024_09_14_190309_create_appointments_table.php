@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
+            $table->foreignId('owner_id')->constrained('owners')->onDelete('cascade');
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
             $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
-            $table->time('schedule_date');
+            $table->date('schedule_date');
+            $table->time('schedule_time');
             $table->enum('status', ['Em Andamento', 'Confirmado', 'Cancelado', 'Concluido']);
-            $table->string('observations', 255);
-            $table->decimal('price', 10, 2);
+            $table->string('observations', 255)->nullable();
             $table->timestamps();
         });
     }

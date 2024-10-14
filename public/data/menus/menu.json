@@ -12,8 +12,8 @@
         },
 
         {
-            "can": "agendamentos",
-            "url": "agendamentos/",
+            "can": "appointments",
+            "url": "appointments/",
             "name": "Agendamentos",
             "icon": "fa-solid fa-calendar-check"
         },
