@@ -44,7 +44,7 @@
                                 <div class="accordion-item">
                                     <button class="accordion-button erroInfoGerais
                                     {{form_collapse_errors($errors, ['owner_id', 'medical_history_id', 'name',
-                                    'date_birth', 'species', 'race', 'gender', 'color', 'weight', 'photo'])}}"
+                                    'date_birth', 'species', 'gender', 'color', 'weight', 'photo'])}}"
                                             type="button" data-bs-toggle="collapse"
                                             data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
@@ -132,7 +132,7 @@
                                                             <label for="race">Raça*</label>
                                                             <div class="input-group">
                                                                 <input type="text" class="form-control @error('race')
-                                                                is-invalid @enderror" id="race" name="race"
+                                                                is-invalid @enderror" id="race" name="race" required
                                                                        placeholder="Raça do Pet"
                                                                        value="{{ old('race', $pet->race) }}">
                                                                 <div class="input-group-text">
