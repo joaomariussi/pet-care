@@ -23,12 +23,13 @@ class OwnersUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        $ownerId = $this->route('owner'); // Obtém o ID do proprietário da rota
+        // Obtém o ID do proprietário da rota pelo nome do parâmetro {id}
+        $ownerId = $this->route('id');
 
         return [
             'name' => 'required|max:191',
-            'cpf' => 'required|max:14|unique:owners,cpf,' . $ownerId, // Ignora o CPF do proprietário atual
-            'email' => 'required|email|unique:owners,email,' . $ownerId, // Ignora o email do proprietário atual
+            'cpf' => 'required|max:14|unique:owners,cpf,' . $ownerId, 'id',
+            'email' => 'required|email|unique:owners,email,' . $ownerId, 'id',
             'telephone' => 'required|max:15',
             'cell_phone' => 'max:15',
             'date_birth' => 'required',
@@ -41,6 +42,20 @@ class OwnersUpdateRequest extends FormRequest
             'city' => 'required|max:191',
             'state' => 'required|max:2',
         ];
+    }
+
+    /**
+     * Prepara os dados para validação, removendo a máscara do CPF.
+     */
+    protected function prepareForValidation(): void
+    {
+        // Remove as máscaras dos campos
+        $this->merge([
+            'cpf' => preg_replace('/\D/', '', $this->cpf),
+            'telephone' => preg_replace("/[^0-9]/", "", $this->telephone),
+            'cell_phone' => preg_replace("/[^0-9]/", "", $this->cell_phone),
+            'zip_code' => preg_replace("/[^0-9]/", "", $this->zip_code),
+        ]);
     }
 
     /**

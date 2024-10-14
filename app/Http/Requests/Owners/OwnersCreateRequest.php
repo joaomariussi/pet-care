@@ -42,6 +42,20 @@ class OwnersCreateRequest extends FormRequest
     }
 
     /**
+     * Prepara os dados para validação, removendo a máscara do CPF.
+     */
+    protected function prepareForValidation(): void
+    {
+        // Remove as máscaras dos campos
+        $this->merge([
+            'cpf' => preg_replace('/\D/', '', $this->cpf),
+            'telephone' => preg_replace("/[^0-9]/", "", $this->telephone),
+            'cell_phone' => preg_replace("/[^0-9]/", "", $this->cell_phone),
+            'zip_code' => preg_replace("/[^0-9]/", "", $this->zip_code),
+        ]);
+    }
+
+    /**
      * Get the error messages for the defined validation rules.
      *
      * @return array<string, string>

@@ -24,6 +24,9 @@ class OwnersController extends Controller
     }
 
     /**
+     * Carrega da DataTable de proprietários
+     * @param OwnersDataTable $datatable
+     * @return mixed
      * @throws Exception
      */
     public function index(OwnersDataTable $datatable): mixed
@@ -37,7 +40,7 @@ class OwnersController extends Controller
     }
 
     /**
-     *  View para criar os proprietários
+     * View de cadastro de proprietários
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewCreateOwners(): View|Factory|RedirectResponse|Application
@@ -53,19 +56,17 @@ class OwnersController extends Controller
     }
 
     /**
-     * @throws Exception
+     * Cadastra um novo proprietário
+     * @param OwnersCreateRequest $request
+     * @return RedirectResponse
      */
     public function create(OwnersCreateRequest $request): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
 
-            // Remove as máscaras dos campos
-            $data['cpf'] = removeMask($data['cpf']);
-            $data['telephone'] = removeMask($data['telephone']);
-            $data['cell_phone'] = removeMask($data['cell_phone']);
-            $data['zip_code'] = removeMask($data['zip_code']);
-
+            // Cria o proprietário
             $this->owners::query()->create($data);
             UserNotification::success('Proprietário cadastrado com sucesso!');
 
@@ -79,13 +80,15 @@ class OwnersController extends Controller
     }
 
     /**
+     * View de atualização de proprietários
      * @param $id
-     * @return Application|Factory|View|RedirectResponse
+     * @return View|Factory|RedirectResponse|Application
      */
     public function viewUpdateOwner($id): View|Factory|RedirectResponse|Application
     {
         try {
-            $owner = $this->owners::query()->find($id);
+            // Busca o proprietário
+            $owner = Owners::find($id);
             return view('admin.pages.owners.view-update', compact('owner'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -96,6 +99,7 @@ class OwnersController extends Controller
     }
 
     /**
+     * Atualiza um proprietário
      * @param OwnersUpdateRequest $request
      * @param $id
      * @return RedirectResponse
@@ -103,14 +107,10 @@ class OwnersController extends Controller
     public function update(OwnersUpdateRequest $request, $id): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
 
-            // Removendo as máscaras
-            $data['cpf'] = removeMask($data['cpf']);
-            $data['telephone'] = removeMask($data['telephone']);
-            $data['cell_phone'] = removeMask($data['cell_phone']);
-            $data['zip_code'] = removeMask($data['zip_code']);
-
+            // Busca o proprietário e atualiza os dados
             $this->owners::query()->find($id)->update($data);
             UserNotification::success('Proprietário atualizado com sucesso!');
 
@@ -124,12 +124,14 @@ class OwnersController extends Controller
     }
 
     /**
+     * Exclui um proprietário
      * @param $id
      * @return RedirectResponse
      */
     public function delete($id): RedirectResponse
     {
         try {
+            // Busca o proprietário e exclui
             $this->owners::query()->find($id)->delete();
             UserNotification::success('Proprietário excluído com sucesso!');
         } catch (Throwable $t) {
@@ -140,9 +142,15 @@ class OwnersController extends Controller
         return redirect()->route('owners');
     }
 
+    /**
+     * View para visualizar os detalhes de um proprietário
+     * @param $id
+     * @return View|Factory|RedirectResponse|Application
+     */
     public function viewDetailsOwner($id): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o proprietário
             $owner = $this->owners::query()->find($id);
             return view('admin.pages.owners.view-details', compact('owner'));
         } catch (Throwable $t) {

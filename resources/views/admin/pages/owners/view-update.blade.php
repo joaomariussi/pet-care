@@ -42,13 +42,15 @@
                         <div class="col-12 col-md-12">
                             <div class="accordion">
                                 <div class="accordion-item">
-                                    <button class="accordion-button erroInfoGerais"
-                                            {{form_collapse_errors($errors), ['name', 'email', 'cpf', 'telephone',
-                                            'date', 'gender']}} type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button erroInfoGerais
+                                    {{form_collapse_errors($errors, ['name','cpf','email', 'telephone', 'cell_phone',
+                                    'date_birth','gender', 'address','neighborhood', 'number', 'zip_code', 'city','state'])}}"
+                                            type="button" data-bs-toggle="collapse"
                                             data-bs-target="#informacoesGerais-collapse"
                                             aria-expanded="true" aria-controls="informacoesGerais-collapse">
                                         <i class="fa-solid fa-circle-info font-medium-5"></i>
-                                        <span class="ms-2">Informações Gerais</span>
+                                        <span class="ms-2">Informações do Cadastro</span>
+                                        <small class="ms-1">(Obrigatório)</small>
                                     </button>
 
                                     <div id="informacoesGerais-collapse" class="accordion-collapse collapse show"
@@ -232,7 +234,7 @@
                                                             <label for="number">Número*</label>
                                                             <div class="input-group">
                                                                 <input type="text" class="form-control @error('number')
-                                                                is-invalid @enderror" id="number" name="number" required
+                                                                is-invalid @enderror" id="number" name="number"
                                                                        placeholder="Informe o número"
                                                                        value="{{ old('number') ?? $owner->number }}"
                                                                        maxlength="10">

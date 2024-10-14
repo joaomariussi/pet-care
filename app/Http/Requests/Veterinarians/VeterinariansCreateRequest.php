@@ -37,7 +37,7 @@ class VeterinariansCreateRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        // Remove a máscara do CPF
+        // Remove as máscaras dos campos
         $this->merge([
             'cpf' => preg_replace('/\D/', '', $this->cpf),
             'cell_phone' => preg_replace('/\D/', '', $this->cell_phone),

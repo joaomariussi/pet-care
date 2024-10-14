@@ -23,12 +23,15 @@ class VeterinariansUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Obtém o ID do veterinário da rota pelo nome do parâmetro {id}
+        $veterinarianId = $this->route('id');
+
         return [
             'name' => 'required|max:255',
-            'cpf' => 'required|unique:veterinarians,cpf',
-            'email' => 'required|email|unique:veterinarians,email',
+            'cpf' => 'required|unique:veterinarians,cpf,' . $veterinarianId, 'id',
+            'email' => 'required|email|unique:veterinarians,email,' . $veterinarianId, 'id',
             'cell_phone' => 'required|max:20',
-            'crm' => 'required|unique:veterinarians,crm',
+            'crm' => 'required|unique:veterinarians,crm,' . $veterinarianId, 'id',
         ];
     }
 
@@ -37,7 +40,7 @@ class VeterinariansUpdateRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        // Remove a máscara do CPF
+        // Remove as máscaras dos campos
         $this->merge([
             'cpf' => preg_replace('/\D/', '', $this->cpf),
             'cell_phone' => preg_replace('/\D/', '', $this->cell_phone),
