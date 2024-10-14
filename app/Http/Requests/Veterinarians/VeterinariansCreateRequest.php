@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class VeterinariansRequest extends FormRequest
+class VeterinariansCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,6 +30,19 @@ class VeterinariansRequest extends FormRequest
             'cell_phone' => 'required|max:20',
             'crm' => 'required|unique:veterinarians,crm',
         ];
+    }
+
+    /**
+     * Prepara os dados para validação, removendo a máscara do CPF.
+     */
+    protected function prepareForValidation(): void
+    {
+        // Remove a máscara do CPF
+        $this->merge([
+            'cpf' => preg_replace('/\D/', '', $this->cpf),
+            'cell_phone' => preg_replace('/\D/', '', $this->cell_phone),
+            'crm' => preg_replace("/[^0-9A-Za-z]/", "", $this->crm),
+        ]);
     }
 
     /**

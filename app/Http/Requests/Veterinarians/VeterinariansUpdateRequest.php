@@ -33,6 +33,19 @@ class VeterinariansUpdateRequest extends FormRequest
     }
 
     /**
+     * Prepara os dados para validação, removendo a máscara do CPF.
+     */
+    protected function prepareForValidation(): void
+    {
+        // Remove a máscara do CPF
+        $this->merge([
+            'cpf' => preg_replace('/\D/', '', $this->cpf),
+            'cell_phone' => preg_replace('/\D/', '', $this->cell_phone),
+            'crm' => preg_replace("/[^0-9A-Za-z]/", "", $this->crm),
+        ]);
+    }
+
+    /**
      * Get the validation messages that apply to the request.
      *
      * @return array<string, string>

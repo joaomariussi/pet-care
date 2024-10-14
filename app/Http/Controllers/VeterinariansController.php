@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\VeterinariansDataTable;
-use App\Http\Requests\Veterinarians\VeterinariansRequest;
+use App\Http\Requests\Veterinarians\VeterinariansCreateRequest;
 use App\Http\Requests\Veterinarians\VeterinariansUpdateRequest;
 use App\Models\Veterinarians;
 use App\Notifications\UserNotification;
@@ -24,21 +24,22 @@ class VeterinariansController extends Controller
     }
 
     /**
-     * Carrega a DataTable de Veterinarians
+     * Carrega a DataTable de Veterinários
      * @throws Exception
      */
     public function index(VeterinariansDataTable $datatable): mixed
     {
         try {
             $totalVeterinarians = Veterinarians::count();
-            return $datatable->render('admin.pages.veterinarians.view-index', compact('totalVeterinarians'));
+            return $datatable->render('admin.pages.veterinarians.view-index',
+                compact('totalVeterinarians'));
         } catch (Throwable $t) {
             throw new Exception($t->getMessage());
         }
     }
 
     /**
-     *  View para criar os veterinarians
+     *  View para criar os Veterinários
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewCreateVeterinarians(): View|Factory|RedirectResponse|Application
@@ -54,19 +55,17 @@ class VeterinariansController extends Controller
     }
 
     /**
-     * Cria um novo veterinário
-     * @throws Exception
+     * Cria o Veterinário
+     * @param VeterinariansCreateRequest $request
+     * @return RedirectResponse
      */
-    public function create(VeterinariansRequest $request): RedirectResponse
+    public function create(VeterinariansCreateRequest $request): RedirectResponse
     {
         try {
+            // Valida os campos
             $data = $request->validated();
 
-            // Remove as máscaras dos campos
-            $data['cpf'] = removeMask($data['cpf']);
-            $data['cell_phone'] = removeMask($data['cell_phone']);
-            $data['crm'] = removeMask($data['crm'], 'alphanumeric');
-
+            // Cria o veterinário
             $this->veterinarians::query()->create($data);
             UserNotification::success('Veterinário cadastrado com sucesso!');
         } catch (Throwable $t) {
@@ -78,12 +77,14 @@ class VeterinariansController extends Controller
     }
 
     /**
-     * Viw para atualizar o veterinário
-     * @throws Exception
+     * View para atualizar os Veterinários
+     * @param int $id
+     * @return View|Factory|RedirectResponse|Application
      */
     public function viewUpdateVeterinarians(int $id): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o veterinário
             $veterinarian = Veterinarians::find($id);
             return view('admin.pages.veterinarians.view-update', compact('veterinarian'));
         } catch (Throwable $t) {
@@ -95,18 +96,16 @@ class VeterinariansController extends Controller
     }
 
     /**
-     * Atualiza o veterinário
-     * @throws Exception
+     * Atualiza o Veterinário
+     * @param VeterinariansUpdateRequest $request
+     * @param int $id
+     * @return RedirectResponse
      */
     public function update(VeterinariansUpdateRequest $request, int $id): RedirectResponse
     {
         try {
+            // Valida os campos
             $data = $request->validated();
-
-            // Remove as máscaras dos campos
-            $data['cpf'] = removeMask($data['cpf']);
-            $data['cell_phone'] = removeMask($data['cell_phone']);
-            $data['crm'] = removeMask($data['crm'], 'alphanumeric');
 
             // Atualiza o veterinário
             $this->veterinarians::query()->findOrFail($id)->update($data);
@@ -122,12 +121,14 @@ class VeterinariansController extends Controller
     }
 
     /**
-     * Deleta o veterinário
-     * @throws Exception
+     * Deleta o Veterinário
+     * @param int $id
+     * @return RedirectResponse
      */
     public function delete(int $id): RedirectResponse
     {
         try {
+            // Busca o veterinário e deleta
             $this->veterinarians::query()->findOrFail($id)->delete();
             UserNotification::success('Veterinário deletado com sucesso!');
         } catch (Throwable $t) {
