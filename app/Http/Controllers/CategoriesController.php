@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\CategoriesDataTable;
-use App\Http\Requests\Categories\CategoriesRequest;
+use App\Http\Requests\Categories\CategoriesCreateRequest;
 use App\Http\Requests\Categories\CategoriesUpdateRequest;
 use App\Models\Categories;
 use App\Notifications\UserNotification;
@@ -12,7 +12,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -25,12 +24,15 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Carrega a DataTable de Categorias
+     * Carrega a DataTable de categorias
+     * @param CategoriesDataTable $datatable
+     * @return mixed
      * @throws Exception
      */
     public function index(CategoriesDataTable $datatable): mixed
     {
         try {
+            // Busca o total de categorias
             $totalCategories = Categories::count();
             return $datatable->render('admin.pages.categories.view-index', compact('totalCategories'));
         } catch (Throwable $t) {
@@ -38,6 +40,10 @@ class CategoriesController extends Controller
         }
     }
 
+    /**
+     * View de cadastro de categorias
+     * @return View|Factory|RedirectResponse|Application
+     */
     public function viewCreateCategories() : View|Factory|RedirectResponse|Application
     {
         try {
@@ -50,9 +56,15 @@ class CategoriesController extends Controller
         return redirect()->route('categories');
     }
 
-    public function create(CategoriesRequest $request): RedirectResponse
+    /**
+     * Cadastra uma nova categoria
+     * @param CategoriesCreateRequest $request
+     * @return RedirectResponse
+     */
+    public function create(CategoriesCreateRequest $request): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
 
             // Salva os dados no banco de dados
@@ -67,6 +79,11 @@ class CategoriesController extends Controller
         return redirect()->route('categories');
     }
 
+    /**
+     * View de atualização de categorias
+     * @param int $id
+     * @return View|Factory|RedirectResponse|Application
+     */
     public function viewUpdateCategories(int $id): View|Factory|RedirectResponse|Application
     {
         try {
@@ -82,6 +99,12 @@ class CategoriesController extends Controller
         return redirect()->route('categories');
     }
 
+    /**
+     * Atualiza uma categoria
+     * @param CategoriesUpdateRequest $request
+     * @param int $id
+     * @return RedirectResponse
+     */
     public function update(CategoriesUpdateRequest $request, int $id): RedirectResponse
     {
         try {
@@ -103,11 +126,22 @@ class CategoriesController extends Controller
         return redirect()->route('categories');
     }
 
+    /**
+     * Exclui uma categoria
+     * @param $id
+     * @return RedirectResponse
+     */
     public function delete($id): RedirectResponse
     {
         try {
             // Busca a categoria
             $category = $this->categories::query()->findOrFail($id);
+
+            // Verifica se há serviços associados a essa categoria
+            if ($category->services()->count() > 0) {
+                UserNotification::error('Não é possível excluir a categoria, pois existem serviços associados a ela.');
+                return redirect()->route('categories');
+            }
 
             // Exclui a categoria
             $category->delete();

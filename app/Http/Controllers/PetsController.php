@@ -26,7 +26,9 @@ class PetsController extends Controller
     }
 
     /**
-     * Carrega a DataTable de Pets
+     * Carrega a DataTable de pets
+     * @param PetsDataTable $datatable
+     * @return mixed
      * @throws Exception
      */
     public function index(PetsDataTable $datatable): mixed
@@ -46,9 +48,13 @@ class PetsController extends Controller
     public function viewCreatePets(): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca os proprietários
             $owners = Owners::all();
+
+            // Busca os históricos médicos
             $medicalHistories = MedicalHistories::all();
-            return view('admin.pages.pets.view-create', compact('owners', 'medicalHistories'));
+            return view('admin.pages.pets.view-create',
+                compact('owners', 'medicalHistories'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao buscar a página de cadastro de pets!');
@@ -58,14 +64,17 @@ class PetsController extends Controller
     }
 
     /**
+     * Cria o pet
      * @param PetsCreateRequest $request
      * @return RedirectResponse
      */
     public function create(PetsCreateRequest $request): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
 
+            // Verifica se a imagem foi enviada
             if ($request->hasFile('photo')) {
                 // Pega o arquivo de imagem
                 $image = $request->file('photo');
@@ -83,6 +92,7 @@ class PetsController extends Controller
             // Substitui a vírgula por ponto no peso
             $data['weight'] = str_replace(',', '.', $data['weight']);
 
+            // Salva os dados no banco de dados
             $this->pets::query()->create($data);
             UserNotification::success('Pet criado com sucesso.');
         } catch (Throwable $t) {
@@ -94,18 +104,23 @@ class PetsController extends Controller
     }
 
     /**
-     * View para atualizar o pet
+     * View para atualizar os pets
      * @param $id
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewUpdatePets($id):View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o pet
             $pet = $this->pets::query()->findOrFail($id);
 
+            // Busca os proprietários
             $owners = Owners::all();
+
+            // Busca os históricos médicos
             $medicalHistories = MedicalHistories::all();
-            return view('admin.pages.pets.view-update', compact('pet', 'owners', 'medicalHistories'));
+            return view('admin.pages.pets.view-update',
+                compact('pet', 'owners', 'medicalHistories'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao buscar a página de atualização de pets!');
@@ -123,9 +138,13 @@ class PetsController extends Controller
     public function update(PetsUpdateRequest $request, $id): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
+
+            // Busca o pet
             $pet = $this->pets::query()->findOrFail($id);
 
+            // Verifica se a imagem foi enviada
             if ($request->hasFile('photo')) {
                 $image = $request->file('photo');
                 $imageBase64 = base64_encode(file_get_contents($image->getRealPath()));
@@ -135,6 +154,7 @@ class PetsController extends Controller
             // Substitui a vírgula por ponto no peso
             $data['weight'] = str_replace(',', '.', $data['weight']);
 
+            // Atualiza os dados no banco de dados
             $pet->update($data);
             UserNotification::success('Pet atualizado com sucesso.');
         } catch (Throwable $t) {
@@ -153,8 +173,8 @@ class PetsController extends Controller
     public function delete($id): RedirectResponse
     {
         try {
-            $pet = $this->pets::query()->findOrFail($id);
-            $pet->delete();
+            // Busca o pet e deleta
+            $this->pets::query()->findOrFail($id);
             UserNotification::success('Pet deletado com sucesso.');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -165,13 +185,14 @@ class PetsController extends Controller
     }
 
     /**
-     * View para visualizar os detalhes do pet
+     * View para visualizar os detalhes dos pets
      * @param $id
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewDetailsPets($id): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o pet
             $pet = $this->pets::query()->findOrFail($id);
             return view('admin.pages.pets.view-details', compact('pet'));
         } catch (Throwable $t) {

@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->foreignId('category_id')->after('id')->constrained('categories')->onDelete('cascade');
-
+            $table->foreignId('category_id')
+                ->after('id')
+                ->constrained('categories')
+                ->onDelete('restrict'); // Impede a exclusão se houver serviços vinculados
         });
     }
 
