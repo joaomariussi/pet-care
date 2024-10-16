@@ -26,7 +26,7 @@ class ServicesUpdateRequest extends FormRequest
         return [
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|max:255',
-            'description' => 'required',
+            'description' => 'max:255',
             'price' => 'required',
             'duration' => 'required',
             'simultaneous_services' => 'required|integer|numeric',
@@ -46,7 +46,7 @@ class ServicesUpdateRequest extends FormRequest
             'category_id.exists' => 'Categoria não encontrada',
             'name.required' => 'Nome é obrigatório',
             'name.max' => 'Nome deve ter no máximo 255 caracteres',
-            'description.required' => 'Descrição é obrigatória',
+            'description.max' => 'Descrição deve ter no máximo 255 caracteres',
             'price.required' => 'Preço é obrigatório',
             'duration.required' => 'Duração é obrigatória',
             'simultaneous_services.required' => 'Serviços simultâneos é obrigatório',

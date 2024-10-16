@@ -25,6 +25,9 @@ class ServicesDataTable extends DataTable
             ->addColumn('action', function ($query) {
                 return $this->getActionButtons($query);
             })
+            ->editColumn('category_id', function ($query) {
+                return $query->category ? $query->category->name : 'Sem categoria';
+            })
             ->editColumn('price', function ($query) {
                 return $this->getFormattedPrice($query->price);
             })
@@ -40,6 +43,7 @@ class ServicesDataTable extends DataTable
     public function query(Services $services): QueryBuilder
     {
         return $services->newQuery()
+            ->with('category')
             ->where(function ($w) {
                 if (Auth::user()->type === 'webmaster') {
                     return;
@@ -78,7 +82,7 @@ class ServicesDataTable extends DataTable
                 ->addClass('text-center')
                 ->title('Ações'),
             Column::make('name')->title('Nome'),
-            Column::make('description')->title('Descrição'),
+            Column::make('category_id')->title('Categoria'),
             Column::make('price')->title('Preço'),
             Column::make('created_at')->title('Criado em')
         ];

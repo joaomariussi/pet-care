@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class ServicesRequest extends FormRequest
+class ServicesCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,18 @@ class ServicesRequest extends FormRequest
         return [
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|max:255',
-            'description' => 'required',
+            'description' => 'max:255',
             'price' => 'required',
             'duration' => 'required',
             'simultaneous_services' => 'required|integer|numeric',
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'price' => str_replace(['R$ ', '.', ','], ['', '', '.'], $this->price),
+        ]);
     }
 
     /**
@@ -46,7 +53,7 @@ class ServicesRequest extends FormRequest
             'category_id.exists' => 'Categoria não encontrada',
             'name.required' => 'Nome é obrigatório',
             'name.max' => 'Nome deve ter no máximo 255 caracteres',
-            'description.required' => 'Descrição é obrigatória',
+            'description.max' => 'Descrição deve ter no máximo 255 caracteres',
             'price.required' => 'Preço é obrigatório',
             'duration.required' => 'Duração é obrigatória',
             'simultaneous_services.required' => 'Serviços simultâneos é obrigatório',

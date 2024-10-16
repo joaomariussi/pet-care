@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\ServicesDataTable;
-use App\Http\Requests\Services\ServicesRequest;
+use App\Http\Requests\Services\ServicesCreateRequest;
 use App\Http\Requests\Services\ServicesUpdateRequest;
 use App\Models\Categories;
 use App\Models\Services;
@@ -25,7 +25,9 @@ class ServicesController extends Controller
     }
 
     /**
-     * Carrega a datatable de serviços
+     * Carrega a DataTable de serviços
+     * @param ServicesDataTable $dataTable
+     * @return mixed
      * @throws Exception
      */
     public function index(ServicesDataTable $dataTable) : mixed
@@ -39,12 +41,13 @@ class ServicesController extends Controller
     }
 
     /**
-     * View para criar os serviços
+     * View para criar um novo serviço
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewCreateServices(): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca as categorias
             $categories = Categories::all();
             return view('admin.pages.services.view-create', compact('categories'));
         } catch (Throwable $t) {
@@ -57,16 +60,14 @@ class ServicesController extends Controller
 
     /**
      * Cria um novo serviço
-     * @throws Exception
+     * @param ServicesCreateRequest $request
+     * @return RedirectResponse
      */
-    public function create(ServicesRequest $request): RedirectResponse
+    public function create(ServicesCreateRequest $request): RedirectResponse
     {
         try {
             // Valida os dados
             $data = $request->validated();
-
-            // Remove a máscara do campo price
-            $data['price'] = str_replace(['R$', '.', ','], ['', '', '.'], $data['price']);
 
             // Cria o serviço
             $this->services::query()->create($data);
@@ -80,14 +81,17 @@ class ServicesController extends Controller
     }
 
     /**
-     * View para atualizar o serviço
-     * @throws Exception
+     * View para atualizar um serviço
+     * @param $id
+     * @return View|Factory|RedirectResponse|Application
      */
-
     public function viewUpdateServices($id): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o serviço
             $service = $this->services::query()->findOrFail($id);
+
+            // Busca as categorias
             $categories = Categories::all();
             return view('admin.pages.services.view-update', compact('service', 'categories'));
         } catch (Throwable $t) {
@@ -98,6 +102,12 @@ class ServicesController extends Controller
         return redirect()->route('services');
     }
 
+    /**
+     * Atualiza um serviço
+     * @param ServicesUpdateRequest $request
+     * @param $id
+     * @return RedirectResponse
+     */
     public function update(ServicesUpdateRequest $request, $id): RedirectResponse
     {
         try {
@@ -122,13 +132,14 @@ class ServicesController extends Controller
 
     /**
      * Deleta um serviço
-     * @throws Exception
+     * @param $id
+     * @return RedirectResponse
      */
     public function delete($id): RedirectResponse
     {
         try {
-            $service = $this->services::query()->findOrFail($id);
-            $service->delete();
+            // Bus
+            $this->services::query()->findOrFail($id)->delete();
             UserNotification::success('Serviço deletado com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
