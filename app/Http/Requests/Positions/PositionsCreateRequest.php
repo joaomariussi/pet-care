@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class PositionsRequest extends FormRequest
+class PositionsCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,6 +31,14 @@ class PositionsRequest extends FormRequest
             'additional_skills' => 'max:191',
             'weekly_workload' => 'required',
         ];
+    }
+
+    // Remove a máscara do campo "salary".
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'salary' => str_replace(['R$ ', '.', ','], ['', '', '.'], $this->salary),
+        ]);
     }
 
     /**

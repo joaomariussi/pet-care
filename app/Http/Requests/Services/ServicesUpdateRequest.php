@@ -33,6 +33,14 @@ class ServicesUpdateRequest extends FormRequest
         ];
     }
 
+    // Remove a máscara do campo "price".
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'price' => str_replace(['R$ ', '.', ','], ['', '', '.'], $this->price),
+        ]);
+    }
+
     /**
      * Get the error messages for the defined validation rules.
      *

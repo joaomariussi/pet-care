@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Positions extends Model
 {
@@ -24,4 +25,13 @@ class Positions extends Model
         'created_at',
         'updated_at',
     ];
+
+    /**
+     * Relatcionamento com a tabela de funcionários
+     * @return HasMany
+     */
+    public function employees(): HasMany
+    {
+        return $this->hasMany(Employees::class, 'position_id', 'id');
+    }
 }

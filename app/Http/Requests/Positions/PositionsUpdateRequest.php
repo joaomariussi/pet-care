@@ -33,6 +33,14 @@ class PositionsUpdateRequest extends FormRequest
         ];
     }
 
+    // Remove a máscara do campo "salary".
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'salary' => str_replace(['R$ ', '.', ','], ['', '', '.'], $this->salary),
+        ]);
+    }
+
     /**
      * Get the error messages for the defined validation rules.
      *

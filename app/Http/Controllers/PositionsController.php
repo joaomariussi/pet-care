@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\PositionsDataTable;
-use App\Http\Requests\Positions\PositionsRequest;
+use App\Http\Requests\Positions\PositionsCreateRequest;
 use App\Http\Requests\Positions\PositionsUpdateRequest;
 use App\Models\Positions;
 use App\Notifications\UserNotification;
@@ -24,6 +24,9 @@ class PositionsController extends Controller
     }
 
     /**
+     * Carrega da DataTable de Cargos
+     * @param PositionsDataTable $datatable
+     * @return mixed
      * @throws Exception
      */
     public function index(PositionsDataTable $datatable): mixed
@@ -36,6 +39,10 @@ class PositionsController extends Controller
         }
     }
 
+    /**
+     * Carrega a View de criação de um cargo.
+     * @return View|Factory|RedirectResponse|Application
+     */
     public function viewCreatePositions(): View|Factory|RedirectResponse|Application
     {
         try {
@@ -48,14 +55,17 @@ class PositionsController extends Controller
         return redirect()->route('positions');
     }
 
-    public function create(PositionsRequest $request): RedirectResponse
+    /**
+     * Cria o cargo.
+     * @param PositionsCreateRequest $request
+     * @return RedirectResponse
+     */
+    public function create(PositionsCreateRequest $request): RedirectResponse
     {
 
         try {
+            // Valida os dados.
             $data = $request->validated();
-
-            // Remove a máscara do salário: Remove "R$", "." e troca "," por "."
-            $data['salary'] = str_replace(['R$', '.', ','], ['', '', '.'], $data['salary']);
 
             // Salva os dados no banco de dados
             $this->positions::query()->create($data);
@@ -69,9 +79,15 @@ class PositionsController extends Controller
         return redirect()->route('positions');
     }
 
+    /**
+     * View para atualizar um cargo.
+     * @param int $id
+     * @return View|Factory|RedirectResponse|Application
+     */
     public function viewUpdatePositions(int $id): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o cargo
             $position = $this->positions::query()->find($id);
             return view('admin.pages.positions.view-update', compact('position'));
         } catch (Throwable $t) {
@@ -82,13 +98,17 @@ class PositionsController extends Controller
         return redirect()->route('positions');
     }
 
+    /**
+     * Atualiza o cargo
+     * @param PositionsUpdateRequest $request
+     * @param int $id
+     * @return RedirectResponse
+     */
     public function update(PositionsUpdateRequest $request, int $id): RedirectResponse
     {
         try {
+            // Valida os dados
             $data = $request->validated();
-
-            // Remove a máscara do salário: Remove "R$", "." e troca "," por "."
-            $data['salary'] = str_replace(['R$', '.', ','], ['', '', '.'], $data['salary']);
 
             // Atualiza os dados no banco de dados
             $this->positions::query()->find($id)->update($data);
@@ -102,10 +122,25 @@ class PositionsController extends Controller
         return redirect()->route('positions');
     }
 
+    /**
+     * Deleta um cargo
+     * @param int $id
+     * @return RedirectResponse
+     */
     public function delete(int $id): RedirectResponse
     {
         try {
-            $this->positions::query()->find($id)->delete();
+            // Busca pelo cargo
+            $position = $this->positions::query()->find($id);
+
+            // Se o cargo possuir funcionários vinculados, não é possível deletar
+            if ($position->employees->count() > 0) {
+                UserNotification::error('Não é possível deletar um cargo que possui funcionários vinculados!');
+                return redirect()->route('positions');
+            }
+
+            // Deleta o cargo
+            $position->delete();
             UserNotification::success('Cargo deletado com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());

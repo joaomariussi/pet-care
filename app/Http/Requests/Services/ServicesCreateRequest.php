@@ -33,6 +33,7 @@ class ServicesCreateRequest extends FormRequest
         ];
     }
 
+    // Remove a máscara do campo "price".
     protected function prepareForValidation(): void
     {
         $this->merge([
