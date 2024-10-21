@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Owners extends Model
 {
@@ -32,4 +33,13 @@ class Owners extends Model
         'created_at',
         'updated_at',
     ];
+
+    /**
+     * Relacionamento com a tabela de agendamentos
+     * @return HasMany
+     */
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointments::class, 'owner_id', 'id');
+    }
 }

@@ -132,7 +132,18 @@ class OwnersController extends Controller
     {
         try {
             // Busca o proprietário e exclui
-            $this->owners::query()->find($id)->delete();
+            $owner = $this->owners::query()->find($id);
+
+            // Se o proprietário tiver vinculo com o agendamento, não é possível excluir
+            if ($owner->appoitments()->count() > 0) {
+                UserNotification::error(
+                    'Não é possível deletar um proprietário que possui agendamentos vinculados!'
+                );
+                return redirect()->route('owners');
+            }
+
+            // Deleta o proprietário
+            $owner->delete();
             UserNotification::success('Proprietário excluído com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
