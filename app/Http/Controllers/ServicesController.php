@@ -111,13 +111,11 @@ class ServicesController extends Controller
     public function update(ServicesUpdateRequest $request, $id): RedirectResponse
     {
         try {
+            // Busca o serviço pelo ID
             $service = $this->services::query()->findOrFail($id);
 
             // Valida os dados
             $data = $request->validated();
-
-            // Remove a máscara do campo price
-            $data['price'] = str_replace(['R$', '.', ','], ['', '', '.'], $data['price']);
 
             // Atualiza o serviço
             $service->update($data);
@@ -138,8 +136,17 @@ class ServicesController extends Controller
     public function delete($id): RedirectResponse
     {
         try {
-            // Bus
-            $this->services::query()->findOrFail($id)->delete();
+            // Busa um serviço pelo ID
+            $service = $this->services::query()->findOrFail($id);
+
+            // Verifica se o serviço possui agendamentos, se possuír vinculo o sistema não deixa excluir
+            if ($service->appointments->count() > 0) {
+                UserNotification::error('Não é possível deletar um serviço que possui agendamentos!');
+                return redirect()->route('services');
+            }
+
+            // Deleta o serviço
+            $service->delete();
             UserNotification::success('Serviço deletado com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
