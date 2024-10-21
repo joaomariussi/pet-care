@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class EmployeesRequest extends FormRequest
+class EmployeesCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,6 +31,18 @@ class EmployeesRequest extends FormRequest
             'telephone' => 'required|max:15',
             'admission_date' => 'required',
         ];
+    }
+
+    /**
+     * Prepara os dados para validação, removendo a máscara do CPF e do telefone.
+     */
+    protected function prepareForValidation(): void
+    {
+        // Remove as máscaras dos campos
+        $this->merge([
+            'cpf' => removeMask($this->cpf),
+            'telephone' => removeMask($this->telephone),
+        ]);
     }
 
     /**

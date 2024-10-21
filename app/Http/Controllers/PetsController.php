@@ -89,9 +89,6 @@ class PetsController extends Controller
                 $data['photo'] = 'images/pets/' . $imageName;
             }
 
-            // Substitui a vírgula por ponto no peso
-            $data['weight'] = str_replace(',', '.', $data['weight']);
-
             // Salva os dados no banco de dados
             $this->pets::query()->create($data);
             UserNotification::success('Pet criado com sucesso.');
@@ -151,9 +148,6 @@ class PetsController extends Controller
                 $data['avatar'] = $imageBase64;
             }
 
-            // Substitui a vírgula por ponto no peso
-            $data['weight'] = str_replace(',', '.', $data['weight']);
-
             // Atualiza os dados no banco de dados
             $pet->update($data);
             UserNotification::success('Pet atualizado com sucesso.');
@@ -174,7 +168,13 @@ class PetsController extends Controller
     {
         try {
             // Busca o pet e deleta
-            $this->pets::query()->find($id)->delete();
+            $pet = $this->pets::query()->findOrFail($id);
+
+            // Se o pet possuir agendamentos vinculados, não é possível deletar
+            if ($pet->appointments()->count() > 0) {
+                UserNotification::error('Não é possível deletar um pet que possui agendamentos vinculados!');
+                return redirect()->route('pets');
+            }
             UserNotification::success('Pet deletado com sucesso.');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -194,12 +194,6 @@ class PetsController extends Controller
         try {
             // Busca o pet
             $pet = $this->pets::query()->findOrFail($id);
-
-            // Se o pet possuir agendamentos vinculados, não é possível deletar
-            if ($pet->appointments()->count() > 0) {
-                UserNotification::error('Não é possível deletar um pet que possui agendamentos vinculados!');
-                return redirect()->route('positions');
-            }
             return view('admin.pages.pets.view-details', compact('pet'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());

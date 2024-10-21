@@ -34,6 +34,18 @@ class EmployeesUpdateRequest extends FormRequest
     }
 
     /**
+     * Prepara os dados para validação, removendo a máscara do CPF e do telefone.
+     */
+    protected function prepareForValidation(): void
+    {
+        // Remove as máscaras dos campos
+        $this->merge([
+            'cpf' => removeMask($this->cpf),
+            'telephone' => removeMask($this->telephone),
+        ]);
+    }
+
+    /**
      * Get the error messages for the defined validation rules.
      *
      * @return array<string, string>

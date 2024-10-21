@@ -37,6 +37,17 @@ class PetsUpdateRequest extends FormRequest
     }
 
     /**
+     * Prepara os dados para validação
+     */
+    protected function prepareForValidation(): void
+    {
+        // Remove as máscaras dos campos
+        $this->merge([
+            'weight' => preg_replace('/[^0-9]/', '', $this->weight),
+        ]);
+    }
+
+    /**
      * Get the error messages for the defined validation rules.
      *
      * @return array<string, string>

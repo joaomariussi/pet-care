@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\EmployeesDataTable;
-use App\Http\Requests\Employees\EmployeesRequest;
+use App\Http\Requests\Employees\EmployeesCreateRequest;
 use App\Http\Requests\Employees\EmployeesUpdateRequest;
 use App\Models\Employees;
 use App\Models\Positions;
@@ -25,6 +25,9 @@ class EmployeesController extends Controller
     }
 
     /**
+     * Carrega a DataTable de funcionários.
+     * @param EmployeesDataTable $datatable
+     * @return mixed
      * @throws Exception
      */
     public function index(EmployeesDataTable $datatable): mixed
@@ -38,12 +41,13 @@ class EmployeesController extends Controller
     }
 
     /**
-     *  View para criar os funcionários
+     * View para cadastrar os funcionários.
      * @return View|Factory|RedirectResponse|Application
      */
     public function viewCreateEmployees(): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca todos os funcionários.
             $positions = Positions::all();
             return view('admin.pages.employees.view-create', compact('positions'));
         } catch (Throwable $t) {
@@ -55,18 +59,17 @@ class EmployeesController extends Controller
     }
 
     /**
-     * Cria um novo funcionário
-     * @throws Exception
+     * Cria e salva o funcionário no banco de dados.
+     * @param EmployeesCreateRequest $request
+     * @return RedirectResponse
      */
-    public function create(EmployeesRequest $request): RedirectResponse
+    public function create(EmployeesCreateRequest $request): RedirectResponse
     {
         try {
+            // Valida os dados do formulário
             $data = $request->validated();
 
-            // Remove as máscaras dos campos
-            $data['cpf'] = removeMask($data['cpf']);
-            $data['telephone'] = removeMask($data['telephone']);
-
+            // Salva os dados
             $this->employees::query()->create($data);
             UserNotification::success('Funcionário cadastrado com sucesso!');
         } catch (Throwable $t) {
@@ -79,13 +82,16 @@ class EmployeesController extends Controller
 
     /**
      * View para atualizar o funcionário
-     * @throws Exception
+     * @param $id
+     * @return View|Factory|RedirectResponse|Application
      */
-
     public function viewUpdateEmployees($id): View|Factory|RedirectResponse|Application
     {
         try {
+            // Busca o funcionário
             $employee = $this->employees::query()->findOrFail($id);
+
+            // Busca todas as posições
             $positions = Positions::all();
             return view('admin.pages.employees.view-update', compact('employee', 'positions'));
         } catch (Throwable $t) {
@@ -97,19 +103,19 @@ class EmployeesController extends Controller
     }
 
     /**
-     * Atualiza os dados do funcionário
-     * @throws Exception
+     * Atualiza o funcionário
+     * @param EmployeesUpdateRequest $request
+     * @param $id
+     * @return RedirectResponse
      */
     public function update(EmployeesUpdateRequest $request, $id): RedirectResponse
     {
         try {
+            // Busca o funcionário pelo ID
             $employee = $this->employees::query()->findOrFail($id);
 
+            // Valida os dados do formulário
             $data = $request->validated();
-
-            // Remove as máscaras dos campos
-            $data['cpf'] = removeMask($data['cpf']);
-            $data['telephone'] = removeMask($data['telephone']);
 
             // Atualiza os dados do funcionário
             $employee->update($data);
@@ -125,12 +131,24 @@ class EmployeesController extends Controller
 
     /**
      * Deleta um funcionário
-     * @throws Exception
+     * @param $id
+     * @return RedirectResponse
      */
     public function delete($id): RedirectResponse
     {
         try {
+            // Busca o funcionário pelo ID
             $employee = $this->employees::query()->findOrFail($id);
+
+            // Se o funcionário estiver vinculado em um agendamento, não é possível excluir
+            if ($employee->appointments()->count() > 0) {
+                UserNotification::error(
+                    'Não é possível deletar um funcionário que possui agendamentos vinculados!'
+                );
+                return redirect()->route('employees');
+            }
+
+            // Deleta o funcionário
             $employee->delete();
             UserNotification::success('Funcionário deletado com sucesso!');
         } catch (Throwable $t) {
