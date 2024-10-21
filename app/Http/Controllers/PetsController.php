@@ -174,7 +174,7 @@ class PetsController extends Controller
     {
         try {
             // Busca o pet e deleta
-            $this->pets::query()->findOrFail($id);
+            $this->pets::query()->find($id)->delete();
             UserNotification::success('Pet deletado com sucesso.');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
@@ -194,6 +194,12 @@ class PetsController extends Controller
         try {
             // Busca o pet
             $pet = $this->pets::query()->findOrFail($id);
+
+            // Se o pet possuir agendamentos vinculados, não é possível deletar
+            if ($pet->appointments()->count() > 0) {
+                UserNotification::error('Não é possível deletar um pet que possui agendamentos vinculados!');
+                return redirect()->route('positions');
+            }
             return view('admin.pages.pets.view-details', compact('pet'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());

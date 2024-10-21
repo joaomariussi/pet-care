@@ -25,7 +25,7 @@ class CategoriesCreateRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'max:255',
         ];
     }
 
@@ -40,7 +40,6 @@ class CategoriesCreateRequest extends FormRequest
         return [
             'name.required' => 'O campo nome é obrigatório.',
             'name.max' => 'O campo nome deve ter no máximo 255 caracteres.',
-            'description.required' => 'O campo descrição é obrigatório.',
             'description.max' => 'O campo descrição deve ter no máximo 255 caracteres.',
         ];
     }

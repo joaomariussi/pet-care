@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
-            $table->foreignId('owner_id')->constrained('owners')->onDelete('cascade');
-            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
-            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            $table->foreignId('pet_id')->constrained('pets')->onDelete('restrict');
+            $table->foreignId('owner_id')->constrained('owners')->onDelete('restrict');
+            $table->foreignId('service_id')->constrained('services')->onDelete('restrict');
+            $table->foreignId('employee_id')->constrained('employees')->onDelete('restrict');
             $table->date('schedule_date');
             $table->time('schedule_time');
             $table->enum('status', ['Em Andamento', 'Confirmado', 'Cancelado', 'Concluido']);
