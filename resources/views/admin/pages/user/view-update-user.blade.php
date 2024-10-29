@@ -92,7 +92,7 @@
                                 <div class="accordion-item">
                                     <button
                                         class="accordion-button erroInfoGerais
-                                        {{form_collapse_errors($errors, ['name','email','type'])}}"
+                                        {{form_collapse_errors($errors, ['name','email'])}}"
                                         type="button" data-bs-toggle="collapse"
                                         data-bs-target="#informacoesGerais-collapse"
                                         aria-expanded="true" aria-controls="informacoesGerais-collapse">
@@ -135,51 +135,6 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
-                                                    @can('admin')
-                                                        @if($user['type'] != 'webmaster' && $user['type'] != 'admin')
-                                                            <div class="col-12 col-md-4 col-xl-4">
-                                                                <div class="form-group">
-                                                                    <label for="type">Tipo de Usuário</label>
-                                                                    <select class="form-select @error('type')
-                                                                    is-invalid @enderror" id="type" name="type" readonly="true">
-                                                                        <option value="" disabled selected>Selecione o
-                                                                            tipo
-                                                                        </option>
-                                                                        <option
-                                                                            value="admin" {{old('type') == 'admin' || $user['type'] == 'admin' ? 'selected' : ''}}>
-                                                                            Administrador
-                                                                        </option>
-                                                                        <option
-                                                                            value="user" {{old('type') == 'user' || $user['type'] == 'user' ? 'selected' : ''}}>
-                                                                            Usuário
-                                                                        </option>
-                                                                    </select>
-                                                                    @error('type')
-                                                                        <div class="invalid-feedback">
-                                                                            {{$message}}
-                                                                        </div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                        @else
-                                                            <div class="col-12 col-md-4 col-xl-4">
-                                                                <div class="form-group">
-                                                                    <label for="type">Tipo de Usuário</label>
-                                                                    <input type="text" class="form-control
-                                                                     @error('type') is-invalid @enderror" id="type"
-                                                                           name="type" placeholder="Tipo de Usuário"
-                                                                           value="{{old('type')?:$user['type']}}"
-                                                                           readonly>
-                                                                    @error('type')
-                                                                        <div class="invalid-feedback">
-                                                                            {{$message}}
-                                                                        </div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    @endcan
                                                 </div>
                                             </fieldset>
                                         </div>

@@ -17,7 +17,6 @@ class UserProfileUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'. $this['id'],
-            'type' => 'required|sometimes',
         ];
     }
 
@@ -28,7 +27,6 @@ class UserProfileUpdateRequest extends FormRequest
             'email.required' => 'O e-mail é obrigatório',
             'email.email' => 'E-mail inválido',
             'email.unique' => 'E-mail já cadastrado anteriormente',
-            'type.required' => 'O tipo de usuário é obrigatório',
         ];
     }
 }

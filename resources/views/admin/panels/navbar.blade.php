@@ -54,7 +54,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{route('profile-user')}}">
                                         <i class="fa-solid fa-user me-2"></i>
                                         <span class="align-middle">Meu Perfil</span>
                                     </a>

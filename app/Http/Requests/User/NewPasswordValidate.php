@@ -5,6 +5,7 @@ namespace App\Http\Requests\User;
 use App\Exceptions\CustomLog;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class NewPasswordValidate extends FormRequest
@@ -70,7 +71,7 @@ class NewPasswordValidate extends FormRequest
             }
         } catch (Throwable $t) {
             $this['current_password'] = null;
-            \Illuminate\Support\Facades\Log::error($t->getMessage());
+            Log::error($t->getMessage());
         }
     }
 

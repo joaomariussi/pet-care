@@ -61,12 +61,6 @@
                                         </li>
 
                                         <li class="mb-3">
-                                            <i class="fa-solid fa-paperclip"></i>
-                                            <span class="fw-bold">Tipo de Usuário:</span>
-                                            <span class="w-100 d-block">{{$user['type']}}</span>
-                                        </li>
-
-                                        <li class="mb-3">
                                             <i class="fa-solid fa-calendar-days"></i>
                                             <span class="fw-bold">Data de Cadastro:</span>
                                             <span
@@ -121,57 +115,6 @@
                                                                value="{{$user['email']}}" required>
                                                     </div>
                                                 </div>
-
-                                                @can('admin')
-                                                    @if($user['type'] != 'webmaster')
-                                                        <div class="col-12 col-md-4 col-xl-4">
-                                                            <div class="form-group">
-                                                                <label for="type" class="form-label">Tipo de
-                                                                    Usuário</label>
-                                                                <select class="form-select" id="type" name="type"
-                                                                        required>
-                                                                    <option value="" disabled selected>Selecione o
-                                                                        tipo
-                                                                    </option>
-                                                                    <option
-                                                                        value="admin" <?= $user['type'] == 'admin' ? 'selected' : '' ?>>
-                                                                        admin
-                                                                    </option>
-                                                                    <option
-                                                                        value="user" <?= $user['type'] == 'user' ? 'selected' : '' ?>>
-                                                                        user
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    @else
-                                                        <div class="col-12 col-md-4 col-xl-4">
-                                                            <div class="form-group">
-                                                                <label for="type" class="form-label">Tipo de
-                                                                    Usuário</label>
-                                                                <select class="form-select" id="type" name="type"
-                                                                        required disabled>
-                                                                    <option value="" disabled selected>Selecione o
-                                                                        tipo
-                                                                    </option>
-                                                                    <option
-                                                                        value="webmaster" <?= $user['type'] == 'webmaster' ? 'selected' : '' ?>>
-                                                                        webmaster
-                                                                    </option>
-                                                                    <option
-                                                                        value="admin" <?= $user['type'] == 'admin' ? 'selected' : '' ?>>
-                                                                        admin
-                                                                    </option>
-                                                                    <option
-                                                                        value="user" <?= $user['type'] == 'user' ? 'selected' : '' ?>>
-                                                                        user
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                @endif
-
 
                                                 <div class="col-12 d-flex justify-content-end">
                                                     <button type="submit" class="btn button_save_forms">

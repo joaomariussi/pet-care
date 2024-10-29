@@ -45,11 +45,6 @@ class ServicesDataTable extends DataTable
         return $services->newQuery()
             ->with('category')
             ->where(function ($w) {
-                if (Auth::user()->type === 'webmaster') {
-                    return;
-                }
-
-                $w->where('type', '!=', 'webmaster');
             });
     }
     public function html(): HtmlBuilder

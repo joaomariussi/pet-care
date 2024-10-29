@@ -33,23 +33,21 @@
                         @if(isset($menu->navheader))
                             <li class="navigation-header"><span>{{$menu->navheader}}</span></li>
                         @else
-                            @can($menu->can)
-                                <li class="nav-item {{ $menu->url === config('view.active_sidebar') ? 'active' : '' }}">
-                                    <a href="@if(isset($menu->url)){{asset($menu->url)}} @endif" @if(isset($menu->newTab))
-                                        {{"target=_blank"}}
-                                        @endif>
-                                        @if(isset($menu->icon))
-                                            <i class="{{$menu->icon}}"></i>
-                                        @endif
-                                        @if(isset($menu->name))
-                                            <span class="menu-title">{{ __($menu->name)}}</span>
-                                        @endif
-                                    </a>
-                                    @if(isset($menu->submenu))
-                                        @include('admin.panels.sidebar-submenu',['menu' => $menu->submenu])
+                            <li class="nav-item {{ $menu->url === config('view.active_sidebar') ? 'active' : '' }}">
+                                <a href="@if(isset($menu->url)){{asset($menu->url)}} @endif" @if(isset($menu->newTab))
+                                    {{"target=_blank"}}
+                                    @endif>
+                                    @if(isset($menu->icon))
+                                        <i class="{{$menu->icon}}"></i>
                                     @endif
-                                </li>
-                            @endcan
+                                    @if(isset($menu->name))
+                                        <span class="menu-title">{{ __($menu->name)}}</span>
+                                    @endif
+                                </a>
+                                @if(isset($menu->submenu))
+                                    @include('admin.panels.sidebar-submenu',['menu' => $menu->submenu])
+                                @endif
+                            </li>
                         @endif
                     @endforeach
                 @endif

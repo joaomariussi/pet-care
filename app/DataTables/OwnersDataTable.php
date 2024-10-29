@@ -41,11 +41,6 @@ class OwnersDataTable extends DataTable
     {
         return $owners->newQuery()
             ->where(function ($w) {
-                if (Auth::user()->type === 'webmaster') {
-                    return;
-                }
-
-                $w->where('type', '!=', 'webmaster');
             });
     }
     public function html(): HtmlBuilder

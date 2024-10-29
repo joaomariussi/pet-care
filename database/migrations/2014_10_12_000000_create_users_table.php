@@ -18,7 +18,6 @@ return new class extends Migration
                 $table->string('email','191')->unique();
                 $table->longText('avatar')->nullable();
                 $table->string('password', '156')->default(null);
-                $table->string('type', '156')->default('webmaster');
                 $table->timestamp('email_verified_at')->nullable();
                 $table->longText('password_recovery_token')->nullable();
                 $table->rememberToken();

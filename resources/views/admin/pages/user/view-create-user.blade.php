@@ -143,27 +143,6 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
-                                                    <div class="col-12 col-md-4 col-xl-4">
-                                                        <div class="form-group">
-                                                            <label for="type">Tipo de Usuário</label>
-                                                            <select class="form-select @error('type') is-invalid @enderror"
-                                                                    id="type" name="type">
-                                                                <option value="admin"
-                                                                    {{old('type') == 'admin' ? 'selected' : ''}}>
-                                                                    Administrador</option>
-                                                                <option value="user"
-                                                                    {{old('type') == 'user' ? 'selected' : ''}}>
-                                                                    Usuário</option>
-                                                            </select>
-                                                            @error('type')
-                                                                <div class="invalid-feedback">
-                                                                    {{$message}}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                             </fieldset>
                                         </div>

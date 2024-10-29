@@ -43,11 +43,6 @@ class PetsDataTable extends DataTable
         return $pets->newQuery()
             ->with('owner') // Carrega a relação do proprietário
             ->where(function ($w) {
-                if (Auth::user()->type === 'webmaster') {
-                    return;
-                }
-
-                $w->where('type', '!=', 'webmaster');
             });
     }
     public function html(): HtmlBuilder

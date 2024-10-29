@@ -32,7 +32,6 @@ class UserCreateRequest extends FormRequest
                 'string',
                 'min:8'     // must be at least 8 characters in length
             ],
-            'type' => 'required'
         ];
     }
 
@@ -53,7 +52,6 @@ class UserCreateRequest extends FormRequest
             'avatar.max' => 'O tamanho máximo do arquivo é 2MB',
             'password.required' => 'A senha é obrigatória',
             'password.min' => 'A senha deve ter no mínimo 8 caracteres',
-            'type.required' => 'O tipo de usuário é obrigatório'
         ];
     }
 }

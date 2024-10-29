@@ -48,11 +48,6 @@ class AppointmentsDataTable extends DataTable
         return $appointments->newQuery()
             ->with(['pet', 'service', 'employee']) // Carrega a relação do pet, serviço e funcionário
             ->where(function ($w) {
-                if (Auth::user()->type === 'webmaster') {
-                    return;
-                }
-
-                $w->where('type', '!=', 'webmaster');
             });
     }
     public function html(): HtmlBuilder

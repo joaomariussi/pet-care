@@ -45,11 +45,6 @@ class MedicalHistoriesDataTable extends DataTable
         return $medicalHistory->newQuery()
             ->with(['pet', 'veterinarian']) // Carrega a relação do pet e do veterinário
             ->where(function ($w) {
-                if (Auth::user()->type === 'webmaster') {
-                    return;
-                }
-
-                $w->where('type', '!=', 'webmaster');
             });
     }
     public function html(): HtmlBuilder

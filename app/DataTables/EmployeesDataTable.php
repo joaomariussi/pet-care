@@ -41,11 +41,6 @@ class EmployeesDataTable extends DataTable
     {
         return $employees->newQuery()
             ->where(function ($w) {
-                if (Auth::user()->type === 'webmaster') {
-                    return;
-                }
-
-                $w->where('type', '!=', 'webmaster');
             });
     }
     public function html(): HtmlBuilder
