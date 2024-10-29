@@ -65,6 +65,7 @@
                                                             @enderror" id="pet_id" name="pet_id">
                                                                 @foreach($pets as $pet)
                                                                     <option value="{{ $pet->id }}"
+                                                                            data-owner="{{ $pet->owner ? $pet->owner->name : 'Sem proprietário' }}"
                                                                             {{ $appointment->pet_id == $pet->id ? 'selected' : '' }}>
                                                                         {{ $pet->name }}
                                                                     </option>
@@ -81,20 +82,12 @@
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="owner_id">Proprietário*</label>
-                                                            <select class="form-control @error('owner_id')
-                                                             is-invalid @enderror" id="owner_id" name="owner_id">
-                                                                @foreach($owners as $owner)
-                                                                    <option value="{{ $owner->id }}"
-                                                                            {{ $appointment->owner_id == $owner->id ? 'selected' : '' }}>
-                                                                        {{ $owner->name }}
-                                                                    </option>
-                                                                @endforeach
-                                                            </select>
-                                                            @error('owner_id')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
+                                                            <input type="text" class="form-control" id="owner_id"
+                                                                   name="owner_id"
+                                                                   value="{{ $appointment->pet->owner->name ?? 'Sem proprietário' }}"
+                                                                   disabled>
+                                                            <input type="hidden" name="owner_id" id="owner_id"
+                                                                   value="{{ $appointment->pet->owner_id }}">
                                                         </div>
                                                     </div>
 
@@ -208,6 +201,18 @@
 @endsection
 
 @section('page-scripts')
-    <script src="{{asset('js/scripts/pages/appointments/appointments.js')}}"></script>
-    <script src="{{asset('js/scripts/pages/appointments/unavailable-times.js')}}"></script>
+    <script src="{{ asset('js/scripts/pages/appointments/appointments.js') }}"></script>
+    <script src="{{ asset('js/scripts/pages/appointments/unavailable-times.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const petSelect = document.getElementById('pet_id');
+            const ownerNameInput = document.getElementById('owner_id');
+
+            petSelect.addEventListener('change', function () {
+                const selectedOption = this.options[this.selectedIndex];
+                const ownerID = selectedOption.getAttribute('data-owner');
+                ownerNameInput.value = ownerID;
+            });
+        });
+    </script>
 @endsection

@@ -34,7 +34,6 @@ class AppointmentsUpdateRequest extends FormRequest
             if ($appointment && $appointment->status === 'Em Andamento') {
                 $rules += [
                     'pet_id' => 'required|exists:pets,id',
-                    'owner_id' => 'required|exists:owners,id',
                     'service_id' => 'required|exists:services,id',
                     'employee_id' => 'required|exists:employees,id',
                     'schedule_date' => 'required|date',
@@ -56,8 +55,6 @@ class AppointmentsUpdateRequest extends FormRequest
         return [
             'pet_id.required' => 'O campo Pet é obrigatório.',
             'pet_id.exists' => 'O Pet informado não existe.',
-            'owner_id.required' => 'O campo Proprietário é obrigatório.',
-            'owner_id.exists' => 'O Proprietário informado não existe.',
             'service_id.required' => 'O campo Serviço é obrigatório.',
             'service_id.exists' => 'O Serviço informado não existe.',
             'employee_id.required' => 'O campo Funcionário é obrigatório.',

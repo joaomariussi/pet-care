@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('employee_id')->constrained('employees')->onDelete('restrict');
             $table->date('schedule_date');
             $table->time('schedule_time');
-            $table->enum('status', ['Em Andamento', 'Confirmado', 'Cancelado', 'Concluido']);
+            $table->enum('status', ['Em Andamento', 'Confirmado', 'Cancelado', 'Concluído']);
             $table->string('observations', 255)->nullable();
             $table->timestamps();
         });

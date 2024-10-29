@@ -5,7 +5,6 @@ namespace App\DataTables;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
-use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Column;
@@ -28,6 +27,9 @@ class UserDataTable extends DataTable
             })
             ->editColumn('created_at', function ($query) {
                 return $this->getCreatedAt($query->created_at);
+            })
+            ->editColumn('updated_at', function ($query) {
+                return $this->getUpdatedAt($query->updated_at);
             })
             ->escapeColumns([])
             ->setRowId('id');
@@ -73,10 +75,11 @@ class UserDataTable extends DataTable
                 ->width(60)
                 ->addClass('text-center')
                 ->title('Ações'),
-                Column::make('name')->title('Nome'),
-                Column::make('type')->title('Tipo'),
-                Column::make('email')->title('E-mail'),
-                Column::make('created_at')->title('Criado em')
+            Column::make('id')->title('ID'),
+            Column::make('name')->title('Nome'),
+            Column::make('email')->title('E-mail'),
+            Column::make('created_at')->title('Criado em'),
+            Column::make('updated_at')->title('Atualizado em')
         ];
     }
 
@@ -96,5 +99,14 @@ class UserDataTable extends DataTable
     private function getCreatedAt($created_at): string
     {
         return Carbon::parse($created_at)->format('d/m/Y H:i:s');
+    }
+
+    /**
+     * @param $updated_at
+     * @return string
+     */
+    private function getUpdatedAt($updated_at): string
+    {
+        return Carbon::parse($updated_at)->format('d/m/Y H:i:s');
     }
 }

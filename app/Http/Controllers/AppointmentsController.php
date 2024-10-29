@@ -49,17 +49,16 @@ class AppointmentsController extends Controller
     public function viewCreateAppointments(): View|Factory|RedirectResponse|Application
     {
         try {
-            $pets = Pets::all();
-            $owners = Owners::all();
+            $pets = Pets::with('owner')->get(); // Carrega o proprietário relacionado a cada pet
             $services = Services::all();
             $employees = Employees::all();
             return view('admin.pages.appointments.view-create',
-                compact('pets', 'owners', 'services', 'employees'));
+                compact('pets', 'services', 'employees'));
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao buscar a página de cadastro de agendamentos!');
+            return redirect()->route('appointments');
         }
-        return redirect()->route('appointments');
     }
 
     /**
@@ -85,7 +84,6 @@ class AppointmentsController extends Controller
                 ->where('schedule_time', $scheduleTime)
                 ->count();
 
-
             // Se o número de agendamentos existentes for maior ou igual aos slots simultâneos, retorna erro
             if ($existingAppointmentsCount >= $simultaneousServices) {
                 UserNotification::error('Já existem agendamentos suficientes para esse serviço nesse horário.');
@@ -95,11 +93,17 @@ class AppointmentsController extends Controller
             // Define o status como "Em Andamento"
             $data['status'] = 'Em Andamento';
 
+            // Obtém o owner_id a partir do pet_id
+            $pet = Pets::findOrFail($data['pet_id']);
+            $data['owner_id'] = $pet->owner_id;
+
+            // Cria o agendamento com o owner_id incluído nos dados
             $this->appointment::query()->create($data);
             UserNotification::success('Agendamento criado com sucesso!');
         } catch (Throwable $t) {
             Log::error($t->getMessage());
             UserNotification::error('Erro ao criar o agendamento!');
+            return redirect()->route('appointments')->withInput();
         }
 
         return redirect()->route('appointments');
@@ -164,15 +168,20 @@ class AppointmentsController extends Controller
         try {
             $data = $request->validated();
 
+            // Obtenha o agendamento a ser atualizado
             $appointment = Appointments::findOrFail($id);
+
+            // Obtenha o owner_id com base no pet_id selecionado
+            $pet = Pets::findOrFail($data['pet_id']);
+            $data['owner_id'] = $pet->owner_id;
 
             // Permite a edição completa apenas se o status for "Em Andamento"
             if ($appointment->status == 'Em Andamento') {
                 $appointment->update($data);
             } else {
                 // Se o status for "Confirmado" ou posterior, apenas o status pode ser atualizado
-                $appointment->status = $request->input('status');
-                $appointment->save(); // Só precisa salvar aqui após atualizar o status
+                $appointment->status = $data['status'];
+                $appointment->save();
             }
 
             UserNotification::success('Agendamento atualizado com sucesso!');

@@ -1,0 +1,67 @@
+/* Estilos gerais para a seção de dashboard */
+.dashboard-admin {
+    padding: 20px;
+    background-color: #f4f6f9;
+}
+
+/* Configuração da grade dos cards */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+/* Estilos dos Cards */
+.dashboard-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    width: 100%;
+}
+
+.dashboard-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Configuração dos Títulos e Itens */
+.dashboard-section h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.dashboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-item:last-child {
+    border-bottom: none;
+}
+
+.dashboard-item i {
+    font-size: 1.1rem;
+    margin-right: 8px;
+}
+
+/* Cores dos Ícones */
+.icon-primary { color: #007bff; }
+.icon-success { color: #28a745; }
+.icon-warning { color: #ffc107; }
+.icon-danger { color: #dc3545; }
+.icon-info { color: #17a2b8; }
+
