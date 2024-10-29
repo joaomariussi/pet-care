@@ -173,8 +173,12 @@ class PetsController extends Controller
             // Se o pet possuir agendamentos vinculados, não é possível deletar
             if ($pet->appointments()->count() > 0) {
                 UserNotification::error('Não é possível deletar um pet que possui agendamentos vinculados!');
+
                 return redirect()->route('pets');
             }
+
+            // Deleta o pet
+            $pet->delete();
             UserNotification::success('Pet deletado com sucesso.');
         } catch (Throwable $t) {
             Log::error($t->getMessage());

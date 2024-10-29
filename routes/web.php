@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
         ->controller(DashboardController::class)
         ->group(function () {
             Route::get('/', 'index')->name('dashboard');
+
+            Route::get('/datatable', 'dashboardDataTable')->name('dashboard-datatable');
         });
 });
 

@@ -1,145 +1,54 @@
-/* Estilo do botão do accordion quando está fechado */
-.accordion-button {
-    background-color: transparent; /* Fundo neutro quando fechado */
-    color: #333; /* Texto escuro padrão */
-    border: none; /* Sem borda */
-    box-shadow: none; /* Sem sombra */
-    transition: background-color 0.3s ease, color 0.3s ease;
+.sub-title-geral-etapas {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 30px;
 }
 
-/* Estilo do botão do accordion quando expandido (aberto) */
-.accordion-button:not(.collapsed) {
-    background-color: #e7f1ff; /* Fundo azul claro quando aberto */
-    color: #0056b3; /* Cor do texto quando aberto */
-    border-color: #0056b3; /* Borda azul quando expandido */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra suave quando aberto */
-    border-radius: 0.25rem 0.25rem 0 0; /* Canto superior arredondado */
-}
-
-/* Ícone rotacionando suavemente ao expandir */
-.accordion-button i {
-    transition: transform 0.3s ease;
-}
-
-/* Rotaciona o ícone para indicar que o accordion está expandido */
-.accordion-button:not(.collapsed) i {
-    transform: rotate(180deg);
-}
-
-/* Corpo do accordion */
 .accordion-body {
-    background-color: #fff; /* Fundo branco para o conteúdo */
-    border: 1px solid #ddd; /* Borda sutil */
-    border-radius: 0 0 0.25rem 0.25rem; /* Canto inferior arredondado */
-    padding: 1.5rem; /* Mais espaçamento interno */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: box-shadow 0.3s ease;
+    background-color: #f8f9fa;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Remove o destaque (outline) quando focado */
-.accordion-button:focus {
-    box-shadow: none;
+.form-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
 }
 
-/* Estilo da área dos accordions */
-.accordion-item {
-    margin-bottom: 1rem; /* Espaçamento entre os accordions */
-    border-radius: 0.25rem; /* Bordas arredondadas para cada accordion */
-    overflow: hidden; /* Para garantir que as bordas não escapem do container */
+.form-control-plaintext {
+    font-size: 1.05rem;
+    color: #555;
+    background-color: #f1f3f5;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.2s;
 }
 
-/* Remove o outline quando o botão é clicado */
-.accordion-button:active,
-.accordion-button:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-/* Remove a seta padrão do Bootstrap no botão do accordion */
-.accordion-button::after {
-    display: none;
-}
-
-/* Adiciona um ícone ao lado do título no botão do accordion */
-.accordion-button span {
-    font-weight: bold;
-    font-size: 1rem;
-    margin-left: 0.5rem; /* Espaçamento entre o ícone e o texto */
-}
-
-/* Remove o estilo especial para o accordion fechado */
-.accordion-button.collapsed {
-    background-color: transparent;
-    color: #333;
-}
-
-/* Transição ao abrir/fechar */
-.accordion-button, .accordion-body {
-    transition: all 0.3s ease-in-out;
-}
-
-.pet-details-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    gap: 2rem;
-    margin-top: 1rem;
+.form-control-plaintext:hover {
+    background-color: #e9ecef;
 }
 
 .pet-image-container {
-    flex: 1;
-    max-width: 300px;
     text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .pet-image-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 10%;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.pet-info-container {
-    flex: 2;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
+.pet-image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
 }
-
-.pet-info-container h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #0056b3;
-}
-
-.pet-info-container p {
-    margin: 0.5rem 0;
-}
-
-.pet-info-container strong {
-    font-weight: bold;
-    color: #0056b3;
-}
-
-/* Ajustes para dispositivos móveis */
-@media (max-width: 768px) {
-    .pet-details-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    .pet-info-container {
-        text-align: center;
-    }
-
-    .pet-image-container {
-        max-width: 200px;
-    }
-}
-
