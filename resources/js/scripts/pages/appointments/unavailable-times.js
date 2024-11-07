@@ -12,25 +12,29 @@ $(document).ready(function () {
                     service_id: serviceId
                 },
                 success: function (response) {
-                    // Ajusta os horários para o formato "HH:MM"
-                    var unavailableTimes = response.map(function(time) {
+                    var duration = response.duration; // Duração em minutos
+                    var unavailableTimes = response.times.map(function(time) {
                         return time.substring(0, 5);
                     });
 
-                    // Itera sobre cada opção do select de horário
                     $('#schedule_time option').each(function () {
                         var time = $(this).val();
+                        var timeInMinutes = parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]);
 
-                        // Desabilita os horários que estão ocupados
-                        if (unavailableTimes.includes(time)) {
+                        // Verifica se o horário está ocupado ou dentro do intervalo da duração
+                        var isUnavailable = unavailableTimes.some(function(unavailableTime) {
+                            var unavailableInMinutes = parseInt(unavailableTime.split(':')[0]) * 60 + parseInt(unavailableTime.split(':')[1]);
+                            return timeInMinutes >= unavailableInMinutes && timeInMinutes < unavailableInMinutes + duration;
+                        });
+
+                        if (isUnavailable) {
                             $(this).prop('disabled', true).css('color', '#ccc');
                         } else {
                             $(this).prop('disabled', false).css('color', '#000');
                         }
                     });
 
-                    // Certifica-se de que o valor do select não fica no horário desabilitado
-                    $('#schedule_time').val('');
+                    $('#schedule_time').val(''); // Limpa o valor do select caso o horário esteja desabilitado
                 },
                 error: function (xhr) {
                     alert('Erro ao carregar horários ocupados: ' + xhr.responseText);

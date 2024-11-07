@@ -11,6 +11,8 @@ use App\Models\Owners;
 use App\Models\Pets;
 use App\Models\Services;
 use App\Notifications\UserNotification;
+use DateMalformedStringException;
+use DateTime;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -110,29 +112,40 @@ class AppointmentsController extends Controller
     }
 
     /**
-     * Função para buscar os horários indisponíveis
+     * Retorna os horários indisponíveis para um serviço em uma data específica
      * @param AppointmentsCreateRequest $request
      * @return JsonResponse
+     * @throws DateMalformedStringException
      */
     public function getUnavailableTimes(AppointmentsCreateRequest $request): JsonResponse
     {
+        // Resgata os dados
         $scheduleDate = $request->input('schedule_date');
         $serviceId = $request->input('service_id');
 
-        // Busca o serviço e obtém a quantidade de slots simultâneos permitidos
+        // Busca o serviço para obter o número de slots simultâneos
         $service = Services::findOrFail($serviceId);
         $simultaneousServices = $service->simultaneous_services;
 
-        // Busca os horários de agendamentos para a data e serviço selecionados, agrupando e contando quantos existem
+        // Converte a duração para minutos
+        $duration = new DateTime($service->duration);
+        $serviceDurationInMinutes = ($duration->format('H') * 60) + $duration->format('i');
+
+        // Busca os horários ocupados, excluindo os agendamentos com status "Cancelado"
         $unavailableTimes = Appointments::where('schedule_date', $scheduleDate)
             ->where('service_id', $serviceId)
+            ->where('status', '!=', 'Cancelado') // Ignora os agendamentos cancelados
             ->select('schedule_time')
             ->groupBy('schedule_time')
             ->havingRaw('COUNT(*) >= ?', [$simultaneousServices])
             ->pluck('schedule_time')
             ->toArray();
 
-        return response()->json($unavailableTimes);
+        // Retorna os horários indisponíveis e a duração do serviço em minutos
+        return response()->json([
+            'times' => $unavailableTimes,
+            'duration' => $serviceDurationInMinutes
+        ]);
     }
 
     /**
