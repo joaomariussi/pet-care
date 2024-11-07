@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/editors/quill/monokai-sublime.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/editors/quill/quill.snow.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/editors/quill/quill.bubble.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css') }}">
 @endsection
 
 @section('content')

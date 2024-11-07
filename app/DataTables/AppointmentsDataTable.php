@@ -31,8 +31,14 @@ class AppointmentsDataTable extends DataTable
             ->editColumn('service_id', function ($query) {
                 return $query->service ? $query->service->name : 'Sem serviço';
             })
-            ->editColumn('employee_id', function ($query) {
-                return $query->employee ? $query->employee->name : 'Sem funcionário';
+//            ->editColumn('employee_id', function ($query) {
+//                return $query->employee ? $query->employee->name : 'Sem funcionário';
+//            })
+            ->editColumn('schedule_date', function ($query) {
+                return $this->getScheduleDate($query->schedule_date);
+            })
+            ->editColumn('schedule_time', function ($query) {
+                return $this->getScheduleTime($query->schedule_time);
             })
             ->editColumn('created_at', function ($query) {
                 return $this->getCreatedAt($query->created_at);
@@ -81,7 +87,9 @@ class AppointmentsDataTable extends DataTable
                 ->title('Ações'),
             Column::make('pet_id')->title('Nome do Pet'),
             Column::make('service_id')->title('Serviço Realizado'),
-            Column::make('employee_id')->title('Funcionário'),
+            Column::make('schedule_date')->title('Data do Agendamento'),
+            Column::make('schedule_time')->title('Horário do Agendamento'),
+//            Column::make('employee_id')->title('Funcionário'),
             Column::make('status')->title('Status'),
             Column::make('created_at')->title('Criado em')
         ];
@@ -105,5 +113,24 @@ class AppointmentsDataTable extends DataTable
         return Carbon::parse($created_at)->format('d/m/Y H:i:s');
     }
 
+    /**
+     * Formata a data do agendamento
+     * @param $schedule_date
+     * @return string
+     */
+    private function getScheduleDate($schedule_date): string
+    {
+        return Carbon::parse($schedule_date)->format('d/m/Y');
+    }
+
+    /**
+     * Formata o horário do agendamento
+     * @param $schedule_time
+     * @return string
+     */
+    private function getScheduleTime($schedule_time): string
+    {
+        return Carbon::parse($schedule_time)->format('H:i');
+    }
 }
 
