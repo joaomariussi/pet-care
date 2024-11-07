@@ -41,9 +41,9 @@ class PetsUpdateRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        // Remove as máscaras dos campos
+        // Remove a máscara e substitui a vírgula por ponto para formatação correta
         $this->merge([
-            'weight' => preg_replace('/[^0-9]/', '', $this->weight),
+            'weight' => floatval(str_replace(',', '.', $this->weight)),
         ]);
     }
 
