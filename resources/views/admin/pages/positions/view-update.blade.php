@@ -78,7 +78,7 @@
                                                             <input type="text" class="form-control @error('weekly_workload')
                                                              is-invalid @enderror" id="weekly_workload" name="weekly_workload"
                                                                    placeholder="Informe a carga horária semanal"
-                                                                   value="{{old('weekly_workload')}}">
+                                                                   value="{{old('weekly_workload')}} {{ $position->weekly_workload }}">
                                                             @error('weekly_workload')
                                                             <div class="invalid-feedback">
                                                                 {{$message}}
